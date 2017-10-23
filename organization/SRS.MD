@@ -86,7 +86,10 @@ The information which is helpful for the driver changes with the session he is i
 #### 3.3.5 Driver input data
 Displays driver input data such as the positions of the pedals or the steering wheel.
 
-#### 3.3.6 Analytics
+#### 3.3.6 Change Settings
+Shows the current settings such as whether the metric or the imperial system should be used and allows the user to changes these. The settings will be saved in a file.
+
+#### 3.3.7 Analytics
 Here the analyzed data will be visualized or textualized and be given as a feedback for the driver.
 
 ### 3.4 Usability
