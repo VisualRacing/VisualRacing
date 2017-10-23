@@ -131,30 +131,33 @@ As we are using the Qt-Framework for creating the UI, we are limited to C++ for 
 #### 3.8.2 OS-Support
 Although the Application will be written in C++, which is capable of running across multiple platforms, VisualRacing will somewhat be limited to Windows users as nearly all of the racing simulations only run on Windows.
 
-### 3.9 Purchased Components
-#### 3.9.1 Racing simulation required
+### 3.9	Online User Documentation and Help System Requirements
+N/A
+
+### 3.10 Purchased Components
+#### 3.10.1 Racing simulation required
 A racing simulation is required for VisualRacing to display data. Furthermore most racing geeks have a steering wheel to play their racing simulation because it does not really work that well using mouse and keyboard.
 
-### 3.10 Interfaces
-#### 3.10.1 User Interfaces
+### 3.11 Interfaces
+#### 3.11.1 User Interfaces
 The main user interface is structured in tabs. Each use case described in the section [Functionality - User Interface](#ui) will be visualized in a separate tab.
 
-#### 3.10.2 Hardware Interfaces
+#### 3.11.2 Hardware Interfaces
 VisualRacing needs to have access to the shared memory block, in which the racing simulation writes all of the data.
 
-#### 3.10.3 Software Interfaces
+#### 3.11.3 Software Interfaces
 N/A
 
-#### 3.10.4 Communications Interfaces
+#### 3.11.4 Communications Interfaces
 N/A
 
-### 3.11 Licensing Requirements
+### 3.12 Licensing Requirements
 N/A
 
-### 3.12 Legal, Copyright, and Other Notices
+### 3.13 Legal, Copyright, and Other Notices
 N/A
 
-### 3.13 Applicable Standards
+### 3.14 Applicable Standards
 N/A
 
 ## 4.Supporting Information
