@@ -15,7 +15,7 @@ This document is designed for internal use only and will outline the development
 
 - [Blog](https://visualracing.wordpress.com/)
 - [GitHub](https://github.com/ChristopherKlammt/VisualRacing)
-- [use case diagram](https://github.com/ChristopherKlammt/VisualRacing/blob/master/Orga/UC/Use%20Case%20Diagram.png)
+- [use case diagram](UC/Use%20Case%20Diagram.png)
 
 ### 1.5 Overview
 The following chapters contain our vision and perspective in the Overall Description based on the use case diagram as well as more detailed software requirements.
@@ -30,7 +30,7 @@ Lap times and information about velocity are some examples of what is supposed t
 
 ### 2.2 Product perspective
 
-![alt text](https://github.com/ChristopherKlammt/VisualRacing/blob/master/Orga/UC/Use%20Case%20Diagram.png "use case diagram")
+![use case diagramm.png](UC/Use%20Case%20Diagram.png "use case diagram")
 
 *use case diagram*
 
@@ -155,6 +155,6 @@ N/A
 N/A
 
 ## 4.Supporting Information
-![alt text](https://github.com/ChristopherKlammt/VisualRacing/blob/master/Orga/screenshots/screenshot1.jpg "screenshot 1")
+![alt text](screenshots/screenshot1.jpg "screenshot 1")
 
 *screenshot of first UI-mockup*
