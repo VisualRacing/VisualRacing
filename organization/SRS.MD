@@ -1,0 +1,160 @@
+# VisualRacing - Software Requirements Specification
+
+# 1. Introduction
+## 1.1 Purpose
+The purpose of this document is to provide a general overview and a detailed description of the VisualRacing project. In order of achieving this, it explains the general vision or rather the purpose and all the features of the product. This document offers insights into the system, its interfaces and the constraints of the product.
+
+### 1.2 Scope
+This document is designed for internal use only and will outline the development process of the project. An overview of the features and modules of the product are documented in the use case diagram (Overall Description).
+
+### 1.3 Definitions, Acronyms, and Abbreviations
+
+**SRS**   Software Requirements Specification
+
+### 1.4 References
+
+- [Blog](https://visualracing.wordpress.com/)
+- [GitHub](https://github.com/ChristopherKlammt/VisualRacing)
+- [use case diagram](https://github.com/ChristopherKlammt/VisualRacing/blob/master/Orga/UC/Use%20Case%20Diagram.png)
+
+### 1.5 Overview
+The following chapters contain our vision and perspective in the Overall Description based on the use case diagram as well as more detailed software requirements.
+
+## 2.Overall Description
+### 2.1 Vision
+The goal of VisualRacing is to create a tool which enhances the sim racing experience and allows people to improve their capabilities behind the steering wheel. It will be able to visualize information from a connected racing simulation.
+
+Probably, there will be simple key figures, different kinds of graphs and more advanced visualization methods. Furthermore the tool will make it possible to analyze the driving behavior and help improve one&#39;s skills.
+
+Lap times and information about velocity are some examples of what is supposed to be displayed. In addition to that VisualRacing has access to much more detailed data, like the selected gear, the engines RPM, engine and tire temperatures, tire wear and much more. Furthermore information from the drivers input, like the position of the pedals, can be displayed. This allows the driver to see where on the track he could start accelerating a bit earlier or where he can improve the work with the clutch to improve the shift-times.
+
+### 2.2 Product perspective
+
+![alt text](https://github.com/ChristopherKlammt/VisualRacing/blob/master/Orga/UC/Use%20Case%20Diagram.png "use case diagram")
+
+*use case diagram*
+
+### 2.3 User characteristics
+Our target group consists of racing simulation enthusiasts as most of the visualized data requires certain foreknowledge to fully understand and to benifit from it.
+
+### 2.4 Dependencies
+VisualRacing depends on a working racing simulation that enables it to read all necessary data from the shared memory block.
+
+## 3.Specific Requirements
+### 3.1 Functionality – Data Backend
+#### 3.1.1 Read data stream
+The backend accesses the shared memory block, in which the racing simulation writes all of the relevant data, and reads this data stream.
+
+#### 3.1.2 Adapt data structure
+The data, which is read, has to be transformed into a general data structure, so that the program can work with multiple racing simulations, which potentially have different data structures.
+
+#### 3.1.3 Provide data
+To display the data, it has to be provided to the UI via an interface.
+
+#### 3.1.4 Record data
+Instead of just reading and providing the data to the frontend, this functionality records the data stream.
+
+#### 3.1.5 Save recorded data
+The recorded data has to be saved in an efficient way.
+
+### 3.2 Functionality – Data Analytics
+#### 3.2.1 Analyze lap time improvements
+Analyzes the sector times and gives hints for improving.
+
+#### 3.2.2 Analyze driving behavior
+Tries to give helpful tips to improve the driving behavior based on the pedal position, shift-times etc.
+
+#### 3.2.3 Analyze tire management
+Takes a look at the sector times, lap times, tire temperature and tire wear and analyzes this information.
+
+#### 3.2.4 Analyze fuel consumption
+Analyzes the engines RPM, the gear, fuel consumption to give helpful feedback.
+
+### <a name="ui"></a> 3.3 Functionality – User Interface
+#### 3.3.1 General overview
+The general overview is somewhat of a home screen, which provides basic information at a glance and lets the user dive deeper into different datasets in form of tabs.
+
+#### 3.3.2 Car data
+Displays the car data such as tire temperatures, tire wear, fuel consumption etc.
+
+#### 3.3.3 Timing data
+This functionality gives a detailed insight into the different sector times, best and current lap time and so on.
+
+#### 3.3.4 Race data
+The information which is helpful for the driver changes with the session he is in. The race data overview shows the drivers position in the race, as well as a list of all drivers, their positions and lap times etc.
+
+#### 3.3.5 Driver input data
+Displays driver input data such as the positions of the pedals or the steering wheel.
+
+#### 3.3.6 Analytics
+Here the analyzed data will be visualized or textualized and be given as a feedback for the driver.
+
+### 3.4 Usability
+#### 3.4.1 Racing geeks
+In general to &#39;use&#39; VisualRacing one needs no training at all, as it mainly visualizes data for racing simulations.
+
+However, in order to get VisualRacing running you need to play one of the supported racing simulations and to understand all of the visualized data one has to know quite a lot about racing simulations and competitive driving.
+
+### 3.5 Reliability
+#### 3.5.1 Availability
+VisualRacing needs access to the shared memory block, in which a racing simulation is writing its data. Otherwise no data will be available.
+Availability solely depends on the users configuration and whether the racing simulation is supported.
+
+#### 3.5.2 Accuracy
+The displayed data depends on the data provided in the shared memory block to be as accurate as possible.
+Because this is the only source for data, VisualRacing is only as accurate as the data provided by the racing simulation.
+
+### 3.6 Performance
+#### 3.6.1 Response time
+To provide the data for visualization without any noticable delay, we have to make sure to keep internal response times to a minimum. Based on previous experiences a delay of more than 50 ms has a negative impact on the user experience.  
+
+#### 3.6.2 Throughput
+Our goal is to update the displayed information on the user interface at least every 10 ms.
+
+#### 3.6.3 Capacity
+This only applies to recording driving data for analytics. As we have no experience with the amount of data we are dealing with yet, we are not able to do any estimations on how much data we have to store and how compact the data structure can be.
+
+#### 3.6.4 Resource utilization
+As VisualRacing will run next to a racing simulation which will consume many resources, we have to make it, especially the rendering process, as lightweight as possible.
+
+### 3.7 Supportability
+#### 3.7.1 Similar data structure
+If the different racing simulations use a similar data structure and identical datasets, the program will support all visualizations and the maintainability is easier as the data does not need to be adapted to a general data structure.
+
+### 3.8 Design Constraints
+#### 3.8.1 Qt-Framework
+As we are using the Qt-Framework for creating the UI, we are limited to C++ for the software logic.
+
+#### 3.8.2 OS-Support
+Although the Application will be written in C++, which is capable of running across multiple platforms, VisualRacing will somewhat be limited to Windows users as nearly all of the racing simulations only run on Windows.
+
+### 3.9 Purchased Components
+#### 3.9.1 Racing simulation required
+A racing simulation is required for VisualRacing to display data. Furthermore most racing geeks have a steering wheel to play their racing simulation because it does not really work that well using mouse and keyboard.
+
+### 3.10 Interfaces
+#### 3.10.1 User Interfaces
+The main user interface is structured in tabs. Each use case described in the section [Functionality - User Interface](#ui) will be visualized in a separate tab.
+
+#### 3.10.2 Hardware Interfaces
+VisualRacing needs to have access to the shared memory block, in which the racing simulation writes all of the data.
+
+#### 3.10.3 Software Interfaces
+N/A
+
+#### 3.10.4 Communications Interfaces
+N/A
+
+### 3.11 Licensing Requirements
+N/A
+
+### 3.12 Legal, Copyright, and Other Notices
+N/A
+
+### 3.13 Applicable Standards
+N/A
+
+## 4.Supporting Information
+![alt text](https://github.com/ChristopherKlammt/VisualRacing/blob/master/Orga/screenshots/screenshot1.jpg "screenshot 1")
+
+*screenshot of first UI-mockup*
