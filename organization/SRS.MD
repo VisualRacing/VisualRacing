@@ -60,7 +60,7 @@ Lap times and information about velocity are some examples of what is supposed t
 
 ### 2.2 Product perspective
 
-![use case diagramm.png](/Use%20Case%20Diagram.png "use case diagram")
+![use case diagramm.png](UC/Use%20Case%20Diagram.png "use case diagram")
 
 *use case diagram*
 
