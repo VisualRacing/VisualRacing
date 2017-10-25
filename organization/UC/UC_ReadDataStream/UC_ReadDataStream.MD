@@ -11,8 +11,9 @@
 - [Postconditions](#5-postconditions)
 - [Extension Points](#6-extension-points)
 
-# 1. Use-Case Name
+# 1. Read Data Stream
 ## 1.1 Brief Description
+The use case 'Read Data Stream' is responsible for establishing a connection with the shared memory block in which the game's data is written and continuously reading from it. To achieve this, it has to recognize whether a game has been started and which game it is. Then it reads the specified data from the shared memory block.
 
 # 2. Flow of Events
 ## 2.1 Basic Flow

@@ -45,9 +45,13 @@ This document is designed for internal use only and will outline the development
 
 ## 1.4 References
 
-- [Blog](https://visualracing.wordpress.com/)
-- [GitHub](https://github.com/ChristopherKlammt/VisualRacing)
-- [Use Case Diagram](UC/Use%20Case%20Diagram.png)
+|Title|Date|
+|-|-|
+|[Blog](https://visualracing.wordpress.com/)|10/05/2017|
+|[GitHub](https://github.com/ChristopherKlammt/VisualRacing)|10/23/2017|
+|[Use Case Diagram](UC/Use%20Case%20Diagram.png)|10/23/2017|
+|[UC Change Settings](UC/UC_ChangeSettings/UC_ChangeSettings.MD)|10/25/2017|
+|[UC Read Data Stream](UC/UC_ReadDataStream/UC_ReadDataStream.MD)|10/25/2017|
 
 ## 1.5 Overview
 The following chapters contain our vision and perspective in the Overall Description based on the use case diagram as well as more detailed software requirements.
