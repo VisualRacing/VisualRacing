@@ -11,11 +11,15 @@
 - [Postconditions](#5-postconditions)
 - [Extension Points](#6-extension-points)
 
-# 1. Use-Case Name
+# 1. Change Settings
 ## 1.1 Brief Description
+
+## 1.2 Mockup
+![Change Settings Mockup](Mockup.png "Mockup")
 
 # 2. Flow of Events
 ## 2.1 Basic Flow
+![Change Settings UML](UML.png "UML")
 
 ## 2.2 Alternative Flows
 
