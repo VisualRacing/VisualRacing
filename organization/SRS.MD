@@ -37,15 +37,17 @@ The purpose of this document is to provide a general overview and a detailed des
 This document is designed for internal use only and will outline the development process of the project. An overview of the features and modules of the product are documented in the use case diagram (Overall Description).
 
 ### 1.3 Definitions, Acronyms and Abbreviations
-
-**SRS**   Software Requirements Specification
-**RPM**   revolutions per minute
+|Term||
+|-|-|
+|**SRS**|Software Requirements Specification|
+|**RPM**|revolutions per minute (e.g. of an engine)|
+|**sim racing**|collective term for computer software that attempts to accurately simulate auto racing (see [Wikipedia](https://en.wikipedia.org/wiki/Sim_racing) for more information)|
 
 ### 1.4 References
 
 - [Blog](https://visualracing.wordpress.com/)
 - [GitHub](https://github.com/ChristopherKlammt/VisualRacing)
-- [use case diagram](UC/Use%20Case%20Diagram.png)
+- [Use Case Diagram](UC/Use%20Case%20Diagram.png)
 
 ### 1.5 Overview
 The following chapters contain our vision and perspective in the Overall Description based on the use case diagram as well as more detailed software requirements.
@@ -60,7 +62,7 @@ Lap times and information about velocity are some examples of what is supposed t
 
 ### 2.2 Product perspective
 
-![use case diagramm.png](/Use%20Case%20Diagram.png "use case diagram")
+![use case diagramm.png](UC/Use%20Case%20Diagram.png "use case diagram")
 
 *use case diagram*
 
