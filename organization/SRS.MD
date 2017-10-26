@@ -171,7 +171,7 @@ Although the Application will be written in C++, which is capable of running acr
 To start with VisualRacing will support [AssettoCorsa](http://www.assettocorsa.net/en/) and [RaceRoom Racing Experience](http://game.raceroom.com/).
 
 ## 3.9 Online User Documentation and Help System Requirements
-N/A
+n/a
 
 ## 3.10 Purchased Components
 ### 3.10.1 Racing simulation required
@@ -185,19 +185,19 @@ The main user interface is structured in tabs. Each use case described in the se
 VisualRacing needs to have access to the shared memory block, in which the racing simulation writes all of the data.
 
 ### 3.11.3 Software Interfaces
-N/A
+n/a
 
 ### 3.11.4 Communications Interfaces
-N/A
+n/a
 
 ## 3.12 Licensing Requirements
 Under [MIT License](https://github.com/ChristopherKlammt/VisualRacing/blob/master/LICENSE).
 
 ## 3.13 Legal, Copyright and other Notices
-N/A
+n/a
 
 ## 3.14 Applicable Standards
-N/A
+n/a
 
 # 4. Supporting Information
 ![alt text](screenshots/screenshot1.jpg "screenshot 1")

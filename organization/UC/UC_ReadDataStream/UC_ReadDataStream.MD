@@ -13,13 +13,13 @@
 
 # 1. Read Data Stream
 ## 1.1 Brief Description
-The use case 'Read Data Stream' is responsible for establishing a connection with the shared memory block in which the game's data is written and continuously reading from it. To achieve this, it has to recognize whether a game has been started and which game it is. Then it reads the specified data from the shared memory block.
+The use case 'Read Data Stream' is responsible for establishing a connection with the shared memory block in which the game's data is written and continuously reading from. To achieve this, it has to recognize whether a game has been started and which game it is. Then it reads the specified data from the shared memory block.
 
 # 2. Flow of Events
 ## 2.1 Basic Flow
 ![Read Data Stream UML](UML.png "UML")
 
-As the application starts, one of the first tasks of the system is to start a thread that is waiting for a simulation to start and to read the data from the shared-memory-block provided by the simulation. To achieve this, a Simulation-Manager starts and checks whether one of the supported racing simulations is running. Those checks are executed in a timed interval. Once a running racing simulation gets detected, the Simulation-Manager creates and starts a corresponding Data-Interface. While the Simulation-Manager keeps checking whether the simulation is still running, it also checks whether the racing simulation has created its shared memory block. As soon it is available the Data-Interface establishes a connection to it and starts reading the data in a timed interval.
+As the application starts, one of the first tasks of the system is to start a thread that is waiting for a simulation to start and to read the data from the shared-memory-block provided by the simulation. To achieve this, a Simulation-Manager starts and checks whether one of the supported racing simulations is running. Those checks are executed in a timed interval. Once a running racing simulation is detected, the Simulation-Manager creates and starts a corresponding Data-Interface. While the Simulation-Manager keeps checking whether the simulation is still running, it also checks whether the racing simulation has created its shared memory block. As soon as the Data-Interface is available it establishes a connection to the shared memory block and starts reading the data in a timed interval.
 
 ## 2.2 Alternative Flows
 n/a
@@ -31,7 +31,7 @@ n/a
 This usecase is one of the first to be executed after the application started, therefore there are no preconditions.
 
 # 5. Postconditions
-This usecase is running in system scope during the entire runtime of the application, therefore there are no postconditions
+This usecase is running in system scope during the entire runtime of the application, therefore there are no postconditions.
 
 # 6. Extension Points
 n/a
