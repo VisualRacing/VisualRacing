@@ -19,6 +19,8 @@ The use case 'Read Data Stream' is responsible for establishing a connection wit
 ## 2.1 Basic Flow
 ![Read Data Stream UML](UML.png "UML")
 
+As the application starts, one of the first tasks of the system is to start a thread that is waiting for a simulation to start and to read the data from the shared-memory-block provided by the simulation. To achieve this, a Simulation-Manager starts and checks whether one of the supported racing simulations is running. Those checks are executed in a timed interval. Once a running racing simulation gets detected, the Simulation-Manager creates and starts a corresponding Data-Interface. While the Simulation-Manager keeps checking whether the simulation is still running, it also checks whether the racing simulation has created its shared memory block. As soon it is available the Data-Interface establishes a connection to it and starts reading the data in a timed interval.
+
 ## 2.2 Alternative Flows
 n/a
 
