@@ -17,15 +17,19 @@ The use case 'Read Data Stream' is responsible for establishing a connection wit
 
 # 2. Flow of Events
 ## 2.1 Basic Flow
+![Read Data Stream UML](UML.png "UML")
 
 ## 2.2 Alternative Flows
+n/a
 
 # 3. Special Requirements
+n/a
 
 # 4. Preconditions
+This usecase is one of the first to be executed after the application started, therefore there are no preconditions.
 
 # 5. Postconditions
+This usecase is running in system scope during the entire runtime of the application, therefore there are no postconditions
 
 # 6. Extension Points
-
-
+n/a
