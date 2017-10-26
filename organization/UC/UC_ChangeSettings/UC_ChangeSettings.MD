@@ -23,7 +23,7 @@ In order to do so the system has to fetch the already saved settings and load th
 
 # 2. Flow of Events
 ## 2.1 Basic Flow
-![Change Settings UML](UML.png "UML")
+![Change Settings UML](UML.jpg "UML")
 
 ## 2.2 Alternative Flows
 
