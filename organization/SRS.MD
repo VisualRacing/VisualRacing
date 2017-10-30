@@ -79,7 +79,7 @@ VisualRacing depends on a working racing simulation that enables it to read all 
 # 3. Specific Requirements
 ## 3.1 Functionality – Data Backend
 ### 3.1.1 Read data stream
-The backend accesses the shared memory block, in which the racing simulation writes all of the relevant data, and reads this data stream.
+The backend accesses the shared memory block, in which the racing simulation writes all of the relevant data, and reads this data stream. ([Use-Case Specification](UC/UC_ReadDataStream/UC_ReadDataStream.MD))
 
 ### 3.1.2 Adapt data structure
 The data, which is read, has to be transformed into a general data structure, so that the program can work with multiple racing simulations, which potentially have different data structures.
@@ -123,7 +123,7 @@ The information which is helpful for the driver changes with the session he is i
 Displays driver input data such as the positions of the pedals or the steering wheel.
 
 ### 3.3.6 Change Settings
-Shows the current settings such as whether the metric or the imperial system should be used and allows the user to change these. The settings will be saved in a file.
+Shows the current settings such as whether the metric or the imperial system should be used and allows the user to change these. The settings will be saved in a file. ([Use-Case Specification](UC/UC_ChangeSettings/UC_ChangeSettings.MD))
 
 ### 3.3.7 Analytics
 Here the analyzed data will be visualized or textualized and be given as a feedback for the driver.
