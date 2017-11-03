@@ -82,7 +82,7 @@ Window {
             }
         }
 
-        // control the unvisible seperator Tab
+        // control the invisible seperator Tab
         function resetTab(){
             vrMainWindow.setItsCurrentTab(currentIndex);
             if (currentIndex == 4){                             // currently just makes sens if seperatorTab has index 4
