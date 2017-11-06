@@ -4,10 +4,10 @@
 
 #include "AC_DataInterface.h"
 
-AC_DataInterface::AC_DataInterface() : DataInterface() {
-    this->accessStatic = new SharedMemoryAccess(AC_SHARED_MEMORY_NAME_STATIC, sizeof(SPageFileStatic));
-    this->accessPhysics = new SharedMemoryAccess(AC_SHARED_MEMORY_NAME_PHYSICS, sizeof(SPageFilePhysics));
-    this->accessGraphics = new SharedMemoryAccess(AC_SHARED_MEMORY_NAME_GRAPHICS, sizeof(SPageFileGraphics));
+AC_DataInterface::AC_DataInterface() : DataInterface(constants::acProcessName) {
+    this->accessStatic = new SharedMemoryAccess(constants::acSharedMemoryNameStatic, sizeof(SPageFileStatic));
+    this->accessPhysics = new SharedMemoryAccess(constants::acSharedMemoryNamePhysics, sizeof(SPageFilePhysics));
+    this->accessGraphics = new SharedMemoryAccess(constants::acSharedMemoryNameGraphcics, sizeof(SPageFileGraphics));
 }
 
 AC_DataInterface::~AC_DataInterface() {
@@ -56,8 +56,4 @@ VRData* AC_DataInterface::getBuffer() {
     }
 
     return this->buffer;
-}
-
-std::string AC_DataInterface::getProcessName() {
-    return AC_PROCESS_NAME;
 }

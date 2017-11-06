@@ -4,10 +4,15 @@
 
 #include "DataInterface.h"
 
-DataInterface::DataInterface() {
+DataInterface::DataInterface(std::string processName) {
+    this->processName = processName;
     this->buffer = new VRData();
 }
 
 DataInterface::~DataInterface() {
     delete this->buffer;
+}
+
+std::string DataInterface::getProcessName(){
+    return this->processName;
 }

@@ -4,8 +4,8 @@
 
 #include "R3E_DataInterface.h"
 
-R3E_DataInterface::R3E_DataInterface() : DataInterface() {
-    this->access = new SharedMemoryAccess(R3E_SHARED_MEMORY_NAME, sizeof(r3e_shared));
+R3E_DataInterface::R3E_DataInterface() : DataInterface(constants::r3eProcessName) {
+    this->access = new SharedMemoryAccess(constants::r3eSharedMemoryName, sizeof(r3e_shared));
 }
 
 R3E_DataInterface::~R3E_DataInterface() {
@@ -33,8 +33,4 @@ VRData* R3E_DataInterface::getBuffer() {
     }
 
     return this->buffer;
-}
-
-std::string R3E_DataInterface::getProcessName() {
-    return R3E_PROCESS_NAME;
 }

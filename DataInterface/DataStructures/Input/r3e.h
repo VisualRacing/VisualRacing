@@ -7,9 +7,6 @@ typedef float r3e_float32;
 typedef double r3e_float64;
 typedef uint8_t r3e_u8char; // UTF-8 code unit
 
-#define R3E_SHARED_MEMORY_NAME "$R3E"
-#define R3E_PROCESS_NAME "RRRE.exe"
-
 enum
 {
     // Major version number to test against

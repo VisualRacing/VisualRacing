@@ -13,6 +13,7 @@
 #include <Windows.h>
 #include <iostream>
 
+#include "Constants.h"
 #include "Utilities/Utilities.h"
 
 #endif //VR_MAIN_H

@@ -27,11 +27,11 @@ void SimulationManager::waitForSim() {
     std::cout << "SimulationManager is waiting for a simulation to start ..." << std::endl;
 
     while(true) { // TODO: Timeout?
-        if (Utilities::isProcessRunning(R3E_PROCESS_NAME)) {
+        if (Utilities::isProcessRunning(constants::r3eProcessName)) {
             this->dataInterface = new R3E_DataInterface();
             std::cout << " -> R3E running." << std::endl;
             return;
-        } else if (Utilities::isProcessRunning(AC_PROCESS_NAME)) {
+        } else if (Utilities::isProcessRunning(constants::acProcessName)) {
             this->dataInterface = new AC_DataInterface();
             std::cout << " -> AC running." << std::endl;
             return;

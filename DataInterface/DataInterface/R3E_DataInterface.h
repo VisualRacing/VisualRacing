@@ -17,11 +17,10 @@ public:
     R3E_DataInterface();
     ~R3E_DataInterface();
 
-    bool start();
-    void stop();
+    bool start() override;
+    void stop() override;
 
-    VRData* getBuffer();
-    std::string getProcessName();
+    VRData* getBuffer() override;
 };
 
 

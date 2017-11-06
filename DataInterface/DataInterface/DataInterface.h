@@ -10,16 +10,17 @@
 
 class DataInterface {
 protected:
+    std::string processName;
     VRData* buffer;
 public:
-    DataInterface();
+    DataInterface(std::string processName);
     virtual ~DataInterface();
 
     virtual bool start() = 0;
     virtual void stop() = 0;
 
     virtual VRData* getBuffer() = 0;
-    virtual std::string getProcessName() = 0;
+    std::string getProcessName();
 };
 
 
