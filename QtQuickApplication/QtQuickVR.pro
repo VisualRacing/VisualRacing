@@ -1,4 +1,4 @@
-QT += quick charts
+QT += quick printsupport
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -14,7 +14,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     vrmessage.cpp \
-    vrmainwindow.cpp
+    vrmainwindow.cpp \
+    qcustomplot.cpp \
+    vrplotitem.cpp \
+    vrplotvelocity.cpp \
+    vrplotpedals.cpp
 
 RESOURCES += qml.qrc resources.qrc
 
@@ -31,4 +35,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     vrmessage.h \
-    vrmainwindow.h
+    vrmainwindow.h \
+    qcustomplot.h \
+    vrplotitem.h \
+    vrplotvelocity.h \
+    vrplotpedals.h
