@@ -5,7 +5,7 @@
 #ifndef VR_DATAINTERFACE_H
 #define VR_DATAINTERFACE_H
 
-#include "../DataStructures/Output/vr.h"
+#include "../DataStructures/Output/VRData.h"
 #include "../SharedMemoryAccess/SharedMemoryAccess.h"
 
 class DataInterface {
