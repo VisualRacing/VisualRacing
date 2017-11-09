@@ -48,7 +48,7 @@ This document is designed for internal use only and will outline the development
 |Title|Date|
 |-|-|
 |[Blog](https://visualracing.wordpress.com/)|10/05/2017|
-|[GitHub](https://github.com/ChristopherKlammt/VisualRacing)|10/23/2017|
+|[GitHub](https://github.com/VisualRacing/VisualRacing)|10/23/2017|
 |[Use Case Diagram](UC/Use%20Case%20Diagram.png)|10/23/2017|
 |[UC Change Settings](UC/UC_ChangeSettings/UC_ChangeSettings.MD)|10/25/2017|
 |[UC Read Data Stream](UC/UC_ReadDataStream/UC_ReadDataStream.MD)|10/25/2017|
@@ -191,7 +191,7 @@ n/a
 n/a
 
 ## 3.12 Licensing Requirements
-Under [MIT License](https://github.com/ChristopherKlammt/VisualRacing/blob/master/LICENSE).
+Under [MIT License](https://github.com/VisualRacing/VisualRacing/blob/master/LICENSE).
 
 ## 3.13 Legal, Copyright and other Notices
 n/a
