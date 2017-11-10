@@ -26,7 +26,8 @@ Rectangle{
 
             // push some Demo data
             function push(){
-                velocityPlot.pushData(velocityPlot.index, (Math.sin(velocityPlot.index) * 120 + 120))
+                velocityPlot.pushData(velocityPlot.index, (Math.sin(velocityPlot.index) * 120 + 120),
+                                      (Math.cos(velocityPlot.index) * 120 + 120));
                 velocityPlot.index += 0.1;
             }
 
@@ -34,18 +35,29 @@ Rectangle{
 
         VRPlotPedals {
 
+            property double index: 0
+
             id: pedalsPlot
             width: parent.width * 0.5
             height: parent.height * 0.5
             anchors.left: parent.left
             anchors.bottom: parent.bottom
 
-            Component.onCompleted: init()
+            Component.onCompleted: initCustomPlot()
+
+            Timer {
+                interval: 70
+                running: true
+                repeat: true
+                onTriggered: pedalsPlot.push()
+            }
 
             // push some Demo data
-            function init(){
-                initCustomPlot();
-                pushData(100, 30, 65);
+            function push(){
+                pedalsPlot.pushData((-Math.sin(pedalsPlot.index) * 50 + 50),
+                                    (Math.sin(pedalsPlot.index*0.5) * 30 + 30),
+                                    (Math.sin(pedalsPlot.index) * 50 + 50));
+                pedalsPlot.index += 0.1;
             }
         }
 }

@@ -7,6 +7,7 @@
 #include "vrmainwindow.h"
 #include "vrplotvelocity.h"
 #include "vrplotpedals.h"
+#include "vrplotlaptimebar.h"
 
 int main(int argc, char *argv[])
 {
@@ -24,6 +25,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<VRPlotVelocity>("VRPlot", 1, 0, "VRPlotVelocity");
     qmlRegisterType<VRPlotPedals>("VRPlot", 1, 0, "VRPlotPedals");
+    qmlRegisterType<VRPlotLapTimeBar>("VRPlot", 1, 0, "VRPlotLapTimeBar");
 
 
     /*

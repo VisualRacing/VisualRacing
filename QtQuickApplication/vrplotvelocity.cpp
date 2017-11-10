@@ -5,10 +5,11 @@ VRPlotVelocity::VRPlotVelocity() : VRPlotItem()
 
 }
 
-void VRPlotVelocity::pushData(double index, double data)
+void VRPlotVelocity::pushData(double index, double data, double data2)
 {
     // push data to graph
     itsCustomPlot->graph(0)->addData(index, data);
+    itsCustomPlot->graph(1)->addData(index, data2);
 
     // make index axis range scroll with the data (at a constant range size of 10):
     itsCustomPlot->xAxis->setRange(index, 10, Qt::AlignRight);
@@ -20,6 +21,8 @@ void VRPlotVelocity::setupPlot(QCustomPlot *customPlot)
     // add graph
     customPlot->addGraph();
     customPlot->graph(0)->setPen(QPen(QColor("#ffa500")));
+    customPlot->addGraph();
+    customPlot->graph(1)->setPen(QPen(QColor("#10ff10")));
 
     // set axis labels
     customPlot->xAxis->setLabel("time in min");

@@ -18,7 +18,8 @@ SOURCES += main.cpp \
     qcustomplot.cpp \
     vrplotitem.cpp \
     vrplotvelocity.cpp \
-    vrplotpedals.cpp
+    vrplotpedals.cpp \
+    vrplotlaptimebar.cpp
 
 RESOURCES += qml.qrc resources.qrc
 
@@ -39,4 +40,5 @@ HEADERS += \
     qcustomplot.h \
     vrplotitem.h \
     vrplotvelocity.h \
-    vrplotpedals.h
+    vrplotpedals.h \
+    vrplotlaptimebar.h

@@ -22,6 +22,8 @@ void VRPlotPedals::pushData(int clutch, int brake, int accel)
     clutchPedal->setData(ticks_vect_clutch, clutch_data);
     brakePedal->setData(ticks_vect_brak, brake_data);
     accelPedal->setData(ticks_vect_acc, accel_data);
+
+    itsCustomPlot->replot();
 }
 
 void VRPlotPedals::setupPlot(QCustomPlot *customPlot)
@@ -84,7 +86,8 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot)
     customPlot->yAxis->grid()->setSubGridPen(QPen(lineColor, 0, Qt::DotLine));
 
     // connect mouse interaction
-    customPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables );
+    //customPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables );
+    customPlot ->setInteractions( QCP::iSelectPlottables );
     connect( customPlot, SIGNAL( plottableClick( QCPAbstractPlottable*, int,  QMouseEvent* ) ), this, SLOT( graphClicked( QCPAbstractPlottable* ) ) );
 }
 
