@@ -1,4 +1,5 @@
 #include "vrplotlaptimebar.h"
+#include <QDebug>
 
 VRPlotLapTimeBar::VRPlotLapTimeBar() : VRPlotItem()
 {
@@ -7,6 +8,7 @@ VRPlotLapTimeBar::VRPlotLapTimeBar() : VRPlotItem()
 
 void VRPlotLapTimeBar::pushData(double lap_time, double sector1, double sector2, double sector3, double best)
 {
+
     // add lap_time
     sum_vect.append(lap_time);
 
@@ -62,6 +64,10 @@ void VRPlotLapTimeBar::setupPlot(QCustomPlot *customPlot)
     sectorTwo = new QCPBars(customPlot->xAxis, customPlot->yAxis);
     sectorThree = new QCPBars(customPlot->xAxis, customPlot->yAxis);
 
+    // stack the bars
+    sectorThree->moveAbove(sectorTwo);
+    sectorTwo->moveAbove(sectorOne);
+
     // style
     sectorOne->setName("Sector 1");
     sectorOne->setPen(QPen(QColor(82, 85, 181)));
@@ -96,7 +102,7 @@ void VRPlotLapTimeBar::setupPlot(QCustomPlot *customPlot)
     customPlot->xAxis->setLabelColor(lineColor);
 
     // prepare y axis:
-    customPlot->yAxis->setRange(0, 100);
+    customPlot->yAxis->setRange(0, 0);
     customPlot->yAxis->setPadding(2); // a bit more space to the left border
     customPlot->yAxis->setLabel("time in sec");
     customPlot->yAxis->setBasePen(QPen(lineColor));
