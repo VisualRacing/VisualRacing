@@ -1,18 +1,20 @@
-//
-// Created by stark on 06-Nov-17.
-//
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
-#ifndef VR_CONSTANTS_H
-#define VR_CONSTANTS_H
+#include <QString>
 
 namespace constants {
-    const std::string r3eProcessName = "RRRE.exe";
-    const std::string r3eSharedMemoryName = "$R3E";
+    extern const int updateInterval; // in ms
+    extern const int lookForRunningSimInterval; // in ms
+    extern const int connectToSharedMemoryInterval; // in ms
 
-    const std::string acProcessName = "acs.exe";
-    const std::string acSharedMemoryNameStatic = "acpmf_static";
-    const std::string acSharedMemoryNamePhysics = "acpmf_physics";
-    const std::string acSharedMemoryNameGraphcics = "acpmf_graphics";
+    extern const wchar_t* r3eProcessName;
+    extern const QString r3eSharedMemoryName;
+
+    extern const wchar_t* acProcessName;
+    extern const QString acSharedMemoryNameStatic;
+    extern const QString acSharedMemoryNamePhysics;
+    extern const QString acSharedMemoryNameGraphcics;
 }
 
-#endif //VR_CONSTANTS_H
+#endif // CONSTANTS_H

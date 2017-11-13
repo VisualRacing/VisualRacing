@@ -1,18 +1,14 @@
-//
-// Created by stark on 21-Oct-17.
-//
+#ifndef AC_DATAINTERFACE_H
+#define AC_DATAINTERFACE_H
 
-#ifndef VR_AC_DATAINTERFACE_H
-#define VR_AC_DATAINTERFACE_H
-
-#include "../DataStructures/Input/ac.h"
-#include "DataInterface.h"
+#include "DataStructures/input/ac.h"
+#include "datainterface.h"
 
 class AC_DataInterface : public DataInterface {
 private:
-    SharedMemoryAccess* accessStatic;
-    SharedMemoryAccess* accessPhysics;
-    SharedMemoryAccess* accessGraphics;
+    QSharedMemory* accessStatic;
+    QSharedMemory* accessPhysics;
+    QSharedMemory* accessGraphics;
 
     SPageFileStatic* nativeBufferStatic;
     SPageFilePhysics* nativeBufferPhysics;
@@ -29,4 +25,4 @@ public:
 };
 
 
-#endif //VR_AC_DATAINTERFACE_H
+#endif //AC_DATAINTERFACE_H

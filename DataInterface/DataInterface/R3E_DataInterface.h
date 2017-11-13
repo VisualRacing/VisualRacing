@@ -1,16 +1,12 @@
-//
-// Created by stark on 21-Oct-17.
-//
+#ifndef R3E_DATAINTERFACE_H
+#define R3E_DATAINTERFACE_H
 
-#ifndef VR_R3E_DATAINTERFACE_H
-#define VR_R3E_DATAINTERFACE_H
-
-#include "../DataStructures/Input/r3e.h"
-#include "DataInterface.h"
+#include "DataStructures/Input/r3e.h"
+#include "datainterface.h"
 
 class R3E_DataInterface : public DataInterface {
 private:
-    SharedMemoryAccess* access;
+    QSharedMemory* access;
     r3e_shared* nativeBuffer;
 
 public:
@@ -24,4 +20,4 @@ public:
 };
 
 
-#endif //VR_R3E_DATAINTERFACE_H
+#endif //R3E_DATAINTERFACE_H

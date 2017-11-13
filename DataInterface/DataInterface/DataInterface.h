@@ -1,27 +1,26 @@
-//
-// Created by stark on 21-Oct-17.
-//
+#ifndef DATAINTERFACE_H
+#define DATAINTERFACE_H
 
-#ifndef VR_DATAINTERFACE_H
-#define VR_DATAINTERFACE_H
+#include <QSharedMemory>
 
-#include "../DataStructures/Output/VRData.h"
-#include "../SharedMemoryAccess/SharedMemoryAccess.h"
+#include "main.h"
+#include "DataStructures/Output/vrdata.h"
 
 class DataInterface {
+private:
+    const wchar_t* processName;
 protected:
-    std::string processName;
     VRData* buffer;
 public:
-    DataInterface(std::string processName);
+    DataInterface(const wchar_t* processName);
     virtual ~DataInterface();
 
     virtual bool start() = 0;
     virtual void stop() = 0;
 
     virtual VRData* getBuffer() = 0;
-    std::string getProcessName();
+    const wchar_t* getProcessName();
 };
 
 
-#endif //VR_DATAINTERFACE_H
+#endif //DATAINTERFACE_H

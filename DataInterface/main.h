@@ -1,19 +1,12 @@
-//
-// Created by stark on 21-Oct-17.
-//
-
-#ifndef VR_MAIN_H
-#define VR_MAIN_H
-
-#define UPDATE_INTERVAL 10 // in ms
-#define LOOK_FOR_RUNNING_SIM_INTERVAL_FACTOR 10
-#define CONNECT_TO_SHARED_MEMORY_INTERVAL_FACTOR 10
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <string>
+#include <QString>
 #include <Windows.h>
 #include <iostream>
 
-#include "Constants.h"
-#include "Utilities/Utilities.h"
+#include "constants.h"
+#include "utilities.h"
 
-#endif //VR_MAIN_H
+#endif // MAIN_H

@@ -611,7 +611,7 @@ typedef struct
     // Note: Not valid for AI or remote players
     r3e_float32 engine_oil_pressure;
 
-    // How pressed the throttle pedal is 
+    // How pressed the throttle pedal is
     // Range: 0.0 - 1.0 (-1.0 = N/A)
     // Note: Not valid for AI or remote players
     r3e_float32 throttle_pedal;
@@ -619,7 +619,7 @@ typedef struct
     // Range: 0.0 - 1.0 (-1.0 = N/A)
     // Note: Not valid for AI or remote players
     r3e_float32 brake_pedal;
-    // How pressed the clutch pedal is 
+    // How pressed the clutch pedal is
     // Range: 0.0 - 1.0 (-1.0 = N/A)
     // Note: Not valid for AI or remote players
     r3e_float32 clutch_pedal;

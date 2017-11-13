@@ -1,8 +1,4 @@
-//
-// Created by stark on 21-Oct-17.
-//
-
-#include "SimulationManager.h"
+#include "simulationmanager.h"
 
 SimulationManager::SimulationManager() {
 
@@ -37,7 +33,7 @@ void SimulationManager::waitForSim() {
             return;
         }
 
-        Sleep(UPDATE_INTERVAL * LOOK_FOR_RUNNING_SIM_INTERVAL_FACTOR);
+        Sleep(constants::lookForRunningSimInterval);
     }
 }
 
@@ -50,7 +46,7 @@ bool SimulationManager::connectToSharedMemory() {
         if (success)
             break;
 
-        Sleep(UPDATE_INTERVAL * CONNECT_TO_SHARED_MEMORY_INTERVAL_FACTOR);
+        Sleep(constants::connectToSharedMemoryInterval);
     }
     if (success)
         std::cout << "DataInterface started, connected to shared memory!" << std::endl;
@@ -62,10 +58,10 @@ bool SimulationManager::connectToSharedMemory() {
 
 void SimulationManager::run() {
     VRData* data;
-    std::string processName = this->dataInterface->getProcessName();
+    const wchar_t* processName = this->dataInterface->getProcessName();
 
     while(Utilities::isProcessRunning(processName)) { // TODO!
-        Sleep(UPDATE_INTERVAL);
+        Sleep(constants::updateInterval);
         data = this->dataInterface->getBuffer();
         if (!data)
             continue;

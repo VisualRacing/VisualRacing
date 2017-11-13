@@ -1,7 +1,8 @@
-#include "main.h"
-#include "SimulationManager/SimulationManager.h"
+#include "simulationmanager.h"
 
-int main() {
+int main()
+{
+
     SimulationManager sm;
     while(sm.start());
 

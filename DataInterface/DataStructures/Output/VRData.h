@@ -1,12 +1,7 @@
-//
-// Created by stark on 08-Nov-17.
-//
-
-#ifndef VR_VRDATA_H
-#define VR_VRDATA_H
+#ifndef VRDATA_H
+#define VRDATA_H
 
 #include <string>
-
 
 class VRData
 {
@@ -46,7 +41,6 @@ public: // TODO!!!
     float throttle;
     float brake;
     float clutch;
-
 
     // Tire Info
     /* Indexing:
@@ -114,5 +108,4 @@ public: // TODO!!!
     */
 };
 
-
-#endif //VR_VRDATA_H
+#endif //VRDATA_H
