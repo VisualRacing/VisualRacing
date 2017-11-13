@@ -52,6 +52,7 @@ This document is designed for internal use only and will outline the development
 |[Use Case Diagram](UC/Use%20Case%20Diagram.png)|10/23/2017|
 |[UC Change Settings](UC/UC_ChangeSettings/UC_ChangeSettings.MD)|10/25/2017|
 |[UC Read Data Stream](UC/UC_ReadDataStream/UC_ReadDataStream.MD)|10/25/2017|
+|[UC Car Data](UC/UC_CarData/UC_CarData.MD)|11/13/2017|
 
 ## 1.5 Overview
 The following chapters contain our vision and perspective in the Overall Description based on the use case diagram as well as more detailed software requirements.
@@ -111,7 +112,7 @@ Analyzes the engines RPM, the gear, fuel consumption to give helpful feedback.
 The general overview is somewhat of a home screen, which provides basic information at a glance and lets the user dive deeper into different datasets in form of tabs.
 
 ### 3.3.2 Car data
-Displays the car data such as tire temperatures, tire wear, fuel consumption etc.
+Displays the car data such as tire temperatures, tire wear, fuel consumption etc. ([Use-Case Specification](UC/UC_CarData/UC_CarData.MD))
 
 ### 3.3.3 Timing data
 This functionality gives a detailed insight into the different sector times, best and current lap time and so on.
