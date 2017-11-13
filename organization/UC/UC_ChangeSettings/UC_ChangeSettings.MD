@@ -29,7 +29,7 @@ When a user switches to the settings-tab, the system will load the settings from
 
 You can see the .feature file that describes this Use-Case [here](../../features/changeSettings.feature) or on the screenshot below:
 
-![Change Settings Narrative](Feature.png "Feature")
+![Change Settings Narrative](Feature_ChangeSettings.png "Feature")
 
 ## 2.2 Alternative Flows
 n/a

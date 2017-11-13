@@ -29,7 +29,7 @@ Provided the connection is succesfully established, the data is mapped to the ac
 
 You can see the .feature file that describes this Use-Case [here](../../features/carData.feature) or on the screenshot below:
 
-![Car Data Narrative](Feature.png "Feature")
+![Car Data Narrative](Feature_CarData.png "Feature")
 
 ## 2.2 Alternative Flows
 n/a
