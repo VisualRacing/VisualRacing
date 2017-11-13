@@ -12,9 +12,9 @@
 - [Postconditions](#5-postconditions)
 - [Extension Points](#6-extension-points)
 
-# 1. Change Settings
+# 1. Car Data
 ## 1.1 Brief Description
-The Application is divided into a few tabs and the purpose of this use case is for the user to switch to the tab 'Car Data'. 
+The application is divided into a few tabs and the purpose of this use case is for the user to switch to the tab 'Car Data'. 
 For the tab to load all of the visualizations, graphs and tables the connection to the datainterface has to be established. Then the necassary data is mapped to the graphs. Additionally, the settings have to be loaded to apply how the application should look, which language and unit system to use.
 
 ## 1.2 Mockup
