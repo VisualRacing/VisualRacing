@@ -27,6 +27,10 @@ In order to do so the system has to fetch the already saved settings and load th
 
 When a user switches to the settings-tab, the system will load the settings from a settings-file to provide them on the UI. Now the user has the possibility to change settings such as "theme", "unit" and "language". After changing the settings, the user can decide if he wants to apply his changes or reset the settings to their default values. To apply the changes we will provide an apply button and a OK button. While the apply button just updates the UI and saves the changes, the OK button additionaly will take the user back to the tab that was open before.
 
+You can see the .feature file that describes this Use-Case [here](../../features/changeSettings.feature) or on the screenshot below:
+
+![Change Settings Narrative](Feature.png "Feature")
+
 ## 2.2 Alternative Flows
 n/a
 

@@ -27,6 +27,10 @@ For the tab to load all of the visualizations, graphs and tables the connection 
 When the user clicks on the tab button 'Car', the settings are loaded and applied (theme, language, unit system) and the necessary data is loaded through the datainterface. If establishing the connection to the datainterface fails, an error will be thrown and a message will be displayed, e.g. 'No Data'.
 Provided the connection is succesfully established, the data is mapped to the according graphs and the UI including graphs, visualizations, tables etc. is rendered.
 
+You can see the .feature file that describes this Use-Case [here](../../features/carData.feature) or on the screenshot below:
+
+![Car Data Narrative](Feature.png "Feature")
+
 ## 2.2 Alternative Flows
 n/a
 
