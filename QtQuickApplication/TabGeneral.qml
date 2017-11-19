@@ -32,13 +32,24 @@ Rectangle{
             color: "transparent"
             border.color: "#a7def9"
 
+            Rectangle {
+                id: revCounter
+                width: parent.width * 0.9
+                height: parent.height * 0.15
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.margins: 15
+
+                color: "blue"
+            }
+
             Text {
                 id: gearLabel
-                text: "N"
                 color: "white"
+                horizontalAlignment: Text.Center
                 font {
-                    pointSize: 120
                     bold: true
+                    pixelSize: ((parent.width - 25) * 0.2) * ((parent.height - 25) * 0.2) * 0.03
                 }
 
                 anchors.centerIn: parent
@@ -46,49 +57,54 @@ Rectangle{
 
             Text {
                 id: velocityLabel
-                text: "123"
                 color: "white"
+                horizontalAlignment: Text.AlignRight
                 font {
-                    pointSize: 40
+                    pixelSize: gearLabel.font.pixelSize * 0.33
                 }
+
+                width: parent.width * 0.3
+
                 anchors.bottom: gearLabel.verticalCenter
-                anchors.right: gearLabel.left
-                anchors.margins: 10
+                anchors.left: parent.left
             }
 
             Text {
                 text: "km/h"
                 color: "white"
                 font {
-                    pointSize: 25
+                    pixelSize: velocityLabel.font.pixelSize * 0.5
                 }
+
                 anchors.top: velocityLabel.bottom
-                anchors.right: gearLabel.left
-                anchors.margins: 10
+                anchors.right: velocityLabel.right
             }
 
 
             Text {
                 id: rpmLabel
-                text: "4152"
                 color: "white"
+                horizontalAlignment: Text.AlignRight
                 font {
-                    pointSize: 40
+                    pixelSize: velocityLabel.font.pixelSize
                 }
+
+                width: parent.width * 0.3
+
                 anchors.bottom: gearLabel.verticalCenter
-                anchors.left: gearLabel.right
-                anchors.margins: 10
+                anchors.right: parent.right
+                anchors.rightMargin: 20
             }
 
             Text {
                 text: "RPM"
                 color: "white"
                 font {
-                    pointSize: 25
+                    pixelSize: rpmLabel.font.pixelSize * 0.5
                 }
+
                 anchors.top: rpmLabel.bottom
-                anchors.left: rpmLabel.left
-                anchors.margins: 10
+                anchors.right: rpmLabel.right
             }
         }
         //////////////////////////////////////////////////////////////////////
