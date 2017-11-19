@@ -8,6 +8,8 @@
 #include "vrplotvelocity.h"
 #include "vrplotpedals.h"
 #include "vrplotlaptimebar.h"
+#include "vrplotrpm.h"
+#include "vrplotpedalhistory.h"
 
 int main(int argc, char *argv[])
 {
@@ -22,10 +24,14 @@ int main(int argc, char *argv[])
     QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
     engine.rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
 
-
+    /*
+     * QML-Type Registration
+     */
     qmlRegisterType<VRPlotVelocity>("VRPlot", 1, 0, "VRPlotVelocity");
     qmlRegisterType<VRPlotPedals>("VRPlot", 1, 0, "VRPlotPedals");
     qmlRegisterType<VRPlotLapTimeBar>("VRPlot", 1, 0, "VRPlotLapTimeBar");
+    qmlRegisterType<VRPlotRPM>("VRPlot", 1, 0, "VRPlotRPM");
+    qmlRegisterType<VRPlotPedalHistory>("VRPlot", 1, 0, "VRPlotPedalHistory");
 
 
     /*
@@ -34,14 +40,6 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
         return EXIT_FAILURE;
-
-    /*
-     * Example for accesing a qml object from c++
-     */
-    // QList<QObject*> objectList = engine.rootObjects();
-    // QObject* rootObject = objectList.at(0);
-    // VRPlotVelocity* velocityPlot = rootObject->findChild<VRPlotVelocity *>("velocityPlot");
-
 
     return app.exec();
 }

@@ -1,6 +1,8 @@
 QT += quick printsupport
 CONFIG += c++11
 
+LIBS += -lglu32
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -19,7 +21,9 @@ SOURCES += main.cpp \
     vrplotitem.cpp \
     vrplotvelocity.cpp \
     vrplotpedals.cpp \
-    vrplotlaptimebar.cpp
+    vrplotlaptimebar.cpp \
+    vrplotrpm.cpp \
+    vrplotpedalhistory.cpp
 
 RESOURCES += qml.qrc resources.qrc
 
@@ -41,4 +45,6 @@ HEADERS += \
     vrplotitem.h \
     vrplotvelocity.h \
     vrplotpedals.h \
-    vrplotlaptimebar.h
+    vrplotlaptimebar.h \
+    vrplotrpm.h \
+    vrplotpedalhistory.h

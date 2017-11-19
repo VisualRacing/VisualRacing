@@ -1,29 +1,46 @@
-#include "vrplotvelocity.h"
+#include "vrplotrpm.h"
 
-VRPlotVelocity::VRPlotVelocity() : VRPlotItem()
+VRPlotRPM::VRPlotRPM()
 {
 
 }
 
-void VRPlotVelocity::pushData(double index, double data)
+void VRPlotRPM::pushData(double index, double data, int gear)
 {
     // push data to graph
     itsCustomPlot->graph(0)->addData(index, data);
+
+    if(gear != itsLastGear){
+        itsLastGear = gear;
+        itsLastGearDouble = (gear * itsGearMultiplier) + (2 * itsGearMultiplier);
+    }
+    itsCustomPlot->graph(1)->addData(index, itsLastGearDouble);
 
     // make index axis range scroll with the data (at a constant range size of 10):
     itsCustomPlot->xAxis->setRange(index, 10, Qt::AlignRight);
     itsCustomPlot->replot();
 }
 
-void VRPlotVelocity::setupPlot(QCustomPlot *customPlot)
+void VRPlotRPM::setItsMaxRpm(int maxRpm)
+{
+    this->itsMaxRpm = maxRpm;
+    this->itsGearMultiplier = itsMaxRpm / 9;           // 8 gears
+    this->itsLastGearDouble = itsGearMultiplier;
+    itsCustomPlot->yAxis->setRange(0, itsMaxRpm);
+    itsCustomPlot->replot();
+}
+
+void VRPlotRPM::setupPlot(QCustomPlot *customPlot)
 {
     // add graph
     customPlot->addGraph();
-    customPlot->graph(0)->setPen(QPen(QColor("#3399dd")));
+    customPlot->graph(0)->setPen(QPen(QColor("#ffa500")));
+    customPlot->addGraph();
+    customPlot->graph(1)->setPen(QPen(QColor("#10ff10")));
 
     // set axis labels
     customPlot->xAxis->setLabel("time in min");
-    customPlot->yAxis->setLabel("Speed in kmh");
+    customPlot->yAxis->setLabel("RPM / gear");
 
     // configure xAxis
     QColor lineColor("#a7def9");
@@ -36,7 +53,7 @@ void VRPlotVelocity::setupPlot(QCustomPlot *customPlot)
     customPlot->xAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
 
     // cofigure yAxis
-    customPlot->yAxis->setRange(0, 350);
+    customPlot->yAxis->setRange(0, itsMaxRpm);
     customPlot->yAxis->setBasePen(QPen(lineColor));
     customPlot->yAxis->setTickPen(QPen(lineColor));
     customPlot->yAxis->setSubTickPen(QPen(lineColor));
@@ -49,9 +66,4 @@ void VRPlotVelocity::setupPlot(QCustomPlot *customPlot)
 
     // draw
     customPlot->replot();
-
-    // connect mouse interaction
-    // customPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables );
-    // connect( customPlot, SIGNAL( plottableClick( QCPAbstractPlottable*, int,  QMouseEvent* ) ), this, SLOT( graphClicked( QCPAbstractPlottable* ) ) );
-
 }

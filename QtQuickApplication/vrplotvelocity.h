@@ -11,8 +11,7 @@ public:
     VRPlotVelocity();
 
     virtual void setupPlot( QCustomPlot* customPlot );
-
-    Q_INVOKABLE void pushData(double index, double data, double data2);
+    Q_INVOKABLE void pushData(double index, double data);
 
 };
 

@@ -41,19 +41,19 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot)
     clutchPedal->setPen(QPen(QColor(57, 78, 173).lighter(170)));
     clutchPedal->setBrush(QColor(57, 78, 173));
 
-    accelPedal->setName("Acceleration Pedal");
-    accelPedal->setPen(QPen(QColor(61, 173, 57).lighter(170)));
-    accelPedal->setBrush(QColor(61, 173, 57));
-
     brakePedal->setName("Brake Pedal");
     brakePedal->setPen(QPen(QColor(173, 57, 84).lighter(170)));
     brakePedal->setBrush(QColor(173, 57, 84));
+
+    accelPedal->setName("Acceleration Pedal");
+    accelPedal->setPen(QPen(QColor(61, 173, 57).lighter(170)));
+    accelPedal->setBrush(QColor(61, 173, 57));
 
     // prepare x axis with names
     QVector<double> ticks_vect;
     QVector<QString> labels_vect;
     ticks_vect << 1 << 2 << 3;
-    labels_vect << "Clutch" << "Brake" << "Accel.";
+    labels_vect << "Clutch" << "Brake" << "Throttle";
 
     QColor lineColor("#a7def9");
 
@@ -61,7 +61,7 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot)
     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
     textTicker->addTicks(ticks_vect, labels_vect);
     customPlot->xAxis->setTicker(textTicker);
-    customPlot->xAxis->setTickLabelRotation(60);
+    //customPlot->xAxis->setTickLabelRotation(60);
     customPlot->xAxis->setSubTicks(false);
     customPlot->xAxis->setTickLength(0, 4);
     customPlot->xAxis->setRange(0, 4);

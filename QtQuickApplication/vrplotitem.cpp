@@ -40,7 +40,6 @@ void VRPlotItem::paint( QPainter* painter )
         QPixmap    picture( boundingRect().size().toSize() );
         QCPPainter qcpPainter( &picture );
 
-        //m_CustomPlot->replot();
         itsCustomPlot->toPainter( &qcpPainter );
 
         painter->drawPixmap( QPoint(), picture );
