@@ -1,8 +1,9 @@
 # Use-Case Specification: Change Settings
 
 # Table of Contents
-- [Use-Case Name](#1-use-case-name)
+- [Use-Case Name](#1-change-settings)
     - [Brief Description](#11-brief-description)
+    - [Mockup](#12-mockup)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)
     - [Alternative Flows](#22-alternative-flows)
