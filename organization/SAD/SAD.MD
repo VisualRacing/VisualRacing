@@ -43,11 +43,11 @@ In our project we are using the Qt-Framework. In fact Qt is misusing the MVC-ter
 
 All QML objects are internally implemented as C++ Classes. The following graphic gives an overview of our custom QML-Object implementations. Because our analytics tool provides many graphical visualiziations we use our own plot implementation, for this we developed our optimized base class VRPlotItem. General window properties get managed by the MainWindow class. In the future there will join some other QML-Object implementations.
 
-![UML Class Diagram](VisualRacing.png "UML Class Diagram")
+![UML Class Diagram](VisualRacing.svg "UML Class Diagram")
 
 As our application is based on data which is provided by an external racing simulation, we additionally need a data interface that reads the data outputted by the simulation and provides this data as a model to our view and controller. This data interface has no connection to the visualization-code of our application, so we created a separate class diagram for our data interface.
 
-![UML Class Diagram Data Interface](VisualRacing_DataInterface.png "UML Class Diagram Data Interface")
+![UML Class Diagram Data Interface](VisualRacing_DataInterface.svg "UML Class Diagram Data Interface")
 
 As we are currently working on the data mapping, there will be some further changes to the class VRData. We will update the diagram accordingly.
 
