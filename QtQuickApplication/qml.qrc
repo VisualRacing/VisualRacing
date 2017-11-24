@@ -6,5 +6,6 @@
         <file>TabTiming.qml</file>
         <file>TabAnalytics.qml</file>
         <file>TabSettings.qml</file>
+        <file>TireInfoPanel.qml</file>
     </qresource>
 </RCC>
