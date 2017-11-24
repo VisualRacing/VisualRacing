@@ -1,10 +1,10 @@
-#include "utilities.h"
+#include "vrutilities.h"
 
 /*
  * Copied from https://github.com/sector3studios/r3e-api/blob/master/sample-c/src/utils.c
  * MODIFIED!
  */
-bool Utilities::isProcessRunning(const wchar_t* name) {
+bool VRUtilities::isProcessRunning(const wchar_t* name) {
     BOOL result = false;
     HANDLE snapshot = nullptr;
     PROCESSENTRY32W entry;

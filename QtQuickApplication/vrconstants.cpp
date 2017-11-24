@@ -1,6 +1,6 @@
-#include "constants.h"
+#include "vrconstants.h"
 
-namespace constants {
+namespace vrconstants {
     const int updateInterval = 10; // in ms
     const int lookForRunningSimInterval = 100; // in ms
     const int connectToSharedMemoryInterval = 100; // in ms

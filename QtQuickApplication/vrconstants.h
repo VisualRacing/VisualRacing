@@ -3,7 +3,7 @@
 
 #include <QString>
 
-namespace constants {
+namespace vrconstants {
     extern const int updateInterval; // in ms
     extern const int lookForRunningSimInterval; // in ms
     extern const int connectToSharedMemoryInterval; // in ms

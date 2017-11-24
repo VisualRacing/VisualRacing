@@ -1,25 +1,52 @@
 #ifndef VRDATA_H
 #define VRDATA_H
 
-#include <string>
+#include <QString>
+#include <QObject>
 
-class VRData
+class VRData : public QObject
 {
-public: // TODO!!!
+    Q_OBJECT
+
+    Q_PROPERTY(int gear READ getGear WRITE setGear NOTIFY gearChanged)
+    Q_PROPERTY(float velocity READ getVelocity WRITE setVelocity NOTIFY velocityChanged)
+    Q_PROPERTY(int rpm READ getRpm WRITE setRpm NOTIFY rpmChanged)
+    Q_PROPERTY(int maxRpm READ getMaxRpm WRITE setMaxRpm NOTIFY maxRpmChanged)
+
+public:
+    int getGear() const;
+    void setGear(int value);
+
+    float getVelocity() const;
+    void setVelocity(float value);
+
+    int getRpm() const;
+    void setRpm(int value);
+
+    int getMaxRpm() const;
+    void setMaxRpm(int value);
+
+signals:
+    void gearChanged();
+    void velocityChanged();
+    void rpmChanged();
+    void maxRpmChanged();
+
+private:
 
     //
     // Session information
     //
 
-    std::string playerName;
+    QString playerName;
     /* TODO:
     Getting the car name is a bit difficult for RRRE,
     I know that there is a huge JSON containing all the cars
     with their corresponding IDs somewhere. The simulation
     itself only gives us the IDs.
     */
-    std::string carName;
-    std::string trackName;
+    QString carName;
+    QString trackName;
 
     int completedLaps;
 

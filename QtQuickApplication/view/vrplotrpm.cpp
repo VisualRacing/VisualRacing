@@ -17,7 +17,7 @@ void VRPlotRPM::pushData(double index, double data, int gear)
     itsCustomPlot->graph(1)->addData(index, itsLastGearDouble);
 
     // make index axis range scroll with the data (at a constant range size of 10):
-    itsCustomPlot->xAxis->setRange(index, 10, Qt::AlignRight);
+    itsCustomPlot->xAxis->setRange(index, index, Qt::AlignRight);
     itsCustomPlot->replot();
 }
 

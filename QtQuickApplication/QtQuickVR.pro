@@ -14,16 +14,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += main.cpp \
+SOURCES += \
     vrmessage.cpp \
     vrmainwindow.cpp \
     qcustomplot.cpp \
-    vrplotitem.cpp \
-    vrplotvelocity.cpp \
-    vrplotpedals.cpp \
-    vrplotlaptimebar.cpp \
-    vrplotrpm.cpp \
-    vrplotpedalhistory.cpp
+    vrutilities.cpp \
+    vrconstants.cpp \
+    model/vrdata.cpp \
+    model/vrdatainterface.cpp \
+    model/vrdatainterfaceac.cpp \
+    model/vrdatainterfacer3e.cpp \
+    model/vrsimulationmanager.cpp \
+    view/vrplotitem.cpp \
+    view/vrplotlaptimebar.cpp \
+    view/vrplotpedalhistory.cpp \
+    view/vrplotpedals.cpp \
+    view/vrplotrpm.cpp \
+    view/vrplotvelocity.cpp \
+    main.cpp
 
 RESOURCES += qml.qrc resources.qrc
 
@@ -42,9 +50,18 @@ HEADERS += \
     vrmessage.h \
     vrmainwindow.h \
     qcustomplot.h \
-    vrplotitem.h \
-    vrplotvelocity.h \
-    vrplotpedals.h \
-    vrplotlaptimebar.h \
-    vrplotrpm.h \
-    vrplotpedalhistory.h
+    vrutilities.h \
+    vrconstants.h \
+    model/ac.h \
+    model/r3e.h \
+    model/vrdata.h \
+    model/vrdatainterface.h \
+    model/vrdatainterfaceac.h \
+    model/vrdatainterfacer3e.h \
+    model/vrsimulationmanager.h \
+    view/vrplotitem.h \
+    view/vrplotlaptimebar.h \
+    view/vrplotpedalhistory.h \
+    view/vrplotpedals.h \
+    view/vrplotrpm.h \
+    view/vrplotvelocity.h \

@@ -17,7 +17,19 @@ Rectangle{
             function init(){
                 rpmPlot.initCustomPlot();
                 rpmPlot.setItsMaxRpm(6000);
+                // rpmPlot.prevTime = Date.now();
             }
+
+            /*
+            property int prevTime: 0;
+
+            Connections{
+                target: vrData
+                onGearChanged: {
+                    // rpmPlot.pushData(Date.now() - rpmPlot.prevTime, 1, gearLabel.text);
+                }
+            }
+            */
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -33,18 +45,30 @@ Rectangle{
             border.color: "#a7def9"
 
             Rectangle {
-                id: revCounter
+                id: revCounterContainer
                 width: parent.width * 0.9
                 height: parent.height * 0.15
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.margins: 15
 
-                color: "blue"
+                color: "#313537";
+
+                Rectangle {
+                    id: revCounter
+                    width: parent.width * (vrData.rpm / vrData.maxRpm)
+                    height: parent.height
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+
+
+                    color: (vrData.rpm / vrData.maxRpm) > .9 ? "red" : "lime"
+                }
             }
 
             Text {
                 id: gearLabel
+                text: gearIndexToChar(vrData.gear)
                 color: "white"
                 horizontalAlignment: Text.Center
                 font {
@@ -53,10 +77,19 @@ Rectangle{
                 }
 
                 anchors.centerIn: parent
+
+                function gearIndexToChar(index) {
+                    if (index === 0)
+                        return 'N';
+                    else if (index === -1)
+                        return 'R';
+                    return '' + index;
+                }
             }
 
             Text {
                 id: velocityLabel
+                text: vrData.velocity.toFixed(0)
                 color: "white"
                 horizontalAlignment: Text.AlignRight
                 font {
@@ -83,6 +116,7 @@ Rectangle{
 
             Text {
                 id: rpmLabel
+                text: vrData.rpm
                 color: "white"
                 horizontalAlignment: Text.AlignRight
                 font {
@@ -122,6 +156,7 @@ Rectangle{
 
             Component.onCompleted: initCustomPlot()
 
+            /*
             Timer {
                 interval: 50
                 running: true
@@ -131,18 +166,19 @@ Rectangle{
 
             // push some Demo data
             function push(){
-                var tmp_rpm = (Math.cos(velocityPlot.index) * 2500 + 2500);
-                var tmp_gear = (velocityPlot.index % 8);
-                rpmPlot.pushData(velocityPlot.index, tmp_rpm, tmp_gear);
-                var tmp_velo = (Math.sin(velocityPlot.index) * 120 + 120);
-                velocityPlot.pushData(velocityPlot.index, tmp_velo);
+                // var tmp_rpm = (Math.cos(velocityPlot.index) * 2500 + 2500);
+                // var tmp_gear = (velocityPlot.index % 8);
+                // rpmPlot.pushData(velocityPlot.index, tmp_rpm, tmp_gear);
+                // var tmp_velo = (Math.sin(velocityPlot.index) * 120 + 120);
+                // velocityPlot.pushData(velocityPlot.index, tmp_velo);
 
-                velocityLabel.text = tmp_velo.toFixed(0);
-                gearLabel.text = (tmp_gear.toFixed(0) == 0 ? "N" : tmp_gear.toFixed(0));
-                rpmLabel.text = tmp_rpm.toFixed(0);
+                // velocityLabel.text = tmp_velo.toFixed(0);
+                // gearLabel.text = (tmp_gear.toFixed(0) == 0 ? "N" : tmp_gear.toFixed(0));
+                // rpmLabel.text = tmp_rpm.toFixed(0);
 
-                velocityPlot.index += 0.1;
+                // velocityPlot.index += 0.1;
             }
+            */
 
         }
 
@@ -168,6 +204,7 @@ Rectangle{
 
             Component.onCompleted: initCustomPlot()
 
+            /*
             Timer {
                 interval: 70
                 running: true
@@ -186,5 +223,6 @@ Rectangle{
                                           (Math.sin(pedalsPlot.index) * 50 + 50));
                 pedalsPlot.index += 0.1;
             }
+            */
         }
 }

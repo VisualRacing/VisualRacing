@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include <tlhelp32.h>
 
-class Utilities {
+class VRUtilities {
 public:
     static bool isProcessRunning(const wchar_t* name);
 };
