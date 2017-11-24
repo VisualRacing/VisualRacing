@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>TabGeneral.qml</file>
+        <file>TabCar.qml</file>
+        <file>TabTiming.qml</file>
+        <file>TabAnalytics.qml</file>
+        <file>TabSettings.qml</file>
+    </qresource>
+</RCC>
