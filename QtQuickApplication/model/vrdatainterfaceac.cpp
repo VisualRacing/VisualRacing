@@ -62,6 +62,18 @@ bool VRDataInterfaceAC::update() {
     this->buffer->setRpm(qMax(this->nativeBufferPhysics->rpms, 0));
     this->buffer->setMaxRpm(qMax(this->nativeBufferStatic->maxRpm, 1));
 
+    // Pedal information:
+    this->buffer->setThrottle(qMax(this->nativeBufferPhysics->gas, 0.0f));
+    this->buffer->setBrake(qMax(this->nativeBufferPhysics->brake, 0.0f));
+    this->buffer->setClutch(qMax(this->nativeBufferPhysics->clutch, 0.0f));
+
+    this->buffer->setCompletedLaps(this->nativeBufferGraphics->completedLaps);
+
+    this->buffer->setFuel(qMax(this->nativeBufferPhysics->fuel, 0.0f));
+    this->buffer->setMaxFuel(qMax(this->nativeBufferStatic->maxFuel, 0.0f));
+
+    this->buffer->setPitLimiter(this->nativeBufferPhysics->pitLimiterOn);
+    this->buffer->setIsInPitlane(this->nativeBufferGraphics->isInPitLane);
 
     return true;
 }

@@ -13,6 +13,18 @@ class VRData : public QObject
     Q_PROPERTY(int rpm READ getRpm WRITE setRpm NOTIFY rpmChanged)
     Q_PROPERTY(int maxRpm READ getMaxRpm WRITE setMaxRpm NOTIFY maxRpmChanged)
 
+    Q_PROPERTY(float throttle READ getThrottle WRITE setThrottle NOTIFY throttleChanged)
+    Q_PROPERTY(float brake READ getBrake WRITE setBrake NOTIFY brakeChanged)
+    Q_PROPERTY(float clutch READ getClutch WRITE setClutch NOTIFY clutchChanged)
+
+    Q_PROPERTY(int completedLaps READ getCompletedLaps WRITE setCompletedLaps NOTIFY completedLapsChanged)
+
+    Q_PROPERTY(float fuel READ getFuel WRITE setFuel NOTIFY fuelChanged)
+    Q_PROPERTY(float maxFuel READ getMaxFuel WRITE setMaxFuel NOTIFY maxFuelChanged)
+
+    Q_PROPERTY(bool pitLimiter READ getPitLimiter WRITE setPitLimiter NOTIFY pitLimiterChanged)
+    Q_PROPERTY(bool isInPitlane READ getIsInPitlane WRITE setIsInPitlane NOTIFY isInPitlaneChanged)
+
 public:
     int getGear() const;
     void setGear(int value);
@@ -26,11 +38,47 @@ public:
     int getMaxRpm() const;
     void setMaxRpm(int value);
 
+    float getThrottle() const;
+    void setThrottle(float value);
+
+    float getBrake() const;
+    void setBrake(float value);
+
+    float getClutch() const;
+    void setClutch(float value);
+
+    int getCompletedLaps() const;
+    void setCompletedLaps(int value);
+
+    float getFuel() const;
+    void setFuel(float value);
+
+    float getMaxFuel() const;
+    void setMaxFuel(float value);
+
+    bool getPitLimiter() const;
+    void setPitLimiter(bool value);
+
+    bool getIsInPitlane() const;
+    void setIsInPitlane(bool value);
+
 signals:
     void gearChanged();
     void velocityChanged();
     void rpmChanged();
     void maxRpmChanged();
+
+    void throttleChanged();
+    void brakeChanged();
+    void clutchChanged();
+
+    void completedLapsChanged();
+
+    void fuelChanged();
+    void maxFuelChanged();
+
+    void pitLimiterChanged();
+    void isInPitlaneChanged();
 
 private:
 
@@ -38,15 +86,15 @@ private:
     // Session information
     //
 
-    QString playerName;
+    //QString playerName;
     /* TODO:
     Getting the car name is a bit difficult for RRRE,
     I know that there is a huge JSON containing all the cars
     with their corresponding IDs somewhere. The simulation
     itself only gives us the IDs.
     */
-    QString carName;
-    QString trackName;
+    //QString carName;
+    //QString trackName;
 
     int completedLaps;
 
@@ -77,9 +125,9 @@ private:
      * 3: Rear Left
     */
 
-    float tirePressure[4]; // TODO: Unit?
-    float tireWear[4];
-    float tireDirt[4];
+    //float tirePressure[4]; // TODO: Unit?
+    //float tireWear[4];
+    //float tireDirt[4];
 
     // Tire temperatures of three points across the tread of the tire (in Celcius)
     /*
@@ -88,10 +136,10 @@ private:
      * 1: Center
      * 2: Outer
      */
-    float tireTemperatures[4][3];
+    //float tireTemperatures[4][3];
 
     // in Celcius
-    float brakeTemperatures[4];
+    //float brakeTemperatures[4];
 
     // Damage
     // TODO: AC and R3E work a bit different here, not sure what the best way to handle this is.
@@ -101,28 +149,32 @@ private:
     float maxFuel;
 
     // How much the brakes are biased towards the front (TODO: or back, idk yet)
-    float brakeBias;
+    //float brakeBias;
 
-    // 0 = inactive, 1 = active
-    int pitLimiter;
+    // false = inactive, true = active
+    bool pitLimiter;
 
-    int isInPit;
+    // true = in pitlane
+    bool isInPitlane;
+
+    // true = in pit
+    //bool isInPit;
 
     //
     // Timing information
     //
 
     // in s
-    float currentLapTime;
-    float bestLapTime;
-    float previousLapTime;
-    float theoreticalBestLapTime;
+    //float currentLapTime;
+    //float bestLapTime;
+    //float previousLapTime;
+    //float theoreticalBestLapTime;
 
-    int currentSector;
-    float currentLapSectorTimes[3];
-    float bestLapSectorTimes[3];
-    float previousLapSectorTimes[3];
-    float bestSectorTimes[3];
+    //int currentSector;
+    //float currentLapSectorTimes[3];
+    //float bestLapSectorTimes[3];
+    //float previousLapSectorTimes[3];
+    //float bestSectorTimes[3];
 
     /* TODO:
     Things that will be added later:
