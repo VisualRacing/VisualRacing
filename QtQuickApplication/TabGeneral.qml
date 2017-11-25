@@ -194,8 +194,6 @@ Rectangle{
 
         VRPlotPedals {
 
-            property double index: 0
-
             id: pedalsPlot
             width: parent.width * 0.25
             height: parent.height * 0.5
@@ -203,6 +201,19 @@ Rectangle{
             anchors.bottom: parent.bottom
 
             Component.onCompleted: initCustomPlot()
+
+            Connections {
+                target: vrData
+                onThrottleChanged: update(vrData.throttle, vrData.brake, vrData.clutch)
+                onBrakeChanged: update(vrData.throttle, vrData.brake, vrData.clutch)
+                onClutchChanged: update(vrData.throttle, vrData.brake, vrData.clutch)
+
+                function update(throttle, brake, clutch) {
+                    pedalsPlot.pushData(clutch, brake, throttle);
+                }
+            }
+
+
 
             /*
             Timer {
