@@ -23,7 +23,7 @@ For the tab to load all of the visualizations, graphs and tables the connection 
 
 # 2. Flow of Events
 ## 2.1 Basic Flow
-![Timing Data UML](UML.svg "UML")
+![Timing Data UML](UML.png "UML")
 
 When the user clicks on the tab button 'Timing', the settings are loaded and applied (theme, language, unit system) and the necessary data is loaded through the datainterface. If establishing the connection to the datainterface fails, an error will be thrown and a message will be displayed, e.g. 'No Data'.
 Provided the connection is succesfully established, the data is mapped to the according graphs and the UI including graphs, visualizations, tables etc. is rendered.
