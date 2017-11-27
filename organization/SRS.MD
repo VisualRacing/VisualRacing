@@ -53,6 +53,7 @@ This document is designed for internal use only and will outline the development
 |[UC Change Settings](UC/UC_ChangeSettings/UC_ChangeSettings.MD)|10/25/2017|
 |[UC Read Data Stream](UC/UC_ReadDataStream/UC_ReadDataStream.MD)|10/25/2017|
 |[UC Car Data](UC/UC_CarData/UC_CarData.MD)|11/13/2017|
+|[UC Timing Data](UC/UC_TimingData/UC_TimingData.MD)|11/27/2017|
 
 ## 1.5 Overview
 The following chapters contain our vision and perspective in the Overall Description based on the use case diagram as well as more detailed software requirements.
@@ -115,7 +116,7 @@ The general overview is somewhat of a home screen, which provides basic informat
 Displays the car data such as tire temperatures, tire wear, fuel consumption etc. ([Use-Case Specification](UC/UC_CarData/UC_CarData.MD))
 
 ### 3.3.3 Timing data
-This functionality gives a detailed insight into the different sector times, best and current lap time and so on.
+This functionality gives a detailed insight into the different sector times, best and current lap time and so on. ([Use-Case Specification](UC/UC_TimingData/UC_TimingData.MD))
 
 ### 3.3.4 Race data
 The information which is helpful for the driver changes with the session he is in. The race data overview shows the drivers position in the race, as well as a list of all drivers, their positions and lap times etc.
