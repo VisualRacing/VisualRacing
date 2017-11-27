@@ -3,10 +3,12 @@
 
 #include <Windows.h>
 #include <tlhelp32.h>
+#include <chrono>
 
 class VRUtilities {
 public:
     static bool isProcessRunning(const wchar_t* name);
+    static std::chrono::milliseconds getCurrentTime();
 };
 
 

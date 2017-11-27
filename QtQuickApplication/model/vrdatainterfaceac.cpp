@@ -65,7 +65,7 @@ bool VRDataInterfaceAC::update() {
     // Pedal information:
     this->buffer->setThrottle(qMax(this->nativeBufferPhysics->gas, 0.0f));
     this->buffer->setBrake(qMax(this->nativeBufferPhysics->brake, 0.0f));
-    this->buffer->setClutch(qMax(this->nativeBufferPhysics->clutch, 0.0f));
+    this->buffer->setClutch(qMax(1.0f - this->nativeBufferPhysics->clutch, 0.0f)); // This seems to be the clutch, not the pedal, even though the documentation tells something different.
 
     this->buffer->setCompletedLaps(this->nativeBufferGraphics->completedLaps);
 
@@ -74,6 +74,8 @@ bool VRDataInterfaceAC::update() {
 
     this->buffer->setPitLimiter(this->nativeBufferPhysics->pitLimiterOn);
     this->buffer->setIsInPitlane(this->nativeBufferGraphics->isInPitLane);
+
+    this->buffer->setBrakeBias(this->nativeBufferPhysics->brakeBias);
 
     return true;
 }

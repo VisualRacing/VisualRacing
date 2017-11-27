@@ -5,7 +5,7 @@ VRPlotPedals::VRPlotPedals() : VRPlotItem()
 
 }
 
-void VRPlotPedals::pushData(int clutch, int brake, int accel)
+void VRPlotPedals::pushData(double clutch, double brake, double accel)
 {
     QVector<double> ticks_vect_clutch;
     QVector<double> ticks_vect_brak;

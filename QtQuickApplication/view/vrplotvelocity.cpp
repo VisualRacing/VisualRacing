@@ -19,11 +19,11 @@ void VRPlotVelocity::setupPlot(QCustomPlot *customPlot)
 {
     // add graph
     customPlot->addGraph();
-    customPlot->graph(0)->setPen(QPen(QColor("#3399dd")));
+    customPlot->graph(0)->setPen(QPen(QColor("#3aaefc"), qreal(2.0)));
 
     // set axis labels
-    customPlot->xAxis->setLabel("time in min");
-    customPlot->yAxis->setLabel("Speed in kmh");
+    customPlot->xAxis->setLabel("Time in s");
+    customPlot->yAxis->setLabel("Speed in km/h");
 
     // configure xAxis
     QColor lineColor("#a7def9");

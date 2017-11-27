@@ -1,5 +1,16 @@
 #include "vrdata.h"
 
+VRData::VRData()
+{
+    this->startTime = VRUtilities::getCurrentTime();
+}
+
+double VRData::getTimeInSeconds()
+{
+    std::chrono::milliseconds now = VRUtilities::getCurrentTime();
+    return (now.count() - startTime.count()) * 0.001;;
+}
+
 int VRData::getGear() const
 {
     return gear;
@@ -166,4 +177,18 @@ void VRData::setIsInPitlane(bool value)
 
     isInPitlane = value;
     emit isInPitlaneChanged();
+}
+
+float VRData::getBrakeBias() const
+{
+    return brakeBias;
+}
+
+void VRData::setBrakeBias(float value)
+{
+    if (brakeBias == value)
+        return;
+
+    brakeBias = value;
+    emit brakeBiasChanged();
 }
