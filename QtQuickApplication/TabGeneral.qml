@@ -17,19 +17,23 @@ Rectangle{
             function init(){
                 rpmPlot.initCustomPlot();
                 rpmPlot.setItsMaxRpm(6000);
-                // rpmPlot.prevTime = Date.now();
             }
 
-            /*
-            property int prevTime: 0;
+            Timer {
+                interval: 20
+                running: true
+                repeat: true
+                onTriggered: rpmPlot.update(vrData.getTimeInSeconds(), vrData.rpm, vrData.gear)
+            }
 
-            Connections{
+            function update(time, rpm, gear) {
+                rpmPlot.pushData(time, rpm, gear);
+            }
+
+            Connections {
                 target: vrData
-                onGearChanged: {
-                    // rpmPlot.pushData(Date.now() - rpmPlot.prevTime, 1, gearLabel.text);
-                }
+                onMaxRpmChanged: rpmPlot.setItsMaxRpm(vrData.maxRpm)
             }
-            */
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -62,7 +66,7 @@ Rectangle{
                     anchors.left: parent.left
 
 
-                    color: (vrData.rpm / vrData.maxRpm) > .9 ? "red" : "lime"
+                    color: (vrData.rpm / vrData.maxRpm) > 0.9 ? "red" : "lime"
                 }
             }
 
@@ -140,13 +144,102 @@ Rectangle{
                 anchors.top: rpmLabel.bottom
                 anchors.right: rpmLabel.right
             }
+
+            Row {
+                id: statusRow
+                anchors.bottom: generalInfoTile.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: parent.height * 0.25
+
+                Rectangle {
+                    id: status1
+                    height: parent.height
+                    width: parent.width * 0.25
+
+                    color: "transparent"
+                    border.color: "#a7def9"
+
+                    Text {
+                        width: parent.width
+                        anchors.centerIn: parent
+                        horizontalAlignment: Text.Center
+
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: parent.height * 0.3
+                        color: (false ? "lime" : "#798489")
+
+                        text: "-"
+                    }
+                }
+
+                Rectangle {
+                    id: status2
+                    height: parent.height
+                    width: parent.width * 0.25
+
+                    color: "transparent"
+                    border.color: "#a7def9"
+
+                    Text {
+                        width: parent.width
+                        anchors.centerIn: parent
+                        horizontalAlignment: Text.Center
+
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: parent.height * 0.3
+                        color: (false ? "lime" : "#798489")
+
+                        text: "-"
+                    }
+                }
+
+                Rectangle {
+                    id: status3
+                    height: parent.height
+                    width: parent.width * 0.25
+
+                    color: "transparent"
+                    border.color: "#a7def9"
+
+                    Text {
+                        width: parent.width
+                        anchors.centerIn: parent
+                        horizontalAlignment: Text.Center
+
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: parent.height * 0.3
+                        color: (vrData.pitLimiter ? "lime" : "#798489")
+
+                        text: "Pit Limiter"
+                    }
+                }
+
+                Rectangle {
+                    id: status4
+                    height: parent.height
+                    width: parent.width * 0.25
+
+                    color: "transparent"
+                    border.color: "#a7def9"
+
+                    Text {
+                        width: parent.width
+                        anchors.centerIn: parent
+                        horizontalAlignment: Text.Center
+
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: parent.height * 0.3
+                        color: (vrData.isInPitlane ? "lime" : "#798489")
+
+                        text: "In Pitlane"
+                    }
+                }
+            }
         }
         //////////////////////////////////////////////////////////////////////
 
         VRPlotVelocity {
-
-            property double index: 0
-
             id: velocityPlot
             objectName: "velocityPlot"
             width: parent.width / 3
@@ -156,30 +249,16 @@ Rectangle{
 
             Component.onCompleted: initCustomPlot()
 
-            /*
             Timer {
-                interval: 50
+                interval: 20
                 running: true
                 repeat: true
-                onTriggered: velocityPlot.push()
+                onTriggered: velocityPlot.update(vrData.getTimeInSeconds(), vrData.velocity)
             }
 
-            // push some Demo data
-            function push(){
-                // var tmp_rpm = (Math.cos(velocityPlot.index) * 2500 + 2500);
-                // var tmp_gear = (velocityPlot.index % 8);
-                // rpmPlot.pushData(velocityPlot.index, tmp_rpm, tmp_gear);
-                // var tmp_velo = (Math.sin(velocityPlot.index) * 120 + 120);
-                // velocityPlot.pushData(velocityPlot.index, tmp_velo);
-
-                // velocityLabel.text = tmp_velo.toFixed(0);
-                // gearLabel.text = (tmp_gear.toFixed(0) == 0 ? "N" : tmp_gear.toFixed(0));
-                // rpmLabel.text = tmp_rpm.toFixed(0);
-
-                // velocityPlot.index += 0.1;
+            function update(time, velocity) {
+                velocityPlot.pushData(time, velocity);
             }
-            */
-
         }
 
         VRPlotPedalHistory {
@@ -193,9 +272,6 @@ Rectangle{
         }
 
         VRPlotPedals {
-
-            property double index: 0
-
             id: pedalsPlot
             width: parent.width * 0.25
             height: parent.height * 0.5
@@ -204,25 +280,28 @@ Rectangle{
 
             Component.onCompleted: initCustomPlot()
 
-            /*
-            Timer {
-                interval: 70
-                running: true
-                repeat: true
-                onTriggered: pedalsPlot.push()
+            Connections {
+                target: vrData
+                onThrottleChanged: update(vrData.throttle, vrData.brake, vrData.clutch)
+                onBrakeChanged: update(vrData.throttle, vrData.brake, vrData.clutch)
+                onClutchChanged: update(vrData.throttle, vrData.brake, vrData.clutch)
+
+                function update(throttle, brake, clutch) {
+                    pedalsPlot.pushData(clutch, brake, throttle);
+                }
             }
 
-            // push some Demo data
-            function push(){
-                pedalsPlot.pushData((-Math.sin(pedalsPlot.index) * 50 + 50),
-                                    (Math.sin(pedalsPlot.index*0.5) * 30 + 30),
-                                    (Math.sin(pedalsPlot.index) * 50 + 50));
-                pedalHistoryPlot.pushData(pedalsPlot.index,
-                                          (-Math.sin(pedalsPlot.index) * 50 + 50),
-                                          (Math.sin(pedalsPlot.index*0.5) * 30 + 30),
-                                          (Math.sin(pedalsPlot.index) * 50 + 50));
-                pedalsPlot.index += 0.1;
+            Timer {
+                interval: 20
+                running: true
+                repeat: true
+                onTriggered: update(vrData.getTimeInSeconds(), vrData.throttle, vrData.brake, vrData.clutch)
+
+                function update(time, throttle, brake, clutch) {
+                    pedalHistoryPlot.pushData(time, clutch, brake, throttle);
+                }
             }
-            */
+
+
         }
 }

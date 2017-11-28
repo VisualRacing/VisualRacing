@@ -6,7 +6,7 @@ Rectangle {
 
     Text{
         id: fuelLabel
-        text: "Remaining Fuel: " + "5" + " / " + "63" + " L"
+        text: "Remaining Fuel: " + vrData.fuel.toFixed(2) + " / " + vrData.maxFuel.toFixed(2) + " L"
 
         anchors.left: parent.left
         anchors.top: parent.top
@@ -24,7 +24,7 @@ Rectangle {
 
     Text{
         id: brakeBiasLabel
-        text: "Brake-Bias: " + "60" + " %"
+        text: "Brake-Bias: " + (vrData.brakeBias * 100).toFixed(1) + " %"
 
         anchors.left: parent.left
         anchors.top: fuelLabel.bottom

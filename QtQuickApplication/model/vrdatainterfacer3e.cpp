@@ -45,5 +45,7 @@ bool VRDataInterfaceR3E::update() {
     this->buffer->setPitLimiter(this->nativeBuffer->pit_limiter > 0 ? true : false);
     this->buffer->setIsInPitlane(this->nativeBuffer->in_pitlane > 0 ? true : false);
 
+    this->buffer->setBrakeBias(qMax(1.0f - this->nativeBuffer->brake_bias, 0.0f));
+
     return true;
 }

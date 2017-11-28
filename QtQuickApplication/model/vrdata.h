@@ -3,6 +3,8 @@
 
 #include <QString>
 #include <QObject>
+#include "vrutilities.h"
+
 
 class VRData : public QObject
 {
@@ -25,7 +27,13 @@ class VRData : public QObject
     Q_PROPERTY(bool pitLimiter READ getPitLimiter WRITE setPitLimiter NOTIFY pitLimiterChanged)
     Q_PROPERTY(bool isInPitlane READ getIsInPitlane WRITE setIsInPitlane NOTIFY isInPitlaneChanged)
 
+    Q_PROPERTY(float brakeBias READ getBrakeBias WRITE setBrakeBias NOTIFY brakeBiasChanged)
+
 public:
+    VRData();
+
+    Q_INVOKABLE double getTimeInSeconds();
+
     int getGear() const;
     void setGear(int value);
 
@@ -62,6 +70,9 @@ public:
     bool getIsInPitlane() const;
     void setIsInPitlane(bool value);
 
+    float getBrakeBias() const;
+    void setBrakeBias(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -80,7 +91,14 @@ signals:
     void pitLimiterChanged();
     void isInPitlaneChanged();
 
+    void brakeBiasChanged();
+
 private:
+
+    //
+    // Application information
+    //
+    std::chrono::milliseconds startTime;
 
     //
     // Session information
@@ -148,8 +166,8 @@ private:
     float fuel;
     float maxFuel;
 
-    // How much the brakes are biased towards the front (TODO: or back, idk yet)
-    //float brakeBias;
+    // How much the brakes are biased towards the front
+    float brakeBias;
 
     // false = inactive, true = active
     bool pitLimiter;

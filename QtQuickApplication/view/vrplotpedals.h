@@ -12,7 +12,7 @@ public:
 
     virtual void setupPlot( QCustomPlot* customPlot );
 
-    Q_INVOKABLE void pushData(int clutch, int brake, int accel);
+    Q_INVOKABLE void pushData(double clutch, double brake, double accel);
 
     QCPBars* clutchPedal;
     QCPBars* accelPedal;

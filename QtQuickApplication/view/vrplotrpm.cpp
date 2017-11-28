@@ -8,16 +8,16 @@ VRPlotRPM::VRPlotRPM()
 void VRPlotRPM::pushData(double index, double data, int gear)
 {
     // push data to graph
-    itsCustomPlot->graph(0)->addData(index, data);
-
     if(gear != itsLastGear){
         itsLastGear = gear;
         itsLastGearDouble = (gear * itsGearMultiplier) + (2 * itsGearMultiplier);
     }
-    itsCustomPlot->graph(1)->addData(index, itsLastGearDouble);
+    itsCustomPlot->graph(0)->addData(index, itsLastGearDouble);
+
+    itsCustomPlot->graph(1)->addData(index, data);
 
     // make index axis range scroll with the data (at a constant range size of 10):
-    itsCustomPlot->xAxis->setRange(index, index, Qt::AlignRight);
+    itsCustomPlot->xAxis->setRange(index, 10, Qt::AlignRight);
     itsCustomPlot->replot();
 }
 
@@ -25,7 +25,7 @@ void VRPlotRPM::setItsMaxRpm(int maxRpm)
 {
     this->itsMaxRpm = maxRpm;
     this->itsGearMultiplier = itsMaxRpm / 9;           // 8 gears
-    this->itsLastGearDouble = itsGearMultiplier;
+    this->itsLastGearDouble = 2 * itsGearMultiplier;
     itsCustomPlot->yAxis->setRange(0, itsMaxRpm);
     itsCustomPlot->replot();
 }
@@ -34,12 +34,12 @@ void VRPlotRPM::setupPlot(QCustomPlot *customPlot)
 {
     // add graph
     customPlot->addGraph();
-    customPlot->graph(0)->setPen(QPen(QColor("#ffa500")));
+    customPlot->graph(0)->setPen(QPen(QColor("#10ff10"), qreal(2.0)));
     customPlot->addGraph();
-    customPlot->graph(1)->setPen(QPen(QColor("#10ff10")));
+    customPlot->graph(1)->setPen(QPen(QColor("#ffa500"), qreal(2.0)));
 
     // set axis labels
-    customPlot->xAxis->setLabel("time in min");
+    customPlot->xAxis->setLabel("Time in s");
     customPlot->yAxis->setLabel("RPM / gear");
 
     // configure xAxis
