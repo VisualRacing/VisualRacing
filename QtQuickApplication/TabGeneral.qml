@@ -290,4 +290,81 @@ Rectangle {
             onTriggered: pedalHistoryPlot.pushData(vrData.getTimeInSeconds(), vrData.throttle, vrData.brake, vrData.clutch)
         }
     }
+
+    Rectangle {
+        id: laptimeOverview
+        width: parent.width * 0.25
+        height: parent.height * 0.45
+        anchors.left: pedalsPlot.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 15
+
+        color: "transparent"
+        border.color: "#a7def9"
+
+        Grid {
+            anchors.centerIn: parent
+            columns: 3
+            rows: 2
+
+            spacing: 5
+
+            Text {
+                id: currentLapLabel
+                text: "Current Lap:"
+                width: parent.width * 0.4
+                height: parent.height * 0.2
+
+                font.pixelSize: ((parent.width - 25) * 0.2) * ((parent.height - 25) * 0.2) * 0.005
+            }
+
+            Text {
+                id: currentLapValue
+                text: "1:23.2"
+                width: parent.width * 0.6
+                height: parent.height * 0.2
+
+                font.bold: true
+                font.pixelSize: ((parent.width - 25) * 0.2) * ((parent.height - 25) * 0.2) * 0.005
+            }
+
+            Text {
+                id: lastLapLabel
+                text: "Last Lap:"
+                width: parent.width * 0.4
+                height: parent.height * 0.2
+
+                font.pixelSize: ((parent.width - 25) * 0.2) * ((parent.height - 25) * 0.2) * 0.005
+            }
+
+            Text {
+                id: lastLapValue
+                text: "1:23.2"
+                width: parent.width * 0.6
+                height: parent.height * 0.2
+
+                font.bold: true
+                font.pixelSize: ((parent.width - 25) * 0.2) * ((parent.height - 25) * 0.2) * 0.005
+            }
+
+            Text {
+                id: bestLapLabel
+                text: "Best Lap:"
+                width: parent.width * 0.4
+                height: parent.height * 0.2
+
+                font.pixelSize: ((parent.width - 25) * 0.2) * ((parent.height - 25) * 0.2) * 0.005
+            }
+
+            Text {
+                id: bestLapValue
+                text: "1:23.2"
+                width: parent.width * 0.6
+                height: parent.height * 0.2
+
+                font.bold: true
+                font.pixelSize: ((parent.width - 25) * 0.2) * ((parent.height - 25) * 0.2) * 0.005
+            }
+        }
+    }
 }
