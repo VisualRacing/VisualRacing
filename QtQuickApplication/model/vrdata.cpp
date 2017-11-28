@@ -8,7 +8,7 @@ VRData::VRData()
 double VRData::getTimeInSeconds()
 {
     std::chrono::milliseconds now = VRUtilities::getCurrentTime();
-    return (now.count() - startTime.count()) * 0.001;;
+    return (now.count() - startTime.count()) * 0.001;
 }
 
 int VRData::getGear() const
