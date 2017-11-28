@@ -1,217 +1,2162 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Bouml (http://bouml.free.fr/) -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="984" height="598" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<g>
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="652" y="230" width="3" height="149" />
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="436" y="376" width="219" height="3" />
-	<rect fill="#f6f6f6" stroke="black" stroke-width="1" stroke-opacity="1" x="432" y="226" width="220" height="150" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" font-style="italic" text-anchor="middle" x="542" y="236">DataInterface</text>
-	<line stroke="black" stroke-opacity="1" x1="432" y1="244" x2="652" y2="244" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="436" y="254">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="448" y="254">processName : wchar_t {readOnly}</text>
-	<line stroke="black" stroke-opacity="1" x1="432" y1="262" x2="652" y2="262" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="436" y="272">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="448" y="272">DataInterface(in processName : wchar_t)</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="436" y="288">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="448" y="288">~DataInterface()</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="436" y="304">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-style="italic" x="448" y="304">start() : bool</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="436" y="320">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-style="italic" x="448" y="320">stop() : void</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="436" y="336">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-style="italic" x="448" y="336">update() : void</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="436" y="352">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="448" y="352">getBuffer() : QSharedPointer&lt;VRData&gt;</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="436" y="368">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="448" y="368">getProcessName() : wchar_t</text>
-</g>
-<g>
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="260" y="90" width="3" height="43" />
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="34" y="130" width="229" height="3" />
-	<rect fill="#f6f6f6" stroke="black" stroke-width="1" stroke-opacity="1" x="30" y="86" width="230" height="44" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="145" y="96">Utilities</text>
-	<line stroke="black" stroke-opacity="1" x1="30" y1="104" x2="260" y2="104" />
-	<line stroke="black" stroke-opacity="1" x1="30" y1="112" x2="260" y2="112" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="34" y="122">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" text-decoration="underline" x="46" y="122">isProcessRunning(in name : wchar_t) : bool</text>
-</g>
-<g>
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="695" y="468" width="3" height="117" />
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="553" y="582" width="145" height="3" />
-	<rect fill="#f6f6f6" stroke="black" stroke-width="1" stroke-opacity="1" x="549" y="464" width="146" height="118" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="622" y="474">R3E_DataInterface</text>
-	<line stroke="black" stroke-opacity="1" x1="549" y1="482" x2="695" y2="482" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="553" y="492">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="565" y="492">access : QSharedMemory</text>
-	<line stroke="black" stroke-opacity="1" x1="549" y1="500" x2="695" y2="500" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="553" y="510">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="565" y="510">R3E_DataInterface()</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="553" y="526">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="565" y="526">~R3E_DataInterface()</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="553" y="542">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="565" y="542">start() : bool</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="553" y="558">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="565" y="558">stop() : void</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="553" y="574">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="565" y="574">update() : void</text>
-</g>
-<g>
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="438" y="436" width="3" height="149" />
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="252" y="582" width="189" height="3" />
-	<rect fill="#f6f6f6" stroke="black" stroke-width="1" stroke-opacity="1" x="248" y="432" width="190" height="150" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="343" y="442">AC_DataInterface</text>
-	<line stroke="black" stroke-opacity="1" x1="248" y1="450" x2="438" y2="450" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="252" y="460">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="264" y="460">accessStatic : QSharedMemory</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="252" y="476">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="264" y="476">accessPhysics : QSharedMemory</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="252" y="492">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="264" y="492">accessGraphics : QSharedMemory</text>
-	<line stroke="black" stroke-opacity="1" x1="248" y1="500" x2="438" y2="500" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="252" y="510">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="264" y="510">AC_DataInterface()</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="252" y="526">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="264" y="526">~AC_DataInterface()</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="252" y="542">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="264" y="542">start() : bool</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="252" y="558">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="264" y="558">stop() : void</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="252" y="574">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="264" y="574">update() : void</text>
-</g>
-<g>
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="968" y="29" width="3" height="549" />
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="802" y="575" width="169" height="3" />
-	<rect fill="#f6f6f6" stroke="black" stroke-width="1" stroke-opacity="1" x="798" y="25" width="170" height="550" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="883" y="35">VRData</text>
-	<line stroke="black" stroke-opacity="1" x1="798" y1="43" x2="968" y2="43" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="53">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="53">playerName : std::string</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="69">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="69">carName : std::string</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="85">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="85">trackName : std::string</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="101">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="101">completedLaps : int</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="117">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="117">gear : int</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="133">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="133">velocity : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="149">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="149">rpm : int</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="165">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="165">maxRpm : int</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="181">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="181">throttle : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="197">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="197">brake : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="213">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="213">clutch : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="229">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="229">tirePressure : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="245">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="245">tireWear : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="261">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="261">tireDirt : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="277">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="277">tireTemperatures : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="293">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="293">brakeTemperatures : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="309">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="309">fuel : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="325">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="325">maxFuel : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="341">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="341">brakeBias : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="357">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="357">pitLimiter : int</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="373">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="373">isInPit : int</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="389">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="389">currentLapTime : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="405">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="405">bestLapTime : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="421">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="421">previousLapTime : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="437">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="437">theoreticalBestLapTime : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="453">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="453">currentSector : int</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="469">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="469">currentLapSectorTimes : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="485">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="485">bestLapSectorTimes : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="501">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="501">previousLapSectorTimes : float</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="517">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="517">bestSectorTimes : float</text>
-	<line stroke="black" stroke-opacity="1" x1="798" y1="525" x2="968" y2="525" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="535">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="535">getGear() : int</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="551">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="551">setGear(in value : int) : void</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="802" y="567">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="814" y="567">gearChanged() : void</text>
-</g>
-<g>
-	<line stroke="#000000" stroke-opacity="1" x1="417" y1="431" x2="461" y2="384" />
-	<line stroke="#000000" stroke-opacity="1" x1="466" y1="380" x2="457" y2="380" />
-	<line stroke="#000000" stroke-opacity="1" x1="466" y1="380" x2="466" y2="388" />
-	<line stroke="#000000" stroke-opacity="1" x1="457" y1="380" x2="466" y2="388" />
-</g>
-<g>
-	<line stroke="black" stroke-opacity="1" x1="797" y1="302" x2="791" y2="296" />
-	<line stroke="black" stroke-opacity="1" x1="797" y1="302" x2="791" y2="308" />
-	<line stroke="black" stroke-opacity="1" x1="656" y1="302" x2="797" y2="302" />
-	<polygon fill="#000000" stroke="black" stroke-opacity="1" points="656,302 662,296 668,302 662,308" />
-</g>
-<g>
-	<line stroke="#000000" stroke-opacity="1" x1="601" y1="463" x2="573" y2="385" />
-	<line stroke="#000000" stroke-opacity="1" x1="571" y1="380" x2="567" y2="387" />
-	<line stroke="#000000" stroke-opacity="1" x1="571" y1="380" x2="578" y2="383" />
-	<line stroke="#000000" stroke-opacity="1" x1="567" y1="387" x2="578" y2="383" />
-</g>
-<g>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="676" y="309">&lt;&lt;QSharedPointer&gt;&gt;</text>
-</g>
-<g>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="357" y="293">dataInterface</text>
-</g>
-<g>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="757" y="292">buffer</text>
-</g>
-<g>
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="297" y="227" width="3" height="155" />
-	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="31" y="379" width="269" height="3" />
-	<rect fill="#f6f6f6" stroke="black" stroke-width="1" stroke-opacity="1" x="27" y="223" width="270" height="156" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="162" y="233">SimulationManager</text>
-	<line stroke="black" stroke-opacity="1" x1="27" y1="241" x2="297" y2="241" />
-	<line stroke="black" stroke-opacity="1" x1="27" y1="249" x2="297" y2="249" />
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="31" y="259">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="43" y="259">waitForSim() : void</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="31" y="275">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="43" y="275">connectToSharedMemory() : bool</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="31" y="291">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="43" y="291">run() : void</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="31" y="307">-</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="43" y="307">free() : void</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="31" y="323">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="43" y="323">SimulationManager()</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="31" y="339">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="43" y="339">~SimulationManager()</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="31" y="355">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="43" y="355">getDataInterface() : QSharedPointer&lt;DataInterface&gt;</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="31" y="371">+</text>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="43" y="371">start() : bool</text>
-</g>
-<g>
-	<line stroke="black" stroke-opacity="1" x1="431" y1="303" x2="425" y2="297" />
-	<line stroke="black" stroke-opacity="1" x1="431" y1="303" x2="425" y2="309" />
-	<line stroke="black" stroke-opacity="1" x1="301" y1="303" x2="431" y2="303" />
-	<polygon fill="#000000" stroke="black" stroke-opacity="1" points="301,303 307,297 313,303 307,309" />
-</g>
-<g>
-	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="315" y="310">&lt;&lt;QSharedPointer&gt;&gt;</text>
-</g>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1169"
+   height="936"
+   version="1.1"
+   id="svg6476"
+   sodipodi:docname="visualRacing_Backend.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata6482">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs6480" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview6478"
+     showgrid="false"
+     inkscape:zoom="0.71315043"
+     inkscape:cx="492.72538"
+     inkscape:cy="418.38968"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 1">
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#00c700;stroke-width:6.89459896;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6485"
+       width="256.31171"
+       height="921.48901"
+       x="906.72522"
+       y="7.7245989" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00c700;fill-opacity:1;stroke:none"
+       x="-838.22314"
+       y="891.13275"
+       id="text7032"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan7030"
+         x="-838.22314"
+         y="891.13275"
+         style="font-size:37.33333333px">Data Model</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#5f49e3;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect7034"
+       width="778.237"
+       height="517.42236"
+       x="89.742638"
+       y="9.1268272" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:37.33333333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#5f49e3;fill-opacity:1;stroke:none;"
+       x="332.32822"
+       y="567.21387"
+       id="text7038"><tspan
+         sodipodi:role="line"
+         id="tspan7036"
+         x="332.32822"
+         y="567.21387">Data Provider</tspan></text>
+  </g>
+  <g
+     id="g6028">
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="391"
+       y="77"
+       width="3"
+       height="197"
+       id="rect5972" />
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="111"
+       y="271"
+       width="283"
+       height="3"
+       id="rect5974" />
+    <rect
+       fill="#f6f6f6"
+       stroke="black"
+       stroke-width="1"
+       stroke-opacity="1"
+       x="107"
+       y="73"
+       width="284"
+       height="198"
+       id="rect5976" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       text-anchor="middle"
+       x="249"
+       y="83"
+       id="text5978">VRSimulationManager</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="107"
+       y1="91"
+       x2="391"
+       y2="91"
+       id="line5980" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="101"
+       id="text5982">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="101"
+       id="text5984">timerId : int</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="117"
+       id="text5986">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="117"
+       id="text5988">running : bool</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="107"
+       y1="125"
+       x2="391"
+       y2="125"
+       id="line5990" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="135"
+       id="text5992">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="135"
+       id="text5994">waitForSim() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="151"
+       id="text5996">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="151"
+       id="text5998">connectToSharedMemory() : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="167"
+       id="text6000">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="167"
+       id="text6002">free() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="183"
+       id="text6004">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="183"
+       id="text6006">VRSimulationManager()</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="199"
+       id="text6008">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="199"
+       id="text6010">~VRSimulationManager()</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="215"
+       id="text6012">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="215"
+       id="text6014">isRunning() : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="231"
+       id="text6016">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="231"
+       id="text6018">getDataInterface() : QSharedPointer&lt;VRDataInterface&gt;</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="247"
+       id="text6020">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="247"
+       id="text6022">start() : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="111"
+       y="263"
+       id="text6024">#</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="123"
+       y="263"
+       id="text6026">timerEvent(inout event : QTimerEvent) : void</text>
+  </g>
+  <g
+     id="g6074">
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="590"
+       y="350"
+       width="3"
+       height="149"
+       id="rect6030" />
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="404"
+       y="496"
+       width="189"
+       height="3"
+       id="rect6032" />
+    <rect
+       fill="#f6f6f6"
+       stroke="black"
+       stroke-width="1"
+       stroke-opacity="1"
+       x="400"
+       y="346"
+       width="190"
+       height="150"
+       id="rect6034" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       text-anchor="middle"
+       x="495"
+       y="356"
+       id="text6036">VRDataInterfaceAC</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="400"
+       y1="364"
+       x2="590"
+       y2="364"
+       id="line6038" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="404"
+       y="374"
+       id="text6040">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="416"
+       y="374"
+       id="text6042">accessStatic : QSharedMemory</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="404"
+       y="390"
+       id="text6044">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="416"
+       y="390"
+       id="text6046">accessPhysics : QSharedMemory</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="404"
+       y="406"
+       id="text6048">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="416"
+       y="406"
+       id="text6050">accessGraphics : QSharedMemory</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="400"
+       y1="414"
+       x2="590"
+       y2="414"
+       id="line6052" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="404"
+       y="424"
+       id="text6054">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="416"
+       y="424"
+       id="text6056">VRDataInterfaceAC()</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="404"
+       y="440"
+       id="text6058">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="416"
+       y="440"
+       id="text6060">~VRDataInterfaceAC()</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="404"
+       y="456"
+       id="text6062">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="416"
+       y="456"
+       id="text6064">start() : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="404"
+       y="472"
+       id="text6066">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="416"
+       y="472"
+       id="text6068">stop() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="404"
+       y="488"
+       id="text6070">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="416"
+       y="488"
+       id="text6072">update() : bool</text>
+  </g>
+  <g
+     id="g6112">
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="842"
+       y="379"
+       width="3"
+       height="117"
+       id="rect6076" />
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="700"
+       y="493"
+       width="145"
+       height="3"
+       id="rect6078" />
+    <rect
+       fill="#f6f6f6"
+       stroke="black"
+       stroke-width="1"
+       stroke-opacity="1"
+       x="696"
+       y="375"
+       width="146"
+       height="118"
+       id="rect6080" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       text-anchor="middle"
+       x="769"
+       y="385"
+       id="text6082">VRDataInterfaceR3E</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="696"
+       y1="393"
+       x2="842"
+       y2="393"
+       id="line6084" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="700"
+       y="403"
+       id="text6086">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="712"
+       y="403"
+       id="text6088">access : QSharedMemory</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="696"
+       y1="411"
+       x2="842"
+       y2="411"
+       id="line6090" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="700"
+       y="421"
+       id="text6092">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="712"
+       y="421"
+       id="text6094">VRDataInterfaceR3E()</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="700"
+       y="437"
+       id="text6096">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="712"
+       y="437"
+       id="text6098">~VRDataInterfaceR3E()</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="700"
+       y="453"
+       id="text6100">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="712"
+       y="453"
+       id="text6102">start() : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="700"
+       y="469"
+       id="text6104">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="712"
+       y="469"
+       id="text6106">stop() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="700"
+       y="485"
+       id="text6108">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="712"
+       y="485"
+       id="text6110">update() : bool</text>
+  </g>
+  <g
+     id="g6134">
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="340"
+       y="437"
+       width="3"
+       height="59"
+       id="rect6114" />
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="114"
+       y="493"
+       width="229"
+       height="3"
+       id="rect6116" />
+    <rect
+       fill="#f6f6f6"
+       stroke="black"
+       stroke-width="1"
+       stroke-opacity="1"
+       x="110"
+       y="433"
+       width="230"
+       height="60"
+       id="rect6118" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       text-anchor="middle"
+       x="225"
+       y="443"
+       id="text6120">VRUtilities</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="110"
+       y1="451"
+       x2="340"
+       y2="451"
+       id="line6122" />
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="110"
+       y1="459"
+       x2="340"
+       y2="459"
+       id="line6124" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="114"
+       y="469"
+       id="text6126">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       text-decoration="underline"
+       x="126"
+       y="469"
+       id="text6128">isProcessRunning(in name : wchar_t) : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="114"
+       y="485"
+       id="text6130">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       text-decoration="underline"
+       x="126"
+       y="485"
+       id="text6132">getCurrentTime() : std::chrono::milliseconds</text>
+  </g>
+  <g
+     id="g6138">
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="447"
+       y="178"
+       id="text6136">dataInterface</text>
+  </g>
+  <g
+     id="g6142">
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="880"
+       y="178"
+       id="text6140">buffer</text>
+  </g>
+  <g
+     id="g6188">
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="758"
+       y="103"
+       width="3"
+       height="149"
+       id="rect6144" />
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="526"
+       y="249"
+       width="235"
+       height="3"
+       id="rect6146" />
+    <rect
+       fill="#f6f6f6"
+       stroke="black"
+       stroke-width="1"
+       stroke-opacity="1"
+       x="522"
+       y="99"
+       width="236"
+       height="150"
+       id="rect6148" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       font-style="italic"
+       text-anchor="middle"
+       x="640"
+       y="109"
+       id="text6150">VRDataInterface</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="522"
+       y1="117"
+       x2="758"
+       y2="117"
+       id="line6152" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="526"
+       y="127"
+       id="text6154">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="538"
+       y="127"
+       id="text6156">processName : wchar_t</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="522"
+       y1="135"
+       x2="758"
+       y2="135"
+       id="line6158" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="526"
+       y="145"
+       id="text6160">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="538"
+       y="145"
+       id="text6162">VRDataInterface(in processName : wchar_t)</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="526"
+       y="161"
+       id="text6164">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="538"
+       y="161"
+       id="text6166">~VRDataInterface()</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="526"
+       y="177"
+       id="text6168">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-style="italic"
+       x="538"
+       y="177"
+       id="text6170">start() : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="526"
+       y="193"
+       id="text6172">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-style="italic"
+       x="538"
+       y="193"
+       id="text6174">stop() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="526"
+       y="209"
+       id="text6176">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-style="italic"
+       x="538"
+       y="209"
+       id="text6178">update() : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="526"
+       y="225"
+       id="text6180">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="538"
+       y="225"
+       id="text6182">getBuffer() : QSharedPointer&lt;VRData&gt;</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="526"
+       y="241"
+       id="text6184">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="538"
+       y="241"
+       id="text6186">getProcessName() : wchar_t</text>
+  </g>
+  <g
+     id="g6198">
+    <line
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="541"
+       y1="345"
+       x2="591"
+       y2="258"
+       id="line6190" />
+    <line
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="594"
+       y1="253"
+       x2="585"
+       y2="255"
+       id="line6192" />
+    <line
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="594"
+       y1="253"
+       x2="596"
+       y2="261"
+       id="line6194" />
+    <line
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="585"
+       y1="255"
+       x2="596"
+       y2="261"
+       id="line6196" />
+  </g>
+  <g
+     id="g6208">
+    <line
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="739"
+       y1="374"
+       x2="677"
+       y2="258"
+       id="line6200" />
+    <line
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="675"
+       y1="253"
+       x2="672"
+       y2="261"
+       id="line6202" />
+    <line
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="675"
+       y1="253"
+       x2="683"
+       y2="255"
+       id="line6204" />
+    <line
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="672"
+       y1="261"
+       x2="683"
+       y2="255"
+       id="line6206" />
+  </g>
+  <g
+     id="g6218">
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="521"
+       y1="188"
+       x2="514"
+       y2="182"
+       id="line6210" />
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="521"
+       y1="188"
+       x2="515"
+       y2="194"
+       id="line6212" />
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="395"
+       y1="189"
+       x2="521"
+       y2="188"
+       id="line6214" />
+    <polygon
+       fill="#000000"
+       stroke="black"
+       stroke-opacity="1"
+       points="395,189 400,182 406,188 401,194"
+       id="polygon6216" />
+  </g>
+  <g
+     id="g6222">
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="408"
+       y="196"
+       id="text6220">&lt;&lt;QSharedPointer&gt;&gt;</text>
+  </g>
+  <g
+     id="g6456">
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="1153"
+       y="22"
+       width="3"
+       height="901"
+       id="rect6224" />
+    <rect
+       fill="#cbcbcb"
+       stroke="none"
+       stroke-opacity="1"
+       x="925"
+       y="920"
+       width="231"
+       height="3"
+       id="rect6226" />
+    <rect
+       fill="#f6f6f6"
+       stroke="black"
+       stroke-width="1"
+       stroke-opacity="1"
+       x="921"
+       y="18"
+       width="232"
+       height="902"
+       id="rect6228" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       text-anchor="middle"
+       x="1037"
+       y="28"
+       id="text6230">VRData</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="921"
+       y1="36"
+       x2="1153"
+       y2="36"
+       id="line6232" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="46"
+       id="text6234">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="46"
+       id="text6236">startTime : std::chrono::milliseconds</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="62"
+       id="text6238">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="62"
+       id="text6240">completedLaps : int</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="78"
+       id="text6242">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="78"
+       id="text6244">gear : int</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="94"
+       id="text6246">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="94"
+       id="text6248">velocity : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="110"
+       id="text6250">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="110"
+       id="text6252">rpm : int</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="126"
+       id="text6254">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="126"
+       id="text6256">maxRpm : int</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="142"
+       id="text6258">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="142"
+       id="text6260">throttle : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="158"
+       id="text6262">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="158"
+       id="text6264">brake : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="174"
+       id="text6266">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="174"
+       id="text6268">clutch : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="190"
+       id="text6270">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="190"
+       id="text6272">fuel : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="206"
+       id="text6274">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="206"
+       id="text6276">maxFuel : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="222"
+       id="text6278">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="222"
+       id="text6280">brakeBias : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="238"
+       id="text6282">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="238"
+       id="text6284">pitLimiter : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="254"
+       id="text6286">-</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="254"
+       id="text6288">isInPitlane : bool</text>
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="921"
+       y1="262"
+       x2="1153"
+       y2="262"
+       id="line6290" />
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="272"
+       id="text6292">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="272"
+       id="text6294">VRData()</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="288"
+       id="text6296">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="288"
+       id="text6298">getTimeInSeconds() : Q_INVOKABLE double</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="304"
+       id="text6300">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="304"
+       id="text6302">getGear() : int</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="320"
+       id="text6304">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="320"
+       id="text6306">setGear(in value : int) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="336"
+       id="text6308">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="336"
+       id="text6310">getVelocity() : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="352"
+       id="text6312">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="352"
+       id="text6314">setVelocity(in value : float) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="368"
+       id="text6316">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="368"
+       id="text6318">getRpm() : int</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="384"
+       id="text6320">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="384"
+       id="text6322">setRpm(in value : int) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="400"
+       id="text6324">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="400"
+       id="text6326">getMaxRpm() : int</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="416"
+       id="text6328">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="416"
+       id="text6330">setMaxRpm(in value : int) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="432"
+       id="text6332">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="432"
+       id="text6334">getThrottle() : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="448"
+       id="text6336">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="448"
+       id="text6338">setThrottle(in value : float) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="464"
+       id="text6340">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="464"
+       id="text6342">getBrake() : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="480"
+       id="text6344">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="480"
+       id="text6346">setBrake(in value : float) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="496"
+       id="text6348">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="496"
+       id="text6350">getClutch() : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="512"
+       id="text6352">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="512"
+       id="text6354">setClutch(in value : float) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="528"
+       id="text6356">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="528"
+       id="text6358">getCompletedLaps() : int</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="544"
+       id="text6360">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="544"
+       id="text6362">setCompletedLaps(in value : int) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="560"
+       id="text6364">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="560"
+       id="text6366">getFuel() : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="576"
+       id="text6368">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="576"
+       id="text6370">setFuel(in value : float) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="592"
+       id="text6372">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="592"
+       id="text6374">getMaxFuel() : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="608"
+       id="text6376">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="608"
+       id="text6378">setMaxFuel(in value : float) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="624"
+       id="text6380">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="624"
+       id="text6382">getPitLimiter() : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="640"
+       id="text6384">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="640"
+       id="text6386">setPitLimiter(in value : bool) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="656"
+       id="text6388">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="656"
+       id="text6390">getIsInPitlane() : bool</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="672"
+       id="text6392">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="672"
+       id="text6394">setIsInPitlane(in value : bool) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="688"
+       id="text6396">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="688"
+       id="text6398">getBrakeBias() : float</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="704"
+       id="text6400">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="704"
+       id="text6402">setBrakeBias(in value : float) : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="720"
+       id="text6404">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="720"
+       id="text6406">gearChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="736"
+       id="text6408">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="736"
+       id="text6410">velocityChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="752"
+       id="text6412">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="752"
+       id="text6414">rpmChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="768"
+       id="text6416">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="768"
+       id="text6418">maxRpmChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="784"
+       id="text6420">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="784"
+       id="text6422">throttleChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="800"
+       id="text6424">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="800"
+       id="text6426">brakeChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="816"
+       id="text6428">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="816"
+       id="text6430">clutchChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="832"
+       id="text6432">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="832"
+       id="text6434">completedLapsChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="848"
+       id="text6436">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="848"
+       id="text6438">fuelChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="864"
+       id="text6440">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="864"
+       id="text6442">maxFuelChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="880"
+       id="text6444">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="880"
+       id="text6446">pitLimiterChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="896"
+       id="text6448">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="896"
+       id="text6450">isInPitlaneChanged() : void</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       font-weight="bold"
+       x="925"
+       y="912"
+       id="text6452">+</text>
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="937"
+       y="912"
+       id="text6454">brakeBiasChanged() : void</text>
+  </g>
+  <g
+     id="g6462">
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="762"
+       y1="189"
+       x2="769"
+       y2="189"
+       id="line6458" />
+    <polygon
+       fill="#000000"
+       stroke="black"
+       stroke-opacity="1"
+       points="762,189 768,183 774,189 768,195"
+       id="polygon6460" />
+  </g>
+  <g
+     id="g6466">
+    <text
+       font-family="Helvetica"
+       font-size="8"
+       fill="#000000"
+       xml:space="preserve"
+       x="794"
+       y="196"
+       id="text6464">&lt;&lt;QSharedPointer&gt;&gt;</text>
+  </g>
+  <g
+     id="g6474">
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="920"
+       y1="188"
+       x2="913"
+       y2="182"
+       id="line6468" />
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="920"
+       y1="188"
+       x2="914"
+       y2="194"
+       id="line6470" />
+    <line
+       stroke="black"
+       stroke-opacity="1"
+       x1="769"
+       y1="189"
+       x2="920"
+       y2="188"
+       id="line6472" />
+  </g>
 </svg>
