@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import VRPlot 1.0
+import QtQuick.Layouts 1.3
 
 Rectangle {
     color: "#3e4244"
@@ -288,6 +289,95 @@ Rectangle {
             running: true
             repeat: true
             onTriggered: pedalHistoryPlot.pushData(vrData.getTimeInSeconds(), vrData.clutch, vrData.brake, vrData.throttle)
+        }
+    }
+
+    Rectangle {
+        id: laptimeOverview
+        width: parent.width * 0.25
+        height: parent.height * 0.47
+        anchors.left: pedalsPlot.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 15
+
+        color: "transparent"
+        border.color: "#a7def9"
+
+        Text {
+            id: lapsTitle
+            text: "Laptimes"
+            color: "white"
+
+            font.pixelSize: (laptimeOverview.width * 0.2) * (laptimeOverview.height * 0.2) * 0.0075;
+
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.margins: 5
+        }
+
+        GridLayout {
+            columns: 2
+            anchors.centerIn: parent
+
+            Text {
+                id: currentLapLabel
+                text: "Current:"
+                color: "white"
+                Layout.rightMargin: 20
+                Layout.bottomMargin: 10
+
+                font.pixelSize: ((laptimeOverview.width - 25) * 0.15) * ((laptimeOverview.height - 25) * 0.15) * 0.01;
+            }
+
+            Text {
+                id: currentLapValue
+                text: "1:23.2"
+                color: "white"
+                Layout.bottomMargin: 10
+
+                font.bold: true
+                font.pixelSize: currentLapLabel.font.pixelSize
+            }
+
+            Text {
+                id: lastLapLabel
+                text: "Last:"
+                color: "white"
+                Layout.rightMargin: 20
+                Layout.bottomMargin: 10
+
+                font.pixelSize: currentLapLabel.font.pixelSize
+            }
+
+            Text {
+                id: lastLapValue
+                text: "1:23.2"
+                color: "white"
+                Layout.bottomMargin: 10
+
+                font.bold: true
+                font.pixelSize: currentLapLabel.font.pixelSize
+            }
+
+            Text {
+                id: bestLapLabel
+                text: "Best:"
+                color: "white"
+                Layout.rightMargin: 20
+                Layout.bottomMargin: 10
+
+                font.pixelSize: currentLapLabel.font.pixelSize
+            }
+
+            Text {
+                id: bestLapValue
+                text: "1:23.2"
+                color: "white"
+                Layout.bottomMargin: 10
+
+                font.bold: true
+                font.pixelSize: currentLapLabel.font.pixelSize
+            }
         }
     }
 }
