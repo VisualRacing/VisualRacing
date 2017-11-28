@@ -287,7 +287,7 @@ Rectangle {
             interval: 20
             running: true
             repeat: true
-            onTriggered: pedalHistoryPlot.pushData(vrData.getTimeInSeconds(), vrData.throttle, vrData.brake, vrData.clutch)
+            onTriggered: pedalHistoryPlot.pushData(vrData.getTimeInSeconds(), vrData.clutch, vrData.brake, vrData.throttle)
         }
     }
 }

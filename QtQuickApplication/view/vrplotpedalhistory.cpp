@@ -13,7 +13,7 @@ void VRPlotPedalHistory::pushData(double index, double clutch, double brake, dou
     itsCustomPlot->graph(2)->addData(index, throttle);
 
     // make index axis range scroll with the data (at a constant range size of 10):
-    itsCustomPlot->xAxis->setRange(index, 10, Qt::AlignRight);
+    itsCustomPlot->xAxis->setRange(index, 5, Qt::AlignRight);
     itsCustomPlot->replot();
 }
 
@@ -30,7 +30,7 @@ void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot)
     // configure xAxis
     QColor lineColor("#a7def9");
     customPlot->xAxis->setLabel("Time in s");
-    customPlot->xAxis->setRange(0, 10);
+    customPlot->xAxis->setRange(0, 5);
     customPlot->xAxis->setBasePen(QPen(lineColor));
     customPlot->xAxis->setTickPen(QPen(lineColor));
     customPlot->xAxis->setSubTickPen(QPen(lineColor));

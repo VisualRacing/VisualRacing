@@ -11,7 +11,7 @@ void VRPlotVelocity::pushData(double index, double data)
     itsCustomPlot->graph(0)->addData(index, data);
 
     // make index axis range scroll with the data (at a constant range size of 10):
-    itsCustomPlot->xAxis->setRange(index, 10, Qt::AlignRight);
+    itsCustomPlot->xAxis->setRange(index, 30, Qt::AlignRight);
     itsCustomPlot->replot();
 }
 
@@ -27,7 +27,7 @@ void VRPlotVelocity::setupPlot(QCustomPlot *customPlot)
 
     // configure xAxis
     QColor lineColor("#a7def9");
-    customPlot->xAxis->setRange(0, 10);
+    customPlot->xAxis->setRange(0, 30);
     customPlot->xAxis->setBasePen(QPen(lineColor));
     customPlot->xAxis->setTickPen(QPen(lineColor));
     customPlot->xAxis->setSubTickPen(QPen(lineColor));
