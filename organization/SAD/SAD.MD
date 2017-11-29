@@ -40,7 +40,7 @@ In our project we are using the Qt-Framework. In fact Qt is misusing the MVC-ter
 With using Qt Quick we have the possibility to develop a C++ application in an MVC-like way. The QML-Layer should only be responsible for the view, ui-components and the user-event-catching. All the event-handler-implementation should be realized in the C++ Layer to provide consitensy and a faster implementation (C++ is faster than javascript). All QML-Objects should get bound to C++ properties. As a result the model is a C++ Object. As in other MVC-implementations we have only dependencies from QML (the view) to C++ (our backend).  
 
 ## 4. Use-Case View
-You can see our Use-Case diagram below. For further details make sure to check out our [SRS](../SRS.md).
+You can see our Use-Case diagram below. For further details make sure to check out our [SRS](../SRS.MD).
 
 ![UML Use Case Diagram](../UC/Use%20Case%20Diagram.png  "UML Use Case Diagram")
 
