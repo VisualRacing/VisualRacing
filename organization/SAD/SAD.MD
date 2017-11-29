@@ -64,7 +64,7 @@ n/a
 ## 6. Process View
 n/a
 ## 7. Deployment View
-![Deployment View](deployment.svg "Deployment View")
+![Deployment View](deployment.png "Deployment View")
 
 ## 8. Implementation View
 n/a
