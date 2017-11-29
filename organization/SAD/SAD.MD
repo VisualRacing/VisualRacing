@@ -64,7 +64,8 @@ n/a
 ## 6. Process View
 n/a
 ## 7. Deployment View
-n/a
+![Deployment View](deployment.svg "Deployment View")
+
 ## 8. Implementation View
 n/a
 ## 9. Data View
