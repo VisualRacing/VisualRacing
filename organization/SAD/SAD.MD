@@ -42,7 +42,7 @@ With using Qt Quick we have the possibility to develop a C++ application in an M
 ## 4. Use-Case View
 n/a
 ## 5. Logical View
-All QML objects are internally implemented as C++ Classes. The following graphic gives an overview of our custom QML-Object implementations. Because our analytics tool provides many graphical visualiziations we use our own plot implementation, for this we developed our optimized base class VRPlotItem. General window properties get managed by the MainWindow class. In the future there will join some other QML-Object implementations.
+All QML objects are internally implemented as C++ Classes. The following graphic gives an overview of our custom QML-Object implementations. Because our analytics tool provides many graphical visualiziations we use our own plot implementation, for this we developed our optimized base class VRPlotItem. General window properties get managed by the MainWindow class. In the future there will be some more QML-Object implementations.
 
 ![UML Class Diagram](VisualRacing.svg "UML Class Diagram")
 
@@ -51,6 +51,10 @@ As our application is based on data which is provided by an external racing simu
 ![UML Class Diagram Data Interface](VisualRacing_DataInterface.svg "UML Class Diagram Data Interface")
 
 As we are currently working on the data mapping, there will be some further changes to the class VRData. We will update the diagram accordingly.
+
+![QML View Files](QML_View_Files.png "QML View Files")
+
+These are our QML Files which represent the different views.
 
 ### 5.2 Architecturally Significant Design Packages
 n/a
