@@ -3,6 +3,23 @@
 VRData::VRData()
 {
     this->startTime = VRUtilities::getCurrentTime();
+
+    this->gear = 0;
+    this->velocity = 0.0f;
+    this->rpm = 0;
+    this->maxRpm = 0;
+
+    this->throttle = 0.0f;
+    this->brake = 0.0f;
+    this->clutch = 0.0f;
+
+    this->completedLaps = 0;
+
+    this->fuel = 0.0f;
+    this->maxFuel = 0.0f;
+
+    this->pitLimiter = false;
+    this->isInPitlane = false;
 }
 
 double VRData::getTimeInSeconds()

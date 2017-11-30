@@ -22,21 +22,30 @@
 
 int main(int argc, char *argv[])
 {
+
+
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/images/icon.ico"));
 
     QQmlApplicationEngine engine;
 
-    VRSimulationManager *simulationManager = new VRSimulationManager();
+    QSharedPointer<VRData> vrData;
 
-    simulationManager->start();
+    bool uiDev = false;
+    if (!uiDev) {
+        QSharedPointer<VRSimulationManager> simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
+        simulationManager->start();
 
-    QSharedPointer<VRDataInterface> dataInterface;
-    do {
-        dataInterface = simulationManager->getDataInterface();
-    } while(dataInterface.isNull());
+        QSharedPointer<VRDataInterface> dataInterface;
+        do {
+            dataInterface = simulationManager->getDataInterface();
+        } while(dataInterface.isNull());
 
-    QSharedPointer<VRData> vrData = dataInterface->getBuffer();
+        vrData = dataInterface->getBuffer();
+    } else {
+        vrData = QSharedPointer<VRData>(new VRData());
+    }
+
 
     /*
      *  create a VRMainWindow-instanz and expose it to QML
