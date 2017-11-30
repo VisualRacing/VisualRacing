@@ -33,9 +33,8 @@ int main(int argc, char *argv[])
     QSharedPointer<VRSimulationManager> simulationManager;
     QSharedPointer<VRData> vrData;
 
-    bool uiDev = true;
-    if (!uiDev) {
-        simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
+    bool uiDev = false;
+    if (!uiDev) {simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
         simulationManager->start();
 
         QSharedPointer<VRDataInterface> dataInterface;
@@ -44,9 +43,13 @@ int main(int argc, char *argv[])
         } while(dataInterface.isNull());
 
         vrData = dataInterface->getBuffer();
+
+        QSharedPointer<VRMessage> connectedMessage = QSharedPointer<VRMessage>(new VRMessage(QString("DataInterface connected successfully."), QColor(38, 211, 67)));
+        mainWindow->setItsCurrentMessage(connectedMessage);
     } else {
         vrData = QSharedPointer<VRData>(new VRData());
-        QSharedPointer<VRMessage> devMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Ui-Development-Mode aktive."), QColor(239, 105, 9)));
+
+        QSharedPointer<VRMessage> devMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Ui-Development-Mode active."), QColor(239, 105, 9)));
         mainWindow->setItsCurrentMessage(devMessage);
     }
 
