@@ -71,13 +71,18 @@ Rectangle {
             id: gearLabel
             text: gearIndexToChar(vrData.gear)
             color: "white"
-            horizontalAlignment: Text.Center
-            font {
-                bold: true
-                pixelSize: ((parent.width - 25) * 0.2) * ((parent.height - 25) * 0.2) * 0.03
-            }
-
+            
             anchors.centerIn: parent
+            width: parent.width * 0.4
+            height: parent.height * 0.7
+
+            font {
+                pointSize: 500
+                bold: true
+            }
+            minimumPointSize: 2
+            fontSizeMode: Text.Fit
+            horizontalAlignment: Text.AlignHCenter
 
             function gearIndexToChar(index) {
                 if (index === 0)
@@ -92,26 +97,42 @@ Rectangle {
             id: velocityLabel
             text: vrData.velocity.toFixed(0)
             color: "white"
-            horizontalAlignment: Text.AlignRight
+            
+            anchors.right: gearLabel.left
+            anchors.bottom: parent.verticalCenter
+
+            width: parent.width * 0.25
+            height: parent.height * 0.25
+
             font {
-                pixelSize: gearLabel.font.pixelSize * 0.33
+                pointSize: 100
             }
 
-            width: parent.width * 0.3
-
-            anchors.bottom: gearLabel.verticalCenter
-            anchors.left: parent.left
+            minimumPointSize: 2
+            fontSizeMode: Text.Fit
+            horizontalAlignment: Text.AlignRight
+            verticalAlignment: Text.AlignVCenter
         }
 
         Text {
+            id: velocityUnitDesc
             text: "km/h"
             color: "white"
+            
+            anchors.right: gearLabel.left
+            anchors.top: parent.verticalCenter
+
+            width: parent.width * 0.15
+            height: parent.height * 0.25
+
             font {
-                pixelSize: velocityLabel.font.pixelSize * 0.5
+                pointSize: 100
             }
 
-            anchors.top: velocityLabel.bottom
-            anchors.right: velocityLabel.right
+            minimumPointSize: 2
+            fontSizeMode: Text.Fit
+            horizontalAlignment: Text.AlignRight
+            verticalAlignment: Text.AlignTop
         }
 
 
@@ -119,27 +140,39 @@ Rectangle {
             id: rpmLabel
             text: vrData.rpm
             color: "white"
-            horizontalAlignment: Text.AlignRight
+            
+            anchors.right: parent.right
+            anchors.bottom: parent.verticalCenter
+            anchors.rightMargin: 10
+
+            width: parent.width * 0.25
+            height: parent.height * 0.25
+
             font {
-                pixelSize: velocityLabel.font.pixelSize
+                pointSize: 100
             }
 
-            width: parent.width * 0.3
-
-            anchors.bottom: gearLabel.verticalCenter
-            anchors.right: parent.right
-            anchors.rightMargin: 20
+            minimumPointSize: 2
+            fontSizeMode: Text.Fit
+            horizontalAlignment: Text.AlignRight
+            verticalAlignment: Text.AlignVCenter
         }
 
         Text {
             text: "RPM"
             color: "white"
-            font {
-                pixelSize: rpmLabel.font.pixelSize * 0.5
-            }
+            
+            anchors.right: parent.right
+            anchors.top: parent.verticalCenter
+            anchors.rightMargin: 10
 
-            anchors.top: rpmLabel.bottom
-            anchors.right: rpmLabel.right
+            width: parent.width * 0.15
+            height: parent.height * 0.25
+
+            font.pointSize: velocityUnitDesc.fontInfo.pointSize
+
+            horizontalAlignment: Text.AlignRight
+            verticalAlignment: Text.AlignTop
         }
 
         Row {
