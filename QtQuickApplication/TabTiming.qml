@@ -5,6 +5,427 @@ import VRPlot 1.0
 Rectangle{
     color: "#3e4244"
 
+    Rectangle {
+        id: currentTile
+        color: "transparent"
+        border.color: "#a7def9"
+
+        width: parent.width * 0.3
+        height: parent.height * 0.35
+
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.margins: 10
+
+        Rectangle {
+            id: currentLapTime
+            color: "transparent"
+
+            anchors.top: parent.top
+            anchors.left: parent.left
+
+            width: parent.width
+            height: parent.height * 0.6
+
+            Text {
+                id: currentTimeLabel
+                text: "1:32.123"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.75
+
+                font {
+                    pointSize: 500
+                    bold: true
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                text: "Current Laptime"
+                color: "white"
+
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.margins: 5
+
+                width: parent.width * 0.3
+                height: parent.height * 0.2
+
+                font.pointSize: currentSectorTimeDesc.fontInfo.pointSize
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignBottom
+            }
+        }
+
+        Rectangle {
+            id: currentSectorTime
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.top: currentLapTime.bottom
+            anchors.left: parent.left
+
+            width: parent.width
+            height: parent.height * 0.4
+
+            Text {
+                id: currentSectorLabel
+                text: "41.438"
+                color: "white"
+
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width * 0.8
+                height: parent.height * 0.7
+
+                font {
+                    pointSize: 500
+                    bold: true
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Text {
+                id: currentSectorTimeDesc
+                text: "Current Sectortime"
+                color: "white"
+
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.margins: 5
+
+                width: parent.width * 0.6
+                height: parent.height * 0.2
+
+                font {
+                    pointSize: 100
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignLeft
+            }
+        }
+    }
+
+    /////////////////////////////////////////////////////
+
+    Rectangle {
+        id: bestTile
+        color: "transparent"
+        border.color: "#a7def9"
+
+        width: parent.width * 0.3
+        height: parent.height * 0.25
+
+        anchors.top: currentTile.bottom
+        anchors.left: parent.left
+        anchors.margins: 10
+        anchors.topMargin: parent.height * 0.0375
+
+        Rectangle {
+            id: bestTime
+            color: "transparent"
+
+            width: parent.width
+            height: parent.height * 0.7
+
+            anchors.top: parent.top
+            anchors.left: parent.left
+
+            Text {
+                id: bestTimeLabel
+                text: "1:49.672"
+                color: "white"
+
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width * 0.8
+                height: parent.height * 0.7
+
+                font {
+                    pointSize: 500
+                    bold: true
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Text {
+                text: "Best Laptime"
+                color: "white"
+
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.margins: 5
+
+                width: parent.width * 0.6
+                height: parent.height * 0.2
+
+                font.pointSize: currentSectorTimeDesc.fontInfo.pointSize
+
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignBottom
+            }
+        }
+
+        Rectangle {
+            id: sector1
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: sector1Time
+                text: "S1"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        Rectangle {
+            id: sector2
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: sector2Time
+                text: "S2"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        Rectangle {
+            id: sector3
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: sector3Time
+                text: "S3"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+    }
+
+    /////////////////////////////////////////////////////
+
+    Rectangle {
+        id: theorBestTile
+        color: "transparent"
+        border.color: "#a7def9"
+
+        width: parent.width * 0.3
+        height: parent.height * 0.25
+
+        anchors.top: bestTile.bottom
+        anchors.left: parent.left
+        anchors.margins: 10
+        anchors.topMargin: parent.height * 0.0375
+
+        Rectangle {
+            id: theorBestTime
+            color: "transparent"
+
+            width: parent.width
+            height: parent.height * 0.7
+
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+
+            Text {
+                id: theorBestTimeLabel
+                text: "1:49.672"
+                color: "white"
+
+                anchors.bottom: parent.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width * 0.8
+                height: parent.height * 0.7
+
+                font {
+                    pointSize: 500
+                    bold: true
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Text {
+                text: "Theoretical best Laptime"
+                color: "white"
+
+                anchors.left: parent.left
+                anchors.top: parent.top
+                anchors.margins: 5
+
+                width: parent.width * 0.6
+                height: parent.height * 0.2
+
+                font.pointSize: currentSectorTimeDesc.fontInfo.pointSize
+
+                horizontalAlignment: Text.AlignLeft
+            }
+        }
+
+        Rectangle {
+            id: bestSector1
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.top: parent.top
+            anchors.left: parent.left
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: bestSector1Time
+                text: "Best S1"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        Rectangle {
+            id: bestSector2
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: bestSector2Time
+                text: "Best S2"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        Rectangle {
+            id: bestSector3
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.top: parent.top
+            anchors.right: parent.right
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: bestSector3Time
+                text: "Best S3"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+    }
+
+    /////////////////////////////////////////////
+
     VRPlotLapTimeBar {
 
         id: lapTimeBar
