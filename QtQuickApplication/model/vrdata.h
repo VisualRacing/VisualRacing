@@ -29,6 +29,10 @@ class VRData : public QObject
 
     Q_PROPERTY(float brakeBias READ getBrakeBias WRITE setBrakeBias NOTIFY brakeBiasChanged)
 
+    Q_PROPERTY(float currentLapTime READ getCurrentLapTime WRITE setCurrentLapTime NOTIFY currentLapTimeChanged)
+    Q_PROPERTY(float bestLapTime READ getBestLapTime WRITE setBestLapTime NOTIFY bestLapTimeChanged)
+    Q_PROPERTY(float previousLapTime READ getPreviousLapTime WRITE setPreviousLapTime NOTIFY previousLapTimeChanged)
+
 public:
     VRData();
 
@@ -73,6 +77,15 @@ public:
     float getBrakeBias() const;
     void setBrakeBias(float value);
 
+    float getCurrentLapTime() const;
+    void setCurrentLapTime(float value);
+
+    float getBestLapTime() const;
+    void setBestLapTime(float value);
+
+    float getPreviousLapTime() const;
+    void setPreviousLapTime(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -92,6 +105,10 @@ signals:
     void isInPitlaneChanged();
 
     void brakeBiasChanged();
+
+    void currentLapTimeChanged();
+    void bestLapTimeChanged();
+    void previousLapTimeChanged();
 
 private:
 
@@ -183,9 +200,9 @@ private:
     //
 
     // in s
-    //float currentLapTime;
-    //float bestLapTime;
-    //float previousLapTime;
+    float currentLapTime;
+    float bestLapTime;
+    float previousLapTime;
     //float theoreticalBestLapTime;
 
     //int currentSector;

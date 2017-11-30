@@ -20,6 +20,10 @@ VRData::VRData()
 
     this->pitLimiter = false;
     this->isInPitlane = false;
+
+    this->currentLapTime = 0.0f;
+    this->bestLapTime = 0.0f;
+    this->previousLapTime = 0.0f;
 }
 
 double VRData::getTimeInSeconds()
@@ -208,4 +212,46 @@ void VRData::setBrakeBias(float value)
 
     brakeBias = value;
     emit brakeBiasChanged();
+}
+
+float VRData::getCurrentLapTime() const
+{
+    return currentLapTime;
+}
+
+void VRData::setCurrentLapTime(float value)
+{
+    if (currentLapTime == value)
+        return;
+
+    currentLapTime = value;
+    emit currentLapTimeChanged();
+}
+
+float VRData::getBestLapTime() const
+{
+    return bestLapTime;
+}
+
+void VRData::setBestLapTime(float value)
+{
+    if (bestLapTime == value)
+            return;
+
+    bestLapTime = value;
+    emit bestLapTimeChanged();
+}
+
+float VRData::getPreviousLapTime() const
+{
+    return previousLapTime;
+}
+
+void VRData::setPreviousLapTime(float value)
+{
+    if (previousLapTime == value)
+        return;
+
+    previousLapTime = value;
+    emit previousLapTimeChanged();
 }

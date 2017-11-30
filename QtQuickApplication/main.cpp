@@ -28,12 +28,12 @@ int main(int argc, char *argv[])
     app.setWindowIcon(QIcon(":/images/icon.ico"));
 
     QQmlApplicationEngine engine;
-
+    QSharedPointer<VRSimulationManager> simulationManager;
     QSharedPointer<VRData> vrData;
 
-    bool uiDev = false;
+    bool uiDev = true;
     if (!uiDev) {
-        QSharedPointer<VRSimulationManager> simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
+        simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
         simulationManager->start();
 
         QSharedPointer<VRDataInterface> dataInterface;

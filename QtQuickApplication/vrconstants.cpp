@@ -5,7 +5,7 @@ namespace vrconstants {
     const int lookForRunningSimInterval = 100; // in ms
     const int connectToSharedMemoryInterval = 100; // in ms
 
-    const wchar_t* r3eProcessName = L"RRRE.exe";
+    const wchar_t* r3eProcessName = L"RRRE64.exe"; // TODO: Also allow 32-bit version.
     const QString r3eSharedMemoryName("$R3E");
 
     const wchar_t* acProcessName = L"acs.exe";
