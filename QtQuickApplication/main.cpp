@@ -11,6 +11,7 @@
 #include <QThread>
 
 #include "vrmainwindow.h"
+#include "vrmessage.h"
 #include "view/vrplotvelocity.h"
 #include "view/vrplotpedals.h"
 #include "view/vrplotlaptimebar.h"
@@ -28,6 +29,7 @@ int main(int argc, char *argv[])
     app.setWindowIcon(QIcon(":/images/icon.ico"));
 
     QQmlApplicationEngine engine;
+    QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
     QSharedPointer<VRSimulationManager> simulationManager;
     QSharedPointer<VRData> vrData;
 
@@ -44,13 +46,13 @@ int main(int argc, char *argv[])
         vrData = dataInterface->getBuffer();
     } else {
         vrData = QSharedPointer<VRData>(new VRData());
+        QSharedPointer<VRMessage> devMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Ui-Development-Mode aktive."), QColor(239, 105, 9)));
+        mainWindow->setItsCurrentMessage(devMessage);
     }
 
-
     /*
-     *  create a VRMainWindow-instanz and expose it to QML
+     * expose Data-Objects to qml
      */
-    QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
     engine.rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
     engine.rootContext()->setContextProperty("vrData", vrData.data());
 
