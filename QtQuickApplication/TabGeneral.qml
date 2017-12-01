@@ -381,7 +381,7 @@ Rectangle {
         }
 
         function lapTimeToString(time) {
-            if (time === 0.0)
+            if (time <= 0.0)
                 return "-:--.---"
 
             var min = Math.floor(time / 60);
@@ -446,7 +446,6 @@ Rectangle {
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
 
-
                     color: "lime"
                 }
             }
@@ -494,7 +493,6 @@ Rectangle {
                     height: parent.height * 0.5
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
-
 
                     color: "lime"
                 }
@@ -544,7 +542,6 @@ Rectangle {
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
 
-
                     color: "lime"
                 }
             }
@@ -592,7 +589,6 @@ Rectangle {
                     height: parent.height * 0.5
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
-
 
                     color: "lime"
                 }
