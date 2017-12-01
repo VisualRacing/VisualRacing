@@ -11,6 +11,7 @@
 #include <QThread>
 
 #include "vrmainwindow.h"
+#include "vrmessage.h"
 #include "view/vrplotvelocity.h"
 #include "view/vrplotpedals.h"
 #include "view/vrplotlaptimebar.h"
@@ -22,26 +23,39 @@
 
 int main(int argc, char *argv[])
 {
+
+
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/images/icon.ico"));
 
     QQmlApplicationEngine engine;
+    QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
+    QSharedPointer<VRSimulationManager> simulationManager;
+    QSharedPointer<VRData> vrData;
 
-    VRSimulationManager *simulationManager = new VRSimulationManager();
+    bool uiDev = false;
+    if (!uiDev) {simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
+        simulationManager->start();
 
-    simulationManager->start();
+        QSharedPointer<VRDataInterface> dataInterface;
+        do {
+            dataInterface = simulationManager->getDataInterface();
+        } while(dataInterface.isNull());
 
-    QSharedPointer<VRDataInterface> dataInterface;
-    do {
-        dataInterface = simulationManager->getDataInterface();
-    } while(dataInterface.isNull());
+        vrData = dataInterface->getBuffer();
 
-    QSharedPointer<VRData> vrData = dataInterface->getBuffer();
+        QSharedPointer<VRMessage> connectedMessage = QSharedPointer<VRMessage>(new VRMessage(QString("DataInterface connected successfully."), QColor(38, 211, 67)));
+        mainWindow->setItsCurrentMessage(connectedMessage);
+    } else {
+        vrData = QSharedPointer<VRData>(new VRData());
+
+        QSharedPointer<VRMessage> devMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Ui-Development-Mode active."), QColor(239, 105, 9)));
+        mainWindow->setItsCurrentMessage(devMessage);
+    }
 
     /*
-     *  create a VRMainWindow-instanz and expose it to QML
+     * expose Data-Objects to qml
      */
-    QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
     engine.rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
     engine.rootContext()->setContextProperty("vrData", vrData.data());
 
