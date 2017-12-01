@@ -77,5 +77,9 @@ bool VRDataInterfaceAC::update() {
 
     this->buffer->setBrakeBias(this->nativeBufferPhysics->brakeBias);
 
+    //this->buffer->setCurrentLapTime();
+    //this->buffer->setBestLapTime();
+    //this->buffer->setPreviousLapTime();
+
     return true;
 }

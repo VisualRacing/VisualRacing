@@ -47,5 +47,9 @@ bool VRDataInterfaceR3E::update() {
 
     this->buffer->setBrakeBias(qMax(1.0f - this->nativeBuffer->brake_bias, 0.0f));
 
+    this->buffer->setCurrentLapTime(qMax(this->nativeBuffer->lap_time_current_self, 0.0f));
+    this->buffer->setBestLapTime(qMax(this->nativeBuffer->lap_time_best_self, 0.0f));
+    this->buffer->setPreviousLapTime(qMax(this->nativeBuffer->lap_time_previous_self, 0.0f));
+
     return true;
 }
