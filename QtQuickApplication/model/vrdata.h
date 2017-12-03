@@ -33,6 +33,27 @@ class VRData : public QObject
     Q_PROPERTY(float bestLapTime READ getBestLapTime WRITE setBestLapTime NOTIFY bestLapTimeChanged)
     Q_PROPERTY(float previousLapTime READ getPreviousLapTime WRITE setPreviousLapTime NOTIFY previousLapTimeChanged)
 
+    Q_PROPERTY(float tireWearFL READ getTireWearFL WRITE setTireWearFL NOTIFY tireWearFLChanged)
+    Q_PROPERTY(float tireWearFR READ getTireWearFR WRITE setTireWearFR NOTIFY tireWearFRChanged)
+    Q_PROPERTY(float tireWearRR READ getTireWearRR WRITE setTireWearRR NOTIFY tireWearRRChanged)
+    Q_PROPERTY(float tireWearRL READ getTireWearRL WRITE setTireWearRL NOTIFY tireWearRLChanged)
+
+    Q_PROPERTY(float tireTemperatureFLI READ getTireTemperatureFLI WRITE setTireTemperatureFLI NOTIFY tireTemperatureFLIChanged)
+    Q_PROPERTY(float tireTemperatureFLC READ getTireTemperatureFLC WRITE setTireTemperatureFLC NOTIFY tireTemperatureFLCChanged)
+    Q_PROPERTY(float tireTemperatureFLO READ getTireTemperatureFLO WRITE setTireTemperatureFLO NOTIFY tireTemperatureFLOChanged)
+
+    Q_PROPERTY(float tireTemperatureFRI READ getTireTemperatureFRI WRITE setTireTemperatureFRI NOTIFY tireTemperatureFRIChanged)
+    Q_PROPERTY(float tireTemperatureFRC READ getTireTemperatureFRC WRITE setTireTemperatureFRC NOTIFY tireTemperatureFRCChanged)
+    Q_PROPERTY(float tireTemperatureFRO READ getTireTemperatureFRO WRITE setTireTemperatureFRO NOTIFY tireTemperatureFROChanged)
+
+    Q_PROPERTY(float tireTemperatureRRI READ getTireTemperatureRRI WRITE setTireTemperatureRRI NOTIFY tireTemperatureRRIChanged)
+    Q_PROPERTY(float tireTemperatureRRC READ getTireTemperatureRRC WRITE setTireTemperatureRRC NOTIFY tireTemperatureRRCChanged)
+    Q_PROPERTY(float tireTemperatureRRO READ getTireTemperatureRRO WRITE setTireTemperatureRRO NOTIFY tireTemperatureRROChanged)
+
+    Q_PROPERTY(float tireTemperatureRLI READ getTireTemperatureRLI WRITE setTireTemperatureRLI NOTIFY tireTemperatureRLIChanged)
+    Q_PROPERTY(float tireTemperatureRLC READ getTireTemperatureRLC WRITE setTireTemperatureRLC NOTIFY tireTemperatureRLCChanged)
+    Q_PROPERTY(float tireTemperatureRLO READ getTireTemperatureRLO WRITE setTireTemperatureRLO NOTIFY tireTemperatureRLOChanged)
+
 public:
     VRData();
 
@@ -86,6 +107,54 @@ public:
     float getPreviousLapTime() const;
     void setPreviousLapTime(float value);
 
+    float getTireWearFL() const;
+    void setTireWearFL(float value);
+
+    float getTireWearFR() const;
+    void setTireWearFR(float value);
+
+    float getTireWearRR() const;
+    void setTireWearRR(float value);
+
+    float getTireWearRL() const;
+    void setTireWearRL(float value);
+
+    float getTireTemperatureFLI() const;
+    void setTireTemperatureFLI(float value);
+
+    float getTireTemperatureFLC() const;
+    void setTireTemperatureFLC(float value);
+
+    float getTireTemperatureFLO() const;
+    void setTireTemperatureFLO(float value);
+
+    float getTireTemperatureFRI() const;
+    void setTireTemperatureFRI(float value);
+
+    float getTireTemperatureFRC() const;
+    void setTireTemperatureFRC(float value);
+
+    float getTireTemperatureFRO() const;
+    void setTireTemperatureFRO(float value);
+
+    float getTireTemperatureRRI() const;
+    void setTireTemperatureRRI(float value);
+
+    float getTireTemperatureRRC() const;
+    void setTireTemperatureRRC(float value);
+
+    float getTireTemperatureRRO() const;
+    void setTireTemperatureRRO(float value);
+
+    float getTireTemperatureRLI() const;
+    void setTireTemperatureRLI(float value);
+
+    float getTireTemperatureRLC() const;
+    void setTireTemperatureRLC(float value);
+
+    float getTireTemperatureRLO() const;
+    void setTireTemperatureRLO(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -110,8 +179,28 @@ signals:
     void bestLapTimeChanged();
     void previousLapTimeChanged();
 
-private:
+    void tireWearFLChanged();
+    void tireWearFRChanged();
+    void tireWearRRChanged();
+    void tireWearRLChanged();
 
+    void tireTemperatureFLIChanged();
+    void tireTemperatureFLCChanged();
+    void tireTemperatureFLOChanged();
+
+    void tireTemperatureFRIChanged();
+    void tireTemperatureFRCChanged();
+    void tireTemperatureFROChanged();
+
+    void tireTemperatureRRIChanged();
+    void tireTemperatureRRCChanged();
+    void tireTemperatureRROChanged();
+
+    void tireTemperatureRLIChanged();
+    void tireTemperatureRLCChanged();
+    void tireTemperatureRLOChanged();
+
+private:
     //
     // Application information
     //
@@ -153,31 +242,35 @@ private:
     float clutch;
 
     // Tire Info
-    /* Indexing:
-     * 0: Front Left
-     * 1: Front Right
-     * 2: Rear Right
-     * 3: Rear Left
-    */
-
     //float tirePressure[4]; // TODO: Unit?
-    //float tireWear[4];
+    float tireWearFL;
+    float tireWearFR;
+    float tireWearRR;
+    float tireWearRL;
     //float tireDirt[4];
 
     // Tire temperatures of three points across the tread of the tire (in Celcius)
-    /*
-     * Indexing of 2nd dimension:
-     * 0: Inner
-     * 1: Center
-     * 2: Outer
-     */
-    //float tireTemperatures[4][3];
+    float tireTemperatureFLI;
+    float tireTemperatureFLC;
+    float tireTemperatureFLO;
+
+    float tireTemperatureFRI;
+    float tireTemperatureFRC;
+    float tireTemperatureFRO;
+
+    float tireTemperatureRRI;
+    float tireTemperatureRRC;
+    float tireTemperatureRRO;
+
+    float tireTemperatureRLI;
+    float tireTemperatureRLC;
+    float tireTemperatureRLO;
 
     // in Celcius
     //float brakeTemperatures[4];
 
     // Damage
-    // TODO: AC and R3E work a bit different here, not sure what the best way to handle this is.
+    // TODO: AC and R3E work a bit different here, not sure what's the best way to handle this.
 
     // in l
     float fuel;

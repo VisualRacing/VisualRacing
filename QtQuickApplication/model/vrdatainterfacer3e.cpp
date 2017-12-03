@@ -51,5 +51,26 @@ bool VRDataInterfaceR3E::update() {
     this->buffer->setBestLapTime(qMax(this->nativeBuffer->lap_time_best_self, 0.0f));
     this->buffer->setPreviousLapTime(qMax(this->nativeBuffer->lap_time_previous_self, 0.0f));
 
+    this->buffer->setTireWearFL(qMax(this->nativeBuffer->tire_wear[R3E_TIRE_FRONT_LEFT], 0.0f));
+    this->buffer->setTireWearFR(qMax(this->nativeBuffer->tire_wear[R3E_TIRE_FRONT_RIGHT], 0.0f));
+    this->buffer->setTireWearRR(qMax(this->nativeBuffer->tire_wear[R3E_TIRE_REAR_RIGHT], 0.0f));
+    this->buffer->setTireWearRL(qMax(this->nativeBuffer->tire_wear[R3E_TIRE_REAR_LEFT], 0.0f));
+
+    this->buffer->setTireTemperatureFLI(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_FRONT_LEFT][R3E_TIRE_TEMP_RIGHT], 0.0f));
+    this->buffer->setTireTemperatureFLC(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_FRONT_LEFT][R3E_TIRE_TEMP_CENTER], 0.0f));
+    this->buffer->setTireTemperatureFLO(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_FRONT_LEFT][R3E_TIRE_TEMP_LEFT], 0.0f));
+
+    this->buffer->setTireTemperatureFRI(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_FRONT_RIGHT][R3E_TIRE_TEMP_LEFT], 0.0f));
+    this->buffer->setTireTemperatureFRC(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_FRONT_RIGHT][R3E_TIRE_TEMP_CENTER], 0.0f));
+    this->buffer->setTireTemperatureFRO(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_FRONT_RIGHT][R3E_TIRE_TEMP_RIGHT], 0.0f));
+
+    this->buffer->setTireTemperatureRRI(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_RIGHT][R3E_TIRE_TEMP_LEFT], 0.0f));
+    this->buffer->setTireTemperatureRRC(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_RIGHT][R3E_TIRE_TEMP_CENTER], 0.0f));
+    this->buffer->setTireTemperatureRRO(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_RIGHT][R3E_TIRE_TEMP_RIGHT], 0.0f));
+
+    this->buffer->setTireTemperatureRLI(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_LEFT][R3E_TIRE_TEMP_RIGHT], 0.0f));
+    this->buffer->setTireTemperatureRLC(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_LEFT][R3E_TIRE_TEMP_CENTER], 0.0f));
+    this->buffer->setTireTemperatureRLO(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_LEFT][R3E_TIRE_TEMP_LEFT], 0.0f));
+
     return true;
 }

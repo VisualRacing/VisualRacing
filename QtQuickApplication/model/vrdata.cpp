@@ -24,6 +24,27 @@ VRData::VRData()
     this->currentLapTime = 0.0f;
     this->bestLapTime = 0.0f;
     this->previousLapTime = 0.0f;
+
+    this->tireWearFL = 0.0f;
+    this->tireWearFR = 0.0f;
+    this->tireWearRR = 0.0f;
+    this->tireWearRL = 0.0f;
+
+    this->tireTemperatureFLI = 0.0f;
+    this->tireTemperatureFLC = 0.0f;
+    this->tireTemperatureFLO = 0.0f;
+
+    this->tireTemperatureFRI = 0.0f;
+    this->tireTemperatureFRC = 0.0f;
+    this->tireTemperatureFRO = 0.0f;
+
+    this->tireTemperatureRRI = 0.0f;
+    this->tireTemperatureRRC = 0.0f;
+    this->tireTemperatureRRO = 0.0f;
+
+    this->tireTemperatureRLI = 0.0f;
+    this->tireTemperatureRLC = 0.0f;
+    this->tireTemperatureRLO = 0.0f;
 }
 
 double VRData::getTimeInSeconds()
@@ -254,4 +275,228 @@ void VRData::setPreviousLapTime(float value)
 
     previousLapTime = value;
     emit previousLapTimeChanged();
+}
+
+float VRData::getTireWearFL() const
+{
+    return tireWearFL;
+}
+
+void VRData::setTireWearFL(float value)
+{
+    if (tireWearFL == value)
+        return;
+
+    tireWearFL = value;
+    emit tireWearFLChanged();
+}
+
+float VRData::getTireWearFR() const
+{
+    return tireWearFR;
+}
+
+void VRData::setTireWearFR(float value)
+{
+    if (tireWearFR == value)
+        return;
+
+    tireWearFR = value;
+    emit tireWearFRChanged();
+}
+
+float VRData::getTireWearRR() const
+{
+    return tireWearRR;
+}
+
+void VRData::setTireWearRR(float value)
+{
+    if(tireWearRR == value)
+        return;
+
+    tireWearRR = value;
+    emit tireWearRRChanged();
+}
+
+float VRData::getTireWearRL() const
+{
+    return tireWearRL;
+}
+
+void VRData::setTireWearRL(float value)
+{
+    if (tireWearRL == value)
+        return;
+
+    tireWearRL = value;
+    emit tireWearRLChanged();
+}
+
+float VRData::getTireTemperatureFLI() const
+{
+    return tireTemperatureFLI;
+}
+
+void VRData::setTireTemperatureFLI(float value)
+{
+    if (value == tireTemperatureFLI)
+        return;
+
+    tireTemperatureFLI = value;
+    emit tireTemperatureFLIChanged();
+}
+
+float VRData::getTireTemperatureFLC() const
+{
+    return tireTemperatureFLC;
+}
+
+void VRData::setTireTemperatureFLC(float value)
+{
+    if (value == tireTemperatureFLC)
+        return;
+
+    tireTemperatureFLC = value;
+    emit tireTemperatureFLCChanged();
+}
+
+float VRData::getTireTemperatureFLO() const
+{
+    return tireTemperatureFLO;
+}
+
+void VRData::setTireTemperatureFLO(float value)
+{
+    if (value == tireTemperatureFLO)
+        return;
+
+    tireTemperatureFLO = value;
+    emit tireTemperatureFLOChanged();
+}
+
+float VRData::getTireTemperatureFRI() const
+{
+    return tireTemperatureFRI;
+}
+
+void VRData::setTireTemperatureFRI(float value)
+{
+    if (value == tireTemperatureFRI)
+        return;
+
+    tireTemperatureFRI = value;
+    emit tireTemperatureFRIChanged();
+}
+
+float VRData::getTireTemperatureFRC() const
+{
+    return tireTemperatureFRC;
+}
+
+void VRData::setTireTemperatureFRC(float value)
+{
+    if (value == tireTemperatureFRC)
+        return;
+
+    tireTemperatureFRC = value;
+    emit tireTemperatureFRCChanged();
+}
+
+float VRData::getTireTemperatureFRO() const
+{
+    return tireTemperatureFRO;
+}
+
+void VRData::setTireTemperatureFRO(float value)
+{
+    if (value == tireTemperatureFRO)
+        return;
+
+    tireTemperatureFRO = value;
+    emit tireTemperatureFROChanged();
+}
+
+float VRData::getTireTemperatureRRI() const
+{
+    return tireTemperatureRRI;
+}
+
+void VRData::setTireTemperatureRRI(float value)
+{
+    if (value == tireTemperatureRRI)
+        return;
+
+    tireTemperatureRRI = value;
+    emit tireTemperatureRRIChanged();
+}
+
+float VRData::getTireTemperatureRRC() const
+{
+    return tireTemperatureRRC;
+}
+
+void VRData::setTireTemperatureRRC(float value)
+{
+    if (value == tireTemperatureRRC)
+        return;
+
+    tireTemperatureRRC = value;
+    emit tireTemperatureRRCChanged();
+}
+
+float VRData::getTireTemperatureRRO() const
+{
+    return tireTemperatureRRO;
+}
+
+void VRData::setTireTemperatureRRO(float value)
+{
+    if (value == tireTemperatureRRO)
+        return;
+
+    tireTemperatureRRO = value;
+    emit tireTemperatureRROChanged();
+}
+
+float VRData::getTireTemperatureRLI() const
+{
+    return tireTemperatureRLI;
+}
+
+void VRData::setTireTemperatureRLI(float value)
+{
+    if (value == tireTemperatureRLI)
+        return;
+
+    tireTemperatureRLI = value;
+    emit tireTemperatureRLIChanged();
+}
+
+float VRData::getTireTemperatureRLC() const
+{
+    return tireTemperatureRLC;
+}
+
+void VRData::setTireTemperatureRLC(float value)
+{
+    if (value == tireTemperatureRLC)
+        return;
+
+    tireTemperatureRLC = value;
+    emit tireTemperatureRLCChanged();
+}
+
+float VRData::getTireTemperatureRLO() const
+{
+    return tireTemperatureRLO;
+}
+
+void VRData::setTireTemperatureRLO(float value)
+{
+    if (value == tireTemperatureRLO)
+        return;
+
+    tireTemperatureRLO = value;
+    emit tireTemperatureRLOChanged();
 }
