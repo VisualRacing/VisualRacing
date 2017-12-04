@@ -3,6 +3,7 @@ import VRPlot 1.0
 import QtQuick.Layouts 1.3
 
 Rectangle {
+
     color: "#3e4244"
 
     VRPlotRPM {
@@ -392,206 +393,217 @@ Rectangle {
     }
 
     Rectangle {
-            id: tireOverview
-            width: parent.width * 0.25 - 30
-            height: parent.height * 0.47
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            anchors.margins: 15
+        id: tireOverview
+        width: parent.width * 0.25 - 30
+        height: parent.height * 0.47
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 15
 
+        color: "transparent"
+        border.color: "#a7def9"
+
+        Rectangle{
+            id: frontLeftBox
+            width: parent.width * 0.23
+            height: parent.height * 0.30
+            anchors.top: parent.top
+            anchors.left: parent.left
             color: "transparent"
-            border.color: "#a7def9"
+
+            anchors.leftMargin: parent.width * 0.1
+            anchors.topMargin: parent.height * 0.1
 
             Rectangle{
-                id: frontLeftBox
-                width: parent.width * 0.23
-                height: parent.height * 0.30
-                anchors.top: parent.top
-                anchors.left: parent.left
-                color: "transparent"
+                id: frontLeft
+                width: parent.height
+                height: parent.width
+                anchors.centerIn: parent
+                rotation: 90
+                radius: 17
 
-                anchors.leftMargin: parent.width * 0.1
-                anchors.topMargin: parent.height * 0.1
-
-                Rectangle{
-                    id: frontLeft
-                    width: parent.height
-                    height: parent.width
-                    anchors.centerIn: parent
-                    rotation: 90
-                    radius: 17
-
-                    gradient: Gradient {
-                        GradientStop { position: 0.0; color: "#aa2222" }
-                        GradientStop { position: 0.5; color: "#22aa22" }
-                        GradientStop { position: 1.0; color: "#2222aa" }
-                    }
-
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "#aa2222" }
+                    GradientStop { position: 0.5; color: "#22aa22" }
+                    GradientStop { position: 1.0; color: "#2222aa" }
                 }
-            }
 
-            Rectangle {
-                id: frontLeftState
-                width: parent.width * 0.07
-                height: frontLeftBox.height
-                anchors.top: frontLeftBox.top
-                anchors.left: frontLeftBox.right
-                anchors.leftMargin: parent.width * 0.02
-
-                color: "#777777";
-
-                Rectangle {
-                    width: parent.width
-                    height: parent.height * 0.5
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-
-                    color: "lime"
-                }
-            }
-
-            Rectangle{
-                id: frontRightBox
-                width: parent.width * 0.23
-                height: parent.height * 0.30
-                anchors.top: parent.top
-                anchors.right: parent.right
-                color: "transparent"
-
-                anchors.rightMargin: parent.width * 0.1
-                anchors.topMargin: parent.height * 0.1
-
-                Rectangle{
-                    id: frontRight
-                    width: parent.height
-                    height: parent.width
-                    anchors.centerIn: parent
-                    rotation: 90
-                    radius: 17
-
-                    gradient: Gradient {
-                        GradientStop { position: 0.0; color: "#2222aa" }
-                        GradientStop { position: 0.5; color: "#22aa22" }
-                        GradientStop { position: 1.0; color: "#aa2222" }
-                    }
-
-                }
-            }
-
-            Rectangle {
-                id: frontRightState
-                width: parent.width * 0.07
-                height: frontRightBox.height
-                anchors.top: frontRightBox.top
-                anchors.right: frontRightBox.left
-                anchors.rightMargin: parent.width * 0.02
-
-                color: "#777777";
-
-                Rectangle {
-                    width: parent.width
-                    height: parent.height * 0.5
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-
-                    color: "lime"
-                }
-            }
-
-            Rectangle{
-                id: rearLeftBox
-                width: parent.width * 0.23
-                height: parent.height * 0.30
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                color: "transparent"
-
-                anchors.leftMargin: parent.width * 0.1
-                anchors.bottomMargin: parent.height * 0.1
-
-                Rectangle{
-                    id: rearLeft
-                    width: parent.height
-                    height: parent.width
-                    anchors.centerIn: parent
-                    rotation: 90
-                    radius: 17
-
-                    gradient: Gradient {
-                        GradientStop { position: 0.0; color: "#aa2222" }
-                        GradientStop { position: 0.5; color: "#22aa22" }
-                        GradientStop { position: 1.0; color: "#2222aa" }
-                    }
-
-                }
-            }
-
-            Rectangle {
-                id: rearLeftState
-                width: parent.width * 0.07
-                height: rearLeftBox.height
-                anchors.top: rearLeftBox.top
-                anchors.left: rearLeftBox.right
-                anchors.leftMargin: parent.width * 0.02
-
-                color: "#777777";
-
-                Rectangle {
-                    width: parent.width
-                    height: parent.height * 0.5
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-
-                    color: "lime"
-                }
-            }
-
-            Rectangle{
-                id: rearRightBox
-                width: parent.width * 0.23
-                height: parent.height * 0.30
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-                color: "transparent"
-
-                anchors.rightMargin: parent.width * 0.1
-                anchors.bottomMargin: parent.height * 0.1
-
-                Rectangle{
-                    id: rearRight
-                    width: parent.height
-                    height: parent.width
-                    anchors.centerIn: parent
-                    rotation: 90
-                    radius: 17
-
-                    gradient: Gradient {
-                        GradientStop { position: 0.0; color: "#2222aa" }
-                        GradientStop { position: 0.5; color: "#22aa22" }
-                        GradientStop { position: 1.0; color: "#aa2222" }
-                    }
-
-                }
-            }
-
-            Rectangle {
-                id: rearRightState
-                width: parent.width * 0.07
-                height: rearRightBox.height
-                anchors.top: rearRightBox.top
-                anchors.right: rearRightBox.left
-                anchors.rightMargin: parent.width * 0.02
-
-                color: "#777777";
-
-                Rectangle {
-                    width: parent.width
-                    height: parent.height * 0.5
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-
-                    color: "lime"
-                }
             }
         }
+
+        Rectangle {
+            id: frontLeftState
+            width: parent.width * 0.07
+            height: frontLeftBox.height
+            anchors.top: frontLeftBox.top
+            anchors.left: frontLeftBox.right
+            anchors.leftMargin: parent.width * 0.02
+
+            color: "#777777";
+            border.color: percToColor(vrData.tireWearFL)
+
+            Rectangle {
+                width: parent.width
+                height: parent.height * vrData.tireWearFL
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+
+                color: percToColor(vrData.tireWearFL)
+            }
+        }
+
+        Rectangle{
+            id: frontRightBox
+            width: parent.width * 0.23
+            height: parent.height * 0.30
+            anchors.top: parent.top
+            anchors.right: parent.right
+            color: "transparent"
+
+            anchors.rightMargin: parent.width * 0.1
+            anchors.topMargin: parent.height * 0.1
+
+            Rectangle{
+                id: frontRight
+                width: parent.height
+                height: parent.width
+                anchors.centerIn: parent
+                rotation: 90
+                radius: 17
+
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "#2222aa" }
+                    GradientStop { position: 0.5; color: "#22aa22" }
+                    GradientStop { position: 1.0; color: "#aa2222" }
+                }
+
+            }
+        }
+
+        Rectangle {
+            id: frontRightState
+            width: parent.width * 0.07
+            height: frontRightBox.height
+            anchors.top: frontRightBox.top
+            anchors.right: frontRightBox.left
+            anchors.rightMargin: parent.width * 0.02
+
+            color: "#777777";
+            border.color: percToColor(vrData.tireWearFR)
+
+            Rectangle {
+                width: parent.width
+                height: parent.height * vrData.tireWearFR
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+
+                color: percToColor(vrData.tireWearFR)
+            }
+        }
+
+        Rectangle{
+            id: rearLeftBox
+            width: parent.width * 0.23
+            height: parent.height * 0.30
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            color: "transparent"
+
+            anchors.leftMargin: parent.width * 0.1
+            anchors.bottomMargin: parent.height * 0.1
+
+            Rectangle{
+                id: rearLeft
+                width: parent.height
+                height: parent.width
+                anchors.centerIn: parent
+                rotation: 90
+                radius: 17
+
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "#aa2222" }
+                    GradientStop { position: 0.5; color: "#22aa22" }
+                    GradientStop { position: 1.0; color: "#2222aa" }
+                }
+
+            }
+        }
+
+        Rectangle {
+            id: rearLeftState
+            width: parent.width * 0.07
+            height: rearLeftBox.height
+            anchors.top: rearLeftBox.top
+            anchors.left: rearLeftBox.right
+            anchors.leftMargin: parent.width * 0.02
+
+            color: "#777777";
+            border.color: percToColor(vrData.tireWearRL)
+
+            Rectangle {
+                width: parent.width
+                height: parent.height * vrData.tireWearRL
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+
+                color: percToColor(vrData.tireWearRL)
+            }
+        }
+
+        Rectangle{
+            id: rearRightBox
+            width: parent.width * 0.23
+            height: parent.height * 0.30
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            color: "transparent"
+
+            anchors.rightMargin: parent.width * 0.1
+            anchors.bottomMargin: parent.height * 0.1
+
+            Rectangle{
+                id: rearRight
+                width: parent.height
+                height: parent.width
+                anchors.centerIn: parent
+                rotation: 90
+                radius: 17
+
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "#2222aa" }
+                    GradientStop { position: 0.5; color: "#22aa22" }
+                    GradientStop { position: 1.0; color: "#aa2222" }
+                }
+
+            }
+        }
+
+        Rectangle {
+            id: rearRightState
+            width: parent.width * 0.07
+            height: rearRightBox.height
+            anchors.top: rearRightBox.top
+            anchors.right: rearRightBox.left
+            anchors.rightMargin: parent.width * 0.02
+
+            color: "#777777";
+            border.color: percToColor(vrData.tireWearRR)
+
+            Rectangle {
+                width: parent.width
+                height: parent.height * vrData.tireWearRR
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+
+                color: percToColor(vrData.tireWearRR)
+            }
+        }
+    }
+
+    function percToColor(p) {
+        var g = parseInt((0xFF * p).toFixed(0)).toString(16);
+        var r = parseInt((0xFF * (1 - p)).toFixed(0)).toString(16);
+
+        return "#" + (r.length < 2 ? "0" + r : r) + (g.length < 2 ? "0" + g : g) + "00";
+    }
 }
