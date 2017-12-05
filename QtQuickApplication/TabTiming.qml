@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 import VRPlot 1.0
 
 Rectangle{
@@ -424,18 +425,68 @@ Rectangle{
 
     }
 
+    /////////////////////////////////////////////////////////////
+
+    Rectangle {
+        color: "transparent"
+        border.color: "#a7def9"
+        width: parent.width * 0.67
+        height: parent.height * 0.7
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.margins: 10
+
     TableView {
              id: lapTimeTable
-             width: parent.width * 0.67
-             height: parent.height * 0.7
-             anchors.top: parent.top
-             anchors.right: parent.right
-             anchors.margins: 10
+             anchors.fill: parent
+             anchors.margins: 1
+
+             frameVisible: false
 
              style: TableViewStyle {
                  backgroundColor: "#3e4244"
                  alternateBackgroundColor: "#404446"
                  textColor: "white"
+
+                 headerDelegate: Rectangle {
+                    height: headerText.implicitHeight * 0.2
+                    width: headerText.implicitWidth
+                    color: "#343839"
+
+                    anchors.margins: 100
+
+                    Text {
+                        id: headerText
+                        anchors.fill: parent
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: styleData.textAlignment
+                        anchors.leftMargin: 12
+                        text: styleData.value
+                        color: textColor
+
+                        minimumPixelSize: 10
+                        font.pixelSize: 100
+                        fontSizeMode: Text.Fit
+                    }
+                 }
+
+                 itemDelegate: Item {
+                     height: itemText.implicitHeight
+                     width: itemText.implicitWidth
+                     Text {
+                         id: itemText
+                         anchors.fill: parent
+                         verticalAlignment: Text.AlignVCenter
+                         horizontalAlignment: styleData.textAlignment
+                         anchors.leftMargin: 12
+                         text: styleData.value
+                         color: textColor
+
+                         minimumPixelSize: 10
+                         font.pixelSize: 100
+                         fontSizeMode: Text.Fit
+                     }
+                  }
              }
 
              TableViewColumn {
@@ -488,7 +539,13 @@ Rectangle{
                  resizable: false
              }
 
+             // How-To add data to model: insert(0, ...) in front and append(...) at the end
+             // model.insert(0, {"number": "88", "laptime": "1:49:33s", "sector1":  "88s", "sector2": "12s", "sector3": "29.04s"})
+             // model.append({"number": 88, "laptime": "1:49:33s", "sector1":  "88s", "sector2": "12s", "sector3": "29.04s"})
+
              model: ListModel {
+                 id: model
+
                  ListElement {
                      number: "12"
                      laptime: "1:49.33s"
@@ -510,7 +567,8 @@ Rectangle{
                      sector2: "39.7s"
                      sector3: "29.04s"
                  }
-             }
+             }             
+    }
     }
 
     /////////////////////////////////////////////
