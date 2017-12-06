@@ -439,7 +439,7 @@ Rectangle {
             anchors.left: frontLeftBox.right
             anchors.leftMargin: parent.width * 0.02
 
-            color: "#777777";
+            color: "#313537";
             border.color: percToColor(vrData.tireWearFL)
 
             Rectangle {
@@ -488,7 +488,7 @@ Rectangle {
             anchors.right: frontRightBox.left
             anchors.rightMargin: parent.width * 0.02
 
-            color: "#777777";
+            color: "#313537";
             border.color: percToColor(vrData.tireWearFR)
 
             Rectangle {
@@ -537,7 +537,7 @@ Rectangle {
             anchors.left: rearLeftBox.right
             anchors.leftMargin: parent.width * 0.02
 
-            color: "#777777";
+            color: "#313537";
             border.color: percToColor(vrData.tireWearRL)
 
             Rectangle {
@@ -586,7 +586,7 @@ Rectangle {
             anchors.right: rearRightBox.left
             anchors.rightMargin: parent.width * 0.02
 
-            color: "#777777";
+            color: "#313537";
             border.color: percToColor(vrData.tireWearRR)
 
             Rectangle {
