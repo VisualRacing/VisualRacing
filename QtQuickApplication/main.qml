@@ -17,9 +17,16 @@ Window {
 
     function returnTemperature(tempInCelsius) {
         if(unitSystemIsMetric)
-            return tempInCelsius.toFixed(1) + " °C"
+            return tempInCelsius.toFixed(1) + " °C";
         else
-            return (tempInCelsius * 1.8 + 32).toFixed(1) + " °F"
+            return (tempInCelsius * 1.8 + 32).toFixed(1) + " °F";
+    }
+
+    function returnPressure(pressureInBar) {
+        if(unitSystemIsMetric)
+            return pressureInBar.toFixed(1) + " Bar";
+        else
+            return (pressureInBar * 14.5038).toFixed(1) + " psi";
     }
 
     id: root
