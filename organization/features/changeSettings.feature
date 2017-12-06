@@ -3,43 +3,32 @@ Feature: Change Settings
     As a user
     I want to see the tab to change the Settings and change all settings accordingly
 
-    Scenario: press OK, language changed
-        Given I have changed language settings
-        When I press the OK button
-        Then I should see the previous tab
-        And I should see the new language
+    Scenario: language changed from English to Deutsch
+        Given I have selected language English
+        When I select language Deutsch
+        Then language Deutsch should be applied
 
-    Scenario: press OK, theme changed
-        Given I have changed theme settings
-        When I press the OK button
-        Then I should see the previous tab
-        And I should see the new theme
+    Scenario: theme changed form Dark to Light
+        Given I have selected theme Dark
+        When I select theme Light
+        Then theme Light should be applied
 
-    Scenario: press OK, unit changed
-        Given I have changed unit settings
-        When I press the OK button
-        Then I should see the previous tab
-        And I should see the new unit system
+    Scenario: unit changed from Metric to Imperial
+        Given I have selected unit system Metric
+        When I select unit system Imperial
+        Then I unit system Imperial should be applied
 
-    Scenario: press Apply, language changed
-        Given I have changed language settings
-        When I press the apply button
-        Then I should see the Settings-Tab
-        And I should see the new language
+    Scenario: language changed from Deutsch to English
+        Given I have selected language Deutsch
+        When I select language English
+        Then language English should be applied
 
-    Scenario: press Apply, theme changed
-        Given I have changed theme settings
-        When I press the apply button
-        Then I should see the Settings-Tab
-        And I should see the new theme
+    Scenario: theme changed from Light to Dark
+        Given I have selected theme Light
+        When I select theme Dark
+        Then theme Dark should be applied
 
-    Scenario: press Apply, unit changed
-        Given I have changed unit settings
-        When I press the apply button
-        Then I should see the Settings-Tab
-
-    Scenario: press Reset
-        Given I have changed Settings in Settings-Tab
-        When I press the reset button
-        Then I should see the Settings-Tab
-        And I should see the default settings selected
+    Scenario: unit changed from Imperial to Metric
+        Given I have selected unit system Imperial
+        When I select unit system Metric
+        Then I unit system Metric should be applied
