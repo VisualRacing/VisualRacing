@@ -96,7 +96,7 @@ Rectangle {
 
         Text {
             id: velocityLabel
-            text: vrData.velocity.toFixed(0)
+            text: returnVelocity(vrData.velocity)
             color: "white"
             
             anchors.right: gearLabel.left
@@ -117,7 +117,7 @@ Rectangle {
 
         Text {
             id: velocityUnitDesc
-            text: "km/h"
+            text: unitSystemIsMetric ? "km/h" : "mph"
             color: "white"
             
             anchors.right: gearLabel.left
