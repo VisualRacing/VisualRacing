@@ -423,9 +423,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#aa2222" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#2222aa" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureFLI) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureFLC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureFLO) }
                 }
 
             }
@@ -472,9 +472,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#2222aa" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#aa2222" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureFRO) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureFRC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureFRI) }
                 }
 
             }
@@ -521,9 +521,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#aa2222" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#2222aa" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureRLI) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureRLC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureRLO) }
                 }
 
             }
@@ -570,11 +570,10 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#2222aa" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#aa2222" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureRRO) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureRRC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureRRI) }
                 }
-
             }
         }
 
@@ -605,5 +604,38 @@ Rectangle {
         var r = parseInt((0xFF * (1 - p)).toFixed(0)).toString(16);
 
         return "#" + (r.length < 2 ? "0" + r : r) + (g.length < 2 ? "0" + g : g) + "00";
+    }
+
+    function tempToColor(t) { // TODO: Refactor.
+        var cold = 60;
+        var low = 75;
+        var high = 85;
+        var hot = 100;
+
+        if (t < cold)
+            return "#0000FF";
+        else if (t > low && t < high)
+            return "#00FF00";
+        else if (t > hot)
+            return "#FF0000";
+
+        if(t >= cold && t <= low) {
+            var p = (t - cold)/(low - cold);
+
+            var g = parseInt((0xFF * p).toFixed(0)).toString(16);
+            var b = parseInt((0xFF * (1 - p)).toFixed(0)).toString(16);
+
+            return "#00" + (g.length < 2 ? "0" + g : g) + (b.length < 2 ? "0" + b : b);
+
+        } else if (t >= high && t <= hot) {
+            var p = (t - high)/(hot - high);
+
+            var r = parseInt((0xFF * p).toFixed(0)).toString(16);
+            var g = parseInt((0xFF * (1 - p)).toFixed(0)).toString(16);
+
+            return "#" + (r.length < 2 ? "0" + r : r) + (g.length < 2 ? "0" + g : g) + "00";
+        }
+
+        return "white";
     }
 }
