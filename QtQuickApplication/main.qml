@@ -4,12 +4,33 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
 Window {
+
+    property int numberOfTabs: 4 // number of Tabs for Aligning the SettingsTab right and the "invisible" Tab
+    property bool unitSystemIsMetric: true // Flag for changing the unit system in settings
+
+    function returnVelocity(speedInKMH) {
+        if(unitSystemIsMetric)
+            return speedInKMH.toFixed(0);
+        else
+            return (speedInKMH * 0.621371).toFixed(0);
+    }
+
+    function returnTemperature(tempInCelsius) {
+        if(unitSystemIsMetric)
+            return tempInCelsius.toFixed(1) + " °C"
+        else
+            return (tempInCelsius * 1.8 + 32).toFixed(1) + " °F"
+    }
+
     id: root
     visible: true
     width: 1500
     height: 800
     title: qsTr("Visual Racing")
     color: "#313537"
+
+    minimumHeight: 500
+    minimumWidth: 900
 
     TabView {
         id: tabView_main
@@ -44,6 +65,7 @@ Window {
 
             }
         }
+        /*
         Tab {
             id: analyticsTab
             title: "Analytics"
@@ -51,7 +73,7 @@ Window {
 
             }
         }
-
+        */
         Tab {
             id: seperatorTab
             title: ""
@@ -71,7 +93,7 @@ Window {
             tab: Rectangle {
                 color: if(styleData.title === ""){"#313537"}else{styleData.selected ? "#3e4244" :"#555555"}         // all tabs with "" will be unvisible
                 border.color: styleData.selected ? "#3e4244" :"#313537"                                             // border width = 1 pixel
-                implicitWidth: if(styleData.title === ""){tabView_main.width - (79 * 5)}else{80}                    // text must be shorter than 80 pixels
+                implicitWidth: if(styleData.title === ""){tabView_main.width - (79 * numberOfTabs)}else{80}         // text must be shorter than 80 pixels
                 implicitHeight: 30
                 Text {
                     id: text_label
@@ -85,7 +107,7 @@ Window {
         // control the invisible seperator Tab
         function resetTab(){
             vrMainWindow.setItsCurrentTab(currentIndex);
-            if (currentIndex == 4){                             // currently just makes sens if seperatorTab has index 4
+            if (currentIndex == numberOfTabs-1){
                 currentIndex = vrMainWindow.getItsLastTab();
             }
         }

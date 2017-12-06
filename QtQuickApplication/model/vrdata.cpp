@@ -5,7 +5,7 @@ VRData::VRData()
     this->startTime = VRUtilities::getCurrentTime();
 
     this->gear = 0;
-    this->velocity = 0.0f;
+    this->velocity = 100.0f;
     this->rpm = 0;
     this->maxRpm = 0;
 
@@ -20,6 +20,8 @@ VRData::VRData()
 
     this->pitLimiter = false;
     this->isInPitlane = false;
+
+    this->brakeBias = 0.0f;
 
     this->currentLapTime = 0.0f;
     this->bestLapTime = 0.0f;

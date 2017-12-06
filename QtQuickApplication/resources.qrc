@@ -1,5 +1,6 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-  <file>images/icon.ico</file>
-</qresource>
+<RCC>
+    <qresource prefix="/">
+        <file>images/icon.ico</file>
+        <file>images/settings_gear.svg</file>
+    </qresource>
 </RCC>
