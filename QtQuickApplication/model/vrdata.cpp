@@ -57,6 +57,11 @@ VRData::VRData()
     this->tirePressureFR = 0.0f;
     this->tirePressureRR = 0.0f;
     this->tirePressureRL = 0.0f;
+
+    this->tireDirtFL = 0.0f;
+    this->tireDirtFR = 0.0f;
+    this->tireDirtRR = 0.0f;
+    this->tireDirtRL = 0.0f;
 }
 
 double VRData::getTimeInSeconds()
@@ -623,4 +628,60 @@ void VRData::setTirePressureRL(float value)
 
     tirePressureRL = value;
     emit tirePressureRLChanged();
+}
+
+float VRData::getTireDirtFL() const
+{
+    return tireDirtFL;
+}
+
+void VRData::setTireDirtFL(float value)
+{
+    if (tireDirtFL == value)
+        return;
+
+    tireDirtFL = value;
+    emit tireDirtFLChanged();
+}
+
+float VRData::getTireDirtFR() const
+{
+    return tireDirtFR;
+}
+
+void VRData::setTireDirtFR(float value)
+{
+    if (tireDirtFR == value)
+        return;
+
+    tireDirtFR = value;
+    emit tireDirtFRChanged();
+}
+
+float VRData::getTireDirtRR() const
+{
+    return tireDirtRR;
+}
+
+void VRData::setTireDirtRR(float value)
+{
+    if (tireDirtRR == value)
+        return;
+
+    tireDirtRR = value;
+    emit tireDirtRRChanged();
+}
+
+float VRData::getTireDirtRL() const
+{
+    return tireDirtRL;
+}
+
+void VRData::setTireDirtRL(float value)
+{
+    if (tireDirtRL == value)
+        return;
+
+    tireDirtRL = value;
+    emit tireDirtRLChanged();
 }

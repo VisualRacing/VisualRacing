@@ -64,6 +64,11 @@ class VRData : public QObject
     Q_PROPERTY(float tirePressureRR READ getTirePressureRR WRITE setTirePressureRR NOTIFY tirePressureRRChanged)
     Q_PROPERTY(float tirePressureRL READ getTirePressureRL WRITE setTirePressureRL NOTIFY tirePressureRLChanged)
 
+    Q_PROPERTY(float tireDirtFL READ getTireDirtFL WRITE setTireDirtFL NOTIFY tireDirtFLChanged)
+    Q_PROPERTY(float tireDirtFR READ getTireDirtFR WRITE setTireDirtFR NOTIFY tireDirtFRChanged)
+    Q_PROPERTY(float tireDirtRR READ getTireDirtRR WRITE setTireDirtRR NOTIFY tireDirtRRChanged)
+    Q_PROPERTY(float tireDirtRL READ getTireDirtRL WRITE setTireDirtRL NOTIFY tireDirtRLChanged)
+
 public:
     VRData();
 
@@ -189,6 +194,18 @@ public:
     float getTirePressureRL() const;
     void setTirePressureRL(float value);
 
+    float getTireDirtFL() const;
+    void setTireDirtFL(float value);
+
+    float getTireDirtFR() const;
+    void setTireDirtFR(float value);
+
+    float getTireDirtRR() const;
+    void setTireDirtRR(float value);
+
+    float getTireDirtRL() const;
+    void setTireDirtRL(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -244,6 +261,11 @@ signals:
     void tirePressureRRChanged();
     void tirePressureRLChanged();
 
+    void tireDirtFLChanged();
+    void tireDirtFRChanged();
+    void tireDirtRRChanged();
+    void tireDirtRLChanged();
+
 private:
     //
     // Application information
@@ -296,7 +318,12 @@ private:
     float tireWearFR;
     float tireWearRR;
     float tireWearRL;
-    //float tireDirt[4];
+
+    // Tire dirt in %
+    float tireDirtFL;
+    float tireDirtFR;
+    float tireDirtRR;
+    float tireDirtRL;
 
     // Tire temperatures of three points across the tread of the tire (in Celcius)
     float tireTemperatureFLI;

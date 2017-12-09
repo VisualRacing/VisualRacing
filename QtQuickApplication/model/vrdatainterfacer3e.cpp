@@ -82,5 +82,10 @@ bool VRDataInterfaceR3E::update() {
     this->buffer->setTirePressureRR(qMax(this->nativeBuffer->tire_pressure[R3E_TIRE_REAR_RIGHT], 0.0f) / 100); // Conversion from kPa to Bar
     this->buffer->setTirePressureRL(qMax(this->nativeBuffer->tire_pressure[R3E_TIRE_REAR_LEFT], 0.0f) / 100); // Conversion from kPa to Bar
 
+    this->buffer->setTireDirtFL(qMax(this->nativeBuffer->tire_dirt[R3E_TIRE_FRONT_LEFT], 0.0f));
+    this->buffer->setTireDirtFR(qMax(this->nativeBuffer->tire_dirt[R3E_TIRE_FRONT_RIGHT], 0.0f));
+    this->buffer->setTireDirtRR(qMax(this->nativeBuffer->tire_dirt[R3E_TIRE_REAR_RIGHT], 0.0f));
+    this->buffer->setTireDirtRL(qMax(this->nativeBuffer->tire_dirt[R3E_TIRE_REAR_LEFT], 0.0f));
+
     return true;
 }
