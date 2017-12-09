@@ -98,7 +98,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureFLI.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -124,7 +124,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireWearFL * 100).toFixed(0)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -148,7 +148,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureFLC.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -198,7 +198,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureFLO.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -288,7 +288,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureFRI.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -338,7 +338,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureFRC.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -362,7 +362,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireWearFR * 100).toFixed(0)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -388,7 +388,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureFRO.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -527,7 +527,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureRLI.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -553,7 +553,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireWearRL * 100).toFixed(0)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -577,7 +577,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureRLC.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -627,7 +627,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureRLO.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -718,7 +718,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureRRI.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -768,7 +768,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureRRC.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -791,7 +791,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireWearRR * 100).toFixed(0)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -818,7 +818,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: vrData.tireTemperatureRRO.toFixed(1)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
