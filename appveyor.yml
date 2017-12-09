@@ -1,6 +1,7 @@
-install:
-  - set QTDIR=C:\Qt\5.9.1\mingw53_32
-  - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
+image:
+  - Visual Studio 2015
+
+
 
 build_script:
   - qmake QtQuickApplication/QtQuickVR.pro
