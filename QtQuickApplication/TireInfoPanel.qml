@@ -124,7 +124,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: (vrData.tireWearFL * 100).toFixed(0)
+                        text: (vrData.tireWearFL * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -174,7 +174,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireDirtFL * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -362,7 +362,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: (vrData.tireWearFR * 100).toFixed(0)
+                        text: (vrData.tireWearFR * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -412,7 +412,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireDirtFR * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -553,7 +553,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: (vrData.tireWearRL * 100).toFixed(0)
+                        text: (vrData.tireWearRL * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -603,7 +603,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireDirtRL * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -790,7 +790,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: (vrData.tireWearRR * 100).toFixed(0)
+                        text: (vrData.tireWearRR * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -840,7 +840,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireDirtRR * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
