@@ -63,6 +63,17 @@ Window {
         return "white";
     }
 
+    /* Convert a laptime in s to a string */
+    function lapTimeToString(time) {
+        if (time <= 0.0)
+            return "--:--.---"
+
+        var min = Math.floor(time / 60);
+        var sec = time % 60;
+
+        return (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec.toFixed(3);
+    }
+
     id: root
     visible: true
     width: 1500

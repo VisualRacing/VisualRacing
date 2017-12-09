@@ -30,7 +30,7 @@ Rectangle{
 
             Text {
                 id: currentTimeLabel
-                text: "1:32.123"
+                text: lapTimeToString(vrData.currentLapTime)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -143,7 +143,7 @@ Rectangle{
 
             Text {
                 id: bestTimeLabel
-                text: "1:49.672"
+                text: lapTimeToString(vrData.bestLapTime)
                 color: "white"
 
                 anchors.top: parent.top

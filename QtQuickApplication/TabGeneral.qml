@@ -365,7 +365,7 @@ Rectangle {
 
             Text {
                 id: currentLapValue
-                text: laptimeOverview.lapTimeToString(vrData.currentLapTime)
+                text: lapTimeToString(vrData.currentLapTime)
                 color: "white"
                 Layout.bottomMargin: 10
 
@@ -385,7 +385,7 @@ Rectangle {
 
             Text {
                 id: lastLapValue
-                text: laptimeOverview.lapTimeToString(vrData.previousLapTime)
+                text: lapTimeToString(vrData.previousLapTime)
                 color: "white"
                 Layout.bottomMargin: 10
 
@@ -405,23 +405,13 @@ Rectangle {
 
             Text {
                 id: bestLapValue
-                text: laptimeOverview.lapTimeToString(vrData.bestLapTime)
+                text: lapTimeToString(vrData.bestLapTime)
                 color: "white"
                 Layout.bottomMargin: 10
 
                 font.bold: true
                 font.pixelSize: currentLapLabel.font.pixelSize
             }
-        }
-
-        function lapTimeToString(time) {
-            if (time <= 0.0)
-                return "-:--.---"
-
-            var min = Math.floor(time / 60);
-            var sec = time % 60;
-
-            return (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec.toFixed(3);
         }
     }
 
