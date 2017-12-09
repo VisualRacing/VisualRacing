@@ -102,5 +102,10 @@ bool VRDataInterfaceAC::update() {
     this->buffer->setTireTemperatureRLC(qMax(this->nativeBufferPhysics->tyreTempM[2], 0.0f));
     this->buffer->setTireTemperatureRLO(qMax(this->nativeBufferPhysics->tyreTempO[2], 0.0f));
 
+    this->buffer->setBrakeTemperatureFL(qMax(this->nativeBufferPhysics->brakeTemp[0], 0.0f));
+    this->buffer->setBrakeTemperatureFR(qMax(this->nativeBufferPhysics->brakeTemp[1], 0.0f));
+    this->buffer->setBrakeTemperatureRR(qMax(this->nativeBufferPhysics->brakeTemp[3], 0.0f));
+    this->buffer->setBrakeTemperatureRL(qMax(this->nativeBufferPhysics->brakeTemp[2], 0.0f));
+
     return true;
 }

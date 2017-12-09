@@ -72,5 +72,10 @@ bool VRDataInterfaceR3E::update() {
     this->buffer->setTireTemperatureRLC(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_LEFT][R3E_TIRE_TEMP_CENTER], 0.0f));
     this->buffer->setTireTemperatureRLO(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_LEFT][R3E_TIRE_TEMP_LEFT], 0.0f));
 
+    this->buffer->setBrakeTemperatureFL(qMax(this->nativeBuffer->brake_temp[R3E_TIRE_FRONT_LEFT], 0.0f));
+    this->buffer->setBrakeTemperatureFR(qMax(this->nativeBuffer->brake_temp[R3E_TIRE_FRONT_RIGHT], 0.0f));
+    this->buffer->setBrakeTemperatureRR(qMax(this->nativeBuffer->brake_temp[R3E_TIRE_REAR_RIGHT], 0.0f));
+    this->buffer->setBrakeTemperatureRL(qMax(this->nativeBuffer->brake_temp[R3E_TIRE_REAR_LEFT], 0.0f));
+
     return true;
 }

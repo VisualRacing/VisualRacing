@@ -47,6 +47,11 @@ VRData::VRData()
     this->tireTemperatureRLI = 0.0f;
     this->tireTemperatureRLC = 0.0f;
     this->tireTemperatureRLO = 0.0f;
+
+    this->brakeTemperatureFL = 0.0f;
+    this->brakeTemperatureFR = 0.0f;
+    this->brakeTemperatureRR = 0.0f;
+    this->brakeTemperatureRL = 0.0f;
 }
 
 double VRData::getTimeInSeconds()
@@ -501,4 +506,60 @@ void VRData::setTireTemperatureRLO(float value)
 
     tireTemperatureRLO = value;
     emit tireTemperatureRLOChanged();
+}
+
+float VRData::getBrakeTemperatureFL() const
+{
+    return brakeTemperatureFL;
+}
+
+void VRData::setBrakeTemperatureFL(float value)
+{
+    if (brakeTemperatureFL == value)
+        return;
+
+    brakeTemperatureFL = value;
+    emit brakeTemperatureFLChanged();
+}
+
+float VRData::getBrakeTemperatureFR() const
+{
+    return brakeTemperatureFR;
+}
+
+void VRData::setBrakeTemperatureFR(float value)
+{
+    if (brakeTemperatureFR == value)
+        return;
+
+    brakeTemperatureFR = value;
+    emit brakeTemperatureFRChanged();
+}
+
+float VRData::getBrakeTemperatureRR() const
+{
+    return brakeTemperatureRR;
+}
+
+void VRData::setBrakeTemperatureRR(float value)
+{
+    if (brakeTemperatureRR == value)
+        return;
+
+    brakeTemperatureRR = value;
+    emit brakeTemperatureRRChanged();
+}
+
+float VRData::getBrakeTemperatureRL() const
+{
+    return brakeTemperatureRL;
+}
+
+void VRData::setBrakeTemperatureRL(float value)
+{
+    if (brakeTemperatureRL == value)
+        return;
+
+    brakeTemperatureRL = value;
+    emit brakeTemperatureRLChanged();
 }

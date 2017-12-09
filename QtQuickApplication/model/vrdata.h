@@ -54,6 +54,11 @@ class VRData : public QObject
     Q_PROPERTY(float tireTemperatureRLC READ getTireTemperatureRLC WRITE setTireTemperatureRLC NOTIFY tireTemperatureRLCChanged)
     Q_PROPERTY(float tireTemperatureRLO READ getTireTemperatureRLO WRITE setTireTemperatureRLO NOTIFY tireTemperatureRLOChanged)
 
+    Q_PROPERTY(float brakeTemperatureFL READ getBrakeTemperatureFL WRITE setBrakeTemperatureFL NOTIFY brakeTemperatureFLChanged)
+    Q_PROPERTY(float brakeTemperatureFR READ getBrakeTemperatureFR WRITE setBrakeTemperatureFR NOTIFY brakeTemperatureFRChanged)
+    Q_PROPERTY(float brakeTemperatureRR READ getBrakeTemperatureRR WRITE setBrakeTemperatureRR NOTIFY brakeTemperatureRRChanged)
+    Q_PROPERTY(float brakeTemperatureRL READ getBrakeTemperatureRL WRITE setBrakeTemperatureRL NOTIFY brakeTemperatureRLChanged)
+
 public:
     VRData();
 
@@ -155,6 +160,18 @@ public:
     float getTireTemperatureRLO() const;
     void setTireTemperatureRLO(float value);
 
+    float getBrakeTemperatureFL() const;
+    void setBrakeTemperatureFL(float value);
+
+    float getBrakeTemperatureFR() const;
+    void setBrakeTemperatureFR(float value);
+
+    float getBrakeTemperatureRR() const;
+    void setBrakeTemperatureRR(float value);
+
+    float getBrakeTemperatureRL() const;
+    void setBrakeTemperatureRL(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -199,6 +216,11 @@ signals:
     void tireTemperatureRLIChanged();
     void tireTemperatureRLCChanged();
     void tireTemperatureRLOChanged();
+
+    void brakeTemperatureFLChanged();
+    void brakeTemperatureFRChanged();
+    void brakeTemperatureRRChanged();
+    void brakeTemperatureRLChanged();
 
 private:
     //
@@ -267,7 +289,10 @@ private:
     float tireTemperatureRLO;
 
     // in Celcius
-    //float brakeTemperatures[4];
+    float brakeTemperatureFL;
+    float brakeTemperatureFR;
+    float brakeTemperatureRR;
+    float brakeTemperatureRL;
 
     // Damage
     // TODO: AC and R3E work a bit different here, not sure what's the best way to handle this.
