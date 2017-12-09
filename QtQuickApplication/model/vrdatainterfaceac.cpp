@@ -107,5 +107,10 @@ bool VRDataInterfaceAC::update() {
     this->buffer->setBrakeTemperatureRR(qMax(this->nativeBufferPhysics->brakeTemp[3], 0.0f));
     this->buffer->setBrakeTemperatureRL(qMax(this->nativeBufferPhysics->brakeTemp[2], 0.0f));
 
+    this->buffer->setTirePressureFL(qMax(this->nativeBufferPhysics->wheelsPressure[0], 0.0f) / 14.5038f); // Conversion from psi to Bar
+    this->buffer->setTirePressureFR(qMax(this->nativeBufferPhysics->wheelsPressure[1], 0.0f) / 14.5038f); // Conversion from psi to Bar
+    this->buffer->setTirePressureRR(qMax(this->nativeBufferPhysics->wheelsPressure[3], 0.0f) / 14.5038f); // Conversion from psi to Bar
+    this->buffer->setTirePressureRL(qMax(this->nativeBufferPhysics->wheelsPressure[2], 0.0f) / 14.5038f); // Conversion from psi to Bar
+
     return true;
 }

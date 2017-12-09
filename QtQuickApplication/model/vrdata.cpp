@@ -52,6 +52,11 @@ VRData::VRData()
     this->brakeTemperatureFR = 0.0f;
     this->brakeTemperatureRR = 0.0f;
     this->brakeTemperatureRL = 0.0f;
+
+    this->tirePressureFL = 0.0f;
+    this->tirePressureFR = 0.0f;
+    this->tirePressureRR = 0.0f;
+    this->tirePressureRL = 0.0f;
 }
 
 double VRData::getTimeInSeconds()
@@ -562,4 +567,60 @@ void VRData::setBrakeTemperatureRL(float value)
 
     brakeTemperatureRL = value;
     emit brakeTemperatureRLChanged();
+}
+
+float VRData::getTirePressureFL() const
+{
+    return tirePressureFL;
+}
+
+void VRData::setTirePressureFL(float value)
+{
+    if (tirePressureFL == value)
+        return;
+
+    tirePressureFL = value;
+    emit tirePressureFLChanged();
+}
+
+float VRData::getTirePressureFR() const
+{
+    return tirePressureFR;
+}
+
+void VRData::setTirePressureFR(float value)
+{
+    if (tirePressureFR == value)
+        return;
+
+    tirePressureFR = value;
+    emit tirePressureFRChanged();
+}
+
+float VRData::getTirePressureRR() const
+{
+    return tirePressureRR;
+}
+
+void VRData::setTirePressureRR(float value)
+{
+    if (tirePressureRR == value)
+        return;
+
+    tirePressureRR = value;
+    emit tirePressureRRChanged();
+}
+
+float VRData::getTirePressureRL() const
+{
+    return tirePressureRL;
+}
+
+void VRData::setTirePressureRL(float value)
+{
+    if (tirePressureRL == value)
+        return;
+
+    tirePressureRL = value;
+    emit tirePressureRLChanged();
 }

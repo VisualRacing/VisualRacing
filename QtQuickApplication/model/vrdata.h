@@ -59,6 +59,11 @@ class VRData : public QObject
     Q_PROPERTY(float brakeTemperatureRR READ getBrakeTemperatureRR WRITE setBrakeTemperatureRR NOTIFY brakeTemperatureRRChanged)
     Q_PROPERTY(float brakeTemperatureRL READ getBrakeTemperatureRL WRITE setBrakeTemperatureRL NOTIFY brakeTemperatureRLChanged)
 
+    Q_PROPERTY(float tirePressureFL READ getTirePressureFL WRITE setTirePressureFL NOTIFY tirePressureFLChanged)
+    Q_PROPERTY(float tirePressureFR READ getTirePressureFR WRITE setTirePressureFR NOTIFY tirePressureFRChanged)
+    Q_PROPERTY(float tirePressureRR READ getTirePressureRR WRITE setTirePressureRR NOTIFY tirePressureRRChanged)
+    Q_PROPERTY(float tirePressureRL READ getTirePressureRL WRITE setTirePressureRL NOTIFY tirePressureRLChanged)
+
 public:
     VRData();
 
@@ -172,6 +177,18 @@ public:
     float getBrakeTemperatureRL() const;
     void setBrakeTemperatureRL(float value);
 
+    float getTirePressureFL() const;
+    void setTirePressureFL(float value);
+
+    float getTirePressureFR() const;
+    void setTirePressureFR(float value);
+
+    float getTirePressureRR() const;
+    void setTirePressureRR(float value);
+
+    float getTirePressureRL() const;
+    void setTirePressureRL(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -222,6 +239,11 @@ signals:
     void brakeTemperatureRRChanged();
     void brakeTemperatureRLChanged();
 
+    void tirePressureFLChanged();
+    void tirePressureFRChanged();
+    void tirePressureRRChanged();
+    void tirePressureRLChanged();
+
 private:
     //
     // Application information
@@ -264,7 +286,12 @@ private:
     float clutch;
 
     // Tire Info
-    //float tirePressure[4]; // TODO: Unit?
+    // Tire Pressures in Bar
+    float tirePressureFL;
+    float tirePressureFR;
+    float tirePressureRR;
+    float tirePressureRL;
+
     float tireWearFL;
     float tireWearFR;
     float tireWearRR;

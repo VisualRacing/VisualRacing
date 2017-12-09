@@ -74,7 +74,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnPressure(vrData.tirePressureFL)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -312,7 +312,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnPressure(vrData.tirePressureFR)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -503,7 +503,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnPressure(vrData.tirePressureRL)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -704,7 +704,6 @@ Rectangle {
 
             Column{
                 Row{
-
                     Text {
                         text: qsTr("I:")
                         color: "white"
@@ -741,7 +740,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnPressure(vrData.tirePressureRR)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
