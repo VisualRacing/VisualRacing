@@ -29,7 +29,7 @@ Window {
             return (pressureInBar * 14.5038).toFixed(1) + " psi";
     }
 
-    /* Tire temperature percentage to color conversion */
+    /* Tire temperature to color conversion */
     function tempToColor(t) { // TODO: Refactor.
         var cold = 60;
         var low = 75;
