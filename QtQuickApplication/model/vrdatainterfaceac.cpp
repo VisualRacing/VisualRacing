@@ -81,14 +81,14 @@ bool VRDataInterfaceAC::update() {
     //this->buffer->setBestLapTime();
     //this->buffer->setPreviousLapTime();
 
-    this->buffer->setTireWearFL(qMax(this->nativeBufferPhysics->tyreWear[0], 0.0f));
-    this->buffer->setTireWearFR(qMax(this->nativeBufferPhysics->tyreWear[1], 0.0f));
-    this->buffer->setTireWearRR(qMax(this->nativeBufferPhysics->tyreWear[3], 0.0f));
-    this->buffer->setTireWearRL(qMax(this->nativeBufferPhysics->tyreWear[2], 0.0f));
+    this->buffer->setTireWearFL(qMax(this->nativeBufferPhysics->tyreWear[0], 0.0f) / 100); // Conversion from % to values between 0 and 1
+    this->buffer->setTireWearFR(qMax(this->nativeBufferPhysics->tyreWear[1], 0.0f) / 100); // Conversion from % to values between 0 and 1
+    this->buffer->setTireWearRR(qMax(this->nativeBufferPhysics->tyreWear[3], 0.0f) / 100); // Conversion from % to values between 0 and 1
+    this->buffer->setTireWearRL(qMax(this->nativeBufferPhysics->tyreWear[2], 0.0f) / 100); // Conversion from % to values between 0 and 1
 
-    this->buffer->setTireTemperatureFLI(qMax(this->nativeBufferPhysics->tyreTempI[0], 0.0f));
+    this->buffer->setTireTemperatureFLI(qMax(this->nativeBufferPhysics->tyreTempO[0], 0.0f));
     this->buffer->setTireTemperatureFLC(qMax(this->nativeBufferPhysics->tyreTempM[0], 0.0f));
-    this->buffer->setTireTemperatureFLO(qMax(this->nativeBufferPhysics->tyreTempO[0], 0.0f));
+    this->buffer->setTireTemperatureFLO(qMax(this->nativeBufferPhysics->tyreTempI[0], 0.0f));
 
     this->buffer->setTireTemperatureFRI(qMax(this->nativeBufferPhysics->tyreTempI[1], 0.0f));
     this->buffer->setTireTemperatureFRC(qMax(this->nativeBufferPhysics->tyreTempM[1], 0.0f));
@@ -98,9 +98,9 @@ bool VRDataInterfaceAC::update() {
     this->buffer->setTireTemperatureRRC(qMax(this->nativeBufferPhysics->tyreTempM[3], 0.0f));
     this->buffer->setTireTemperatureRRO(qMax(this->nativeBufferPhysics->tyreTempO[3], 0.0f));
 
-    this->buffer->setTireTemperatureRLI(qMax(this->nativeBufferPhysics->tyreTempI[2], 0.0f));
+    this->buffer->setTireTemperatureRLI(qMax(this->nativeBufferPhysics->tyreTempO[2], 0.0f));
     this->buffer->setTireTemperatureRLC(qMax(this->nativeBufferPhysics->tyreTempM[2], 0.0f));
-    this->buffer->setTireTemperatureRLO(qMax(this->nativeBufferPhysics->tyreTempO[2], 0.0f));
+    this->buffer->setTireTemperatureRLO(qMax(this->nativeBufferPhysics->tyreTempI[2], 0.0f));
 
     this->buffer->setBrakeTemperatureFL(qMax(this->nativeBufferPhysics->brakeTemp[0], 0.0f));
     this->buffer->setBrakeTemperatureFR(qMax(this->nativeBufferPhysics->brakeTemp[1], 0.0f));
