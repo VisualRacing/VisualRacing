@@ -228,9 +228,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#aa2222" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#2222aa" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureFLI) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureFLC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureFLO) }
                 }
 
             }
@@ -442,9 +442,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#2222aa" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#aa2222" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureFRO) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureFRC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureFRI) }
                 }
 
             }
@@ -657,9 +657,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#aa2222" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#2222aa" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureRLI) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureRLC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureRLO) }
                 }
 
             }
@@ -871,9 +871,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#2222aa" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#aa2222" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureRRO) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureRRC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureRRI) }
                 }
 
             }
