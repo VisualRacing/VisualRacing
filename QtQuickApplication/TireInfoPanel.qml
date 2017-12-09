@@ -239,7 +239,7 @@ Rectangle {
 
     Text{
         id: frontLeftBrakeLabel
-        text: "Brake Temp.: " + "0" + " °C"
+        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureFL)
 
         anchors.right: frontLeftWheel.right
         anchors.top: frontLeftWheel.bottom
@@ -453,7 +453,7 @@ Rectangle {
 
     Text{
         id: frontRightBrakeLabel
-        text: "Brake Temp.: " + "0" + " °C"
+        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureFR)
 
         anchors.left: frontRightWheel.left
         anchors.top: frontRightWheel.bottom
@@ -668,7 +668,7 @@ Rectangle {
 
     Text{
         id: rearLeftBrakeLabel
-        text: "Brake Temp.: " + "0" + " °C"
+        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureRL)
 
         anchors.right: rearLeftWheel.right
         anchors.top: rearLeftWheel.bottom
@@ -882,7 +882,7 @@ Rectangle {
 
     Text{
         id: rearRightBrakeLabel
-        text: "Brake Temp.: " + "0" + " °C"
+        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureRR)
 
         anchors.left: rearRightWheel.left
         anchors.top: rearRightWheel.bottom
