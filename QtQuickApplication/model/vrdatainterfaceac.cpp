@@ -117,5 +117,7 @@ bool VRDataInterfaceAC::update() {
     this->buffer->setTireDirtRR(qMax(this->nativeBufferPhysics->tyreDirtyLevel[3], 0.0f));
     this->buffer->setTireDirtRL(qMax(this->nativeBufferPhysics->tyreDirtyLevel[2], 0.0f));
 
+    // TODO TIMING DATA
+
     return true;
 }

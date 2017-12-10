@@ -62,6 +62,18 @@ VRData::VRData()
     this->tireDirtFR = 0.0f;
     this->tireDirtRR = 0.0f;
     this->tireDirtRL = 0.0f;
+
+    this->currentS1 = 0.0f;
+    this->currentS2 = 0.0f;
+    this->currentS3 = 0.0f;
+
+    this->bestS1 = 0.0f;
+    this->bestS3 = 0.0f;
+    this->bestS3 = 0.0f;
+
+    this->previousS1 = 0.0f;
+    this->previousS2 = 0.0f;
+    this->previousS3 = 0.0f;
 }
 
 double VRData::getTimeInSeconds()
@@ -684,4 +696,130 @@ void VRData::setTireDirtRL(float value)
 
     tireDirtRL = value;
     emit tireDirtRLChanged();
+}
+
+float VRData::getCurrentS1() const
+{
+    return currentS1;
+}
+
+void VRData::setCurrentS1(float value)
+{
+    if (currentS1 == value)
+        return;
+
+    currentS1 = value;
+    emit currentS1Changed();
+}
+
+float VRData::getCurrentS2() const
+{
+    return currentS2;
+}
+
+void VRData::setCurrentS2(float value)
+{
+    if (currentS2 == value)
+        return;
+
+    currentS2 = value;
+    emit currentS2Changed();
+}
+
+float VRData::getCurrentS3() const
+{
+    return currentS3;
+}
+
+void VRData::setCurrentS3(float value)
+{
+    if (currentS3 == value)
+        return;
+
+    currentS3 = value;
+    emit currentS3Changed();
+}
+
+float VRData::getBestS1() const
+{
+    return bestS1;
+}
+
+void VRData::setBestS1(float value)
+{
+    if (bestS1 == value)
+        return;
+
+    bestS1 = value;
+    emit bestS1Changed();
+}
+
+float VRData::getBestS2() const
+{
+    return bestS2;
+}
+
+void VRData::setBestS2(float value)
+{
+    if (bestS2 == value)
+        return;
+
+    bestS2 = value;
+    emit bestS2Changed();
+}
+
+float VRData::getBestS3() const
+{
+    return bestS3;
+}
+
+void VRData::setBestS3(float value)
+{
+    if (bestS3 == value)
+        return;
+
+    bestS3 = value;
+    emit bestS3Changed();
+}
+
+float VRData::getPreviousS1() const
+{
+    return previousS1;
+}
+
+void VRData::setPreviousS1(float value)
+{
+    if (previousS1 == value)
+        return;
+
+    previousS1 = value;
+    emit previousS1Changed();
+}
+
+float VRData::getPreviousS2() const
+{
+    return previousS2;
+}
+
+void VRData::setPreviousS2(float value)
+{
+    if (previousS2 == value)
+        return;
+
+    previousS2 = value;
+    emit previousS2Changed();
+}
+
+float VRData::getPreviousS3() const
+{
+    return previousS3;
+}
+
+void VRData::setPreviousS3(float value)
+{
+    if (previousS3 == value)
+        return;
+
+    previousS3 = value;
+    emit previousS3Changed();
 }

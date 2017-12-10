@@ -69,6 +69,18 @@ class VRData : public QObject
     Q_PROPERTY(float tireDirtRR READ getTireDirtRR WRITE setTireDirtRR NOTIFY tireDirtRRChanged)
     Q_PROPERTY(float tireDirtRL READ getTireDirtRL WRITE setTireDirtRL NOTIFY tireDirtRLChanged)
 
+    Q_PROPERTY(float currentS1 READ getCurrentS1 WRITE setCurrentS1 NOTIFY currentS1Changed)
+    Q_PROPERTY(float currentS2 READ getCurrentS2 WRITE setCurrentS2 NOTIFY currentS2Changed)
+    Q_PROPERTY(float currentS3 READ getCurrentS3 WRITE setCurrentS3 NOTIFY currentS3Changed)
+
+    Q_PROPERTY(float bestS1 READ getBestS1 WRITE setBestS1 NOTIFY bestS1Changed)
+    Q_PROPERTY(float bestS2 READ getBestS2 WRITE setBestS2 NOTIFY bestS2Changed)
+    Q_PROPERTY(float bestS3 READ getBestS3 WRITE setBestS3 NOTIFY bestS3Changed)
+
+    Q_PROPERTY(float previousS1 READ getPreviousS1 WRITE setPreviousS1 NOTIFY previousS1Changed)
+    Q_PROPERTY(float previousS2 READ getPreviousS2 WRITE setPreviousS2 NOTIFY previousS2Changed)
+    Q_PROPERTY(float previousS3 READ getPreviousS3 WRITE setPreviousS3 NOTIFY previousS3Changed)
+
 public:
     VRData();
 
@@ -206,6 +218,33 @@ public:
     float getTireDirtRL() const;
     void setTireDirtRL(float value);
 
+    float getCurrentS1() const;
+    void setCurrentS1(float value);
+
+    float getCurrentS2() const;
+    void setCurrentS2(float value);
+
+    float getCurrentS3() const;
+    void setCurrentS3(float value);
+
+    float getBestS1() const;
+    void setBestS1(float value);
+
+    float getBestS2() const;
+    void setBestS2(float value);
+
+    float getBestS3() const;
+    void setBestS3(float value);
+
+    float getPreviousS1() const;
+    void setPreviousS1(float value);
+
+    float getPreviousS2() const;
+    void setPreviousS2(float value);
+
+    float getPreviousS3() const;
+    void setPreviousS3(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -265,6 +304,18 @@ signals:
     void tireDirtFRChanged();
     void tireDirtRRChanged();
     void tireDirtRLChanged();
+
+    void currentS1Changed();
+    void currentS2Changed();
+    void currentS3Changed();
+
+    void bestS1Changed();
+    void bestS2Changed();
+    void bestS3Changed();
+
+    void previousS1Changed();
+    void previousS2Changed();
+    void previousS3Changed();
 
 private:
     //
@@ -375,7 +426,18 @@ private:
     float currentLapTime;
     float bestLapTime;
     float previousLapTime;
-    //float theoreticalBestLapTime;
+
+    float currentS1;
+    float currentS2;
+    float currentS3;
+
+    float bestS1;
+    float bestS2;
+    float bestS3;
+
+    float previousS1;
+    float previousS2;
+    float previousS3;
 
     //int currentSector;
     //float currentLapSectorTimes[3];

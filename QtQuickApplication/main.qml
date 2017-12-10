@@ -74,6 +74,13 @@ Window {
         return (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec.toFixed(3);
     }
 
+    function sectorTimeToString(time) { // TODO: Use in lapTimeToString()
+        if (time <= 0.0)
+            return "--.---"
+
+        return (time < 10 ? "0" : "") + time.toFixed(3);
+    }
+
     id: root
     visible: true
     width: 1500

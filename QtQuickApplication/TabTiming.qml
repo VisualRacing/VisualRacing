@@ -192,7 +192,7 @@ Rectangle{
 
             Text {
                 id: sector1Time
-                text: "S1"
+                text: sectorTimeToString(vrData.bestS1)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -222,7 +222,7 @@ Rectangle{
 
             Text {
                 id: sector2Time
-                text: "S2"
+                text: sectorTimeToString(vrData.bestS2)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -252,7 +252,7 @@ Rectangle{
 
             Text {
                 id: sector3Time
-                text: "S3"
+                text: sectorTimeToString(vrData.bestS3)
                 color: "white"
 
                 anchors.centerIn: parent
