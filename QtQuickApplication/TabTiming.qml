@@ -12,7 +12,7 @@ Rectangle{
         border.color: "#a7def9"
 
         width: parent.width * 0.3
-        height: parent.height * 0.35
+        height: parent.height * 0.3
 
         anchors.top: parent.top
         anchors.left: parent.left
@@ -26,57 +26,11 @@ Rectangle{
             anchors.left: parent.left
 
             width: parent.width
-            height: parent.height * 0.6
+            height: parent.height * 0.7
 
             Text {
                 id: currentTimeLabel
-                text: lapTimeToString(vrData.currentLapTime)
-                color: "white"
-
-                anchors.centerIn: parent
-                width: parent.width * 0.8
-                height: parent.height * 0.75
-
-                font {
-                    pointSize: 500
-                    bold: true
-                }
-                minimumPointSize: 2
-                fontSizeMode: Text.Fit
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                text: "Current Laptime"
-                color: "white"
-
-                anchors.left: parent.left
-                anchors.bottom: parent.bottom
-                anchors.margins: 5
-
-                width: parent.width * 0.3
-                height: parent.height * 0.2
-
-                font.pointSize: currentSectorTimeDesc.fontInfo.pointSize
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignBottom
-            }
-        }
-
-        Rectangle {
-            id: currentSectorTime
-            color: "transparent"
-            border.color: "#a7def9"
-
-            anchors.top: currentLapTime.bottom
-            anchors.left: parent.left
-
-            width: parent.width
-            height: parent.height * 0.4
-
-            Text {
-                id: currentSectorLabel
-                text: "41.438"
+                text: "1:32.123"
                 color: "white"
 
                 anchors.top: parent.top
@@ -95,23 +49,113 @@ Rectangle{
             }
 
             Text {
-                id: currentSectorTimeDesc
-                text: "Current Sectortime"
+                id: currentLaptimeDesc
+                text: "Current Laptime"
                 color: "white"
 
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 anchors.margins: 5
 
-                width: parent.width * 0.6
+                width: parent.width * 0.3
                 height: parent.height * 0.2
 
+                minimumPointSize: 10
+                font.pointSize: 100
+                fontSizeMode: Text.Fit
+
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignBottom
+            }
+        }
+
+        Rectangle {
+            id: currentSector1
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: currentSector1Time
+                text: "S1"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
                 font {
-                    pointSize: 100
+                    pointSize: 500
                 }
                 minimumPointSize: 2
                 fontSizeMode: Text.Fit
-                horizontalAlignment: Text.AlignLeft
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        Rectangle {
+            id: currentSector2
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: currentSector2Time
+                text: "S2"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        Rectangle {
+            id: currentSector3
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: currentSector3Time
+                text: "S3"
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
             }
         }
     }
@@ -124,7 +168,7 @@ Rectangle{
         border.color: "#a7def9"
 
         width: parent.width * 0.3
-        height: parent.height * 0.25
+        height: parent.height * 0.3
 
         anchors.top: currentTile.bottom
         anchors.left: parent.left
@@ -143,7 +187,7 @@ Rectangle{
 
             Text {
                 id: bestTimeLabel
-                text: lapTimeToString(vrData.bestLapTime)
+                text: "1:49.672"
                 color: "white"
 
                 anchors.top: parent.top
@@ -172,7 +216,7 @@ Rectangle{
                 width: parent.width * 0.6
                 height: parent.height * 0.2
 
-                font.pointSize: currentSectorTimeDesc.fontInfo.pointSize
+                font.pointSize: currentLaptimeDesc.fontInfo.pointSize
 
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignBottom
@@ -192,7 +236,7 @@ Rectangle{
 
             Text {
                 id: sector1Time
-                text: sectorTimeToString(vrData.bestS1)
+                text: "S1"
                 color: "white"
 
                 anchors.centerIn: parent
@@ -222,7 +266,7 @@ Rectangle{
 
             Text {
                 id: sector2Time
-                text: sectorTimeToString(vrData.bestS2)
+                text: "S2"
                 color: "white"
 
                 anchors.centerIn: parent
@@ -252,7 +296,7 @@ Rectangle{
 
             Text {
                 id: sector3Time
-                text: sectorTimeToString(vrData.bestS3)
+                text: "S3"
                 color: "white"
 
                 anchors.centerIn: parent
@@ -279,7 +323,7 @@ Rectangle{
         border.color: "#a7def9"
 
         width: parent.width * 0.3
-        height: parent.height * 0.25
+        height: parent.height * 0.3
 
         anchors.top: bestTile.bottom
         anchors.left: parent.left
@@ -293,7 +337,7 @@ Rectangle{
             width: parent.width
             height: parent.height * 0.7
 
-            anchors.bottom: parent.bottom
+            anchors.top: parent.top
             anchors.left: parent.left
 
             Text {
@@ -301,7 +345,7 @@ Rectangle{
                 text: "1:49.672"
                 color: "white"
 
-                anchors.bottom: parent.bottom
+                anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width * 0.8
                 height: parent.height * 0.7
@@ -321,15 +365,16 @@ Rectangle{
                 color: "white"
 
                 anchors.left: parent.left
-                anchors.top: parent.top
+                anchors.bottom: parent.bottom
                 anchors.margins: 5
 
                 width: parent.width * 0.6
                 height: parent.height * 0.2
 
-                font.pointSize: currentSectorTimeDesc.fontInfo.pointSize
+                font.pointSize: currentLaptimeDesc.fontInfo.pointSize
 
                 horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignBottom
             }
         }
 
@@ -338,7 +383,7 @@ Rectangle{
             color: "transparent"
             border.color: "#a7def9"
 
-            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.left: parent.left
 
             width: parent.width / 3
@@ -368,7 +413,7 @@ Rectangle{
             color: "transparent"
             border.color: "#a7def9"
 
-            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
 
             width: parent.width / 3
@@ -398,7 +443,7 @@ Rectangle{
             color: "transparent"
             border.color: "#a7def9"
 
-            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.right: parent.right
 
             width: parent.width / 3
@@ -567,7 +612,7 @@ Rectangle{
                      sector2: "39.7s"
                      sector3: "29.04s"
                  }
-             }             
+             }
     }
     }
 
