@@ -74,6 +74,10 @@ VRData::VRData()
     this->previousS1 = 0.0f;
     this->previousS2 = 0.0f;
     this->previousS3 = 0.0f;
+
+    this->tBestS1 = 0.0f;
+    this->tBestS2 = 0.0f;
+    this->tBestS3 = 0.0f;
 }
 
 double VRData::getTimeInSeconds()
@@ -822,4 +826,46 @@ void VRData::setPreviousS3(float value)
 
     previousS3 = value;
     emit previousS3Changed();
+}
+
+float VRData::getTBestS1() const
+{
+    return tBestS1;
+}
+
+void VRData::setTBestS1(float value)
+{
+    if (tBestS1 == value)
+        return;
+
+    tBestS1 = value;
+    emit tBestS1Changed();
+}
+
+float VRData::getTBestS2() const
+{
+    return tBestS2;
+}
+
+void VRData::setTBestS2(float value)
+{
+    if(tBestS2 == value)
+        return;
+
+    tBestS2 = value;
+    emit tBestS2Changed();
+}
+
+float VRData::getTBestS3() const
+{
+    return tBestS3;
+}
+
+void VRData::setTBestS3(float value)
+{
+    if (tBestS3 == value)
+        return;
+
+    tBestS3 = value;
+    emit tBestS3Changed();
 }

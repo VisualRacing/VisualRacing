@@ -81,6 +81,10 @@ class VRData : public QObject
     Q_PROPERTY(float previousS2 READ getPreviousS2 WRITE setPreviousS2 NOTIFY previousS2Changed)
     Q_PROPERTY(float previousS3 READ getPreviousS3 WRITE setPreviousS3 NOTIFY previousS3Changed)
 
+    Q_PROPERTY(float tBestS1 READ getTBestS1 WRITE setTBestS1 NOTIFY tBestS1Changed)
+    Q_PROPERTY(float tBestS2 READ getTBestS2 WRITE setTBestS2 NOTIFY tBestS3Changed)
+    Q_PROPERTY(float tBestS3 READ getTBestS3 WRITE setTBestS3 NOTIFY tBestS3Changed)
+
 public:
     VRData();
 
@@ -245,6 +249,15 @@ public:
     float getPreviousS3() const;
     void setPreviousS3(float value);
 
+    float getTBestS1() const;
+    void setTBestS1(float value);
+
+    float getTBestS2() const;
+    void setTBestS2(float value);
+
+    float getTBestS3() const;
+    void setTBestS3(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -316,6 +329,10 @@ signals:
     void previousS1Changed();
     void previousS2Changed();
     void previousS3Changed();
+
+    void tBestS1Changed();
+    void tBestS2Changed();
+    void tBestS3Changed();
 
 private:
     //
@@ -438,6 +455,10 @@ private:
     float previousS1;
     float previousS2;
     float previousS3;
+
+    float tBestS1;
+    float tBestS2;
+    float tBestS3;
 
     //int currentSector;
     //float currentLapSectorTimes[3];
