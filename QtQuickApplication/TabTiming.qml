@@ -30,7 +30,7 @@ Rectangle{
 
             Text {
                 id: currentTimeLabel
-                text: "1:32.123"
+                text: lapTimeToString(vrData.currentLapTime)
                 color: "white"
 
                 anchors.top: parent.top
@@ -82,7 +82,7 @@ Rectangle{
 
             Text {
                 id: currentSector1Time
-                text: "S1"
+                text: sectorTimeToString(vrData.currentS1)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -112,7 +112,7 @@ Rectangle{
 
             Text {
                 id: currentSector2Time
-                text: "S2"
+                text: sectorTimeToString(vrData.currentS2)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -142,7 +142,7 @@ Rectangle{
 
             Text {
                 id: currentSector3Time
-                text: "S3"
+                text: sectorTimeToString(vrData.currentS3)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -187,7 +187,7 @@ Rectangle{
 
             Text {
                 id: bestTimeLabel
-                text: "1:49.672"
+                text: lapTimeToString(vrData.bestLapTime)
                 color: "white"
 
                 anchors.top: parent.top
@@ -236,7 +236,7 @@ Rectangle{
 
             Text {
                 id: sector1Time
-                text: "S1"
+                text: sectorTimeToString(vrData.bestS1)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -266,7 +266,7 @@ Rectangle{
 
             Text {
                 id: sector2Time
-                text: "S2"
+                text: sectorTimeToString(vrData.bestS2)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -296,7 +296,7 @@ Rectangle{
 
             Text {
                 id: sector3Time
-                text: "S3"
+                text: sectorTimeToString(vrData.bestS3)
                 color: "white"
 
                 anchors.centerIn: parent
