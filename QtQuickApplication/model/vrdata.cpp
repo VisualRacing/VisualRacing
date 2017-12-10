@@ -5,7 +5,7 @@ VRData::VRData()
     this->startTime = VRUtilities::getCurrentTime();
 
     this->gear = 0;
-    this->velocity = 100.0f;
+    this->velocity = 0.0f;
     this->rpm = 0;
     this->maxRpm = 0;
 
