@@ -14,8 +14,8 @@
     - [Dependencies](#24-dependencies)
 - [Specific Requirements](#3-specific-requirements)
     - [Functionality - Data Backend](#31-functionality--data-backend)
-    - [Functionality - Data Analytics](#32-functionality--data-analytics)
-    - [Functionality - User Interface](#33-functionality--user-interface)
+    - [Functionality - User Interface](#32-functionality--user-interface)
+    - [Functionality - Data Analytics](#33-functionality--data-analytics)
     - [Usability](#34-usability)
     - [Reliability](#35-reliability)
     - [Performance](#36-performance)
@@ -49,6 +49,7 @@ This document is designed for internal use only and will outline the development
 |-|-|
 |[Blog](https://visualracing.wordpress.com/)|10/05/2017|
 |[GitHub](https://github.com/VisualRacing/VisualRacing)|10/23/2017|
+|[Software Architecture Document](https://github.com/VisualRacing/VisualRacing/blob/master/organization/SAD/SAD.MD)|12/10/2017|
 |[Use Case Diagram](UC/Use%20Case%20Diagram.png)|10/23/2017|
 |[UC Change Settings](UC/UC_ChangeSettings/UC_ChangeSettings.MD)|10/25/2017|
 |[UC Read Data Stream](UC/UC_ReadDataStream/UC_ReadDataStream.MD)|10/25/2017|
@@ -96,40 +97,40 @@ Instead of just reading and providing the data to the frontend, this functionali
 ### 3.1.5 Save recorded data
 The recorded data has to be saved in an efficient way.
 
-## 3.2 Functionality – Data Analytics
-### 3.2.1 Analyze lap time improvements
-Analyzes the sector times and gives hints for improving.
-
-### 3.2.2 Analyze driving behavior
-Tries to give helpful tips to improve the driving behavior based on the pedal position, shift-times etc.
-
-### 3.2.3 Analyze tire management
-Takes a look at the sector times, lap times, tire temperature and tire wear and analyzes this information.
-
-### 3.2.4 Analyze fuel consumption
-Analyzes the engines RPM, the gear, fuel consumption to give helpful feedback.
-
-## 3.3 Functionality – User Interface
-### 3.3.1 General overview
+## 3.2 Functionality – User Interface
+### 3.2.1 General overview
 The general overview is somewhat of a home screen, which provides basic information at a glance and lets the user dive deeper into different datasets in form of tabs. ([Use-Case Specification](UC/UC_GeneralData/UC_GeneralData.MD))
 
-### 3.3.2 Car data
+### 3.2.2 Car data
 Displays the car data such as tire temperatures, tire wear, fuel consumption etc. ([Use-Case Specification](UC/UC_CarData/UC_CarData.MD))
 
-### 3.3.3 Timing data
+### 3.2.3 Timing data
 This functionality gives a detailed insight into the different sector times, best and current lap time and so on. ([Use-Case Specification](UC/UC_TimingData/UC_TimingData.MD))
 
-### 3.3.4 Race data
+### 3.2.4 Race data
 The information which is helpful for the driver changes with the session he is in. The race data overview shows the drivers position in the race, as well as a list of all drivers, their positions and lap times etc.
 
-### 3.3.5 Driver input data
+### 3.2.5 Driver input data
 Displays driver input data such as the positions of the pedals or the steering wheel.
 
-### 3.3.6 Change Settings
+### 3.2.6 Change Settings
 Shows the current settings such as whether the metric or the imperial system should be used and allows the user to change these. The settings will be saved in a file. ([Use-Case Specification](UC/UC_ChangeSettings/UC_ChangeSettings.MD))
 
-### 3.3.7 Analytics
+### 3.2.7 Analytics
 Here the analyzed data will be visualized or textualized and be given as a feedback for the driver.
+
+## 3.3 Functionality – Data Analytics
+### 3.3.1 Analyze lap time improvements
+Analyzes the sector times and gives hints for improving.
+
+### 3.3.2 Analyze driving behavior
+Tries to give helpful tips to improve the driving behavior based on the pedal position, shift-times etc.
+
+### 3.3.3 Analyze tire management
+Takes a look at the sector times, lap times, tire temperature and tire wear and analyzes this information.
+
+### 3.3.4 Analyze fuel consumption
+Analyzes the engines RPM, the gear, fuel consumption to give helpful feedback.
 
 ## 3.4 Usability
 ### 3.4.1 Racing geeks
