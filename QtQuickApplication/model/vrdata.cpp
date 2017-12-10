@@ -68,7 +68,7 @@ VRData::VRData()
     this->currentS3 = 0.0f;
 
     this->bestS1 = 0.0f;
-    this->bestS3 = 0.0f;
+    this->bestS2 = 0.0f;
     this->bestS3 = 0.0f;
 
     this->previousS1 = 0.0f;
