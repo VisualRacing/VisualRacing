@@ -204,6 +204,26 @@ n/a
 n/a
 
 # 4. Supporting Information
-![alt text](screenshots/screenshot1.jpg "screenshot 1")
+![alt text](screenshots/screenshot1.jpg "Screenshot of first Mockup")
 
 *screenshot of first UI-mockup*
+
+
+![General Tab Screenshot](screenshots/Screenshot_GeneralData.png "Screenshot of General Tab")
+
+*screenshot of General Tab*
+
+
+![Car Tab Screenshot](screenshots/Screenshot_Settings.png "Screenshot of Car Tab")
+
+*screenshot of Car Tab*
+
+
+![Timing Data Screenshot](screenshots/Screenshot_TimingData.png "Screenshot")
+
+*screenshot of Timing Tab*
+
+
+![Settings Tab Screenshot](screenshots/Screenshot_Settings.png "Screenshot of Settings Tab")
+
+*screenshot of Settings Tab*

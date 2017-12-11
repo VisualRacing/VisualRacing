@@ -4,6 +4,7 @@
 - [Use-Case Name](#1-display-car-data)
     - [Brief Description](#11-brief-description)
     - [Mockup](#12-mockup)
+    - [Screenshot](#13-screenshot)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)
     - [Alternative Flows](#22-alternative-flows)
@@ -20,6 +21,9 @@ For the tab to load all of the visualizations, graphs and tables the connection 
 
 ## 1.2 Mockup
 ![Car Data Mockup](Mockup.png "Mockup")
+
+## 1.3 Screenshot
+![Car Data Screenshot](../../screenshots/Screenshot_CarData.png "Screenshot")
 
 # 2. Flow of Events
 ## 2.1 Basic Flow

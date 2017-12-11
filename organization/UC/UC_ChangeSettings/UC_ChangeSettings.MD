@@ -4,6 +4,7 @@
 - [Use-Case Name](#1-change-settings)
     - [Brief Description](#11-brief-description)
     - [Mockup](#12-mockup)
+    - [Screenshot](#13-screenshot)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)
     - [Alternative Flows](#22-alternative-flows)
@@ -21,6 +22,9 @@ In order to do so the system has to fetch the already saved settings and load th
 
 ## 1.2 Mockup
 ![Change Settings Mockup](Mockup.png "Mockup")
+
+## 1.3 Screenshot
+![Change Settings Screenshot](../../screenshots/Screenshot_Settings.png "Screenshot")
 
 # 2. Flow of Events
 ## 2.1 Basic Flow
