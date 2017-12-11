@@ -839,7 +839,7 @@ void VRData::setTBestS1(float value)
         return;
 
     tBestS1 = value;
-    emit tBestS1Changed();
+    emit tBestSChanged();
 }
 
 float VRData::getTBestS2() const
@@ -853,7 +853,7 @@ void VRData::setTBestS2(float value)
         return;
 
     tBestS2 = value;
-    emit tBestS2Changed();
+    emit tBestSChanged();
 }
 
 float VRData::getTBestS3() const
@@ -867,5 +867,5 @@ void VRData::setTBestS3(float value)
         return;
 
     tBestS3 = value;
-    emit tBestS3Changed();
+    emit tBestSChanged();
 }

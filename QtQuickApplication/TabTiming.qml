@@ -605,7 +605,6 @@ Rectangle{
     /////////////////////////////////////////////
 
     VRPlotLapTimeBar {
-
         id: lapTimeBar
         objectName: "lapTimeBar"
         width: parent.width * 0.67
@@ -615,6 +614,7 @@ Rectangle{
 
         Component.onCompleted: initCustomPlot()
 
+        /* Laptime table and chart update */
         Connections {
             target: vrData
             onPreviousLapTimeChanged: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
@@ -633,13 +633,12 @@ Rectangle{
             }
         }
 
-        // push some Demo data
         function update(laptime, s1, s2, s3) {
             var timeInS1 = s1;
             var timeInS2 = s2 - s1;
             var timeInS3 = s3 - s2;
 
-            lapTimeBar.pushData(laptime, timeInS1, timeInS2, timeInS3, vrData.bestLapTime); // Is it guaranteed that the best laptime has been updated by now?
+            lapTimeBar.pushData(laptime, timeInS1, timeInS2, timeInS3, vrData.bestLapTime); // TODO: Is it guaranteed that the best laptime has been updated by now?
             model.insert(0, {"number": (laptime > 0 ? "lap " + (model.count + 1) : "INVALID" ), "laptime": lapTimeToString(laptime), "sector1": sectorTimeToString(s1), "sector2": sectorTimeToString(s2), "sector3": sectorTimeToString(s3)});
 
             if (laptime <= 0) // The lap was invalid.
@@ -647,21 +646,12 @@ Rectangle{
 
             if (vrData.tBestS1 <= 0 || timeInS1 < vrData.tBestS1) {
                 vrData.tBestS1 = timeInS1;
-
-                vrData.onTBestS1Changed();
             }
             if (vrData.tBestS2 <= 0 || timeInS2 < vrData.tBestS2) {
                 vrData.tBestS2 = timeInS2;
-
-                vrData.onTBestS1Changed();
-                vrData.onTBestS2Changed();
             }
             if (vrData.tBestS3 <= 0 || timeInS3 < vrData.tBestS3) {
                 vrData.tBestS3 = timeInS3;
-
-                vrData.onTBestS1Changed();
-                vrData.onTBestS2Changed();
-                vrData.onTBestS3Changed();
             }
         }
     }

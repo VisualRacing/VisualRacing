@@ -81,9 +81,9 @@ class VRData : public QObject
     Q_PROPERTY(float previousS2 READ getPreviousS2 WRITE setPreviousS2 NOTIFY previousS2Changed)
     Q_PROPERTY(float previousS3 READ getPreviousS3 WRITE setPreviousS3 NOTIFY previousS3Changed)
 
-    Q_PROPERTY(float tBestS1 READ getTBestS1 WRITE setTBestS1 NOTIFY tBestS1Changed)
-    Q_PROPERTY(float tBestS2 READ getTBestS2 WRITE setTBestS2 NOTIFY tBestS3Changed)
-    Q_PROPERTY(float tBestS3 READ getTBestS3 WRITE setTBestS3 NOTIFY tBestS3Changed)
+    Q_PROPERTY(float tBestS1 READ getTBestS1 WRITE setTBestS1 NOTIFY tBestSChanged)
+    Q_PROPERTY(float tBestS2 READ getTBestS2 WRITE setTBestS2 NOTIFY tBestSChanged)
+    Q_PROPERTY(float tBestS3 READ getTBestS3 WRITE setTBestS3 NOTIFY tBestSChanged)
 
 public:
     VRData();
@@ -330,9 +330,7 @@ signals:
     void previousS2Changed();
     void previousS3Changed();
 
-    void tBestS1Changed();
-    void tBestS2Changed();
-    void tBestS3Changed();
+    void tBestSChanged();
 
 private:
     //
