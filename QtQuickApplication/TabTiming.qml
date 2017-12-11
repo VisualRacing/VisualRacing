@@ -642,6 +642,9 @@ Rectangle{
             lapTimeBar.pushData(laptime, timeInS1, timeInS2, timeInS3, vrData.bestLapTime); // Is it guaranteed that the best laptime has been updated by now?
             model.insert(0, {"number": (laptime > 0 ? "lap " + (model.count + 1) : "INVALID" ), "laptime": lapTimeToString(laptime), "sector1": sectorTimeToString(s1), "sector2": sectorTimeToString(s2), "sector3": sectorTimeToString(s3)});
 
+            if (laptime <= 0) // The lap was invalid.
+                return;
+
             if (vrData.tBestS1 <= 0 || timeInS1 < vrData.tBestS1) {
                 vrData.tBestS1 = timeInS1;
 
