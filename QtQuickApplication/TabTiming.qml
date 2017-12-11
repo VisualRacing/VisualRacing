@@ -361,7 +361,7 @@ Rectangle{
             }
 
             Text {
-                text: "Theoretical best Laptime"
+                text: "Theoretical Best Laptime"
                 color: "white"
 
                 anchors.left: parent.left

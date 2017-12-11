@@ -81,6 +81,7 @@ bool VRDataInterfaceAC::update() {
     //this->buffer->setBestLapTime();
     //this->buffer->setPreviousLapTime();
 
+    /* TODO: Check this behavior. */
     this->buffer->setTireWearFL(qMax(this->nativeBufferPhysics->tyreWear[0], 0.0f) / 100); // Conversion from % to values between 0 and 1
     this->buffer->setTireWearFR(qMax(this->nativeBufferPhysics->tyreWear[1], 0.0f) / 100); // Conversion from % to values between 0 and 1
     this->buffer->setTireWearRR(qMax(this->nativeBufferPhysics->tyreWear[3], 0.0f) / 100); // Conversion from % to values between 0 and 1
@@ -112,6 +113,7 @@ bool VRDataInterfaceAC::update() {
     this->buffer->setTirePressureRR(qMax(this->nativeBufferPhysics->wheelsPressure[3], 0.0f) / 14.5038f); // Conversion from psi to Bar
     this->buffer->setTirePressureRL(qMax(this->nativeBufferPhysics->wheelsPressure[2], 0.0f) / 14.5038f); // Conversion from psi to Bar
 
+    /* TODO: We get some weird values here. */
     this->buffer->setTireDirtFL(qMax(this->nativeBufferPhysics->tyreDirtyLevel[0], 0.0f));
     this->buffer->setTireDirtFR(qMax(this->nativeBufferPhysics->tyreDirtyLevel[1], 0.0f));
     this->buffer->setTireDirtRR(qMax(this->nativeBufferPhysics->tyreDirtyLevel[3], 0.0f));
