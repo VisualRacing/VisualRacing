@@ -615,18 +615,28 @@ Rectangle{
 
         Component.onCompleted: initCustomPlot()
 
-        Timer {
-            interval: 2000
-            running: true
-            repeat: true
-            onTriggered: lapTimeBar.push()
+        Connections {
+            target: vrData
+            onPreviousLapTimeChanged: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
+            onPreviousS1Changed: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
+            onPreviousS2Changed: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
+            onPreviousS3Changed: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
+        }
+
+        property int updateCounter: 0
+        function performUpdate(laptime, s1, s2, s3) {
+            updateCounter++;
+
+            if (updateCounter == 4) {
+                push(laptime, s1, s2 - s1, s3 - s2);
+                updateCounter = 0;
+            }
         }
 
         // push some Demo data
-        function push() {
-            var rand = Math.random() * (120 - 80) + 80;
-            lapTimeBar.pushData(rand, rand*0.2, rand*0.5, rand*0.3, vrData.bestLapTime);
-            model.insert(0, {"number": "0", "laptime": lapTimeToString(rand), "sector1": lapTimeToString(rand*0.2), "sector2": lapTimeToString(rand*0.5), "sector3": lapTimeToString(rand*0.3)})
+        function push(laptime, s1, s2, s3) {
+            lapTimeBar.pushData(laptime, s1, s2, s3, vrData.bestLapTime); // Is it guaranteed that the best laptime has been updated by now?
+            model.insert(0, {"number": (laptime > 0 ? "lap " + model.count + 1 : "INVALID" ), "laptime": lapTimeToString(laptime), "sector1": lapTimeToString(s1), "sector2": lapTimeToString(s2), "sector3": lapTimeToString(s3)});
         }
     }
 }

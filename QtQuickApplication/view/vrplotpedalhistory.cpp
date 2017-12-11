@@ -41,7 +41,7 @@ void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot)
     // prepare y axis:
     customPlot->yAxis->setRange(0, 1);
     customPlot->yAxis->setPadding(5); // a bit more space to the left border
-    customPlot->yAxis->setLabel("mechanical deflection");
+    customPlot->yAxis->setLabel("Mechanical deflection");
     customPlot->yAxis->setBasePen(QPen(lineColor));
     customPlot->yAxis->setTickPen(QPen(lineColor));
     customPlot->yAxis->setSubTickPen(QPen(lineColor));
