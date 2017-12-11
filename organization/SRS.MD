@@ -214,7 +214,7 @@ n/a
 *screenshot of General Tab*
 
 
-![Car Tab Screenshot](screenshots/Screenshot_Settings.png "Screenshot of Car Tab")
+![Car Tab Screenshot](screenshots/Screenshot_CarData.png "Screenshot of Car Tab")
 
 *screenshot of Car Tab*
 
