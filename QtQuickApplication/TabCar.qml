@@ -8,6 +8,6 @@ Rectangle{
         width: parent.width * 0.56
         height: parent.height * 0.9
         anchors.centerIn: parent
-        border.color: "#a7def9"
+        // border.color: "#a7def9"
     }
 }

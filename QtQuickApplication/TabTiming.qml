@@ -591,27 +591,13 @@ Rectangle{
              model: ListModel {
                  id: model
 
-                 ListElement {
+                 /*ListElement {
                      number: "12"
                      laptime: "1:49.33s"
                      sector1: "43.1s"
                      sector2: "39.7s"
                      sector3: "29.04s"
-                 }
-                 ListElement {
-                     number: "11"
-                     laptime: "1:49.33s"
-                     sector1: "43.1s"
-                     sector2: "39.7s"
-                     sector3: "29.04s"
-                 }
-                 ListElement {
-                     number: "10"
-                     laptime: "1:49.33s"
-                     sector1: "43.1s"
-                     sector2: "39.7s"
-                     sector3: "29.04s"
-                 }
+                 }*/
             }
         }
     }
@@ -637,9 +623,10 @@ Rectangle{
         }
 
         // push some Demo data
-        function push(){
+        function push() {
             var rand = Math.random() * (120 - 80) + 80;
-            lapTimeBar.pushData(rand, rand*0.2, rand*0.5, rand*0.3, 75);
+            lapTimeBar.pushData(rand, rand*0.2, rand*0.5, rand*0.3, vrData.bestLapTime);
+            model.insert(0, {"number": "0", "laptime": lapTimeToString(rand), "sector1": lapTimeToString(rand*0.2), "sector2": lapTimeToString(rand*0.5), "sector3": lapTimeToString(rand*0.3)})
         }
     }
 }
