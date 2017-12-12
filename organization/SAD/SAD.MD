@@ -34,6 +34,8 @@ This document describes the architecture of the VisualRacing-Analytics-Tool.
 |**QML**|QML (Qt Meta Language or Qt Modeling Language) is a user interface markup language|
 
 ### 1.4 References
+|Title|Date|
+|-|-|
 |[Blog](https://visualracing.wordpress.com/)|10/05/2017|
 |[GitHub](https://github.com/VisualRacing/VisualRacing)|10/23/2017|
 |[Software Requirements Specification](https://github.com/VisualRacing/VisualRacing/blob/master/organization/SRS.MD)|12/10/2017|
