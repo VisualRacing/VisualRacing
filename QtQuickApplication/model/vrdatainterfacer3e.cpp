@@ -32,7 +32,6 @@ bool VRDataInterfaceR3E::update() {
     this->buffer->setRpm(qMax(this->nativeBuffer->engine_rps * (60 / (2 * M_PI)), 0.0)); // Conversion from rps to rpm
     this->buffer->setMaxRpm(qMax(this->nativeBuffer->max_engine_rps * (60 / (2 * M_PI)), 1.0)); // Conversion from rps to rpm
 
-    // Pedal information:
     this->buffer->setThrottle(qMax(this->nativeBuffer->throttle_pedal, 0.0f));
     this->buffer->setBrake(qMax(this->nativeBuffer->brake_pedal, 0.0f));
     this->buffer->setClutch(qMax(this->nativeBuffer->clutch_pedal, 0.0f));
@@ -71,6 +70,33 @@ bool VRDataInterfaceR3E::update() {
     this->buffer->setTireTemperatureRLI(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_LEFT][R3E_TIRE_TEMP_RIGHT], 0.0f));
     this->buffer->setTireTemperatureRLC(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_LEFT][R3E_TIRE_TEMP_CENTER], 0.0f));
     this->buffer->setTireTemperatureRLO(qMax(this->nativeBuffer->tire_temps[R3E_TIRE_REAR_LEFT][R3E_TIRE_TEMP_LEFT], 0.0f));
+
+    this->buffer->setBrakeTemperatureFL(qMax(this->nativeBuffer->brake_temp[R3E_TIRE_FRONT_LEFT], 0.0f));
+    this->buffer->setBrakeTemperatureFR(qMax(this->nativeBuffer->brake_temp[R3E_TIRE_FRONT_RIGHT], 0.0f));
+    this->buffer->setBrakeTemperatureRR(qMax(this->nativeBuffer->brake_temp[R3E_TIRE_REAR_RIGHT], 0.0f));
+    this->buffer->setBrakeTemperatureRL(qMax(this->nativeBuffer->brake_temp[R3E_TIRE_REAR_LEFT], 0.0f));
+
+    this->buffer->setTirePressureFL(qMax(this->nativeBuffer->tire_pressure[R3E_TIRE_FRONT_LEFT], 0.0f) / 100); // Conversion from kPa to Bar
+    this->buffer->setTirePressureFR(qMax(this->nativeBuffer->tire_pressure[R3E_TIRE_FRONT_RIGHT], 0.0f) / 100); // Conversion from kPa to Bar
+    this->buffer->setTirePressureRR(qMax(this->nativeBuffer->tire_pressure[R3E_TIRE_REAR_RIGHT], 0.0f) / 100); // Conversion from kPa to Bar
+    this->buffer->setTirePressureRL(qMax(this->nativeBuffer->tire_pressure[R3E_TIRE_REAR_LEFT], 0.0f) / 100); // Conversion from kPa to Bar
+
+    this->buffer->setTireDirtFL(qMax(this->nativeBuffer->tire_dirt[R3E_TIRE_FRONT_LEFT], 0.0f));
+    this->buffer->setTireDirtFR(qMax(this->nativeBuffer->tire_dirt[R3E_TIRE_FRONT_RIGHT], 0.0f));
+    this->buffer->setTireDirtRR(qMax(this->nativeBuffer->tire_dirt[R3E_TIRE_REAR_RIGHT], 0.0f));
+    this->buffer->setTireDirtRL(qMax(this->nativeBuffer->tire_dirt[R3E_TIRE_REAR_LEFT], 0.0f));
+
+    this->buffer->setCurrentS1(qMax(this->nativeBuffer->sector_time_current_self[0], 0.0f));
+    this->buffer->setCurrentS2(qMax(this->nativeBuffer->sector_time_current_self[1], 0.0f));
+    this->buffer->setCurrentS3(qMax(this->nativeBuffer->sector_time_current_self[2], 0.0f));
+
+    this->buffer->setBestS1(qMax(this->nativeBuffer->sector_time_best_self[0], 0.0f));
+    this->buffer->setBestS2(qMax(this->nativeBuffer->sector_time_best_self[1], 0.0f));
+    this->buffer->setBestS3(qMax(this->nativeBuffer->sector_time_best_self[2], 0.0f));
+
+    this->buffer->setPreviousS1(qMax(this->nativeBuffer->sector_time_previous_self[0], 0.0f));
+    this->buffer->setPreviousS2(qMax(this->nativeBuffer->sector_time_previous_self[1], 0.0f));
+    this->buffer->setPreviousS3(qMax(this->nativeBuffer->sector_time_previous_self[2], 0.0f));
 
     return true;
 }

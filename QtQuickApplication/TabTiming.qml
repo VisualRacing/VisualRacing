@@ -12,7 +12,7 @@ Rectangle{
         border.color: "#a7def9"
 
         width: parent.width * 0.3
-        height: parent.height * 0.35
+        height: parent.height * 0.3
 
         anchors.top: parent.top
         anchors.left: parent.left
@@ -26,57 +26,11 @@ Rectangle{
             anchors.left: parent.left
 
             width: parent.width
-            height: parent.height * 0.6
+            height: parent.height * 0.7
 
             Text {
                 id: currentTimeLabel
-                text: "1:32.123"
-                color: "white"
-
-                anchors.centerIn: parent
-                width: parent.width * 0.8
-                height: parent.height * 0.75
-
-                font {
-                    pointSize: 500
-                    bold: true
-                }
-                minimumPointSize: 2
-                fontSizeMode: Text.Fit
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                text: "Current Laptime"
-                color: "white"
-
-                anchors.left: parent.left
-                anchors.bottom: parent.bottom
-                anchors.margins: 5
-
-                width: parent.width * 0.3
-                height: parent.height * 0.2
-
-                font.pointSize: currentSectorTimeDesc.fontInfo.pointSize
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignBottom
-            }
-        }
-
-        Rectangle {
-            id: currentSectorTime
-            color: "transparent"
-            border.color: "#a7def9"
-
-            anchors.top: currentLapTime.bottom
-            anchors.left: parent.left
-
-            width: parent.width
-            height: parent.height * 0.4
-
-            Text {
-                id: currentSectorLabel
-                text: "41.438"
+                text: lapTimeToString(vrData.currentLapTime)
                 color: "white"
 
                 anchors.top: parent.top
@@ -95,23 +49,113 @@ Rectangle{
             }
 
             Text {
-                id: currentSectorTimeDesc
-                text: "Current Sectortime"
+                id: currentLaptimeDesc
+                text: "Current Laptime"
                 color: "white"
 
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 anchors.margins: 5
 
-                width: parent.width * 0.6
+                width: parent.width * 0.3
                 height: parent.height * 0.2
 
+                minimumPointSize: 10
+                font.pointSize: 100
+                fontSizeMode: Text.Fit
+
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignBottom
+            }
+        }
+
+        Rectangle {
+            id: currentSector1
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: currentSector1Time
+                text: sectorTimeToString(vrData.currentS1)
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
                 font {
-                    pointSize: 100
+                    pointSize: 500
                 }
                 minimumPointSize: 2
                 fontSizeMode: Text.Fit
-                horizontalAlignment: Text.AlignLeft
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        Rectangle {
+            id: currentSector2
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: currentSector2Time
+                text: sectorTimeToString(vrData.currentS2)
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        Rectangle {
+            id: currentSector3
+            color: "transparent"
+            border.color: "#a7def9"
+
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+
+            width: parent.width / 3
+            height: parent.height * 0.3
+
+            Text {
+                id: currentSector3Time
+                text: sectorTimeToString(vrData.currentS3)
+                color: "white"
+
+                anchors.centerIn: parent
+                width: parent.width * 0.8
+                height: parent.height * 0.8
+
+                font {
+                    pointSize: 500
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
             }
         }
     }
@@ -124,7 +168,7 @@ Rectangle{
         border.color: "#a7def9"
 
         width: parent.width * 0.3
-        height: parent.height * 0.25
+        height: parent.height * 0.3
 
         anchors.top: currentTile.bottom
         anchors.left: parent.left
@@ -143,7 +187,7 @@ Rectangle{
 
             Text {
                 id: bestTimeLabel
-                text: "1:49.672"
+                text: lapTimeToString(vrData.bestLapTime)
                 color: "white"
 
                 anchors.top: parent.top
@@ -172,7 +216,7 @@ Rectangle{
                 width: parent.width * 0.6
                 height: parent.height * 0.2
 
-                font.pointSize: currentSectorTimeDesc.fontInfo.pointSize
+                font.pointSize: currentLaptimeDesc.fontInfo.pointSize
 
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignBottom
@@ -192,7 +236,7 @@ Rectangle{
 
             Text {
                 id: sector1Time
-                text: "S1"
+                text: sectorTimeToString(vrData.bestS1)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -222,7 +266,7 @@ Rectangle{
 
             Text {
                 id: sector2Time
-                text: "S2"
+                text: sectorTimeToString(vrData.bestS2)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -252,7 +296,7 @@ Rectangle{
 
             Text {
                 id: sector3Time
-                text: "S3"
+                text: sectorTimeToString(vrData.bestS3)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -279,7 +323,7 @@ Rectangle{
         border.color: "#a7def9"
 
         width: parent.width * 0.3
-        height: parent.height * 0.25
+        height: parent.height * 0.3
 
         anchors.top: bestTile.bottom
         anchors.left: parent.left
@@ -293,15 +337,15 @@ Rectangle{
             width: parent.width
             height: parent.height * 0.7
 
-            anchors.bottom: parent.bottom
+            anchors.top: parent.top
             anchors.left: parent.left
 
             Text {
                 id: theorBestTimeLabel
-                text: "1:49.672"
+                text: lapTimeToString(vrData.tBestS1 + vrData.tBestS2 + vrData.tBestS3)
                 color: "white"
 
-                anchors.bottom: parent.bottom
+                anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width * 0.8
                 height: parent.height * 0.7
@@ -317,19 +361,20 @@ Rectangle{
             }
 
             Text {
-                text: "Theoretical best Laptime"
+                text: "Theoretical Best Laptime"
                 color: "white"
 
                 anchors.left: parent.left
-                anchors.top: parent.top
+                anchors.bottom: parent.bottom
                 anchors.margins: 5
 
                 width: parent.width * 0.6
                 height: parent.height * 0.2
 
-                font.pointSize: currentSectorTimeDesc.fontInfo.pointSize
+                font.pointSize: currentLaptimeDesc.fontInfo.pointSize
 
                 horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignBottom
             }
         }
 
@@ -338,7 +383,7 @@ Rectangle{
             color: "transparent"
             border.color: "#a7def9"
 
-            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.left: parent.left
 
             width: parent.width / 3
@@ -346,7 +391,7 @@ Rectangle{
 
             Text {
                 id: bestSector1Time
-                text: "Best S1"
+                text: sectorTimeToString(vrData.tBestS1)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -368,7 +413,7 @@ Rectangle{
             color: "transparent"
             border.color: "#a7def9"
 
-            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
 
             width: parent.width / 3
@@ -376,7 +421,7 @@ Rectangle{
 
             Text {
                 id: bestSector2Time
-                text: "Best S2"
+                text: sectorTimeToString(vrData.tBestS1 + vrData.tBestS2)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -398,7 +443,7 @@ Rectangle{
             color: "transparent"
             border.color: "#a7def9"
 
-            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.right: parent.right
 
             width: parent.width / 3
@@ -406,7 +451,7 @@ Rectangle{
 
             Text {
                 id: bestSector3Time
-                text: "Best S3"
+                text: sectorTimeToString(vrData.tBestS1 + vrData.tBestS2 + vrData.tBestS3)
                 color: "white"
 
                 anchors.centerIn: parent
@@ -546,35 +591,20 @@ Rectangle{
              model: ListModel {
                  id: model
 
-                 ListElement {
+                 /*ListElement {
                      number: "12"
                      laptime: "1:49.33s"
                      sector1: "43.1s"
                      sector2: "39.7s"
                      sector3: "29.04s"
-                 }
-                 ListElement {
-                     number: "11"
-                     laptime: "1:49.33s"
-                     sector1: "43.1s"
-                     sector2: "39.7s"
-                     sector3: "29.04s"
-                 }
-                 ListElement {
-                     number: "10"
-                     laptime: "1:49.33s"
-                     sector1: "43.1s"
-                     sector2: "39.7s"
-                     sector3: "29.04s"
-                 }
-             }             
-    }
+                 }*/
+            }
+        }
     }
 
     /////////////////////////////////////////////
 
     VRPlotLapTimeBar {
-
         id: lapTimeBar
         objectName: "lapTimeBar"
         width: parent.width * 0.67
@@ -584,17 +614,45 @@ Rectangle{
 
         Component.onCompleted: initCustomPlot()
 
-        Timer {
-            interval: 2000
-            running: true
-            repeat: true
-            onTriggered: lapTimeBar.push()
+        /* Laptime table and chart update */
+        Connections {
+            target: vrData
+            onPreviousLapTimeChanged: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
+            onPreviousS1Changed: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
+            onPreviousS2Changed: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
+            onPreviousS3Changed: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
         }
 
-        // push some Demo data
-        function push(){
-            var rand = Math.random() * (120 - 80) + 80;
-            lapTimeBar.pushData(rand, rand*0.2, rand*0.5, rand*0.3, 75);
+        property int updateCounter: 0
+        function performUpdate(laptime, s1, s2, s3) {
+            updateCounter++;
+
+            if (updateCounter == 4) {
+                update(laptime, s1, s2, s3);
+                updateCounter = 0;
+            }
+        }
+
+        function update(laptime, s1, s2, s3) {
+            var timeInS1 = s1;
+            var timeInS2 = s2 - s1;
+            var timeInS3 = s3 - s2;
+
+            lapTimeBar.pushData(laptime, timeInS1, timeInS2, timeInS3, vrData.bestLapTime); // TODO: Is it guaranteed that the best laptime has been updated by now?
+            model.insert(0, {"number": (laptime > 0 ? "lap " + (model.count + 1) : "INVALID" ), "laptime": lapTimeToString(laptime), "sector1": sectorTimeToString(s1), "sector2": sectorTimeToString(s2), "sector3": sectorTimeToString(s3)});
+
+            if (laptime <= 0) // The lap was invalid.
+                return;
+
+            if (vrData.tBestS1 <= 0 || timeInS1 < vrData.tBestS1) {
+                vrData.tBestS1 = timeInS1;
+            }
+            if (vrData.tBestS2 <= 0 || timeInS2 < vrData.tBestS2) {
+                vrData.tBestS2 = timeInS2;
+            }
+            if (vrData.tBestS3 <= 0 || timeInS3 < vrData.tBestS3) {
+                vrData.tBestS3 = timeInS3;
+            }
         }
     }
 }

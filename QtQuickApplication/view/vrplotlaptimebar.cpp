@@ -104,7 +104,7 @@ void VRPlotLapTimeBar::setupPlot(QCustomPlot *customPlot)
     // prepare y axis:
     customPlot->yAxis->setRange(0, 0);
     customPlot->yAxis->setPadding(2); // a bit more space to the left border
-    customPlot->yAxis->setLabel("time in sec");
+    customPlot->yAxis->setLabel("Time in s");
     customPlot->yAxis->setBasePen(QPen(lineColor));
     customPlot->yAxis->setTickPen(QPen(lineColor));
     customPlot->yAxis->setSubTickPen(QPen(lineColor));

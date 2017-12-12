@@ -74,7 +74,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnPressure(vrData.tirePressureFL)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -98,7 +98,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureFLI)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -124,7 +124,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireWearFL * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -148,7 +148,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureFLC)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -174,7 +174,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireDirtFL * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -198,7 +198,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureFLO)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -228,9 +228,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#aa2222" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#2222aa" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureFLI) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureFLC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureFLO) }
                 }
 
             }
@@ -239,7 +239,7 @@ Rectangle {
 
     Text{
         id: frontLeftBrakeLabel
-        text: "Brake Temp.: " + "0" + " °C"
+        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureFL)
 
         anchors.right: frontLeftWheel.right
         anchors.top: frontLeftWheel.bottom
@@ -288,7 +288,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureFRI)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -312,7 +312,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnPressure(vrData.tirePressureFR)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -338,7 +338,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureFRC)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -362,7 +362,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireWearFR * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -388,7 +388,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureFRO)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -412,7 +412,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireDirtFR * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -442,9 +442,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#2222aa" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#aa2222" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureFRO) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureFRC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureFRI) }
                 }
 
             }
@@ -453,7 +453,7 @@ Rectangle {
 
     Text{
         id: frontRightBrakeLabel
-        text: "Brake Temp.: " + "0" + " °C"
+        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureFR)
 
         anchors.left: frontRightWheel.left
         anchors.top: frontRightWheel.bottom
@@ -503,7 +503,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnPressure(vrData.tirePressureRL)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -527,7 +527,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureRLI)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -553,7 +553,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireWearRL * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -577,7 +577,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureRLC)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -603,7 +603,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireDirtRL * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -627,7 +627,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureRLO)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -657,9 +657,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#aa2222" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#2222aa" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureRLI) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureRLC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureRLO) }
                 }
 
             }
@@ -668,7 +668,7 @@ Rectangle {
 
     Text{
         id: rearLeftBrakeLabel
-        text: "Brake Temp.: " + "0" + " °C"
+        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureRL)
 
         anchors.right: rearLeftWheel.right
         anchors.top: rearLeftWheel.bottom
@@ -704,7 +704,6 @@ Rectangle {
 
             Column{
                 Row{
-
                     Text {
                         text: qsTr("I:")
                         color: "white"
@@ -718,7 +717,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureRRI)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -741,7 +740,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnPressure(vrData.tirePressureRR)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -768,7 +767,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureRRC)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -791,7 +790,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireWearRR * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -818,7 +817,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: returnTemperature(vrData.tireTemperatureRRO)
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -841,7 +840,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: "0"
+                        text: (vrData.tireDirtRR * 100).toFixed(0) + "%"
                         color: "white"
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -871,9 +870,9 @@ Rectangle {
                 radius: 17
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#2222aa" }
-                    GradientStop { position: 0.5; color: "#22aa22" }
-                    GradientStop { position: 1.0; color: "#aa2222" }
+                    GradientStop { position: 0.0; color: tempToColor(vrData.tireTemperatureRRO) }
+                    GradientStop { position: 0.5; color: tempToColor(vrData.tireTemperatureRRC) }
+                    GradientStop { position: 1.0; color: tempToColor(vrData.tireTemperatureRRI) }
                 }
 
             }
@@ -882,7 +881,7 @@ Rectangle {
 
     Text{
         id: rearRightBrakeLabel
-        text: "Brake Temp.: " + "0" + " °C"
+        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureRR)
 
         anchors.left: rearRightWheel.left
         anchors.top: rearRightWheel.bottom

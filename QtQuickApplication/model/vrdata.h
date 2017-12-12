@@ -54,6 +54,37 @@ class VRData : public QObject
     Q_PROPERTY(float tireTemperatureRLC READ getTireTemperatureRLC WRITE setTireTemperatureRLC NOTIFY tireTemperatureRLCChanged)
     Q_PROPERTY(float tireTemperatureRLO READ getTireTemperatureRLO WRITE setTireTemperatureRLO NOTIFY tireTemperatureRLOChanged)
 
+    Q_PROPERTY(float brakeTemperatureFL READ getBrakeTemperatureFL WRITE setBrakeTemperatureFL NOTIFY brakeTemperatureFLChanged)
+    Q_PROPERTY(float brakeTemperatureFR READ getBrakeTemperatureFR WRITE setBrakeTemperatureFR NOTIFY brakeTemperatureFRChanged)
+    Q_PROPERTY(float brakeTemperatureRR READ getBrakeTemperatureRR WRITE setBrakeTemperatureRR NOTIFY brakeTemperatureRRChanged)
+    Q_PROPERTY(float brakeTemperatureRL READ getBrakeTemperatureRL WRITE setBrakeTemperatureRL NOTIFY brakeTemperatureRLChanged)
+
+    Q_PROPERTY(float tirePressureFL READ getTirePressureFL WRITE setTirePressureFL NOTIFY tirePressureFLChanged)
+    Q_PROPERTY(float tirePressureFR READ getTirePressureFR WRITE setTirePressureFR NOTIFY tirePressureFRChanged)
+    Q_PROPERTY(float tirePressureRR READ getTirePressureRR WRITE setTirePressureRR NOTIFY tirePressureRRChanged)
+    Q_PROPERTY(float tirePressureRL READ getTirePressureRL WRITE setTirePressureRL NOTIFY tirePressureRLChanged)
+
+    Q_PROPERTY(float tireDirtFL READ getTireDirtFL WRITE setTireDirtFL NOTIFY tireDirtFLChanged)
+    Q_PROPERTY(float tireDirtFR READ getTireDirtFR WRITE setTireDirtFR NOTIFY tireDirtFRChanged)
+    Q_PROPERTY(float tireDirtRR READ getTireDirtRR WRITE setTireDirtRR NOTIFY tireDirtRRChanged)
+    Q_PROPERTY(float tireDirtRL READ getTireDirtRL WRITE setTireDirtRL NOTIFY tireDirtRLChanged)
+
+    Q_PROPERTY(float currentS1 READ getCurrentS1 WRITE setCurrentS1 NOTIFY currentS1Changed)
+    Q_PROPERTY(float currentS2 READ getCurrentS2 WRITE setCurrentS2 NOTIFY currentS2Changed)
+    Q_PROPERTY(float currentS3 READ getCurrentS3 WRITE setCurrentS3 NOTIFY currentS3Changed)
+
+    Q_PROPERTY(float bestS1 READ getBestS1 WRITE setBestS1 NOTIFY bestS1Changed)
+    Q_PROPERTY(float bestS2 READ getBestS2 WRITE setBestS2 NOTIFY bestS2Changed)
+    Q_PROPERTY(float bestS3 READ getBestS3 WRITE setBestS3 NOTIFY bestS3Changed)
+
+    Q_PROPERTY(float previousS1 READ getPreviousS1 WRITE setPreviousS1 NOTIFY previousS1Changed)
+    Q_PROPERTY(float previousS2 READ getPreviousS2 WRITE setPreviousS2 NOTIFY previousS2Changed)
+    Q_PROPERTY(float previousS3 READ getPreviousS3 WRITE setPreviousS3 NOTIFY previousS3Changed)
+
+    Q_PROPERTY(float tBestS1 READ getTBestS1 WRITE setTBestS1 NOTIFY tBestSChanged)
+    Q_PROPERTY(float tBestS2 READ getTBestS2 WRITE setTBestS2 NOTIFY tBestSChanged)
+    Q_PROPERTY(float tBestS3 READ getTBestS3 WRITE setTBestS3 NOTIFY tBestSChanged)
+
 public:
     VRData();
 
@@ -155,6 +186,78 @@ public:
     float getTireTemperatureRLO() const;
     void setTireTemperatureRLO(float value);
 
+    float getBrakeTemperatureFL() const;
+    void setBrakeTemperatureFL(float value);
+
+    float getBrakeTemperatureFR() const;
+    void setBrakeTemperatureFR(float value);
+
+    float getBrakeTemperatureRR() const;
+    void setBrakeTemperatureRR(float value);
+
+    float getBrakeTemperatureRL() const;
+    void setBrakeTemperatureRL(float value);
+
+    float getTirePressureFL() const;
+    void setTirePressureFL(float value);
+
+    float getTirePressureFR() const;
+    void setTirePressureFR(float value);
+
+    float getTirePressureRR() const;
+    void setTirePressureRR(float value);
+
+    float getTirePressureRL() const;
+    void setTirePressureRL(float value);
+
+    float getTireDirtFL() const;
+    void setTireDirtFL(float value);
+
+    float getTireDirtFR() const;
+    void setTireDirtFR(float value);
+
+    float getTireDirtRR() const;
+    void setTireDirtRR(float value);
+
+    float getTireDirtRL() const;
+    void setTireDirtRL(float value);
+
+    float getCurrentS1() const;
+    void setCurrentS1(float value);
+
+    float getCurrentS2() const;
+    void setCurrentS2(float value);
+
+    float getCurrentS3() const;
+    void setCurrentS3(float value);
+
+    float getBestS1() const;
+    void setBestS1(float value);
+
+    float getBestS2() const;
+    void setBestS2(float value);
+
+    float getBestS3() const;
+    void setBestS3(float value);
+
+    float getPreviousS1() const;
+    void setPreviousS1(float value);
+
+    float getPreviousS2() const;
+    void setPreviousS2(float value);
+
+    float getPreviousS3() const;
+    void setPreviousS3(float value);
+
+    float getTBestS1() const;
+    void setTBestS1(float value);
+
+    float getTBestS2() const;
+    void setTBestS2(float value);
+
+    float getTBestS3() const;
+    void setTBestS3(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -200,6 +303,35 @@ signals:
     void tireTemperatureRLCChanged();
     void tireTemperatureRLOChanged();
 
+    void brakeTemperatureFLChanged();
+    void brakeTemperatureFRChanged();
+    void brakeTemperatureRRChanged();
+    void brakeTemperatureRLChanged();
+
+    void tirePressureFLChanged();
+    void tirePressureFRChanged();
+    void tirePressureRRChanged();
+    void tirePressureRLChanged();
+
+    void tireDirtFLChanged();
+    void tireDirtFRChanged();
+    void tireDirtRRChanged();
+    void tireDirtRLChanged();
+
+    void currentS1Changed();
+    void currentS2Changed();
+    void currentS3Changed();
+
+    void bestS1Changed();
+    void bestS2Changed();
+    void bestS3Changed();
+
+    void previousS1Changed();
+    void previousS2Changed();
+    void previousS3Changed();
+
+    void tBestSChanged();
+
 private:
     //
     // Application information
@@ -242,12 +374,22 @@ private:
     float clutch;
 
     // Tire Info
-    //float tirePressure[4]; // TODO: Unit?
+    // Tire Pressures in Bar
+    float tirePressureFL;
+    float tirePressureFR;
+    float tirePressureRR;
+    float tirePressureRL;
+
     float tireWearFL;
     float tireWearFR;
     float tireWearRR;
     float tireWearRL;
-    //float tireDirt[4];
+
+    // Tire dirt in %
+    float tireDirtFL;
+    float tireDirtFR;
+    float tireDirtRR;
+    float tireDirtRL;
 
     // Tire temperatures of three points across the tread of the tire (in Celcius)
     float tireTemperatureFLI;
@@ -267,7 +409,10 @@ private:
     float tireTemperatureRLO;
 
     // in Celcius
-    //float brakeTemperatures[4];
+    float brakeTemperatureFL;
+    float brakeTemperatureFR;
+    float brakeTemperatureRR;
+    float brakeTemperatureRL;
 
     // Damage
     // TODO: AC and R3E work a bit different here, not sure what's the best way to handle this.
@@ -296,7 +441,22 @@ private:
     float currentLapTime;
     float bestLapTime;
     float previousLapTime;
-    //float theoreticalBestLapTime;
+
+    float currentS1;
+    float currentS2;
+    float currentS3;
+
+    float bestS1;
+    float bestS2;
+    float bestS3;
+
+    float previousS1;
+    float previousS2;
+    float previousS3;
+
+    float tBestS1;
+    float tBestS2;
+    float tBestS3;
 
     //int currentSector;
     //float currentLapSectorTimes[3];

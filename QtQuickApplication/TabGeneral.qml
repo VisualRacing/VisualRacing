@@ -365,7 +365,7 @@ Rectangle {
 
             Text {
                 id: currentLapValue
-                text: laptimeOverview.lapTimeToString(vrData.currentLapTime)
+                text: lapTimeToString(vrData.currentLapTime)
                 color: "white"
                 Layout.bottomMargin: 10
 
@@ -385,7 +385,7 @@ Rectangle {
 
             Text {
                 id: lastLapValue
-                text: laptimeOverview.lapTimeToString(vrData.previousLapTime)
+                text: lapTimeToString(vrData.previousLapTime)
                 color: "white"
                 Layout.bottomMargin: 10
 
@@ -405,23 +405,13 @@ Rectangle {
 
             Text {
                 id: bestLapValue
-                text: laptimeOverview.lapTimeToString(vrData.bestLapTime)
+                text: lapTimeToString(vrData.bestLapTime)
                 color: "white"
                 Layout.bottomMargin: 10
 
                 font.bold: true
                 font.pixelSize: currentLapLabel.font.pixelSize
             }
-        }
-
-        function lapTimeToString(time) {
-            if (time <= 0.0)
-                return "-:--.---"
-
-            var min = Math.floor(time / 60);
-            var sec = time % 60;
-
-            return (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec.toFixed(3);
         }
     }
 
@@ -637,38 +627,5 @@ Rectangle {
         var r = parseInt((0xFF * (1 - p)).toFixed(0)).toString(16);
 
         return "#" + (r.length < 2 ? "0" + r : r) + (g.length < 2 ? "0" + g : g) + "00";
-    }
-
-    function tempToColor(t) { // TODO: Refactor.
-        var cold = 60;
-        var low = 75;
-        var high = 85;
-        var hot = 100;
-
-        if (t < cold)
-            return "#0000FF";
-        else if (t > low && t < high)
-            return "#00FF00";
-        else if (t > hot)
-            return "#FF0000";
-
-        if(t >= cold && t <= low) {
-            var p = (t - cold)/(low - cold);
-
-            var g = parseInt((0xFF * p).toFixed(0)).toString(16);
-            var b = parseInt((0xFF * (1 - p)).toFixed(0)).toString(16);
-
-            return "#00" + (g.length < 2 ? "0" + g : g) + (b.length < 2 ? "0" + b : b);
-
-        } else if (t >= high && t <= hot) {
-            var p = (t - high)/(hot - high);
-
-            var r = parseInt((0xFF * p).toFixed(0)).toString(16);
-            var g = parseInt((0xFF * (1 - p)).toFixed(0)).toString(16);
-
-            return "#" + (r.length < 2 ? "0" + r : r) + (g.length < 2 ? "0" + g : g) + "00";
-        }
-
-        return "white";
     }
 }
