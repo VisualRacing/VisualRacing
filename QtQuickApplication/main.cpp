@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     QSharedPointer<VRSimulationManager> simulationManager;
     QSharedPointer<VRData> vrData;
 
-    bool uiDev = false;
+    bool uiDev = true;
     if (!uiDev) {simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
         simulationManager->start();
 
