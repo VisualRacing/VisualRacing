@@ -91,11 +91,8 @@ The data, which is read, has to be transformed into a general data structure, so
 ### 3.1.3 Provide data
 To display the data, it has to be provided to the UI via an interface.
 
-### 3.1.4 Record data
-Instead of just reading and providing the data to the frontend, this functionality records the data stream.
-
-### 3.1.5 Save recorded data
-The recorded data has to be saved in an efficient way.
+### 3.1.4 Record and save/load data
+Instead of just reading and providing the data to the frontend, this functionality records the data stream and can be saved and loaded for analytic purposes.
 
 ## 3.2 Functionality – User Interface
 ### 3.2.1 General overview
