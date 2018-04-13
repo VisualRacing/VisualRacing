@@ -5,7 +5,7 @@ import QtQuick.Controls.Styles 1.4
 
 Window {
 
-    property int numberOfTabs: 4 // number of Tabs for Aligning the SettingsTab right and the "invisible" Tab
+    property int numberOfTabs: 5 // number of Tabs for Aligning the SettingsTab right and the "invisible" Tab
     property bool unitSystemIsMetric: true // Flag for changing the unit system in settings
 
     function returnVelocity(speedInKMH) {
@@ -128,7 +128,7 @@ Window {
 
             }
         }
-        /*
+
         Tab {
             id: analyticsTab
             title: "Analytics"
@@ -136,7 +136,7 @@ Window {
 
             }
         }
-        */
+
         Tab {
             id: seperatorTab
             title: ""
@@ -154,7 +154,7 @@ Window {
         style: TabViewStyle {
             frameOverlap: 1
             tab: Rectangle {
-                color: if(styleData.title === ""){"#313537"}else{styleData.selected ? "#3e4244" :"#555555"}         // all tabs with "" will be unvisible
+                color: if(styleData.title === ""){"#313537"}else{styleData.selected ? "#3e4244" : "#555555"}         // all tabs with "" will be unvisible
                 border.color: styleData.selected ? "#3e4244" :"#313537"                                             // border width = 1 pixel
                 implicitWidth: if(styleData.title === ""){tabView_main.width - (79 * numberOfTabs)}else{80}         // text must be shorter than 80 pixels
                 implicitHeight: 30

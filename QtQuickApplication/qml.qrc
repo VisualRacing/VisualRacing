@@ -7,5 +7,6 @@
         <file>TabAnalytics.qml</file>
         <file>TabSettings.qml</file>
         <file>TireInfoPanel.qml</file>
+        <file>SubTablLiveAnalytics.qml</file>
     </qresource>
 </RCC>
