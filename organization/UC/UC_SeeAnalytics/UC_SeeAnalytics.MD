@@ -22,7 +22,8 @@ The application is divided into a few tabs and the purpose of this use case is f
 n/a
 
 ## 1.3 Screenshot
-n/a
+Organization of the Analyticstab:
+![Analytics Tab Screenshot](analyticsTab.jpg "Analytics tab organization")
 
 # 2. Flow of Events
 ## 2.1 Basic Flow
