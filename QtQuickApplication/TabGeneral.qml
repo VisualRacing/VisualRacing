@@ -339,7 +339,7 @@ Rectangle {
 
         Text {
             id: lapsTitle
-            text: "Laptimes"
+            text: qsTr("Laptimes")
             color: "white"
 
             font.pixelSize: (laptimeOverview.width * 0.2) * (laptimeOverview.height * 0.2) * 0.0075;

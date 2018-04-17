@@ -33,7 +33,10 @@ SOURCES += \
     view/vrplotvelocity.cpp \
     main.cpp
 
-RESOURCES += qml.qrc resources.qrc
+TRANSLATIONS = german.ts
+
+RESOURCES += qml.qrc resources.qrc \
+    translations.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -64,4 +67,6 @@ HEADERS += \
     view/vrplotpedalhistory.h \
     view/vrplotpedals.h \
     view/vrplotrpm.h \
-    view/vrplotvelocity.h \
+    view/vrplotvelocity.h
+
+DISTFILES +=

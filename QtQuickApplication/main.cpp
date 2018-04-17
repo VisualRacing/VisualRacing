@@ -52,6 +52,14 @@ int main(int argc, char *argv[])
     }
 
     /*
+     * load translation
+     */
+    QTranslator translator;
+    translator.load(QString(":/german"));
+    app.installTranslator(&translator);
+
+
+    /*
      * expose Data-Objects to qml
      */
     engine.rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
