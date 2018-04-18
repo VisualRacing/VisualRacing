@@ -1,7 +1,7 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
-#include <Windows.h>
+#include <windows.h>
 #include <tlhelp32.h>
 #include <chrono>
 

@@ -1,7 +1,7 @@
 #include <string>
 #include <QString>
 #include <QSharedPointer>
-#include <Windows.h>
+#include <windows.h>
 
 #include <cstdlib>
 #include <QApplication>
