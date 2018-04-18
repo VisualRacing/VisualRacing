@@ -39,8 +39,8 @@ void VRPlotRPM::setupPlot(QCustomPlot *customPlot)
     customPlot->graph(1)->setPen(QPen(QColor("#ffa500"), qreal(2.0)));
 
     // set axis labels
-    customPlot->xAxis->setLabel("Time in s");
-    customPlot->yAxis->setLabel("RPM / gear");
+    customPlot->xAxis->setLabel(tr("Time in s"));
+    customPlot->yAxis->setLabel(tr("RPM / gear"));
 
     // configure xAxis
     QColor lineColor("#a7def9");

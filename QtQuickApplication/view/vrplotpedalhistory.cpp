@@ -29,7 +29,7 @@ void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot)
 
     // configure xAxis
     QColor lineColor("#a7def9");
-    customPlot->xAxis->setLabel("Time in s");
+    customPlot->xAxis->setLabel(tr("Time in s"));
     customPlot->xAxis->setRange(0, 5);
     customPlot->xAxis->setBasePen(QPen(lineColor));
     customPlot->xAxis->setTickPen(QPen(lineColor));
@@ -41,7 +41,7 @@ void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot)
     // prepare y axis:
     customPlot->yAxis->setRange(0, 1);
     customPlot->yAxis->setPadding(5); // a bit more space to the left border
-    customPlot->yAxis->setLabel("Mechanical deflection");
+    customPlot->yAxis->setLabel(tr("Mechanical deflection"));
     customPlot->yAxis->setBasePen(QPen(lineColor));
     customPlot->yAxis->setTickPen(QPen(lineColor));
     customPlot->yAxis->setSubTickPen(QPen(lineColor));

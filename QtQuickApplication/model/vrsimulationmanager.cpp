@@ -34,7 +34,7 @@ QSharedPointer<VRDataInterface> VRSimulationManager::getDataInterface()
 }
 
 void VRSimulationManager::waitForSim() {
-    std::cout << "SimulationManager is waiting for a simulation to start ..." << std::endl;
+    std::cout << "SimulationManager is waiting for a simulation to start ..."tr << std::endl;
 
     while(true) { // TODO: Timeout?
         if (VRUtilities::isProcessRunning(vrconstants::r3eProcessName)) { // TODO: Optimize duplicate call for different simulations?

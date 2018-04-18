@@ -50,7 +50,7 @@ Rectangle{
 
             Text {
                 id: currentLaptimeDesc
-                text: "Current Laptime"
+                text: qsTr("Current Laptime")
                 color: "white"
 
                 anchors.left: parent.left
@@ -206,7 +206,7 @@ Rectangle{
             }
 
             Text {
-                text: "Best Laptime"
+                text: qsTr("Best Laptime")
                 color: "white"
 
                 anchors.left: parent.left
@@ -361,7 +361,7 @@ Rectangle{
             }
 
             Text {
-                text: "Theoretical Best Laptime"
+                text: qsTr("Theoretical Best Laptime")
                 color: "white"
 
                 anchors.left: parent.left
@@ -536,7 +536,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnNumber
-                 title: "No."
+                 title: qsTr("No.")
                  role: "number"
                  width: lapTimeTable.viewport.width * 0.1
 
@@ -546,7 +546,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnLaptime
-                 title: "Laptime"
+                 title: qsTr("Laptime")
                  role: "laptime"
                  width: lapTimeTable.viewport.width * (.9 * 0.25)
 
@@ -556,7 +556,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnSector1
-                 title: "Sector 1"
+                 title: qsTr("Sector 1")
                  role: "sector1"
                  width: lapTimeTable.viewport.width * (.9 * 0.25)
 
@@ -566,7 +566,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnSector2
-                 title: "Sector 2"
+                 title: qsTr("Sector 2")
                  role: "sector2"
                  width: lapTimeTable.viewport.width * (.9 * 0.25)
 
@@ -576,7 +576,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnSector3
-                 title: "Sector 3"
+                 title: qsTr("Sector 3")
                  role: "sector3"
                  width: lapTimeTable.viewport.width * (.9 * 0.25)
 
@@ -590,14 +590,6 @@ Rectangle{
 
              model: ListModel {
                  id: model
-
-                 /*ListElement {
-                     number: "12"
-                     laptime: "1:49.33s"
-                     sector1: "43.1s"
-                     sector2: "39.7s"
-                     sector3: "29.04s"
-                 }*/
             }
         }
     }

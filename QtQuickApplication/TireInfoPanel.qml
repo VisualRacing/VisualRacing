@@ -6,7 +6,7 @@ Rectangle {
 
     Text{
         id: fuelLabel
-        text: "Remaining Fuel: " + vrData.fuel.toFixed(2) + " / " + vrData.maxFuel.toFixed(2) + " L"
+        text: qsTr("Remaining Fuel: ") + vrData.fuel.toFixed(2) + " / " + vrData.maxFuel.toFixed(2) + " L"
 
         anchors.left: parent.left
         anchors.top: parent.top
@@ -24,7 +24,7 @@ Rectangle {
 
     Text{
         id: brakeBiasLabel
-        text: "Brake-Bias: " + (vrData.brakeBias * 100).toFixed(1) + " %"
+        text: qsTr("Brake-Bias: ") + (vrData.brakeBias * 100).toFixed(1) + " %"
 
         anchors.left: parent.left
         anchors.top: fuelLabel.bottom
@@ -239,7 +239,7 @@ Rectangle {
 
     Text{
         id: frontLeftBrakeLabel
-        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureFL)
+        text: qsTr("Brake Temp.: ") + returnTemperature(vrData.brakeTemperatureFL)
 
         anchors.right: frontLeftWheel.right
         anchors.top: frontLeftWheel.bottom
@@ -453,7 +453,7 @@ Rectangle {
 
     Text{
         id: frontRightBrakeLabel
-        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureFR)
+        text: qsTr("Brake Temp.: ") + returnTemperature(vrData.brakeTemperatureFR)
 
         anchors.left: frontRightWheel.left
         anchors.top: frontRightWheel.bottom
@@ -668,7 +668,7 @@ Rectangle {
 
     Text{
         id: rearLeftBrakeLabel
-        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureRL)
+        text: qsTr("Brake Temp.: ") + returnTemperature(vrData.brakeTemperatureRL)
 
         anchors.right: rearLeftWheel.right
         anchors.top: rearLeftWheel.bottom
@@ -881,7 +881,7 @@ Rectangle {
 
     Text{
         id: rearRightBrakeLabel
-        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureRR)
+        text: qsTr("Brake Temp.: ") + returnTemperature(vrData.brakeTemperatureRR)
 
         anchors.left: rearRightWheel.left
         anchors.top: rearRightWheel.bottom

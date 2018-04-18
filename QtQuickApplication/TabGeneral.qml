@@ -117,7 +117,7 @@ Rectangle {
 
         Text {
             id: velocityUnitDesc
-            text: unitSystemIsMetric ? "km/h" : "mph"
+            text: unitSystemIsMetric ? qsTr("km/h") : qsTr("mph")
             color: "white"
             
             anchors.right: gearLabel.left
@@ -242,7 +242,7 @@ Rectangle {
                     font.pixelSize: parent.height * 0.3
                     color: (vrData.pitLimiter ? "lime" : "#798489")
 
-                    text: "Pit Limiter"
+                    text: qsTr("Pit Limiter")
                 }
             }
 
@@ -263,7 +263,7 @@ Rectangle {
                     font.pixelSize: parent.height * 0.3
                     color: (vrData.isInPitlane ? "lime" : "#798489")
 
-                    text: "In Pitlane"
+                    text: qsTr("In Pitlane")
                 }
             }
         }
@@ -355,7 +355,7 @@ Rectangle {
 
             Text {
                 id: currentLapLabel
-                text: "Current:"
+                text: qsTr("Current:")
                 color: "white"
                 Layout.rightMargin: 20
                 Layout.bottomMargin: 10
@@ -375,7 +375,7 @@ Rectangle {
 
             Text {
                 id: lastLapLabel
-                text: "Last:"
+                text: qsTr("Last:")
                 color: "white"
                 Layout.rightMargin: 20
                 Layout.bottomMargin: 10
@@ -395,7 +395,7 @@ Rectangle {
 
             Text {
                 id: bestLapLabel
-                text: "Best:"
+                text: qsTr("Best:")
                 color: "white"
                 Layout.rightMargin: 20
                 Layout.bottomMargin: 10

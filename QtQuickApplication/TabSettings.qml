@@ -22,7 +22,7 @@ Rectangle{
 
             Text {
                 id: unitLabel
-                text: "Unit System"
+                text: qsTr("Unit System")
                 color: "white"
 
                 font.pointSize: 20
@@ -30,18 +30,27 @@ Rectangle{
 
             ComboBox {
                 width: 200
-                model: ["Metric", "Imperial"]
+                textRole: "text"
+                model:
+                    ListModel
+                    {
+                        id: unitListModel
+                        ListElement { text: qsTr("Metric")
+                                      key: "metric" }
+                        ListElement { text: qsTr("Imperial")
+                                      key: "imperial" }
+                    }
 
                 onCurrentTextChanged: {
-                    (currentText == "Metric") ? unitSystemIsMetric = true : unitSystemIsMetric = false;
+                    (unitListModel.get(currentIndex).key === "metric") ? unitSystemIsMetric = true : unitSystemIsMetric = false;
                 }
 
             }
 
             Text {
                 id: languageLabel
-                text: "Language"
-                color: "#aaa"
+                text: qsTr("Language")
+                color: "white"
 
                 font.pointSize: 20
             }
@@ -53,13 +62,11 @@ Rectangle{
                     ListModel
                     {
                         id: languageListModel
-                        ListElement { text: "English"
+                        ListElement { text: qsTr("English")
                                       key: "english" }
-                        ListElement { text: "German"
+                        ListElement { text: qsTr("German")
                                       key: "german" }
                     }
-
-                enabled: true
 
                 onCurrentTextChanged: {
                     vrMainWindow.switchLanguage(languageListModel.get(currentIndex).key);
@@ -68,7 +75,7 @@ Rectangle{
 
             Text {
                 id: themeLabel
-                text: "Theme"
+                text: qsTr("Theme")
                 color: "#aaa"
 
                 font.pointSize: 20
@@ -76,7 +83,16 @@ Rectangle{
 
             ComboBox {
                 width: 200
-                model: ["Dark", "Light"]
+                textRole: "text"
+                model:
+                    ListModel
+                    {
+                        id: themeListModel
+                        ListElement { text: qsTr("Dark")
+                                      key: "dark" }
+                        ListElement { text: qsTr("Light")
+                                      key: "light" }
+                    }
 
                 enabled: false
             }
