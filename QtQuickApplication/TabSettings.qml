@@ -48,9 +48,22 @@ Rectangle{
 
             ComboBox {
                 width: 200
-                model: ["English", "German"]
+                textRole: "text"
+                model:
+                    ListModel
+                    {
+                        id: languageListModel
+                        ListElement { text: "English"
+                                      key: "english" }
+                        ListElement { text: "German"
+                                      key: "german" }
+                    }
 
-                enabled: false
+                enabled: true
+
+                onCurrentTextChanged: {
+                    vrMainWindow.switchLanguage(languageListModel.get(currentIndex).key);
+                }
             }
 
             Text {

@@ -31,6 +31,8 @@ int main(int argc, char *argv[])
     QSharedPointer<VRSimulationManager> simulationManager;
     QSharedPointer<VRData> vrData;
 
+    mainWindow.data()->setEngine(QSharedPointer<QQmlApplicationEngine>(&engine));
+
     bool uiDev = true;
     if (!uiDev) {simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
         simulationManager->start();
@@ -50,14 +52,6 @@ int main(int argc, char *argv[])
         QSharedPointer<VRMessage> devMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Ui-Development-Mode active."), QColor(239, 105, 9)));
         mainWindow->setItsCurrentMessage(devMessage);
     }
-
-    /*
-     * load translation
-     */
-    QTranslator translator;
-    translator.load(QString(":/german"));
-    app.installTranslator(&translator);
-
 
     /*
      * expose Data-Objects to qml
@@ -80,6 +74,6 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
         return EXIT_FAILURE;
-
     return app.exec();
 }
+
