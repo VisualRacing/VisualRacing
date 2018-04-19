@@ -6,24 +6,23 @@ import QtQuick.Controls.Styles 1.4
 Window {
 
     property int numberOfTabs: 5 // number of Tabs for Aligning the SettingsTab right and the "invisible" Tab
-    property bool unitSystemIsMetric: true // Flag for changing the unit system in settings
 
     function returnVelocity(speedInKMH) {
-        if(unitSystemIsMetric)
+        if(settings.unit == "Metric")
             return speedInKMH.toFixed(0);
         else
             return (speedInKMH * 0.621371).toFixed(0);
     }
 
     function returnTemperature(tempInCelsius) {
-        if(unitSystemIsMetric)
+        if(settings.unit == "Metric")
             return tempInCelsius.toFixed(1) + " °C";
         else
             return (tempInCelsius * 1.8 + 32).toFixed(1) + " °F";
     }
 
     function returnPressure(pressureInBar) {
-        if(unitSystemIsMetric)
+        if(settings.unit == "Metric")
             return pressureInBar.toFixed(1) + " Bar";
         else
             return (pressureInBar * 14.5038).toFixed(1) + " psi";

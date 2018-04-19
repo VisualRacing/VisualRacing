@@ -31,9 +31,15 @@ Rectangle{
             ComboBox {
                 width: 200
                 model: ["Metric", "Imperial"]
+                Component.onCompleted: {
+                    var index = find(settings.unit);
+                    if (index < 0)
+                        index = 0;
+                    currentIndex = index;
+                }
 
                 onCurrentTextChanged: {
-                    (currentText == "Metric") ? unitSystemIsMetric = true : unitSystemIsMetric = false;
+                    settings.unit = currentText;
                 }
 
             }
@@ -49,6 +55,16 @@ Rectangle{
             ComboBox {
                 width: 200
                 model: ["English", "German"]
+                Component.onCompleted: {
+                    var index = find(settings.lang);
+                    if (index < 0)
+                        index = 0;
+                    currentIndex = index;
+                }
+
+                onCurrentTextChanged: {
+                    settings.lang = currentText;
+                }
 
                 enabled: false
             }
@@ -64,6 +80,16 @@ Rectangle{
             ComboBox {
                 width: 200
                 model: ["Dark", "Light"]
+                Component.onCompleted: {
+                    var index = find(settings.theme);
+                    if (index < 0)
+                        index = 0;
+                    currentIndex = index;
+                }
+
+                onCurrentTextChanged: {
+                    settings.theme = currentText;
+                }
 
                 enabled: false
             }

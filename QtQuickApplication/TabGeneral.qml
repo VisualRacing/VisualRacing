@@ -117,7 +117,7 @@ Rectangle {
 
         Text {
             id: velocityUnitDesc
-            text: unitSystemIsMetric ? "km/h" : "mph"
+            text: settings.unit == "Metric" ? "km/h" : "mph"
             color: "white"
             
             anchors.right: gearLabel.left
