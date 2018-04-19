@@ -37,4 +37,10 @@ n/a
 As a result of this use case a file containing all relevant information should have been created on the users local storage.
 
 # 6. Function Points
-n/a
+For calculating the Function Points we used the tool on [this](http://groups.umd.umich.edu/cis/course.des/cis375/projects/fp99/main.html) website.
+
+For the following Input we got a score of: **47 Function Points**.
+This results in an estimation of *7:00h* for this Use Case.
+
+![See Analytics Input](loadDataInput.jpg "Function Point Calculation Input")
+![See Analytics Questions](loadDataQuestions.jpg "Function Point Calculation Questions")
