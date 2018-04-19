@@ -2,7 +2,10 @@
 #define VRSETTINGS_H
 
 #include <QString>
+#include <QStringList>
+#include <QTextStream>
 #include <QObject>
+#include <QFile>
 
 
 class VRSettings : public QObject
