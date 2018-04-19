@@ -1,8 +1,8 @@
 #include "vrdatainterface.h"
 
-VRDataInterface::VRDataInterface(const wchar_t* processName) {
+VRDataInterface::VRDataInterface(const wchar_t* processName, QSharedPointer<VRData> vrData) {
     this->processName = processName;
-    this->buffer = QSharedPointer<VRData>(new VRData());
+    this->buffer = vrData;
 }
 
 VRDataInterface::~VRDataInterface() {

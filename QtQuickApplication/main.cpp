@@ -9,6 +9,7 @@
 #include <QQmlContext>
 #include <QIcon>
 #include <QThread>
+#include <QObject>
 
 #include "vrmainwindow.h"
 #include "vrmessage.h"
@@ -31,22 +32,33 @@ int main(int argc, char *argv[])
     QSharedPointer<VRSimulationManager> simulationManager;
     QSharedPointer<VRData> vrData;
 
-    bool uiDev = true;
-    if (!uiDev) {simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
-        simulationManager->start();
+    vrData = QSharedPointer<VRData>(new VRData());
 
-        QSharedPointer<VRDataInterface> dataInterface;
-        do {
-            dataInterface = simulationManager->getDataInterface();
-        } while(dataInterface.isNull());
+    QSharedPointer<QThread> dataInterfaceThread = QSharedPointer<QThread>(new QThread);
 
-        vrData = dataInterface->getBuffer();
+    bool uiDev = false;
+    if (!uiDev) {
+        simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager(vrData));
+        // QThread thread;
+        // QObject::connect(&thread, SIGNAL(started()), simulationManager.data(), SLOT(start()));
+        // thread.start();
+        simulationManager->moveToThread(dataInterfaceThread.data());
+        QObject::connect(dataInterfaceThread.data(), SIGNAL(started()), simulationManager.data(), SLOT(start()));
+        QObject::connect(&app, SIGNAL(aboutToQuit()), dataInterfaceThread.data(), SLOT(quit()));
+        dataInterfaceThread->start();
+
+        // simulationManager->start();
+
+        // QSharedPointer<VRDataInterface> dataInterface;
+        // do {
+        //     dataInterface = simulationManager->getDataInterface();
+        // } while(dataInterface.isNull());
+
+        // vrData = dataInterface->getBuffer();
 
         QSharedPointer<VRMessage> connectedMessage = QSharedPointer<VRMessage>(new VRMessage(QString("DataInterface connected successfully."), QColor(38, 211, 67)));
         mainWindow->setItsCurrentMessage(connectedMessage);
     } else {
-        vrData = QSharedPointer<VRData>(new VRData());
-
         QSharedPointer<VRMessage> devMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Ui-Development-Mode active."), QColor(239, 105, 9)));
         mainWindow->setItsCurrentMessage(devMessage);
     }
@@ -73,5 +85,6 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return EXIT_FAILURE;
 
-    return app.exec();
+    int appState = app.exec();
+    return appState;
 }

@@ -4,7 +4,7 @@
 
 #include "vrdatainterfaceac.h"
 
-VRDataInterfaceAC::VRDataInterfaceAC() : VRDataInterface(vrconstants::acProcessName) {
+VRDataInterfaceAC::VRDataInterfaceAC(QSharedPointer<VRData> vrData) : VRDataInterface(vrconstants::acProcessName, vrData) {
     this->accessStatic = QSharedPointer<QSharedMemory>(new QSharedMemory());
     this->accessStatic->setNativeKey(vrconstants::acSharedMemoryNameStatic);
 

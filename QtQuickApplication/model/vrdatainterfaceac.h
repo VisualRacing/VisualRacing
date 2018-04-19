@@ -3,6 +3,7 @@
 
 #include "ac.h"
 #include "vrdatainterface.h"
+#include "vrdata.h"
 
 class VRDataInterfaceAC : public VRDataInterface {
 private:
@@ -15,7 +16,7 @@ private:
     SPageFileGraphics* nativeBufferGraphics;
 
 public:
-    VRDataInterfaceAC();
+    VRDataInterfaceAC(QSharedPointer<VRData> vrData);
     ~VRDataInterfaceAC();
 
     bool start() override;

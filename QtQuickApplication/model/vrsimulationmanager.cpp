@@ -1,8 +1,9 @@
 #include "vrsimulationmanager.h"
 #include <QDebug>
 
-VRSimulationManager::VRSimulationManager() {
+VRSimulationManager::VRSimulationManager(QSharedPointer<VRData> vrData) {
     this->running = false;
+    this->vrData = vrData;
 }
 
 VRSimulationManager::~VRSimulationManager() {
@@ -13,6 +14,7 @@ bool VRSimulationManager::start() {
     waitForSim();
     if (!connectToSharedMemory()) {
         this->dataInterface.clear();
+        emit finished();
         return false;
     }
 
@@ -36,18 +38,24 @@ QSharedPointer<VRDataInterface> VRSimulationManager::getDataInterface()
 void VRSimulationManager::waitForSim() {
     std::cout << "SimulationManager is waiting for a simulation to start ..." << std::endl;
 
+    int printCounter = 0;
+
+    // I think we have to stop this loop if the application is about to quit
+    // this problem should cause the existing close error
     while(true) { // TODO: Timeout?
         if (VRUtilities::isProcessRunning(vrconstants::r3eProcessName)) { // TODO: Optimize duplicate call for different simulations?
-            this->dataInterface = QSharedPointer<VRDataInterface>(new VRDataInterfaceR3E());
+            this->dataInterface = QSharedPointer<VRDataInterface>(new VRDataInterfaceR3E(this->vrData));
             std::cout << " -> R3E running." << std::endl;
             return;
         } else if (VRUtilities::isProcessRunning(vrconstants::acProcessName)) {
-            this->dataInterface = QSharedPointer<VRDataInterface>(new VRDataInterfaceAC());
+            this->dataInterface = QSharedPointer<VRDataInterface>(new VRDataInterfaceAC(this->vrData));
             std::cout << " -> AC running." << std::endl;
             return;
         }
 
         Sleep(vrconstants::lookForRunningSimInterval);
+        std::cout << "searching simulation..." << printCounter << std::endl;
+        ++printCounter;
     }
 }
 

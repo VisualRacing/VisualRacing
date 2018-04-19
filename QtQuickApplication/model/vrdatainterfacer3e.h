@@ -3,6 +3,7 @@
 
 #include "r3e.h"
 #include "vrdatainterface.h"
+#include "vrdata.h"
 
 class VRDataInterfaceR3E : public VRDataInterface
 {
@@ -11,7 +12,7 @@ private:
     r3e_shared* nativeBuffer;
 
 public:
-    VRDataInterfaceR3E();
+    VRDataInterfaceR3E(QSharedPointer<VRData> vrData);
     ~VRDataInterfaceR3E();
 
     bool start() override;

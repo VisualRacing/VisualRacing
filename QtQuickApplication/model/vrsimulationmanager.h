@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <QObject>
+#include <QThread>
 
 #include "vrdatainterface.h"
 #include "vrdatainterfacer3e.h"
@@ -19,15 +20,15 @@ class VRSimulationManager : public QObject
     Q_OBJECT
 private:
     QSharedPointer<VRDataInterface> dataInterface;
+    QSharedPointer<VRData> vrData;
 
     int timerId;
     bool running;
 
-    void waitForSim();
     bool connectToSharedMemory();
     void free();
 public:
-    VRSimulationManager();
+    VRSimulationManager(QSharedPointer<VRData> vrData);
     ~VRSimulationManager();
 
     bool isRunning();
@@ -36,6 +37,10 @@ public:
 
 public slots:
     bool start();
+    void waitForSim();
+
+signals:
+    void finished();
 
 protected:
     void timerEvent(QTimerEvent* event);

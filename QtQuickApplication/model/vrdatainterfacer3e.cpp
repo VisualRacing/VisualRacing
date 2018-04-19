@@ -1,6 +1,6 @@
 #include "vrdatainterfacer3e.h"
 
-VRDataInterfaceR3E::VRDataInterfaceR3E() : VRDataInterface(vrconstants::r3eProcessName) {
+VRDataInterfaceR3E::VRDataInterfaceR3E(QSharedPointer<VRData> vrData) : VRDataInterface(vrconstants::r3eProcessName, vrData) {
     this->access = QSharedPointer<QSharedMemory>(new QSharedMemory());
     this->access->setNativeKey(vrconstants::r3eSharedMemoryName);
 }

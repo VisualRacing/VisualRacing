@@ -13,7 +13,7 @@ private:
 protected:
     QSharedPointer<VRData> buffer;
 public:
-    VRDataInterface(const wchar_t* processName);
+    VRDataInterface(const wchar_t* processName, QSharedPointer<VRData> vrData);
     virtual ~VRDataInterface();
 
     virtual bool start() = 0;
