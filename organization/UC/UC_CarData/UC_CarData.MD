@@ -12,7 +12,7 @@
 - [Preconditions](#4-preconditions)
     - [Settings File](#41-settings-file)
 - [Postconditions](#5-postconditions)
-- [Extension Points](#6-extension-points)
+- [Function Points](#6-function-points)
 
 # 1. Display Car Data
 ## 1.1 Brief Description
@@ -49,5 +49,5 @@ For the application to be displayed using the correct settings, the settings fil
 # 5. Postconditions
 As a result of this use case the user can see the Car Data tab and all of the graphs, visualizations and tables are rendered correctly.
 
-# 6. Extension Points
+# 6. Function Points
 n/a

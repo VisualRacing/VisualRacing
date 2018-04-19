@@ -12,7 +12,7 @@
 - [Preconditions](#4-preconditions)
     - [Settings File](#41-settings-file)
 - [Postconditions](#5-postconditions)
-- [Extension Points](#6-extension-points)
+- [Function Points](#6-function-points)
 
 # 1. Change Settings
 ## 1.1 Brief Description
@@ -49,5 +49,5 @@ For the program to display the saved settings, the settings file has to exist in
 # 5. Postconditions
 As a result of this use case the settings have been changed according to the users preferences.
 
-# 6. Extension Points
+# 6. Function Points
 n/a
