@@ -6,7 +6,7 @@
 #include <QTextStream>
 #include <QObject>
 #include <QFile>
-
+#include <fstream>
 
 class VRSettings : public QObject
 {
@@ -36,6 +36,8 @@ signals:
 private:
     void save();
     void load();
+
+    QString path;
 
     QString unit;
     QString lang;

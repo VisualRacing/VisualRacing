@@ -68,7 +68,7 @@ Rectangle{
                     settings.lang = currentText;
                 }
 
-                // enabled: false
+                enabled: false
             }
 
             Text {
@@ -94,7 +94,7 @@ Rectangle{
                     settings.theme = currentText;
                 }
 
-                // enabled: false
+                enabled: false
             }
         }
     }
