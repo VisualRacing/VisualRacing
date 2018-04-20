@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
-Rectangle{
-    color: "#3e4244"
+Rectangle {
+    color: theme.tabBackgroundColor
 
     TireInfoPanel {
         id: tireObject

@@ -89,7 +89,7 @@ Window {
     width: 1500
     height: 800
     title: qsTr("Visual Racing")
-    color: "#313537"
+    color: theme.appBackgroundColor
 
     minimumHeight: 500
     minimumWidth: 900
@@ -107,6 +107,7 @@ Window {
         Tab {
             id: generalTab
             title: "General"
+
             TabGeneral{
 
             }
@@ -153,15 +154,15 @@ Window {
         style: TabViewStyle {
             frameOverlap: 1
             tab: Rectangle {
-                color: if(styleData.title === ""){"#313537"}else{styleData.selected ? "#3e4244" : "#555555"}         // all tabs with "" will be unvisible
-                border.color: styleData.selected ? "#3e4244" :"#313537"                                             // border width = 1 pixel
+                color: if(styleData.title === ""){theme.appBackgroundColor}else{styleData.selected ? theme.tabBackgroundColor : theme.tabInactiveColor}         // all tabs with "" will be invisible
+                border.color: styleData.selected ? theme.tabBackgroundColor : theme.appBackgroundColor                                             // border width = 1 pixel
                 implicitWidth: if(styleData.title === ""){tabView_main.width - (79 * numberOfTabs)}else{80}         // text must be shorter than 80 pixels
                 implicitHeight: 30
                 Text {
                     id: text_label
                     anchors.centerIn: parent
                     text: styleData.title
-                    color: styleData.selected ? "white" : "white"
+                    color: styleData.selected ? theme.textColor : theme.textColor
                 }
             }
         }

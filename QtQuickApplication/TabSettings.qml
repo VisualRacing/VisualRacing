@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
 Rectangle{
-    color: "#3e4244"
+    color: theme.tabBackgroundColor
 
     Rectangle {
         id: leftRect
@@ -23,7 +23,7 @@ Rectangle{
             Text {
                 id: unitLabel
                 text: "Unit System"
-                color: "white"
+                color: theme.textColor
 
                 font.pointSize: 20
             }
@@ -42,13 +42,12 @@ Rectangle{
                     if (!initialized) return;
                     settings.unit = currentText;
                 }
-
             }
 
             Text {
                 id: languageLabel
                 text: "Language"
-                color: "#aaa"
+                color: theme.textColor
 
                 font.pointSize: 20
             }
@@ -74,7 +73,7 @@ Rectangle{
             Text {
                 id: themeLabel
                 text: "Theme"
-                color: "#aaa"
+                color: theme.textColor
 
                 font.pointSize: 20
             }
@@ -92,9 +91,8 @@ Rectangle{
                 onCurrentTextChanged: {
                     if (!initialized) return;
                     settings.theme = currentText;
+                    theme.changeTheme(settings.theme);
                 }
-
-                enabled: false
             }
         }
     }
@@ -113,7 +111,7 @@ Rectangle{
             width: parent.width * 0.5
             height: width
             anchors.centerIn: parent
-            source: "images/settings_gear.svg"
+            source: settings.theme == "Dark" ? "images/settings_gear.svg" : "images/settings_gear_light.svg"
         }
     }
 }
