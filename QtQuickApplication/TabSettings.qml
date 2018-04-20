@@ -32,8 +32,15 @@ Rectangle{
                 width: 200
                 model: ["Metric", "Imperial"]
 
+                property bool initialized: false
+                Component.onCompleted: {
+                    currentIndex = Math.max(find(settings.unit), 0);
+                    initialized = true;
+                }
+
                 onCurrentTextChanged: {
-                    (currentText == "Metric") ? unitSystemIsMetric = true : unitSystemIsMetric = false;
+                    if (!initialized) return;
+                    settings.unit = currentText;
                 }
 
             }
@@ -48,7 +55,18 @@ Rectangle{
 
             ComboBox {
                 width: 200
-                model: ["English", "German"]
+                model: ["English", "Deutsch"]
+
+                property bool initialized: false
+                Component.onCompleted: {
+                    currentIndex = Math.max(find(settings.lang), 0);
+                    initialized = true;
+                }
+
+                onCurrentTextChanged: {
+                    if (!initialized) return;
+                    settings.lang = currentText;
+                }
 
                 enabled: false
             }
@@ -64,6 +82,17 @@ Rectangle{
             ComboBox {
                 width: 200
                 model: ["Dark", "Light"]
+
+                property bool initialized: false
+                Component.onCompleted: {
+                    currentIndex = Math.max(find(settings.theme), 0);
+                    initialized = true;
+                }
+
+                onCurrentTextChanged: {
+                    if (!initialized) return;
+                    settings.theme = currentText;
+                }
 
                 enabled: false
             }

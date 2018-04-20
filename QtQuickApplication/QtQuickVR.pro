@@ -31,7 +31,8 @@ SOURCES += \
     view/vrplotpedals.cpp \
     view/vrplotrpm.cpp \
     view/vrplotvelocity.cpp \
-    main.cpp
+    main.cpp \
+    vrsettings.cpp
 
 RESOURCES += qml.qrc resources.qrc
 
@@ -65,3 +66,4 @@ HEADERS += \
     view/vrplotpedals.h \
     view/vrplotrpm.h \
     view/vrplotvelocity.h \
+    vrsettings.h
