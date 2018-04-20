@@ -14,6 +14,7 @@
 #include "vrdata.h"
 
 #include "vrutilities.h"
+#include "vrmessage.h"
 
 class VRSimulationManager : public QObject
 {
@@ -41,6 +42,7 @@ public slots:
 
 signals:
     void finished();
+    void statusChanged(VRMessage* message);
 
 protected:
     void timerEvent(QTimerEvent* event);

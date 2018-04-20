@@ -15,12 +15,15 @@ bool VRSimulationManager::start() {
     if (!connectToSharedMemory()) {
         this->dataInterface.clear();
         emit finished();
+        emit statusChanged(new VRMessage(QString("Connection failed."), QColor(211, 38, 67)));
         return false;
     }
 
     // Start Timer with 10 ms interval
     this->timerId = startTimer(10);
     this->running = true;
+
+    emit statusChanged(new VRMessage(QString("Interface connected successfully."), QColor(38, 211, 67)));
 
     // this->dataInterface.clear();
     return true;
@@ -54,13 +57,15 @@ void VRSimulationManager::waitForSim() {
         }
 
         Sleep(vrconstants::lookForRunningSimInterval);
-        std::cout << "searching simulation..." << printCounter << std::endl;
+
+        emit statusChanged(new VRMessage(QString("Searching for connection " + QString::number(printCounter)), QColor(211, 38, 67)));
         ++printCounter;
     }
 }
 
 bool VRSimulationManager::connectToSharedMemory() {
     std::cout << "Simulation is running, trying to connect to shared memory ..." << std::endl;
+    emit statusChanged(new VRMessage(QString("Simulation is running, trying to connect..."), QColor(38, 211, 67)));
 
     bool success = false;
     while(VRUtilities::isProcessRunning(this->dataInterface->getProcessName())) { // TODO: TIMEOUT
@@ -71,9 +76,15 @@ bool VRSimulationManager::connectToSharedMemory() {
         Sleep(vrconstants::connectToSharedMemoryInterval);
     }
     if (success)
+    {
         std::cout << "DataInterface started, connected to shared memory!" << std::endl;
+        emit statusChanged(new VRMessage(QString("DataInterface started, connected to application"), QColor(38, 211, 67)));
+    }
     else
+    {
         std::cout << "Could not connect to shared memory, simulation is not running anymore." << std::endl;
+        emit statusChanged(new VRMessage(QString("Could not connect to application, simulation is not running anymore."), QColor(211, 38, 67)));
+    }
 
     return success;
 }
@@ -94,6 +105,7 @@ void VRSimulationManager::timerEvent(QTimerEvent* event)
     if (!success)
     {
         std::cout << "Could not update, simulation might not be running or shared memory is not attached." << std::endl;
+        emit statusChanged(new VRMessage(QString("Could not update, simulation might not be running."), QColor(211, 38, 67)));
 
         // Stop timer.
         killTimer(this->timerId);

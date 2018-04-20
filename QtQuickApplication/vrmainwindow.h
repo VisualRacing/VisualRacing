@@ -41,7 +41,6 @@ public:
 
     Q_INVOKABLE QString getItsCurrentMessageLabel() const;
     Q_INVOKABLE QColor getItsCurrentMessageColor() const;
-    void setItsCurrentMessage(const QSharedPointer<VRMessage> &value);
 
 
     Q_INVOKABLE int getItsCurrentTab() const;
@@ -49,6 +48,10 @@ public:
 
     Q_INVOKABLE int getItsLastTab() const;
     Q_INVOKABLE void setItsLastTab(int value);
+
+public slots:
+    void setItsCurrentMessage(const QSharedPointer<VRMessage> &value);
+    void setItsCurrentMessage(VRMessage* value);
 
 signals:
     void itsCurrentMessageChanged();

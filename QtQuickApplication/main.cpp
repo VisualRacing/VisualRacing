@@ -29,39 +29,24 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
-    QSharedPointer<VRSimulationManager> simulationManager;
     QSharedPointer<VRData> vrData;
 
     vrData = QSharedPointer<VRData>(new VRData());
 
+    /*
+     * Create Simulation Manager (for connetcion) connect signals and move to another Thread and start it
+     */
+    QSharedPointer<VRSimulationManager> simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager(vrData));
     QSharedPointer<QThread> dataInterfaceThread = QSharedPointer<QThread>(new QThread);
 
-    bool uiDev = false;
-    if (!uiDev) {
-        simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager(vrData));
-        // QThread thread;
-        // QObject::connect(&thread, SIGNAL(started()), simulationManager.data(), SLOT(start()));
-        // thread.start();
-        simulationManager->moveToThread(dataInterfaceThread.data());
-        QObject::connect(dataInterfaceThread.data(), SIGNAL(started()), simulationManager.data(), SLOT(start()));
-        QObject::connect(&app, SIGNAL(aboutToQuit()), dataInterfaceThread.data(), SLOT(quit()));
-        dataInterfaceThread->start();
+    simulationManager->moveToThread(dataInterfaceThread.data());
+    QObject::connect(dataInterfaceThread.data(), SIGNAL(started()), simulationManager.data(), SLOT(start()));
+    QObject::connect(simulationManager.data(), SIGNAL(statusChanged(VRMessage*)), mainWindow.data(), SLOT(setItsCurrentMessage(VRMessage*)));
+    QObject::connect(&app, SIGNAL(aboutToQuit()), dataInterfaceThread.data(), SLOT(quit()));
+    dataInterfaceThread->start();
 
-        // simulationManager->start();
-
-        // QSharedPointer<VRDataInterface> dataInterface;
-        // do {
-        //     dataInterface = simulationManager->getDataInterface();
-        // } while(dataInterface.isNull());
-
-        // vrData = dataInterface->getBuffer();
-
-        QSharedPointer<VRMessage> connectedMessage = QSharedPointer<VRMessage>(new VRMessage(QString("DataInterface connected successfully."), QColor(38, 211, 67)));
-        mainWindow->setItsCurrentMessage(connectedMessage);
-    } else {
-        QSharedPointer<VRMessage> devMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Ui-Development-Mode active."), QColor(239, 105, 9)));
-        mainWindow->setItsCurrentMessage(devMessage);
-    }
+    QSharedPointer<VRMessage> connectedMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Application is starting..."), QColor(38, 211, 67)));
+    mainWindow->setItsCurrentMessage(connectedMessage);
 
     /*
      * expose Data-Objects to qml

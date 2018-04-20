@@ -32,6 +32,14 @@ void VRMainWindow::setItsCurrentMessage(const QSharedPointer<VRMessage> &value)
     emit itsCurrentMessageChanged();
 }
 
+void VRMainWindow::setItsCurrentMessage(VRMessage* value)
+{
+    itsCurrentMessage = QSharedPointer<VRMessage>(value);
+
+    // emit a signal to qml -> messageLabel (statusBar_main) can be updated
+    emit itsCurrentMessageChanged();
+}
+
 int VRMainWindow::getItsCurrentTab() const
 {
     return itsCurrentTab;
