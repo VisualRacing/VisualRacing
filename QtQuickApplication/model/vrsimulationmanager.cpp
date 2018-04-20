@@ -112,7 +112,7 @@ void VRSimulationManager::timerEvent(QTimerEvent* event)
         success = false;
     }
 
-    if (!success)
+    if (!success || !applicationAlive)
     {
         std::cout << "Could not update, simulation might not be running or shared memory is not attached." << std::endl;
         emit statusChanged(new VRMessage(QString("Could not update, simulation might not be running."), QColor(211, 38, 67)));
