@@ -3,6 +3,7 @@
 
 VRSimulationManager::VRSimulationManager(QSharedPointer<VRData> vrData) {
     this->running = false;
+    this->applicationAlive = true;
     this->vrData = vrData;
 }
 
@@ -12,25 +13,34 @@ VRSimulationManager::~VRSimulationManager() {
 
 bool VRSimulationManager::start() {
     waitForSim();
-    if (!connectToSharedMemory()) {
-        this->dataInterface.clear();
-        emit finished();
-        emit statusChanged(new VRMessage(QString("Connection failed."), QColor(211, 38, 67)));
+    if (applicationAlive){
+        if (!connectToSharedMemory()) {
+            this->dataInterface.clear();
+            emit finished();
+            emit statusChanged(new VRMessage(QString("Connection failed."), QColor(211, 38, 67)));
+            return false;
+        }
+
+        // Start Timer with 10 ms interval
+        this->timerId = startTimer(10);
+        this->running = true;
+
+        emit statusChanged(new VRMessage(QString("Interface connected successfully."), QColor(38, 211, 67)));
+
+        // this->dataInterface.clear();
+    } else {
         return false;
     }
-
-    // Start Timer with 10 ms interval
-    this->timerId = startTimer(10);
-    this->running = true;
-
-    emit statusChanged(new VRMessage(QString("Interface connected successfully."), QColor(38, 211, 67)));
-
-    // this->dataInterface.clear();
     return true;
 }
 
 bool VRSimulationManager::isRunning() {
     return this->running;
+}
+
+void VRSimulationManager::applicationAboutToQuit()
+{
+    this->applicationAlive = false;
 }
 
 QSharedPointer<VRDataInterface> VRSimulationManager::getDataInterface()
@@ -45,7 +55,7 @@ void VRSimulationManager::waitForSim() {
 
     // I think we have to stop this loop if the application is about to quit
     // this problem should cause the existing close error
-    while(true) { // TODO: Timeout?
+    while(applicationAlive) { // TODO: Timeout?
         if (VRUtilities::isProcessRunning(vrconstants::r3eProcessName)) { // TODO: Optimize duplicate call for different simulations?
             this->dataInterface = QSharedPointer<VRDataInterface>(new VRDataInterfaceR3E(this->vrData));
             std::cout << " -> R3E running." << std::endl;

@@ -25,6 +25,7 @@ private:
 
     int timerId;
     bool running;
+    bool applicationAlive;
 
     bool connectToSharedMemory();
     void free();
@@ -39,6 +40,7 @@ public:
 public slots:
     bool start();
     void waitForSim();
+    void applicationAboutToQuit();
 
 signals:
     void finished();

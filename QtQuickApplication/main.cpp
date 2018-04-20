@@ -37,12 +37,11 @@ int main(int argc, char *argv[])
      * Create Simulation Manager (for connetcion) connect signals and move to another Thread and start it
      */
     QSharedPointer<VRSimulationManager> simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager(vrData));
-    QSharedPointer<QThread> dataInterfaceThread = QSharedPointer<QThread>(new QThread);
+    QThread* dataInterfaceThread = new QThread;
 
-    simulationManager->moveToThread(dataInterfaceThread.data());
-    QObject::connect(dataInterfaceThread.data(), SIGNAL(started()), simulationManager.data(), SLOT(start()));
+    simulationManager->moveToThread(dataInterfaceThread);
+    QObject::connect(dataInterfaceThread, SIGNAL(started()), simulationManager.data(), SLOT(start()));
     QObject::connect(simulationManager.data(), SIGNAL(statusChanged(VRMessage*)), mainWindow.data(), SLOT(setItsCurrentMessage(VRMessage*)));
-    QObject::connect(&app, SIGNAL(aboutToQuit()), dataInterfaceThread.data(), SLOT(quit()));
     dataInterfaceThread->start();
 
     QSharedPointer<VRMessage> connectedMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Application is starting..."), QColor(38, 211, 67)));
@@ -70,6 +69,18 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return EXIT_FAILURE;
 
+    /*
+     * Start main Loop of UI Application
+     */
     int appState = app.exec();
+
+    /*
+     * tidy up the running threads
+     */
+    simulationManager->applicationAboutToQuit();
+    dataInterfaceThread->quit();
+    dataInterfaceThread->wait();
+    delete dataInterfaceThread;
+
     return appState;
 }
