@@ -5,6 +5,7 @@
 #include <QObject>
 #include <algorithm>
 #include "vrplotitem.h"
+#include "vrthemedata.h"
 
 class VRPlotLapTimeBar : public VRPlotItem
 {
@@ -12,7 +13,8 @@ class VRPlotLapTimeBar : public VRPlotItem
 public:
     VRPlotLapTimeBar();
 
-    virtual void setupPlot(QCustomPlot* customPlot);
+    virtual void setupPlot(QCustomPlot* customPlot, VRThemeData* themeData);
+    virtual void setTheme(VRThemeData* themeData);
 
     Q_INVOKABLE void pushData(double lap_time, double sector1, double sector2, double sector3, double best);
 

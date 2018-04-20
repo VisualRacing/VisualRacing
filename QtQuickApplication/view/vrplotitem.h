@@ -3,6 +3,7 @@
 
 #include <QtQuick>
 #include "qcustomplot.h"
+#include "vrthemedata.h"
 
 class VRPlotItem : public QQuickPaintedItem
 {
@@ -15,11 +16,11 @@ public:
     void paint( QPainter* painter );
 
     // can be called from qml to init the plot
-    Q_INVOKABLE virtual void initCustomPlot();
+    Q_INVOKABLE virtual void initCustomPlot(VRThemeData* themeData);
 
 protected:
-    // setupPlot should be implemented by the child
-    virtual void setupPlot( QCustomPlot* customPlot );
+    virtual void setupPlot( QCustomPlot* customPlot, VRThemeData* themeData) = 0;
+    Q_INVOKABLE virtual void setTheme(VRThemeData* themeData) = 0;
 
     void routeMouseEvents( QMouseEvent* event );
 
@@ -29,7 +30,7 @@ protected:
     virtual void mouseDoubleClickEvent( QMouseEvent* event );
 
 protected:
-    QCustomPlot*         itsCustomPlot;
+    QCustomPlot* itsCustomPlot;
 
 protected slots:
     void graphClicked( QCPAbstractPlottable* plottable );

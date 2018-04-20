@@ -22,11 +22,13 @@
 #include "model/vrsimulationmanager.h"
 
 #include "vrsettings.h"
+#include "view/vrthemedata.h"
 
 int main(int argc, char *argv[])
 {
-    // Load settings.
+    // Load settings and set theme.
     VRSettings settings;
+    VRThemeData themeData(settings.getTheme());
 
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/images/icon.ico"));
@@ -62,6 +64,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
     engine.rootContext()->setContextProperty("vrData", vrData.data());
     engine.rootContext()->setContextProperty("settings", &settings);
+    engine.rootContext()->setContextProperty("theme", &themeData);
 
     /*
      * QML-Type Registration
