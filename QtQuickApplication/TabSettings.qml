@@ -111,7 +111,7 @@ Rectangle{
             width: parent.width * 0.5
             height: width
             anchors.centerIn: parent
-            source: "images/settings_gear.svg"
+            source: settings.theme == "Dark" ? "images/settings_gear.svg" : "images/settings_gear_light.svg"
         }
     }
 }
