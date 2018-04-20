@@ -8,6 +8,8 @@ VRMainWindow::VRMainWindow(QObject *parent) : QObject(parent)
 
     // itsCurrentMessage must be initialized !!!
     itsCurrentMessage = itsMessages->at(2);     // for example choose this Message
+
+    currentTranslator = QSharedPointer<QTranslator>(new QTranslator);
 }
 
 
@@ -72,15 +74,8 @@ void VRMainWindow::setEngine(QSharedPointer<QQmlApplicationEngine> engine)
 
 void VRMainWindow::switchLanguage(QString language)
 {
-    if(currentTranslator.isNull())
-    {
-        currentTranslator = QSharedPointer<QTranslator>(new QTranslator);
-    }
-    else
-    {
-        qApp->removeTranslator(currentTranslator.data());
-        currentTranslator.data()->load(QString(":/" + language));
-        qApp->installTranslator(currentTranslator.data());
-        engine->retranslate();
-    }
+    qApp->removeTranslator(currentTranslator.data());
+    currentTranslator.data()->load(QString(":/" + language));
+    qApp->installTranslator(currentTranslator.data());
+    engine->retranslate();
 }
