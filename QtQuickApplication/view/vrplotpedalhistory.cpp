@@ -17,7 +17,31 @@ void VRPlotPedalHistory::pushData(double index, double clutch, double brake, dou
     itsCustomPlot->replot();
 }
 
-void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot)
+void VRPlotPedalHistory::setTheme(VRThemeData *themeData)
+{
+    QColor lineColor(themeData->getAccentColor());
+
+    itsCustomPlot->xAxis->setBasePen(QPen(lineColor));
+    itsCustomPlot->xAxis->setTickPen(QPen(lineColor));
+    itsCustomPlot->xAxis->setSubTickPen(QPen(lineColor));
+    itsCustomPlot->xAxis->setTickLabelColor(lineColor);
+    itsCustomPlot->xAxis->setLabelColor(lineColor);
+    itsCustomPlot->xAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
+
+    itsCustomPlot->yAxis->setBasePen(QPen(lineColor));
+    itsCustomPlot->yAxis->setTickPen(QPen(lineColor));
+    itsCustomPlot->yAxis->setSubTickPen(QPen(lineColor));
+    itsCustomPlot->yAxis->setTickLabelColor(lineColor);
+    itsCustomPlot->yAxis->setLabelColor(lineColor);
+    itsCustomPlot->yAxis->grid()->setPen(QPen(lineColor, 0, Qt::SolidLine));
+    itsCustomPlot->yAxis->grid()->setSubGridPen(QPen(lineColor, 0, Qt::DotLine));
+
+    itsCustomPlot->setBackground(QBrush(QColor(themeData->getTabBackgroundColor())));
+
+    itsCustomPlot->replot();
+}
+
+void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
 {
     // add graph
     customPlot->addGraph();
@@ -28,32 +52,15 @@ void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot)
     customPlot->graph(2)->setPen(QPen(QColor(61, 173, 57), qreal(2.0)));
 
     // configure xAxis
-    QColor lineColor("#a7def9");
     customPlot->xAxis->setLabel(tr("Time in s"));
     customPlot->xAxis->setRange(0, 5);
-    customPlot->xAxis->setBasePen(QPen(lineColor));
-    customPlot->xAxis->setTickPen(QPen(lineColor));
-    customPlot->xAxis->setSubTickPen(QPen(lineColor));
-    customPlot->xAxis->setTickLabelColor("#a7def9");
-    customPlot->xAxis->setLabelColor("#66c0ec");
-    customPlot->xAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
 
     // prepare y axis:
     customPlot->yAxis->setRange(0, 1);
     customPlot->yAxis->setPadding(5); // a bit more space to the left border
     customPlot->yAxis->setLabel(tr("Mechanical deflection"));
-    customPlot->yAxis->setBasePen(QPen(lineColor));
-    customPlot->yAxis->setTickPen(QPen(lineColor));
-    customPlot->yAxis->setSubTickPen(QPen(lineColor));
     customPlot->yAxis->grid()->setSubGridVisible(true);
-    customPlot->yAxis->setTickLabelColor(lineColor);
-    customPlot->yAxis->setLabelColor(lineColor);
-    customPlot->yAxis->grid()->setPen(QPen(lineColor, 0, Qt::SolidLine));
-    customPlot->yAxis->grid()->setSubGridPen(QPen(lineColor, 0, Qt::DotLine));
 
-    // set bg-color
-    customPlot->setBackground(QBrush(QColor("#3e4244")));
-
-    // draw
-    customPlot->replot();
+    // set theme (also does a replot-call)
+    setTheme(themeData);
 }

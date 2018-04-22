@@ -9,7 +9,7 @@
 - [Special Requirements](#3-special-requirements)
 - [Preconditions](#4-preconditions)
 - [Postconditions](#5-postconditions)
-- [Extension Points](#6-extension-points)
+- [Function Points](#6-function-points)
 
 # 1. Record and Save and Load Data
 ## 1.1 Brief Description
@@ -36,5 +36,11 @@ n/a
 # 5. Postconditions
 As a result of this use case a file containing all relevant information should have been created on the users local storage.
 
-# 6. Extension Points
-n/a
+# 6. Function Points
+For calculating the Function Points we used the tool on [this](http://groups.umd.umich.edu/cis/course.des/cis375/projects/fp99/main.html) website.
+
+For the following Input we got a score of: **47 Function Points**.
+This results in an estimation of *7:00h* for this Use Case.
+
+![See Analytics Input](loadDataInput.jpg "Function Point Calculation Input")
+![See Analytics Questions](loadDataQuestions.jpg "Function Point Calculation Questions")

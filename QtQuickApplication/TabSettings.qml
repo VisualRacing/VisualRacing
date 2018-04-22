@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
 Rectangle{
-    color: "#3e4244"
+    color: theme.tabBackgroundColor
 
     Rectangle {
         id: leftRect
@@ -23,7 +23,7 @@ Rectangle{
             Text {
                 id: unitLabel
                 text: qsTr("Unit System")
-                color: "white"
+                color: theme.textColor
 
                 font.pointSize: 20
             }
@@ -41,16 +41,22 @@ Rectangle{
                                       key: "imperial" }
                     }
 
-                onCurrentTextChanged: {
-                    (unitListModel.get(currentIndex).key === "metric") ? unitSystemIsMetric = true : unitSystemIsMetric = false;
+                property bool initialized: false
+                Component.onCompleted: {
+                    currentIndex = Math.max(find(settings.unit), 0);
+                    initialized = true;
                 }
 
+                onCurrentTextChanged: {
+                    if (!initialized) return;
+                    settings.unit = currentText;
+                }
             }
 
             Text {
                 id: languageLabel
                 text: qsTr("Language")
-                color: "white"
+                color: theme.textColor
 
                 font.pointSize: 20
             }
@@ -58,17 +64,22 @@ Rectangle{
             ComboBox {
                 width: 200
                 textRole: "text"
-                model:
-                    ListModel
-                    {
-                        id: languageListModel
-                        ListElement { text: qsTr("English")
-                                      key: "english" }
-                        ListElement { text: qsTr("German")
-                                      key: "german" }
-                    }
+                model: ListModel {
+                    id: languageListModel
+                    ListElement { text: "English"; key: "english" }
+                    ListElement { text: "Deutsch"; key: "german" }
+                }
+
+                property bool initialized: false
+                Component.onCompleted: {
+                    currentIndex = Math.max(find(settings.lang), 0);
+                    initialized = true;
+                }
 
                 onCurrentTextChanged: {
+                    if (!initialized) return;
+                    settings.lang = currentText;
+
                     vrMainWindow.switchLanguage(languageListModel.get(currentIndex).key);
                 }
             }
@@ -76,7 +87,7 @@ Rectangle{
             Text {
                 id: themeLabel
                 text: qsTr("Theme")
-                color: "#aaa"
+                color: theme.textColor
 
                 font.pointSize: 20
             }
@@ -94,7 +105,17 @@ Rectangle{
                                       key: "light" }
                     }
 
-                enabled: false
+                property bool initialized: false
+                Component.onCompleted: {
+                    currentIndex = Math.max(find(settings.theme), 0);
+                    initialized = true;
+                }
+
+                onCurrentTextChanged: {
+                    if (!initialized) return;
+                    settings.theme = currentText;
+                    theme.changeTheme(settings.theme);
+                }
             }
         }
     }
@@ -113,7 +134,7 @@ Rectangle{
             width: parent.width * 0.5
             height: width
             anchors.centerIn: parent
-            source: "images/settings_gear.svg"
+            source: settings.theme == "Dark" ? "images/settings_gear.svg" : "images/settings_gear_light.svg"
         }
     }
 }

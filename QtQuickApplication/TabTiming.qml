@@ -4,12 +4,12 @@ import QtQuick.Controls.Styles 1.4
 import VRPlot 1.0
 
 Rectangle{
-    color: "#3e4244"
+    color: theme.tabBackgroundColor
 
     Rectangle {
         id: currentTile
         color: "transparent"
-        border.color: "#a7def9"
+        border.color: theme.accentColor
 
         width: parent.width * 0.3
         height: parent.height * 0.3
@@ -31,7 +31,7 @@ Rectangle{
             Text {
                 id: currentTimeLabel
                 text: lapTimeToString(vrData.currentLapTime)
-                color: "white"
+                color: theme.textColor
 
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -51,7 +51,7 @@ Rectangle{
             Text {
                 id: currentLaptimeDesc
                 text: qsTr("Current Laptime")
-                color: "white"
+                color: theme.textColor
 
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
@@ -72,7 +72,7 @@ Rectangle{
         Rectangle {
             id: currentSector1
             color: "transparent"
-            border.color: "#a7def9"
+            border.color: theme.accentColor
 
             anchors.bottom: parent.bottom
             anchors.left: parent.left
@@ -83,7 +83,7 @@ Rectangle{
             Text {
                 id: currentSector1Time
                 text: sectorTimeToString(vrData.currentS1)
-                color: "white"
+                color: theme.textColor
 
                 anchors.centerIn: parent
                 width: parent.width * 0.8
@@ -102,7 +102,7 @@ Rectangle{
         Rectangle {
             id: currentSector2
             color: "transparent"
-            border.color: "#a7def9"
+            border.color: theme.accentColor
 
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
@@ -113,7 +113,7 @@ Rectangle{
             Text {
                 id: currentSector2Time
                 text: sectorTimeToString(vrData.currentS2)
-                color: "white"
+                color: theme.textColor
 
                 anchors.centerIn: parent
                 width: parent.width * 0.8
@@ -132,7 +132,7 @@ Rectangle{
         Rectangle {
             id: currentSector3
             color: "transparent"
-            border.color: "#a7def9"
+            border.color: theme.accentColor
 
             anchors.bottom: parent.bottom
             anchors.right: parent.right
@@ -143,7 +143,7 @@ Rectangle{
             Text {
                 id: currentSector3Time
                 text: sectorTimeToString(vrData.currentS3)
-                color: "white"
+                color: theme.textColor
 
                 anchors.centerIn: parent
                 width: parent.width * 0.8
@@ -165,7 +165,7 @@ Rectangle{
     Rectangle {
         id: bestTile
         color: "transparent"
-        border.color: "#a7def9"
+        border.color: theme.accentColor
 
         width: parent.width * 0.3
         height: parent.height * 0.3
@@ -188,7 +188,7 @@ Rectangle{
             Text {
                 id: bestTimeLabel
                 text: lapTimeToString(vrData.bestLapTime)
-                color: "white"
+                color: theme.textColor
 
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -207,7 +207,7 @@ Rectangle{
 
             Text {
                 text: qsTr("Best Laptime")
-                color: "white"
+                color: theme.textColor
 
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
@@ -226,7 +226,7 @@ Rectangle{
         Rectangle {
             id: sector1
             color: "transparent"
-            border.color: "#a7def9"
+            border.color: theme.accentColor
 
             anchors.bottom: parent.bottom
             anchors.left: parent.left
@@ -237,7 +237,7 @@ Rectangle{
             Text {
                 id: sector1Time
                 text: sectorTimeToString(vrData.bestS1)
-                color: "white"
+                color: theme.textColor
 
                 anchors.centerIn: parent
                 width: parent.width * 0.8
@@ -256,7 +256,7 @@ Rectangle{
         Rectangle {
             id: sector2
             color: "transparent"
-            border.color: "#a7def9"
+            border.color: theme.accentColor
 
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
@@ -267,7 +267,7 @@ Rectangle{
             Text {
                 id: sector2Time
                 text: sectorTimeToString(vrData.bestS2)
-                color: "white"
+                color: theme.textColor
 
                 anchors.centerIn: parent
                 width: parent.width * 0.8
@@ -286,7 +286,7 @@ Rectangle{
         Rectangle {
             id: sector3
             color: "transparent"
-            border.color: "#a7def9"
+            border.color: theme.accentColor
 
             anchors.bottom: parent.bottom
             anchors.right: parent.right
@@ -297,7 +297,7 @@ Rectangle{
             Text {
                 id: sector3Time
                 text: sectorTimeToString(vrData.bestS3)
-                color: "white"
+                color: theme.textColor
 
                 anchors.centerIn: parent
                 width: parent.width * 0.8
@@ -320,7 +320,7 @@ Rectangle{
     Rectangle {
         id: theorBestTile
         color: "transparent"
-        border.color: "#a7def9"
+        border.color: theme.accentColor
 
         width: parent.width * 0.3
         height: parent.height * 0.3
@@ -343,7 +343,7 @@ Rectangle{
             Text {
                 id: theorBestTimeLabel
                 text: lapTimeToString(vrData.tBestS1 + vrData.tBestS2 + vrData.tBestS3)
-                color: "white"
+                color: theme.textColor
 
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -362,7 +362,7 @@ Rectangle{
 
             Text {
                 text: qsTr("Theoretical Best Laptime")
-                color: "white"
+                color: theme.textColor
 
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
@@ -381,7 +381,7 @@ Rectangle{
         Rectangle {
             id: bestSector1
             color: "transparent"
-            border.color: "#a7def9"
+            border.color: theme.accentColor
 
             anchors.bottom: parent.bottom
             anchors.left: parent.left
@@ -392,7 +392,7 @@ Rectangle{
             Text {
                 id: bestSector1Time
                 text: sectorTimeToString(vrData.tBestS1)
-                color: "white"
+                color: theme.textColor
 
                 anchors.centerIn: parent
                 width: parent.width * 0.8
@@ -411,7 +411,7 @@ Rectangle{
         Rectangle {
             id: bestSector2
             color: "transparent"
-            border.color: "#a7def9"
+            border.color: theme.accentColor
 
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
@@ -422,7 +422,7 @@ Rectangle{
             Text {
                 id: bestSector2Time
                 text: sectorTimeToString(vrData.tBestS1 + vrData.tBestS2)
-                color: "white"
+                color: theme.textColor
 
                 anchors.centerIn: parent
                 width: parent.width * 0.8
@@ -441,7 +441,7 @@ Rectangle{
         Rectangle {
             id: bestSector3
             color: "transparent"
-            border.color: "#a7def9"
+            border.color: theme.accentColor
 
             anchors.bottom: parent.bottom
             anchors.right: parent.right
@@ -452,7 +452,7 @@ Rectangle{
             Text {
                 id: bestSector3Time
                 text: sectorTimeToString(vrData.tBestS1 + vrData.tBestS2 + vrData.tBestS3)
-                color: "white"
+                color: theme.textColor
 
                 anchors.centerIn: parent
                 width: parent.width * 0.8
@@ -474,14 +474,14 @@ Rectangle{
 
     Rectangle {
         color: "transparent"
-        border.color: "#a7def9"
+        border.color: theme.accentColor
         width: parent.width * 0.67
         height: parent.height * 0.7
         anchors.top: parent.top
         anchors.right: parent.right
         anchors.margins: 10
 
-    TableView {
+        TableView {
              id: lapTimeTable
              anchors.fill: parent
              anchors.margins: 1
@@ -489,14 +489,14 @@ Rectangle{
              frameVisible: false
 
              style: TableViewStyle {
-                 backgroundColor: "#3e4244"
-                 alternateBackgroundColor: "#404446"
-                 textColor: "white"
+                 backgroundColor: theme.tabBackgroundColor
+                 alternateBackgroundColor: Qt.lighter(theme.tabBackgroundColor, 1.2)
+                 textColor: theme.accentColor
 
                  headerDelegate: Rectangle {
                     height: headerText.implicitHeight * 0.2
                     width: headerText.implicitWidth
-                    color: "#343839"
+                    color: Qt.darker(theme.tabBackgroundColor, 1.2)
 
                     anchors.margins: 100
 
@@ -604,7 +604,7 @@ Rectangle{
         anchors.bottom: parent.bottom
         anchors.right: parent.right
 
-        Component.onCompleted: initCustomPlot()
+        Component.onCompleted: initCustomPlot(theme)
 
         /* Laptime table and chart update */
         Connections {
@@ -613,6 +613,11 @@ Rectangle{
             onPreviousS1Changed: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
             onPreviousS2Changed: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
             onPreviousS3Changed: lapTimeBar.performUpdate(vrData.previousLapTime, vrData.previousS1, vrData.previousS2, vrData.previousS3)
+        }
+
+        Connections {
+            target: theme
+            onThemeChanged: lapTimeBar.setTheme(theme)
         }
 
         property int updateCounter: 0

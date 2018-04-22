@@ -1,7 +1,7 @@
 #include <string>
 #include <QString>
 #include <QSharedPointer>
-#include <Windows.h>
+#include <windows.h>
 
 #include <cstdlib>
 #include <QApplication>
@@ -21,8 +21,15 @@
 #include "model/vrdata.h"
 #include "model/vrsimulationmanager.h"
 
+#include "vrsettings.h"
+#include "view/vrthemedata.h"
+
 int main(int argc, char *argv[])
 {
+    // Load settings and set theme.
+    VRSettings settings;
+    VRThemeData themeData(settings.getTheme());
+
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/images/icon.ico"));
 
@@ -58,6 +65,8 @@ int main(int argc, char *argv[])
      */
     engine.rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
     engine.rootContext()->setContextProperty("vrData", vrData.data());
+    engine.rootContext()->setContextProperty("settings", &settings);
+    engine.rootContext()->setContextProperty("theme", &themeData);
 
     /*
      * QML-Type Registration

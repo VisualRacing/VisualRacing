@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.0
 
 Rectangle {
-    color: "#3e4244"
+    color: theme.tabBackgroundColor
 
     Text{
         id: fuelLabel
@@ -14,7 +14,7 @@ Rectangle {
         anchors.topMargin: parent.height * 0.03
         width: parent.width / 4
 
-        color: "white"
+        color: theme.textColor
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         font {
@@ -31,7 +31,7 @@ Rectangle {
         anchors.leftMargin: parent.width * 0.05
         width: parent.width / 4
 
-        color: "white"
+        color: theme.textColor
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         font {
@@ -58,12 +58,11 @@ Rectangle {
             anchors.left: parent.left
             color: "transparent"
 
-            Column{
-                Row{
-
+            Column {
+                Row {
                     Text {
                         text: qsTr("Pressure:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -75,7 +74,7 @@ Rectangle {
 
                     Text {
                         text: returnPressure(vrData.tirePressureFL)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -87,7 +86,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("I:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -99,7 +98,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureFLI)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -113,7 +112,7 @@ Rectangle {
                 Row{
                     Text {
                         text: qsTr("Wear:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -125,7 +124,7 @@ Rectangle {
 
                     Text {
                         text: (vrData.tireWearFL * 100).toFixed(0) + "%"
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -137,7 +136,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("C:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -149,7 +148,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureFLC)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -163,7 +162,7 @@ Rectangle {
                 Row{
                     Text {
                         text: qsTr("Dirt:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -175,7 +174,7 @@ Rectangle {
 
                     Text {
                         text: (vrData.tireDirtFL * 100).toFixed(0) + "%"
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -187,7 +186,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("O:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -199,7 +198,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureFLO)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -246,7 +245,7 @@ Rectangle {
         anchors.topMargin: parent.height * 0.03
         width: parent.width / 4
 
-        color: "white"
+        color: theme.textColor
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter
         font {
@@ -277,7 +276,7 @@ Rectangle {
                 Row{
                     Text {
                         text: qsTr("I:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -289,7 +288,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureFRI)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -301,7 +300,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("Pressure:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -313,7 +312,7 @@ Rectangle {
 
                     Text {
                         text: returnPressure(vrData.tirePressureFR)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -327,7 +326,7 @@ Rectangle {
                 Row{
                     Text {
                         text: qsTr("C:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -339,7 +338,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureFRC)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -351,7 +350,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("Wear:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -363,7 +362,7 @@ Rectangle {
 
                     Text {
                         text: (vrData.tireWearFR * 100).toFixed(0) + "%"
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -377,7 +376,7 @@ Rectangle {
                 Row{
                     Text {
                         text: qsTr("O:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -389,7 +388,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureFRO)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -401,7 +400,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("Dirt:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -413,7 +412,7 @@ Rectangle {
 
                     Text {
                         text: (vrData.tireDirtFR * 100).toFixed(0) + "%"
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -460,7 +459,7 @@ Rectangle {
         anchors.topMargin: parent.height * 0.03
         width: parent.width / 4
 
-        color: "white"
+        color: theme.textColor
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         font {
@@ -492,7 +491,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("Pressure:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -504,7 +503,7 @@ Rectangle {
 
                     Text {
                         text: returnPressure(vrData.tirePressureRL)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -516,7 +515,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("I:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -528,7 +527,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureRLI)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -542,7 +541,7 @@ Rectangle {
                 Row{
                     Text {
                         text: qsTr("Wear:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -554,7 +553,7 @@ Rectangle {
 
                     Text {
                         text: (vrData.tireWearRL * 100).toFixed(0) + "%"
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -566,7 +565,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("C:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -578,7 +577,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureRLC)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -592,7 +591,7 @@ Rectangle {
                 Row{
                     Text {
                         text: qsTr("Dirt:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -604,7 +603,7 @@ Rectangle {
 
                     Text {
                         text: (vrData.tireDirtRL * 100).toFixed(0) + "%"
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -616,7 +615,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("O:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -628,7 +627,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureRLO)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight
@@ -675,7 +674,7 @@ Rectangle {
         anchors.topMargin: parent.height * 0.03
         width: parent.width / 4
 
-        color: "white"
+        color: theme.textColor
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter
         font {
@@ -706,7 +705,7 @@ Rectangle {
                 Row{
                     Text {
                         text: qsTr("I:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -718,7 +717,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureRRI)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -729,7 +728,7 @@ Rectangle {
                     }
                     Text {
                         text: qsTr("Pressure:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -741,7 +740,7 @@ Rectangle {
 
                     Text {
                         text: returnPressure(vrData.tirePressureRR)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -756,7 +755,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("C:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -768,7 +767,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureRRC)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -779,7 +778,7 @@ Rectangle {
                     }
                     Text {
                         text: qsTr("Wear:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -791,7 +790,7 @@ Rectangle {
 
                     Text {
                         text: (vrData.tireWearRR * 100).toFixed(0) + "%"
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -806,7 +805,7 @@ Rectangle {
 
                     Text {
                         text: qsTr("O:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -818,7 +817,7 @@ Rectangle {
 
                     Text {
                         text: returnTemperature(vrData.tireTemperatureRRO)
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -829,7 +828,7 @@ Rectangle {
                     }
                     Text {
                         text: qsTr("Dirt:")
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignLeft
@@ -841,7 +840,7 @@ Rectangle {
 
                     Text {
                         text: (vrData.tireDirtRR * 100).toFixed(0) + "%"
-                        color: "white"
+                        color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
                         horizontalAlignment: Text.AlignRight + Text.width/2
@@ -888,7 +887,7 @@ Rectangle {
         anchors.topMargin: parent.height * 0.03
         width: parent.width / 4
 
-        color: "white"
+        color: theme.textColor
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         font {

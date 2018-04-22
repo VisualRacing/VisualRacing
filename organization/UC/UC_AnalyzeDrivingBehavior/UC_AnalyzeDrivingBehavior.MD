@@ -9,7 +9,6 @@
 - [Special Requirements](#3-special-requirements)
 - [Preconditions](#4-preconditions)
 - [Postconditions](#5-postconditions)
-- [Extension Points](#6-extension-points)
 
 # 1. Analyze Driving Behavior
 ## 1.1 Brief Description
@@ -29,7 +28,4 @@ n/a
 To calculate the driving-behavior-metrics an input data stream is necessary. This can either come from the live data or from a recorded session which has been loaded.
 
 # 5. Postconditions
-n/a
-
-# 6. Extension Points
 n/a

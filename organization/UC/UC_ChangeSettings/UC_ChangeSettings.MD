@@ -12,7 +12,9 @@
 - [Preconditions](#4-preconditions)
     - [Settings File](#41-settings-file)
 - [Postconditions](#5-postconditions)
-- [Extension Points](#6-extension-points)
+- [Function Points](#6-function-points)
+    - [Semester I](#61-semester-i)
+    - [Semester II](#62-semester-ii)
 
 # 1. Change Settings
 ## 1.1 Brief Description
@@ -49,5 +51,21 @@ For the program to display the saved settings, the settings file has to exist in
 # 5. Postconditions
 As a result of this use case the settings have been changed according to the users preferences.
 
-# 6. Extension Points
-n/a
+# 6. Function Points
+For calculating the Function Points we used the tool on [this](http://groups.umd.umich.edu/cis/course.des/cis375/projects/fp99/main.html) website.
+
+We split up this Use Case into two parts and worked on one part in the first semester and on the other part during the second semester.
+
+# 6.1 Semester I
+For the following Input we got a score of: **15,4 Function Points**.
+This Use Case took us *1:53h* to implement
+
+![Settings Tab Semester I Input](settingsTabSem1Input.png "Function Point Calculation Input")
+![Settings Tab Semester I Questions](settingsTabSem1Questions.jpg "Function Point Calculation Questions")
+
+# 6.1 Semester II
+For the following Input we got a score of: **25,8 Function Points**.
+This results in an estimation of *3:16h* to implement.
+
+![Settings Tab Semester II Input](settingsTabSem2Input.png "Function Point Calculation Input")
+![Settings Tab Semester II Questions](settingsTabSem1Questions.jpg "Function Point Calculation Questions")

@@ -31,7 +31,9 @@ SOURCES += \
     view/vrplotpedals.cpp \
     view/vrplotrpm.cpp \
     view/vrplotvelocity.cpp \
-    main.cpp
+    main.cpp \
+    vrsettings.cpp \
+    view/vrthemedata.cpp
 
 TRANSLATIONS = german.ts
 
@@ -67,6 +69,6 @@ HEADERS += \
     view/vrplotpedalhistory.h \
     view/vrplotpedals.h \
     view/vrplotrpm.h \
-    view/vrplotvelocity.h
-
-DISTFILES +=
+    view/vrplotvelocity.h \
+    vrsettings.h \
+    view/vrthemedata.h

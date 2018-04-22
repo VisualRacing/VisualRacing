@@ -30,7 +30,30 @@ void VRPlotRPM::setItsMaxRpm(int maxRpm)
     itsCustomPlot->replot();
 }
 
-void VRPlotRPM::setupPlot(QCustomPlot *customPlot)
+void VRPlotRPM::setTheme(VRThemeData* themeData)
+{
+    QColor lineColor(themeData->getAccentColor());
+
+    itsCustomPlot->xAxis->setBasePen(QPen(lineColor));
+    itsCustomPlot->xAxis->setTickPen(QPen(lineColor));
+    itsCustomPlot->xAxis->setSubTickPen(QPen(lineColor));
+    itsCustomPlot->xAxis->setTickLabelColor(lineColor);
+    itsCustomPlot->xAxis->setLabelColor(lineColor);
+    itsCustomPlot->xAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
+
+    itsCustomPlot->yAxis->setBasePen(QPen(lineColor));
+    itsCustomPlot->yAxis->setTickPen(QPen(lineColor));
+    itsCustomPlot->yAxis->setSubTickPen(QPen(lineColor));
+    itsCustomPlot->yAxis->setTickLabelColor(lineColor);
+    itsCustomPlot->yAxis->setLabelColor(lineColor);
+    itsCustomPlot->yAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
+
+    itsCustomPlot->setBackground(QBrush(QColor(themeData->getTabBackgroundColor())));
+
+    itsCustomPlot->replot();
+}
+
+void VRPlotRPM::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
 {
     // add graph
     customPlot->addGraph();
@@ -43,27 +66,11 @@ void VRPlotRPM::setupPlot(QCustomPlot *customPlot)
     customPlot->yAxis->setLabel(tr("RPM / gear"));
 
     // configure xAxis
-    QColor lineColor("#a7def9");
     customPlot->xAxis->setRange(0, 10);
-    customPlot->xAxis->setBasePen(QPen(lineColor));
-    customPlot->xAxis->setTickPen(QPen(lineColor));
-    customPlot->xAxis->setSubTickPen(QPen(lineColor));
-    customPlot->xAxis->setTickLabelColor("#a7def9");
-    customPlot->xAxis->setLabelColor("#66c0ec");
-    customPlot->xAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
 
     // cofigure yAxis
     customPlot->yAxis->setRange(0, itsMaxRpm);
-    customPlot->yAxis->setBasePen(QPen(lineColor));
-    customPlot->yAxis->setTickPen(QPen(lineColor));
-    customPlot->yAxis->setSubTickPen(QPen(lineColor));
-    customPlot->yAxis->setTickLabelColor("#a7def9");
-    customPlot->yAxis->setLabelColor("#a7def9");
-    customPlot->yAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
 
-    // set bg-color
-    customPlot->setBackground(QBrush(QColor("#3e4244")));
-
-    // draw
-    customPlot->replot();
+    // set theme (also does a replot-call)
+    setTheme(themeData);
 }
