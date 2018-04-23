@@ -57,7 +57,7 @@ Rectangle{
 
             Text {
                 id: currentLaptimeDesc
-                text: qsTr("Current Laptime")
+                text: qsTr("Current Laptime") + vrMainWindow.emptyString
                 color: theme.textColor
 
                 anchors.left: parent.left
@@ -213,7 +213,7 @@ Rectangle{
             }
 
             Text {
-                text: qsTr("Best Laptime")
+                text: qsTr("Best Laptime") + vrMainWindow.emptyString
                 color: theme.textColor
 
                 anchors.left: parent.left
@@ -368,7 +368,7 @@ Rectangle{
             }
 
             Text {
-                text: qsTr("Theoretical Best Laptime")
+                text: qsTr("Theoretical Best Laptime") + vrMainWindow.emptyString
                 color: theme.textColor
 
                 anchors.left: parent.left
@@ -543,7 +543,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnNumber
-                 title: qsTr("No.")
+                 title: qsTr("No.") + vrMainWindow.emptyString
                  role: "number"
                  width: lapTimeTable.viewport.width * 0.1
 
@@ -553,7 +553,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnLaptime
-                 title: qsTr("Laptime")
+                 title: qsTr("Laptime") + vrMainWindow.emptyString
                  role: "laptime"
                  width: lapTimeTable.viewport.width * (.9 * 0.25)
 
@@ -563,7 +563,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnSector1
-                 title: qsTr("Sector 1")
+                 title: qsTr("Sector 1") + vrMainWindow.emptyString
                  role: "sector1"
                  width: lapTimeTable.viewport.width * (.9 * 0.25)
 
@@ -573,7 +573,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnSector2
-                 title: qsTr("Sector 2")
+                 title: qsTr("Sector 2") + vrMainWindow.emptyString
                  role: "sector2"
                  width: lapTimeTable.viewport.width * (.9 * 0.25)
 
@@ -583,7 +583,7 @@ Rectangle{
 
              TableViewColumn {
                  id: columnSector3
-                 title: qsTr("Sector 3")
+                 title: qsTr("Sector 3") + vrMainWindow.emptyString
                  role: "sector3"
                  width: lapTimeTable.viewport.width * (.9 * 0.25)
 

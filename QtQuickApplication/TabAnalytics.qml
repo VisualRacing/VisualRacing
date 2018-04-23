@@ -17,7 +17,7 @@ Rectangle{
 
         Tab {
             id: liveAnalyticsTab
-            title: qsTr("Live")
+            title: qsTr("Live") + vrMainWindow.emptyString
             SubTablLiveAnalytics{
 
             }
@@ -54,7 +54,7 @@ Rectangle{
             Text {
                 id: addButtonText
                 anchors.centerIn: parent
-                text: qsTr("+")
+                text: qsTr("+") + vrMainWindow.emptyString
                 color: theme.textColor
             }
         }

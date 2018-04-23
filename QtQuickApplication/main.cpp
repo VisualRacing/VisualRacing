@@ -84,7 +84,6 @@ int main(int argc, char *argv[])
     if (engine->rootObjects().isEmpty())
         return EXIT_FAILURE;
     int retVal = app.exec();
-    qDebug() << "test";
     return retVal;
 }
 
