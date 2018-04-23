@@ -21,10 +21,41 @@
 #include "model/vrdata.h"
 #include "model/vrsimulationmanager.h"
 
+void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+#ifdef Q_OS_WIN32
+    const QString newLine = "\r\n";
+#else
+    const QString newLine = "\n";
+#endif
+
+    QTextStream out(stderr);
+
+    const auto srcFile = QString("%1").arg(context.function, -70, QChar(' '));
+    const auto typeStr = [type]() -> QString {
+        switch (type) {
+        case QtInfoMsg: return QStringLiteral("INFO:     ");
+        case QtDebugMsg: return QStringLiteral("DEBUG:    ");
+        case QtWarningMsg: return QStringLiteral("WARNING:  ");
+        case QtCriticalMsg: return QStringLiteral("CRITICAL: ");
+        case QtFatalMsg: return QStringLiteral("FATAL:    ");
+        default: return QStringLiteral("UNKNOWN:  ");
+        }
+    }();
+
+    out << "[" << srcFile << "] " << typeStr << msg.toLocal8Bit() << newLine;
+
+    if (type == QtFatalMsg) {
+        abort();
+    }
+}
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/images/icon.ico"));
+
+    qInstallMessageHandler(messageHandler);
 
     QQmlApplicationEngine engine;
     QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
