@@ -52,7 +52,7 @@ As a result of this use case the user can see the General Data tab and all of th
 # 6. Function Points
 For calculating the Function Points we used the tool on [this](http://groups.umd.umich.edu/cis/course.des/cis375/projects/fp99/main.html) website.
 
-For the following Input we got a score of: **71,8 Function Points**.
+For the following Input we got a score of: **71.8 Function Points**.
 This Use Case needed *10:33h* to be implemented.
 
 ![General Data Input](generalTabInput.jpg "Function Point Calculation Input")

@@ -52,7 +52,7 @@ As a result of this use case the user can see the Timing Data tab and all of the
 # 6. Function Points
 For calculating the Function Points we used the tool on [this](http://groups.umd.umich.edu/cis/course.des/cis375/projects/fp99/main.html) website.
 
-For the following Input we got a score of: **44,7 Function Points**.
+For the following Input we got a score of: **44.7 Function Points**.
 It took us *8:09h* to implement this Use Case.
 
 ![Timing Data Input](timingTabInput.jpg "Function Point Calculation Input")
