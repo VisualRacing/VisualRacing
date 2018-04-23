@@ -17,7 +17,7 @@ Rectangle{
 
         Tab {
             id: liveAnalyticsTab
-            title: "Live"
+            title: qsTr("Live")
             SubTablLiveAnalytics{
 
             }

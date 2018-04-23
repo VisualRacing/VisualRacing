@@ -62,8 +62,8 @@ void VRPlotRPM::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
     customPlot->graph(1)->setPen(QPen(QColor("#ffa500"), qreal(2.0)));
 
     // set axis labels
-    customPlot->xAxis->setLabel("Time in s");
-    customPlot->yAxis->setLabel("RPM / gear");
+    customPlot->xAxis->setLabel(tr("Time in s"));
+    customPlot->yAxis->setLabel(tr("RPM / gear"));
 
     // configure xAxis
     customPlot->xAxis->setRange(0, 10);
@@ -73,4 +73,13 @@ void VRPlotRPM::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
 
     // set theme (also does a replot-call)
     setTheme(themeData);
+}
+
+
+void VRPlotRPM::changeLanguage()
+{
+    itsCustomPlot->xAxis->setLabel(tr("Time in s"));
+    itsCustomPlot->yAxis->setLabel(tr("RPM / gear"));
+
+    update();
 }

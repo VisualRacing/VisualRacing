@@ -16,6 +16,9 @@ public:
     Q_INVOKABLE void pushData(double index, double data, int gear);
     virtual void setTheme(VRThemeData* themeData);
 
+public slots:
+    void changeLanguage();
+
 private:
     int itsMaxRpm = 8000;
     double itsGearMultiplier;

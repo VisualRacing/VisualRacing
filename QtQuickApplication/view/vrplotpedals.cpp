@@ -58,23 +58,21 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
     brakePedal = new QCPBars(customPlot->xAxis, customPlot->yAxis);
 
     // set Names and Colors
-    clutchPedal->setName("Clutch Pedal");
+    clutchPedal->setName(tr("Clutch Pedal"));
     clutchPedal->setPen(QPen(QColor(57, 78, 173).lighter(170)));
     clutchPedal->setBrush(QColor(57, 78, 173));
 
-    brakePedal->setName("Brake Pedal");
+    brakePedal->setName(tr("Brake Pedal"));
     brakePedal->setPen(QPen(QColor(173, 57, 84).lighter(170)));
     brakePedal->setBrush(QColor(173, 57, 84));
 
-    accelPedal->setName("Acceleration Pedal");
+    accelPedal->setName(tr("Acceleration Pedal"));
     accelPedal->setPen(QPen(QColor(61, 173, 57).lighter(170)));
     accelPedal->setBrush(QColor(61, 173, 57));
 
     // prepare x axis with names
-    QVector<double> ticks_vect;
-    QVector<QString> labels_vect;
     ticks_vect << 1 << 2 << 3;
-    labels_vect << "Clutch" << "Brake" << "Throttle";
+    labels_vect << tr("Clutch") << tr("Brake") << tr("Throttle");
 
     // prepare x axis:
     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
@@ -89,7 +87,7 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
     // prepare y axis:
     customPlot->yAxis->setRange(0, 1);
     customPlot->yAxis->setPadding(5); // a bit more space to the left border
-    customPlot->yAxis->setLabel("Mechanical deflection");
+    customPlot->yAxis->setLabel(tr("Mechanical deflection"));
     customPlot->yAxis->grid()->setSubGridVisible(true);
 
     // connect mouse interaction
@@ -99,5 +97,18 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
 
     // set theme (also does a replot-call)
     setTheme(themeData);
+}
+
+void VRPlotPedals::changeLanguage()
+{
+    itsCustomPlot->yAxis->setLabel(tr("Mechanical deflection"));
+
+    labels_vect.clear();
+    labels_vect << tr("Clutch") << tr("Brake") << tr("Throttle");
+    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+    textTicker->addTicks(ticks_vect, labels_vect);
+    itsCustomPlot->xAxis->setTicker(textTicker);
+
+    update();
 }
 

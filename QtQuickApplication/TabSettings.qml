@@ -22,7 +22,7 @@ Rectangle{
 
             Text {
                 id: unitLabel
-                text: "Unit System"
+                text: qsTr("Unit System")
                 color: theme.textColor
 
                 font.pointSize: 20
@@ -46,7 +46,7 @@ Rectangle{
 
             Text {
                 id: languageLabel
-                text: "Language"
+                text: qsTr("Language")
                 color: theme.textColor
 
                 font.pointSize: 20
@@ -64,15 +64,15 @@ Rectangle{
 
                 onCurrentTextChanged: {
                     if (!initialized) return;
+
+                    vrMainWindow.switchLanguage(currentText);
                     settings.lang = currentText;
                 }
-
-                enabled: false
             }
 
             Text {
                 id: themeLabel
-                text: "Theme"
+                text: qsTr("Theme")
                 color: theme.textColor
 
                 font.pointSize: 20

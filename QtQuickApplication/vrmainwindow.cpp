@@ -1,11 +1,15 @@
 #include "vrmainwindow.h"
 
+
+
 VRMainWindow::VRMainWindow(QObject *parent) : QObject(parent)
 {
     initMessages();
 
     // itsCurrentMessage must be initialized !!!
     itsCurrentMessage = itsMessages->at(2);     // for example choose this Message
+
+    currentTranslator = QSharedPointer<QTranslator>(new QTranslator);
 }
 
 
@@ -58,7 +62,20 @@ void VRMainWindow::initMessages()
 {
     // fill itsMessages with the provided Messages
     itsMessages->append(QSharedPointer<VRMessage>(new VRMessage(QString(" "), QColor(255, 255, 255))));
-    itsMessages->append(QSharedPointer<VRMessage>(new VRMessage(QString("loading..."), QColor(255, 255, 255))));
-    itsMessages->append(QSharedPointer<VRMessage>(new VRMessage(QString("Datainterface connected successfully."), QColor(20, 200, 32))));
-    itsMessages->append(QSharedPointer<VRMessage>(new VRMessage(QString("Problem with connecting datainterface!"), QColor(250, 32, 20))));
+    itsMessages->append(QSharedPointer<VRMessage>(new VRMessage(QString(QObject::tr("loading...")), QColor(255, 255, 255))));
+    itsMessages->append(QSharedPointer<VRMessage>(new VRMessage(QString(QObject::tr("Datainterface connected successfully.")), QColor(20, 200, 32))));
+    itsMessages->append(QSharedPointer<VRMessage>(new VRMessage(QString(QObject::tr("Problem with connecting datainterface!")), QColor(250, 32, 20))));
+}
+
+void VRMainWindow::setEngine(QSharedPointer<QQmlApplicationEngine> engine)
+{
+    this->engine = engine;
+}
+
+void VRMainWindow::switchLanguage(QString language)
+{
+    qApp->removeTranslator(currentTranslator.data());
+    currentTranslator.data()->load(QString(":/" + language));
+    qApp->installTranslator(currentTranslator.data());
+    engine->retranslate();
 }

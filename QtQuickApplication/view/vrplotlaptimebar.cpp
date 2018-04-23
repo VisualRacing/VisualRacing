@@ -16,7 +16,7 @@ void VRPlotLapTimeBar::pushData(double lap_time, double sector1, double sector2,
     ++counter;
     ticks.append(counter);
     QString str_counter = QString::number(counter);
-    labels.prepend("lap " + str_counter);
+    labels.prepend(tr("lap ") + str_counter);
 
     // set the ticker labels
     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
@@ -91,15 +91,15 @@ void VRPlotLapTimeBar::setupPlot(QCustomPlot* customPlot, VRThemeData* themeData
     sectorTwo->moveAbove(sectorOne);
 
     // style
-    sectorOne->setName("Sector 1");
+    sectorOne->setName(tr("Sector 1"));
     sectorOne->setPen(QPen(QColor(82, 85, 181)));
     sectorOne->setBrush(QColor(82, 85, 181));
     sectorOne->setWidth(0.4);
-    sectorTwo->setName("Sector 2");
+    sectorTwo->setName(tr("Sector 2"));
     sectorTwo->setPen(QPen(QColor(98, 109, 255)));
     sectorTwo->setBrush(QColor(98, 109, 255));
     sectorTwo->setWidth(0.4);
-    sectorThree->setName("Sector 3");
+    sectorThree->setName(tr("Sector 3"));
     sectorThree->setPen(QPen(QColor(160, 167, 255)));
     sectorThree->setBrush(QColor(160, 167, 255));
     sectorThree->setWidth(0.4);
@@ -117,8 +117,18 @@ void VRPlotLapTimeBar::setupPlot(QCustomPlot* customPlot, VRThemeData* themeData
     // prepare y axis:
     customPlot->yAxis->setRange(0, 0);
     customPlot->yAxis->setPadding(2); // a bit more space to the left border
-    customPlot->yAxis->setLabel("Time in s");
+    customPlot->yAxis->setLabel(tr("Time in s"));
 
     // set theme (also does a replot-call)
     setTheme(themeData);
+}
+
+void VRPlotLapTimeBar::changeLanguage()
+{
+    sectorOne->setName(tr("Sector 1"));
+    sectorTwo->setName(tr("Sector 2"));
+    sectorThree->setName(tr("Sector 3"));
+    itsCustomPlot->yAxis->setLabel(tr("Time in s"));
+
+    update();
 }

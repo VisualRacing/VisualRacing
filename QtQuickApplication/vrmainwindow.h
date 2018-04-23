@@ -5,6 +5,9 @@
 #include <QObject>
 #include <QVector>
 #include <QSharedPointer>
+#include <QTranslator>
+#include <QApplication>
+#include <QQmlApplicationEngine>
 #include "vrmessage.h"
 
 /*
@@ -50,6 +53,9 @@ public:
     Q_INVOKABLE int getItsLastTab() const;
     Q_INVOKABLE void setItsLastTab(int value);
 
+    Q_INVOKABLE void switchLanguage(QString language);
+    void setEngine(QSharedPointer<QQmlApplicationEngine> engine);
+
 signals:
     void itsCurrentMessageChanged();
 
@@ -59,6 +65,8 @@ private:
 
     int itsCurrentTab = 0;
     int itsLastTab = 0;
+    QSharedPointer<QQmlApplicationEngine> engine;
+    QSharedPointer<QTranslator> currentTranslator;
 
     void initMessages();
 

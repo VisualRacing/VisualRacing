@@ -33,10 +33,13 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/images/icon.ico"));
 
-    QQmlApplicationEngine engine;
+    QSharedPointer<QQmlApplicationEngine> engine(new QQmlApplicationEngine);
     QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
     QSharedPointer<VRSimulationManager> simulationManager;
     QSharedPointer<VRData> vrData;
+
+    mainWindow.data()->setEngine(engine);
+    mainWindow.data()->switchLanguage(settings.getLang());
 
     bool uiDev = true;
     if (!uiDev) {simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
@@ -49,23 +52,22 @@ int main(int argc, char *argv[])
 
         vrData = dataInterface->getBuffer();
 
-        QSharedPointer<VRMessage> connectedMessage = QSharedPointer<VRMessage>(new VRMessage(QString("DataInterface connected successfully."), QColor(38, 211, 67)));
+        QSharedPointer<VRMessage> connectedMessage = QSharedPointer<VRMessage>(new VRMessage(QString(QObject::tr("DataInterface connected successfully.")), QColor(38, 211, 67)));
         mainWindow->setItsCurrentMessage(connectedMessage);
     } else {
         vrData = QSharedPointer<VRData>(new VRData());
 
-        QSharedPointer<VRMessage> devMessage = QSharedPointer<VRMessage>(new VRMessage(QString("Ui-Development-Mode active."), QColor(239, 105, 9)));
+        QSharedPointer<VRMessage> devMessage = QSharedPointer<VRMessage>(new VRMessage(QString(QObject::tr("Ui-Development-Mode active.")), QColor(239, 105, 9)));
         mainWindow->setItsCurrentMessage(devMessage);
     }
 
     /*
      * expose Data-Objects to qml
      */
-    engine.rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
-    engine.rootContext()->setContextProperty("vrData", vrData.data());
-    engine.rootContext()->setContextProperty("settings", &settings);
-    engine.rootContext()->setContextProperty("theme", &themeData);
-
+    engine->rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
+    engine->rootContext()->setContextProperty("vrData", vrData.data());
+    engine->rootContext()->setContextProperty("settings", &settings);
+    engine->rootContext()->setContextProperty("theme", &themeData);
     /*
      * QML-Type Registration
      */
@@ -78,9 +80,11 @@ int main(int argc, char *argv[])
     /*
      * load qml-file
      */
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (engine.rootObjects().isEmpty())
+    engine->load(QUrl(QStringLiteral("qrc:/main.qml")));
+    if (engine->rootObjects().isEmpty())
         return EXIT_FAILURE;
-
-    return app.exec();
+    int retVal = app.exec();
+    qDebug() << "test";
+    return retVal;
 }
+

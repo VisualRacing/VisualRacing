@@ -16,6 +16,9 @@ public:
 
     Q_INVOKABLE void pushData(double index, double clutch, double breaking, double throttle);
 
+public slots:
+    void changeLanguage();
+
 };
 
 #endif // VRPLOTPEDALHISTORY_H

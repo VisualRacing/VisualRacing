@@ -35,7 +35,10 @@ SOURCES += \
     vrsettings.cpp \
     view/vrthemedata.cpp
 
-RESOURCES += qml.qrc resources.qrc
+TRANSLATIONS = Deutsch.ts
+
+RESOURCES += qml.qrc resources.qrc \
+    translations.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

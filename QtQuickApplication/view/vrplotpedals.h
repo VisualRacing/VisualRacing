@@ -19,6 +19,12 @@ public:
     QCPBars* clutchPedal;
     QCPBars* accelPedal;
     QCPBars* brakePedal;
+
+    QVector<QString> labels_vect;
+    QVector<double> ticks_vect;
+
+public slots:
+    void changeLanguage();
 };
 
 #endif // VRPLOTPEDALS_H
