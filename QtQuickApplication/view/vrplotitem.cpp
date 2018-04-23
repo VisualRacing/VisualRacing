@@ -18,14 +18,13 @@ VRPlotItem::~VRPlotItem()
     itsCustomPlot = nullptr;
 }
 
-void VRPlotItem::initCustomPlot()
+void VRPlotItem::initCustomPlot(VRThemeData* themeData)
 {
     itsCustomPlot = new QCustomPlot();
 
     updateCustomPlotSize();
 
-    // call setupPlot (should be implemented by the child
-    setupPlot( itsCustomPlot );
+    setupPlot(itsCustomPlot, themeData);
 
     connect( itsCustomPlot, &QCustomPlot::afterReplot, this, &VRPlotItem::onCustomReplot );
 
@@ -91,11 +90,4 @@ void VRPlotItem::updateCustomPlotSize()
 void VRPlotItem::onCustomReplot()
 {
     update();
-}
-
-void VRPlotItem::setupPlot(QCustomPlot *customPlot)
-{
-    customPlot->setBackground(QBrush(QColor("#3e4244")));
-
-    // this function should be implemented by the child
 }

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "vrplotitem.h"
+#include "vrthemedata.h"
 
 class VRPlotPedals : public VRPlotItem
 {
@@ -10,7 +11,8 @@ class VRPlotPedals : public VRPlotItem
 public:
     VRPlotPedals();
 
-    virtual void setupPlot( QCustomPlot* customPlot );
+    virtual void setupPlot(QCustomPlot* customPlot, VRThemeData* themData);
+    virtual void setTheme(VRThemeData* themeData);
 
     Q_INVOKABLE void pushData(double clutch, double brake, double accel);
 

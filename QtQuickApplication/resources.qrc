@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>images/icon.ico</file>
         <file>images/settings_gear.svg</file>
+        <file>images/settings_gear_light.svg</file>
     </qresource>
 </RCC>
