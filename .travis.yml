@@ -1,0 +1,17 @@
+language: cpp
+matrix:
+  include:
+  - env: QT=qt5win
+    os: linux
+dist: trusty
+sudo: required
+
+before_install:
+- "${TRAVIS_BUILD_DIR}/travis-ci/get-dependencies.sh"
+
+before_script:
+- "${TRAVIS_BUILD_DIR}/travis-ci/configure.sh"
+
+script:
+- if [ $QT = qt5win ]; then PATH=$PATH:/usr/lib/mxe/usr/bin; fi
+- make -j 2

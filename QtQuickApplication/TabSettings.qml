@@ -22,7 +22,7 @@ Rectangle{
 
             Text {
                 id: unitLabel
-                text: "Unit System"
+                text: qsTr("Unit System") + vrMainWindow.emptyString
                 color: theme.textColor
 
                 font.pointSize: 20
@@ -30,7 +30,7 @@ Rectangle{
 
             ComboBox {
                 width: 200
-                model: ["Metric", "Imperial"]
+                model: [qsTr("Metric") + vrMainWindow.emptyString, qsTr("Imperial") + vrMainWindow.emptyString]
 
                 property bool initialized: false
                 Component.onCompleted: {
@@ -46,7 +46,7 @@ Rectangle{
 
             Text {
                 id: languageLabel
-                text: "Language"
+                text: qsTr("Language") + vrMainWindow.emptyString
                 color: theme.textColor
 
                 font.pointSize: 20
@@ -64,15 +64,15 @@ Rectangle{
 
                 onCurrentTextChanged: {
                     if (!initialized) return;
+
+                    vrMainWindow.switchLanguage(currentText);
                     settings.lang = currentText;
                 }
-
-                enabled: false
             }
 
             Text {
                 id: themeLabel
-                text: "Theme"
+                text: qsTr("Theme") + vrMainWindow.emptyString
                 color: theme.textColor
 
                 font.pointSize: 20
@@ -80,7 +80,10 @@ Rectangle{
 
             ComboBox {
                 width: 200
-                model: ["Dark", "Light"]
+                model: [
+                    qsTr("Dark") + vrMainWindow.emptyString,
+                    qsTr("Light") + vrMainWindow.emptyString
+                ]
 
                 property bool initialized: false
                 Component.onCompleted: {
@@ -90,7 +93,13 @@ Rectangle{
 
                 onCurrentTextChanged: {
                     if (!initialized) return;
-                    settings.theme = currentText;
+                    settings.theme = currentText
+
+                    if (settings.theme == "Dunkel")
+                        settings.theme = "Dark";
+                    else if (settings.theme == "Hell")
+                        settings.theme = "Light";
+
                     theme.changeTheme(settings.theme);
                 }
             }

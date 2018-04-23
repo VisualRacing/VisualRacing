@@ -16,16 +16,16 @@ Window {
 
     function returnTemperature(tempInCelsius) {
         if(settings.unit == "Metric")
-            return tempInCelsius.toFixed(1) + " °C";
+            return tempInCelsius.toFixed(1) + qsTr(" °C") + vrMainWindow.emptyString;
         else
-            return (tempInCelsius * 1.8 + 32).toFixed(1) + " °F";
+            return (tempInCelsius * 1.8 + 32).toFixed(1) + qsTr(" °F") + vrMainWindow.emptyString;
     }
 
     function returnPressure(pressureInBar) {
         if(settings.unit == "Metric")
-            return pressureInBar.toFixed(1) + " Bar";
+            return pressureInBar.toFixed(1) + qsTr(" Bar") + vrMainWindow.emptyString;
         else
-            return (pressureInBar * 14.5038).toFixed(1) + " psi";
+            return (pressureInBar * 14.5038).toFixed(1) + qsTr(" psi") + vrMainWindow.emptyString;
     }
 
     /* Tire temperature to color conversion */
@@ -88,7 +88,7 @@ Window {
     visible: true
     width: 1500
     height: 800
-    title: qsTr("Visual Racing")
+    title: qsTr("Visual Racing") + vrMainWindow.emptyString
     color: theme.appBackgroundColor
 
     minimumHeight: 500
@@ -106,8 +106,7 @@ Window {
 
         Tab {
             id: generalTab
-            title: "General"
-
+            title: qsTr("General") + vrMainWindow.emptyString
             TabGeneral{
 
             }
@@ -115,7 +114,7 @@ Window {
 
         Tab {
             id: carTab
-            title: "Car"
+            title: qsTr("Car") + vrMainWindow.emptyString
             TabCar{
 
             }
@@ -123,7 +122,7 @@ Window {
 
         Tab {
             id: timingTab
-            title: "Timing"
+            title: qsTr("Timing") + vrMainWindow.emptyString
             TabTiming{
 
             }
@@ -131,7 +130,7 @@ Window {
 
         Tab {
             id: analyticsTab
-            title: "Analytics"
+            title: qsTr("Analytics") + vrMainWindow.emptyString
             TabAnalytics{
 
             }
@@ -144,7 +143,7 @@ Window {
 
         Tab {
             id: settingsTab
-            title: "Settings"
+            title: qsTr("Settings") + vrMainWindow.emptyString
             TabSettings{
 
             }

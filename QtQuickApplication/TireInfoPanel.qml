@@ -6,7 +6,7 @@ Rectangle {
 
     Text{
         id: fuelLabel
-        text: "Remaining Fuel: " + vrData.fuel.toFixed(2) + " / " + vrData.maxFuel.toFixed(2) + " L"
+        text: qsTr("Remaining Fuel: ") + vrMainWindow.emptyString + vrData.fuel.toFixed(2) + " / " + vrData.maxFuel.toFixed(2) + " L"
 
         anchors.left: parent.left
         anchors.top: parent.top
@@ -24,7 +24,7 @@ Rectangle {
 
     Text{
         id: brakeBiasLabel
-        text: "Brake-Bias: " + (vrData.brakeBias * 100).toFixed(1) + " %"
+        text: qsTr("Brake-Bias: ") + vrMainWindow.emptyString + (vrData.brakeBias * 100).toFixed(1) + " %"
 
         anchors.left: parent.left
         anchors.top: fuelLabel.bottom
@@ -61,7 +61,7 @@ Rectangle {
             Column {
                 Row {
                     Text {
-                        text: qsTr("Pressure:")
+                        text: qsTr("Pressure:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -85,7 +85,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: qsTr("I:")
+                        text: qsTr("I:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -111,7 +111,7 @@ Rectangle {
 
                 Row{
                     Text {
-                        text: qsTr("Wear:")
+                        text: qsTr("Wear:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -135,7 +135,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: qsTr("C:")
+                        text: qsTr("C:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -161,7 +161,7 @@ Rectangle {
 
                 Row{
                     Text {
-                        text: qsTr("Dirt:")
+                        text: qsTr("Dirt:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -185,7 +185,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: qsTr("O:")
+                        text: qsTr("O:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -238,7 +238,7 @@ Rectangle {
 
     Text{
         id: frontLeftBrakeLabel
-        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureFL)
+        text: qsTr("Brake Temp.: ") + vrMainWindow.emptyString + returnTemperature(vrData.brakeTemperatureFL)
 
         anchors.right: frontLeftWheel.right
         anchors.top: frontLeftWheel.bottom
@@ -275,7 +275,7 @@ Rectangle {
             Column{
                 Row{
                     Text {
-                        text: qsTr("I:")
+                        text: qsTr("I:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -299,7 +299,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: qsTr("Pressure:")
+                        text: qsTr("Pressure:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -325,7 +325,7 @@ Rectangle {
 
                 Row{
                     Text {
-                        text: qsTr("C:")
+                        text: qsTr("C:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -349,7 +349,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: qsTr("Wear:")
+                        text: qsTr("Wear:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -375,7 +375,7 @@ Rectangle {
 
                 Row{
                     Text {
-                        text: qsTr("O:")
+                        text: qsTr("O:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -399,7 +399,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: qsTr("Dirt:")
+                        text: qsTr("Dirt:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -452,7 +452,7 @@ Rectangle {
 
     Text{
         id: frontRightBrakeLabel
-        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureFR)
+        text: qsTr("Brake Temp.: ") + vrMainWindow.emptyString + returnTemperature(vrData.brakeTemperatureFR)
 
         anchors.left: frontRightWheel.left
         anchors.top: frontRightWheel.bottom
@@ -490,7 +490,7 @@ Rectangle {
                 Row{
 
                     Text {
-                        text: qsTr("Pressure:")
+                        text: qsTr("Pressure:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -514,7 +514,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: qsTr("I:")
+                        text: qsTr("I:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -540,7 +540,7 @@ Rectangle {
 
                 Row{
                     Text {
-                        text: qsTr("Wear:")
+                        text: qsTr("Wear:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -564,7 +564,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: qsTr("C:")
+                        text: qsTr("C:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -590,7 +590,7 @@ Rectangle {
 
                 Row{
                     Text {
-                        text: qsTr("Dirt:")
+                        text: qsTr("Dirt:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -614,7 +614,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: qsTr("O:")
+                        text: qsTr("O:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -667,7 +667,7 @@ Rectangle {
 
     Text{
         id: rearLeftBrakeLabel
-        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureRL)
+        text: qsTr("Brake Temp.: ") + vrMainWindow.emptyString + returnTemperature(vrData.brakeTemperatureRL)
 
         anchors.right: rearLeftWheel.right
         anchors.top: rearLeftWheel.bottom
@@ -704,7 +704,7 @@ Rectangle {
             Column{
                 Row{
                     Text {
-                        text: qsTr("I:")
+                        text: qsTr("I:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -727,7 +727,7 @@ Rectangle {
                         }
                     }
                     Text {
-                        text: qsTr("Pressure:")
+                        text: qsTr("Pressure:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -754,7 +754,7 @@ Rectangle {
                 Row{
 
                     Text {
-                        text: qsTr("C:")
+                        text: qsTr("C:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -777,7 +777,7 @@ Rectangle {
                         }
                     }
                     Text {
-                        text: qsTr("Wear:")
+                        text: qsTr("Wear:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -804,7 +804,7 @@ Rectangle {
                 Row{
 
                     Text {
-                        text: qsTr("O:")
+                        text: qsTr("O:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -827,7 +827,8 @@ Rectangle {
                         }
                     }
                     Text {
-                        text: qsTr("Dirt:")
+                        id: dirtLabel4
+                        text: qsTr("Dirt:") + vrMainWindow.emptyString
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4
                         height: frontLeftDataBlock.height / 3
@@ -880,7 +881,7 @@ Rectangle {
 
     Text{
         id: rearRightBrakeLabel
-        text: "Brake Temp.: " + returnTemperature(vrData.brakeTemperatureRR)
+        text: qsTr("Brake Temp.: ") + vrMainWindow.emptyString + returnTemperature(vrData.brakeTemperatureRR)
 
         anchors.left: rearRightWheel.left
         anchors.top: rearRightWheel.bottom

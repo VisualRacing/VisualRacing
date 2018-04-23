@@ -52,15 +52,23 @@ void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot, VRThemeData* themeDa
     customPlot->graph(2)->setPen(QPen(QColor(61, 173, 57), qreal(2.0)));
 
     // configure xAxis
-    customPlot->xAxis->setLabel("Time in s");
+    customPlot->xAxis->setLabel(tr("Time in s"));
     customPlot->xAxis->setRange(0, 5);
 
     // prepare y axis:
     customPlot->yAxis->setRange(0, 1);
     customPlot->yAxis->setPadding(5); // a bit more space to the left border
-    customPlot->yAxis->setLabel("Mechanical deflection");
+    customPlot->yAxis->setLabel(tr("Mechanical deflection"));
     customPlot->yAxis->grid()->setSubGridVisible(true);
 
     // set theme (also does a replot-call)
     setTheme(themeData);
+}
+
+void VRPlotPedalHistory::changeLanguage()
+{
+    itsCustomPlot->xAxis->setLabel(tr("Time in s"));
+    itsCustomPlot->yAxis->setLabel(tr("Mechanical deflection"));
+
+    update();
 }

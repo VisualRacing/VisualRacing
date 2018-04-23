@@ -45,8 +45,8 @@ void VRPlotVelocity::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
     customPlot->graph(0)->setPen(QPen(QColor("#3aaefc"), qreal(2.0)));
 
     // set axis labels
-    customPlot->xAxis->setLabel("Time in s");
-    customPlot->yAxis->setLabel("Speed in km/h");
+    customPlot->xAxis->setLabel(tr("Time in s"));
+    customPlot->yAxis->setLabel(tr("Speed in km/h"));
 
     // configure xAxis
     customPlot->xAxis->setRange(0, 30);
@@ -61,4 +61,10 @@ void VRPlotVelocity::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
     // customPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables );
     // connect( customPlot, SIGNAL( plottableClick( QCPAbstractPlottable*, int,  QMouseEvent* ) ), this, SLOT( graphClicked( QCPAbstractPlottable* ) ) );
 
+}
+
+void VRPlotVelocity::changeLanguage()
+{
+    itsCustomPlot->xAxis->setLabel(tr("Time in s"));
+    itsCustomPlot->yAxis->setLabel(tr("Speed in km/h"));
 }

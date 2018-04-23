@@ -64,7 +64,7 @@ This Use Case took us *1:53h* to implement
 ![Settings Tab Semester I Questions](settingsTabSem1Questions.jpg "Function Point Calculation Questions")
 
 # 6.1 Semester II
-For the following Input we got a score of: **25,8 Function Points**.
+For the following Input we got a score of: **25.8 Function Points**.
 This results in an estimation of *3:16h* to implement.
 
 ![Settings Tab Semester II Input](settingsTabSem2Input.png "Function Point Calculation Input")

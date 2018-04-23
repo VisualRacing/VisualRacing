@@ -4,6 +4,16 @@ import QtQuick.Layouts 1.3
 
 Rectangle {
 
+    Connections {
+        target: settings
+        onLangChanged: {
+            rpmPlot.changeLanguage();
+            pedalHistoryPlot.changeLanguage();
+            pedalsPlot.changeLanguage();
+            velocityPlot.changeLanguage();
+        }
+     }
+
     color: theme.tabBackgroundColor
 
     VRPlotRPM {
@@ -122,7 +132,7 @@ Rectangle {
 
         Text {
             id: velocityUnitDesc
-            text: settings.unit == "Metric" ? "km/h" : "mph"
+            text: settings.unit == "Metric" ? qsTr("km/h") + vrMainWindow.emptyString : qsTr("mph") + vrMainWindow.emptyString
             color: theme.textColor
             
             anchors.right: gearLabel.left
@@ -247,7 +257,7 @@ Rectangle {
                     font.pixelSize: parent.height * 0.3
                     color: (vrData.pitLimiter ? "lime" : "#798489") // COL
 
-                    text: "Pit Limiter"
+                    text: qsTr("Pit Limiter") + vrMainWindow.emptyString
                 }
             }
 
@@ -268,7 +278,7 @@ Rectangle {
                     font.pixelSize: parent.height * 0.3
                     color: (vrData.isInPitlane ? "lime" : "#798489") // COL
 
-                    text: "In Pitlane"
+                    text: qsTr("In Pitlane") + vrMainWindow.emptyString
                 }
             }
         }
@@ -359,7 +369,7 @@ Rectangle {
 
         Text {
             id: lapsTitle
-            text: "Laptimes"
+            text: qsTr("Laptimes") + vrMainWindow.emptyString
             color: theme.textColor
 
             font.pixelSize: (laptimeOverview.width * 0.2) * (laptimeOverview.height * 0.2) * 0.0075;
@@ -375,7 +385,7 @@ Rectangle {
 
             Text {
                 id: currentLapLabel
-                text: "Current:"
+                text: qsTr("Current:") + vrMainWindow.emptyString
                 color: theme.textColor
                 Layout.rightMargin: 20
                 Layout.bottomMargin: 10
@@ -395,7 +405,7 @@ Rectangle {
 
             Text {
                 id: lastLapLabel
-                text: "Last:"
+                text: qsTr("Last:") + vrMainWindow.emptyString
                 color: theme.textColor
                 Layout.rightMargin: 20
                 Layout.bottomMargin: 10
@@ -415,7 +425,7 @@ Rectangle {
 
             Text {
                 id: bestLapLabel
-                text: "Best:"
+                text: qsTr("Best:") + vrMainWindow.emptyString
                 color: theme.textColor
                 Layout.rightMargin: 20
                 Layout.bottomMargin: 10
