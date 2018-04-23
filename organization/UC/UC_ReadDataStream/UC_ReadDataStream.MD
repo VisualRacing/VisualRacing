@@ -9,7 +9,6 @@
 - [Special Requirements](#3-special-requirements)
 - [Preconditions](#4-preconditions)
 - [Postconditions](#5-postconditions)
-- [Extension Points](#6-extension-points)
 
 # 1. Read Data Stream
 ## 1.1 Brief Description
@@ -33,5 +32,3 @@ This usecase is one of the first to be executed after the application started, t
 # 5. Postconditions
 This usecase is running in system scope during the entire runtime of the application, therefore there are no postconditions.
 
-# 6. Extension Points
-n/a

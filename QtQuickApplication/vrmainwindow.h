@@ -5,6 +5,9 @@
 #include <QObject>
 #include <QVector>
 #include <QSharedPointer>
+#include <QTranslator>
+#include <QApplication>
+#include <QQmlApplicationEngine>
 #include "vrmessage.h"
 
 /*
@@ -52,6 +55,8 @@ public:
 public slots:
     void setItsCurrentMessage(const QSharedPointer<VRMessage> &value);
     void setItsCurrentMessage(VRMessage* value);
+    Q_INVOKABLE void switchLanguage(QString language);
+    void setEngine(QSharedPointer<QQmlApplicationEngine> engine);
 
 signals:
     void itsCurrentMessageChanged();
@@ -62,6 +67,8 @@ private:
 
     int itsCurrentTab = 0;
     int itsLastTab = 0;
+    QSharedPointer<QQmlApplicationEngine> engine;
+    QSharedPointer<QTranslator> currentTranslator;
 
     void initMessages();
 

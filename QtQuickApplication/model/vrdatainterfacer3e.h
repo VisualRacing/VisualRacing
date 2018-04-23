@@ -1,6 +1,7 @@
 #ifndef R3E_DATAINTERFACE_H
 #define R3E_DATAINTERFACE_H
 
+#include <math.h>
 #include "r3e.h"
 #include "vrdatainterface.h"
 #include "vrdata.h"

@@ -22,16 +22,26 @@
 #include "model/vrdata.h"
 #include "model/vrsimulationmanager.h"
 
+#include "vrsettings.h"
+#include "view/vrthemedata.h"
+
 int main(int argc, char *argv[])
 {
+    // Load settings and set theme.
+    VRSettings settings;
+    VRThemeData themeData(settings.getTheme());
+
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/images/icon.ico"));
 
-    QQmlApplicationEngine engine;
+    QSharedPointer<QQmlApplicationEngine> engine(new QQmlApplicationEngine);
     QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
     QSharedPointer<VRData> vrData;
 
     vrData = QSharedPointer<VRData>(new VRData());
+
+    mainWindow.data()->setEngine(engine);
+    mainWindow.data()->switchLanguage(settings.getLang());
 
     /*
      * Create Simulation Manager (for connetcion) connect signals and move to another Thread and start it
@@ -50,9 +60,10 @@ int main(int argc, char *argv[])
     /*
      * expose Data-Objects to qml
      */
-    engine.rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
-    engine.rootContext()->setContextProperty("vrData", vrData.data());
-
+    engine->rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
+    engine->rootContext()->setContextProperty("vrData", vrData.data());
+    engine->rootContext()->setContextProperty("settings", &settings);
+    engine->rootContext()->setContextProperty("theme", &themeData);
     /*
      * QML-Type Registration
      */
@@ -65,8 +76,8 @@ int main(int argc, char *argv[])
     /*
      * load qml-file
      */
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (engine.rootObjects().isEmpty())
+    engine->load(QUrl(QStringLiteral("qrc:/main.qml")));
+    if (engine->rootObjects().isEmpty())
         return EXIT_FAILURE;
 
     /*
@@ -84,3 +95,4 @@ int main(int argc, char *argv[])
 
     return appState;
 }
+

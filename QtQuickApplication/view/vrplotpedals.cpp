@@ -26,36 +26,53 @@ void VRPlotPedals::pushData(double clutch, double brake, double accel)
     itsCustomPlot->replot();
 }
 
-void VRPlotPedals::setupPlot(QCustomPlot *customPlot)
+void VRPlotPedals::setTheme(VRThemeData *themeData)
 {
-    // set dark background gradient:
-    customPlot->setBackground(QBrush(QColor("#3e4244")));
+    QColor lineColor(themeData->getAccentColor());
 
+    itsCustomPlot->xAxis->setBasePen(QPen(lineColor));
+    itsCustomPlot->xAxis->setTickPen(QPen(lineColor));
+    itsCustomPlot->xAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
+    itsCustomPlot->xAxis->setTickLabelColor(lineColor);
+    itsCustomPlot->xAxis->setLabelColor(lineColor);
+
+
+    itsCustomPlot->yAxis->setBasePen(QPen(lineColor));
+    itsCustomPlot->yAxis->setTickPen(QPen(lineColor));
+    itsCustomPlot->yAxis->setSubTickPen(QPen(lineColor));
+    itsCustomPlot->yAxis->setTickLabelColor(lineColor);
+    itsCustomPlot->yAxis->setLabelColor(lineColor);
+    itsCustomPlot->yAxis->grid()->setPen(QPen(lineColor, 0, Qt::SolidLine));
+    itsCustomPlot->yAxis->grid()->setSubGridPen(QPen(lineColor, 0, Qt::DotLine));
+
+    itsCustomPlot->setBackground(QBrush(QColor(themeData->getTabBackgroundColor())));
+
+    itsCustomPlot->replot();
+}
+
+void VRPlotPedals::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
+{
     // init QCPBars
     clutchPedal = new QCPBars(customPlot->xAxis, customPlot->yAxis);
     accelPedal = new QCPBars(customPlot->xAxis, customPlot->yAxis);
     brakePedal = new QCPBars(customPlot->xAxis, customPlot->yAxis);
 
     // set Names and Colors
-    clutchPedal->setName("Clutch Pedal");
+    clutchPedal->setName(tr("Clutch Pedal"));
     clutchPedal->setPen(QPen(QColor(57, 78, 173).lighter(170)));
     clutchPedal->setBrush(QColor(57, 78, 173));
 
-    brakePedal->setName("Brake Pedal");
+    brakePedal->setName(tr("Brake Pedal"));
     brakePedal->setPen(QPen(QColor(173, 57, 84).lighter(170)));
     brakePedal->setBrush(QColor(173, 57, 84));
 
-    accelPedal->setName("Acceleration Pedal");
+    accelPedal->setName(tr("Acceleration Pedal"));
     accelPedal->setPen(QPen(QColor(61, 173, 57).lighter(170)));
     accelPedal->setBrush(QColor(61, 173, 57));
 
     // prepare x axis with names
-    QVector<double> ticks_vect;
-    QVector<QString> labels_vect;
     ticks_vect << 1 << 2 << 3;
-    labels_vect << "Clutch" << "Brake" << "Throttle";
-
-    QColor lineColor("#a7def9");
+    labels_vect << tr("Clutch") << tr("Brake") << tr("Throttle");
 
     // prepare x axis:
     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
@@ -65,29 +82,33 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot)
     customPlot->xAxis->setSubTicks(false);
     customPlot->xAxis->setTickLength(0, 4);
     customPlot->xAxis->setRange(0, 4);
-    customPlot->xAxis->setBasePen(QPen(lineColor));
-    customPlot->xAxis->setTickPen(QPen(lineColor));
     customPlot->xAxis->grid()->setVisible(true);
-    customPlot->xAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
-    customPlot->xAxis->setTickLabelColor(lineColor);
-    customPlot->xAxis->setLabelColor(lineColor);
 
     // prepare y axis:
     customPlot->yAxis->setRange(0, 1);
     customPlot->yAxis->setPadding(5); // a bit more space to the left border
-    customPlot->yAxis->setLabel("Mechanical deflection");
-    customPlot->yAxis->setBasePen(QPen(lineColor));
-    customPlot->yAxis->setTickPen(QPen(lineColor));
-    customPlot->yAxis->setSubTickPen(QPen(lineColor));
+    customPlot->yAxis->setLabel(tr("Mechanical deflection"));
     customPlot->yAxis->grid()->setSubGridVisible(true);
-    customPlot->yAxis->setTickLabelColor(lineColor);
-    customPlot->yAxis->setLabelColor(lineColor);
-    customPlot->yAxis->grid()->setPen(QPen(lineColor, 0, Qt::SolidLine));
-    customPlot->yAxis->grid()->setSubGridPen(QPen(lineColor, 0, Qt::DotLine));
 
     // connect mouse interaction
     //customPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables );
     customPlot ->setInteractions( QCP::iSelectPlottables );
     connect( customPlot, SIGNAL( plottableClick( QCPAbstractPlottable*, int,  QMouseEvent* ) ), this, SLOT( graphClicked( QCPAbstractPlottable* ) ) );
+
+    // set theme (also does a replot-call)
+    setTheme(themeData);
+}
+
+void VRPlotPedals::changeLanguage()
+{
+    itsCustomPlot->yAxis->setLabel(tr("Mechanical deflection"));
+
+    labels_vect.clear();
+    labels_vect << tr("Clutch") << tr("Brake") << tr("Throttle");
+    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+    textTicker->addTicks(ticks_vect, labels_vect);
+    itsCustomPlot->xAxis->setTicker(textTicker);
+
+    update();
 }
 

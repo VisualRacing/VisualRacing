@@ -4,7 +4,17 @@ import QtQuick.Layouts 1.3
 
 Rectangle {
 
-    color: "#3e4244"
+    Connections {
+        target: settings
+        onLangChanged: {
+            rpmPlot.changeLanguage();
+            pedalHistoryPlot.changeLanguage();
+            pedalsPlot.changeLanguage();
+            velocityPlot.changeLanguage();
+        }
+     }
+
+    color: theme.tabBackgroundColor
 
     VRPlotRPM {
         id: rpmPlot
@@ -17,7 +27,7 @@ Rectangle {
         Component.onCompleted: init()
 
         function init(){
-            rpmPlot.initCustomPlot();
+            rpmPlot.initCustomPlot(theme);
             rpmPlot.setItsMaxRpm(6000);
         }
 
@@ -32,6 +42,11 @@ Rectangle {
             target: vrData
             onMaxRpmChanged: rpmPlot.setItsMaxRpm(vrData.maxRpm)
         }
+
+        Connections {
+            target: theme
+            onThemeChanged: rpmPlot.setTheme(theme)
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////
@@ -44,7 +59,7 @@ Rectangle {
         anchors.margins: 15
 
         color: "transparent"
-        border.color: "#a7def9"
+        border.color: theme.accentColor
 
         Rectangle {
             id: revCounterContainer
@@ -54,7 +69,7 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.margins: 15
 
-            color: "#313537";
+            color: theme.appBackgroundColor;
 
             Rectangle {
                 id: revCounter
@@ -71,7 +86,7 @@ Rectangle {
         Text {
             id: gearLabel
             text: gearIndexToChar(vrData.gear)
-            color: "white"
+            color: theme.textColor
             
             anchors.centerIn: parent
             width: parent.width * 0.4
@@ -97,7 +112,7 @@ Rectangle {
         Text {
             id: velocityLabel
             text: returnVelocity(vrData.velocity)
-            color: "white"
+            color: theme.textColor
             
             anchors.right: gearLabel.left
             anchors.bottom: parent.verticalCenter
@@ -117,8 +132,8 @@ Rectangle {
 
         Text {
             id: velocityUnitDesc
-            text: unitSystemIsMetric ? "km/h" : "mph"
-            color: "white"
+            text: settings.unit == "Metric" ? qsTr("km/h") : qsTr("mph")
+            color: theme.textColor
             
             anchors.right: gearLabel.left
             anchors.top: parent.verticalCenter
@@ -140,7 +155,7 @@ Rectangle {
         Text {
             id: rpmLabel
             text: vrData.rpm
-            color: "white"
+            color: theme.textColor
             
             anchors.right: parent.right
             anchors.bottom: parent.verticalCenter
@@ -161,7 +176,7 @@ Rectangle {
 
         Text {
             text: "RPM"
-            color: "white"
+            color: theme.textColor
             
             anchors.right: parent.right
             anchors.top: parent.verticalCenter
@@ -189,7 +204,7 @@ Rectangle {
                 width: parent.width * 0.25
 
                 color: "transparent"
-                border.color: "#a7def9"
+                border.color: theme.accentColor
 
                 Text {
                     width: parent.width
@@ -198,7 +213,7 @@ Rectangle {
 
                     wrapMode: Text.WordWrap
                     font.pixelSize: parent.height * 0.3
-                    color: (false ? "lime" : "#798489")
+                    color: (false ? "lime" : "#798489") // COL
 
                     text: "-"
                 }
@@ -210,7 +225,7 @@ Rectangle {
                 width: parent.width * 0.25
 
                 color: "transparent"
-                border.color: "#a7def9"
+                border.color: theme.accentColor
 
                 Text {
                     width: parent.width
@@ -219,7 +234,7 @@ Rectangle {
 
                     wrapMode: Text.WordWrap
                     font.pixelSize: parent.height * 0.3
-                    color: (false ? "lime" : "#798489")
+                    color: (false ? "lime" : "#798489") // COL
 
                     text: "-"
                 }
@@ -231,7 +246,7 @@ Rectangle {
                 width: parent.width * 0.25
 
                 color: "transparent"
-                border.color: "#a7def9"
+                border.color: theme.accentColor
 
                 Text {
                     width: parent.width
@@ -240,9 +255,9 @@ Rectangle {
 
                     wrapMode: Text.WordWrap
                     font.pixelSize: parent.height * 0.3
-                    color: (vrData.pitLimiter ? "lime" : "#798489")
+                    color: (vrData.pitLimiter ? "lime" : "#798489") // COL
 
-                    text: "Pit Limiter"
+                    text: qsTr("Pit Limiter")
                 }
             }
 
@@ -252,7 +267,7 @@ Rectangle {
                 width: parent.width * 0.25
 
                 color: "transparent"
-                border.color: "#a7def9"
+                border.color: theme.accentColor
 
                 Text {
                     width: parent.width
@@ -261,9 +276,9 @@ Rectangle {
 
                     wrapMode: Text.WordWrap
                     font.pixelSize: parent.height * 0.3
-                    color: (vrData.isInPitlane ? "lime" : "#798489")
+                    color: (vrData.isInPitlane ? "lime" : "#798489") // COL
 
-                    text: "In Pitlane"
+                    text: qsTr("In Pitlane")
                 }
             }
         }
@@ -278,13 +293,18 @@ Rectangle {
         anchors.right: parent.right
         anchors.top: parent.top
 
-        Component.onCompleted: initCustomPlot()
+        Component.onCompleted: initCustomPlot(theme)
 
         Timer {
             interval: 20
             running: true
             repeat: true
             onTriggered: velocityPlot.pushData(vrData.getTimeInSeconds(), vrData.velocity)
+        }
+
+        Connections {
+            target: theme
+            onThemeChanged: velocityPlot.setTheme(theme)
         }
     }
 
@@ -295,7 +315,12 @@ Rectangle {
         anchors.left: parent.left
         anchors.bottom: parent.bottom
 
-        Component.onCompleted: initCustomPlot()
+        Component.onCompleted: initCustomPlot(theme)
+
+        Connections {
+            target: theme
+            onThemeChanged: pedalHistoryPlot.setTheme(theme)
+        }
     }
 
     VRPlotPedals {
@@ -305,7 +330,7 @@ Rectangle {
         anchors.left: pedalHistoryPlot.right
         anchors.bottom: parent.bottom
 
-        Component.onCompleted: initCustomPlot()
+        Component.onCompleted: initCustomPlot(theme)
 
         Connections {
             target: vrData
@@ -316,6 +341,11 @@ Rectangle {
             function update(throttle, brake, clutch) {
                 pedalsPlot.pushData(clutch, brake, throttle);
             }
+        }
+
+        Connections {
+            target: theme
+            onThemeChanged: pedalsPlot.setTheme(theme)
         }
 
         Timer {
@@ -335,12 +365,12 @@ Rectangle {
         anchors.margins: 15
 
         color: "transparent"
-        border.color: "#a7def9"
+        border.color: theme.accentColor
 
         Text {
             id: lapsTitle
-            text: "Laptimes"
-            color: "white"
+            text: qsTr("Laptimes")
+            color: theme.textColor
 
             font.pixelSize: (laptimeOverview.width * 0.2) * (laptimeOverview.height * 0.2) * 0.0075;
 
@@ -355,8 +385,8 @@ Rectangle {
 
             Text {
                 id: currentLapLabel
-                text: "Current:"
-                color: "white"
+                text: qsTr("Current:")
+                color: theme.textColor
                 Layout.rightMargin: 20
                 Layout.bottomMargin: 10
 
@@ -366,7 +396,7 @@ Rectangle {
             Text {
                 id: currentLapValue
                 text: lapTimeToString(vrData.currentLapTime)
-                color: "white"
+                color: theme.textColor
                 Layout.bottomMargin: 10
 
                 font.bold: true
@@ -375,8 +405,8 @@ Rectangle {
 
             Text {
                 id: lastLapLabel
-                text: "Last:"
-                color: "white"
+                text: qsTr("Last:")
+                color: theme.textColor
                 Layout.rightMargin: 20
                 Layout.bottomMargin: 10
 
@@ -386,7 +416,7 @@ Rectangle {
             Text {
                 id: lastLapValue
                 text: lapTimeToString(vrData.previousLapTime)
-                color: "white"
+                color: theme.textColor
                 Layout.bottomMargin: 10
 
                 font.bold: true
@@ -395,8 +425,8 @@ Rectangle {
 
             Text {
                 id: bestLapLabel
-                text: "Best:"
-                color: "white"
+                text: qsTr("Best:")
+                color: theme.textColor
                 Layout.rightMargin: 20
                 Layout.bottomMargin: 10
 
@@ -406,7 +436,7 @@ Rectangle {
             Text {
                 id: bestLapValue
                 text: lapTimeToString(vrData.bestLapTime)
-                color: "white"
+                color: theme.textColor
                 Layout.bottomMargin: 10
 
                 font.bold: true
@@ -424,7 +454,7 @@ Rectangle {
         anchors.margins: 15
 
         color: "transparent"
-        border.color: "#a7def9"
+        border.color: theme.accentColor
 
         Rectangle{
             id: frontLeftBox
@@ -462,7 +492,7 @@ Rectangle {
             anchors.left: frontLeftBox.right
             anchors.leftMargin: parent.width * 0.02
 
-            color: "#313537";
+            color: theme.appBackgroundColor;
             border.color: percToColor(vrData.tireWearFL)
 
             Rectangle {
@@ -511,7 +541,7 @@ Rectangle {
             anchors.right: frontRightBox.left
             anchors.rightMargin: parent.width * 0.02
 
-            color: "#313537";
+            color: theme.appBackgroundColor;
             border.color: percToColor(vrData.tireWearFR)
 
             Rectangle {
@@ -560,7 +590,7 @@ Rectangle {
             anchors.left: rearLeftBox.right
             anchors.leftMargin: parent.width * 0.02
 
-            color: "#313537";
+            color: theme.appBackgroundColor;
             border.color: percToColor(vrData.tireWearRL)
 
             Rectangle {
@@ -608,7 +638,7 @@ Rectangle {
             anchors.right: rearRightBox.left
             anchors.rightMargin: parent.width * 0.02
 
-            color: "#313537";
+            color: theme.appBackgroundColor;
             border.color: percToColor(vrData.tireWearRR)
 
             Rectangle {

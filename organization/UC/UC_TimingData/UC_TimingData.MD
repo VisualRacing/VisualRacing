@@ -12,7 +12,7 @@
 - [Preconditions](#4-preconditions)
     - [Settings File](#41-settings-file)
 - [Postconditions](#5-postconditions)
-- [Extension Points](#6-extension-points)
+- [Function Points](#6-function-points)
 
 # 1. Display Timing Data
 ## 1.1 Brief Description
@@ -49,5 +49,11 @@ For the application to be displayed using the correct settings, the settings fil
 # 5. Postconditions
 As a result of this use case the user can see the Timing Data tab and all of the graphs, visualizations and tables are rendered correctly.
 
-# 6. Extension Points
-n/a
+# 6. Function Points
+For calculating the Function Points we used the tool on [this](http://groups.umd.umich.edu/cis/course.des/cis375/projects/fp99/main.html) website.
+
+For the following Input we got a score of: **44.7 Function Points**.
+It took us *8:09h* to implement this Use Case.
+
+![Timing Data Input](timingTabInput.jpg "Function Point Calculation Input")
+![Timing Data Questions](timingTabQuestions.jpg "Function Point Calculation Questions")

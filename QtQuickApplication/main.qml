@@ -6,27 +6,26 @@ import QtQuick.Controls.Styles 1.4
 Window {
 
     property int numberOfTabs: 5 // number of Tabs for Aligning the SettingsTab right and the "invisible" Tab
-    property bool unitSystemIsMetric: true // Flag for changing the unit system in settings
 
     function returnVelocity(speedInKMH) {
-        if(unitSystemIsMetric)
+        if(settings.unit == "Metric")
             return speedInKMH.toFixed(0);
         else
             return (speedInKMH * 0.621371).toFixed(0);
     }
 
     function returnTemperature(tempInCelsius) {
-        if(unitSystemIsMetric)
-            return tempInCelsius.toFixed(1) + " °C";
+        if(settings.unit == "Metric")
+            return tempInCelsius.toFixed(1) + qsTr(" °C");
         else
-            return (tempInCelsius * 1.8 + 32).toFixed(1) + " °F";
+            return (tempInCelsius * 1.8 + 32).toFixed(1) + qsTr(" °F");
     }
 
     function returnPressure(pressureInBar) {
-        if(unitSystemIsMetric)
-            return pressureInBar.toFixed(1) + " Bar";
+        if(settings.unit == "Metric")
+            return pressureInBar.toFixed(1) + qsTr(" Bar");
         else
-            return (pressureInBar * 14.5038).toFixed(1) + " psi";
+            return (pressureInBar * 14.5038).toFixed(1) + qsTr(" psi");
     }
 
     /* Tire temperature to color conversion */
@@ -90,7 +89,7 @@ Window {
     width: 1500
     height: 800
     title: qsTr("Visual Racing")
-    color: "#313537"
+    color: theme.appBackgroundColor
 
     minimumHeight: 500
     minimumWidth: 900
@@ -107,7 +106,7 @@ Window {
 
         Tab {
             id: generalTab
-            title: "General"
+            title: qsTr("General")
             TabGeneral{
 
             }
@@ -115,7 +114,7 @@ Window {
 
         Tab {
             id: carTab
-            title: "Car"
+            title: qsTr("Car")
             TabCar{
 
             }
@@ -123,7 +122,7 @@ Window {
 
         Tab {
             id: timingTab
-            title: "Timing"
+            title: qsTr("Timing")
             TabTiming{
 
             }
@@ -131,7 +130,7 @@ Window {
 
         Tab {
             id: analyticsTab
-            title: "Analytics"
+            title: qsTr("Analytics")
             TabAnalytics{
 
             }
@@ -144,7 +143,7 @@ Window {
 
         Tab {
             id: settingsTab
-            title: "Settings"
+            title: qsTr("Settings")
             TabSettings{
 
             }
@@ -154,15 +153,15 @@ Window {
         style: TabViewStyle {
             frameOverlap: 1
             tab: Rectangle {
-                color: if(styleData.title === ""){"#313537"}else{styleData.selected ? "#3e4244" : "#555555"}         // all tabs with "" will be unvisible
-                border.color: styleData.selected ? "#3e4244" :"#313537"                                             // border width = 1 pixel
+                color: if(styleData.title === ""){theme.appBackgroundColor}else{styleData.selected ? theme.tabBackgroundColor : theme.tabInactiveColor}         // all tabs with "" will be invisible
+                border.color: styleData.selected ? theme.tabBackgroundColor : theme.appBackgroundColor                                             // border width = 1 pixel
                 implicitWidth: if(styleData.title === ""){tabView_main.width - (79 * numberOfTabs)}else{80}         // text must be shorter than 80 pixels
                 implicitHeight: 30
                 Text {
                     id: text_label
                     anchors.centerIn: parent
                     text: styleData.title
-                    color: styleData.selected ? "white" : "white"
+                    color: styleData.selected ? theme.textColor : theme.textColor
                 }
             }
         }

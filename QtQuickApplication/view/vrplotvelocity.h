@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "vrplotitem.h"
+#include "vrthemedata.h"
 
 class VRPlotVelocity : public VRPlotItem
 {
@@ -10,8 +11,12 @@ class VRPlotVelocity : public VRPlotItem
 public:
     VRPlotVelocity();
 
-    virtual void setupPlot( QCustomPlot* customPlot );
+    virtual void setupPlot( QCustomPlot* customPlot, VRThemeData* themeData);
+    virtual void setTheme(VRThemeData *themeData);
     Q_INVOKABLE void pushData(double index, double data);
+
+public slots:
+    void changeLanguage();
 
 };
 

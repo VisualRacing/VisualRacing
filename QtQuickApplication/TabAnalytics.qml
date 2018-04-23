@@ -3,7 +3,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
 Rectangle{
-    color: "#3e4244"
+    color: theme.tabBackgroundColor
 
     TabView {
         id: tabView_Analytics
@@ -17,7 +17,7 @@ Rectangle{
 
         Tab {
             id: liveAnalyticsTab
-            title: "Live"
+            title: qsTr("Live")
             SubTablLiveAnalytics{
 
             }
@@ -26,7 +26,7 @@ Rectangle{
         style: TabViewStyle {
             frameOverlap: 1
             tab: Rectangle {
-                color: styleData.selected ? "#313537" : "#555555"
+                color: styleData.selected ? theme.appBackgroundColor : theme.tabInactiveColor
                 implicitWidth: 80
                 implicitHeight: 30
 
@@ -34,7 +34,7 @@ Rectangle{
                     id: text_label
                     anchors.centerIn: parent
                     text: styleData.title
-                    color: "white"
+                    color: theme.textColor
                 }
             }
         }
@@ -50,17 +50,17 @@ Rectangle{
         Rectangle {
             id: addButtonRect
             anchors.fill: parent
-            color: "#555555"
+            color: theme.tabInactiveColor
             Text {
                 id: addButtonText
                 anchors.centerIn: parent
                 text: qsTr("+")
-                color: "white"
+                color: theme.textColor
             }
         }
 
         onClicked: addNewTab()
-        onHoveredChanged: addButtonRect.color = (hovered ? "#666666" : "#555555")
+        onHoveredChanged: addButtonRect.color = (hovered ? "#666666" : theme.tabInactiveColor) // COL
 
         function addNewTab(){
             console.log("here can stored data get loaded")

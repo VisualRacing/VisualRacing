@@ -9,7 +9,6 @@
 - [Special Requirements](#3-special-requirements)
 - [Preconditions](#4-preconditions)
 - [Postconditions](#5-postconditions)
-- [Extension Points](#6-extension-points)
 
 # 1. Analyze Laptime Improvement
 ## 1.1 Brief Description
@@ -31,5 +30,3 @@ To calculate the laptime-metrics an input data stream is necessary. This can eit
 # 5. Postconditions
 n/a
 
-# 6. Extension Points
-n/a

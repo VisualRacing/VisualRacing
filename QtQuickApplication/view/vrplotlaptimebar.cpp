@@ -16,7 +16,7 @@ void VRPlotLapTimeBar::pushData(double lap_time, double sector1, double sector2,
     ++counter;
     ticks.append(counter);
     QString str_counter = QString::number(counter);
-    labels.prepend("lap " + str_counter);
+    labels.prepend(tr("lap ") + str_counter);
 
     // set the ticker labels
     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
@@ -57,7 +57,29 @@ void VRPlotLapTimeBar::pushData(double lap_time, double sector1, double sector2,
 
 }
 
-void VRPlotLapTimeBar::setupPlot(QCustomPlot *customPlot)
+void VRPlotLapTimeBar::setTheme(VRThemeData *themeData)
+{
+    QColor lineColor(themeData->getAccentColor());
+
+    itsCustomPlot->xAxis->setBasePen(QPen(lineColor));
+    itsCustomPlot->xAxis->setTickPen(QPen(lineColor));
+    itsCustomPlot->xAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
+    itsCustomPlot->xAxis->setTickLabelColor(lineColor);
+    itsCustomPlot->xAxis->setLabelColor(lineColor);
+
+    itsCustomPlot->yAxis->setBasePen(QPen(lineColor));
+    itsCustomPlot->yAxis->setTickPen(QPen(lineColor));
+    itsCustomPlot->yAxis->setSubTickPen(QPen(lineColor));
+    itsCustomPlot->yAxis->setTickLabelColor(lineColor);
+    itsCustomPlot->yAxis->setLabelColor(lineColor);
+    itsCustomPlot->yAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
+
+    itsCustomPlot->setBackground(QBrush(QColor(themeData->getTabBackgroundColor())));
+
+    itsCustomPlot->replot();
+}
+
+void VRPlotLapTimeBar::setupPlot(QCustomPlot* customPlot, VRThemeData* themeData)
 {
     // init QCPBars
     sectorOne = new QCPBars(customPlot->xAxis, customPlot->yAxis);
@@ -69,15 +91,15 @@ void VRPlotLapTimeBar::setupPlot(QCustomPlot *customPlot)
     sectorTwo->moveAbove(sectorOne);
 
     // style
-    sectorOne->setName("Sector 1");
+    sectorOne->setName(tr("Sector 1"));
     sectorOne->setPen(QPen(QColor(82, 85, 181)));
     sectorOne->setBrush(QColor(82, 85, 181));
     sectorOne->setWidth(0.4);
-    sectorTwo->setName("Sector 2");
+    sectorTwo->setName(tr("Sector 2"));
     sectorTwo->setPen(QPen(QColor(98, 109, 255)));
     sectorTwo->setBrush(QColor(98, 109, 255));
     sectorTwo->setWidth(0.4);
-    sectorThree->setName("Sector 3");
+    sectorThree->setName(tr("Sector 3"));
     sectorThree->setPen(QPen(QColor(160, 167, 255)));
     sectorThree->setBrush(QColor(160, 167, 255));
     sectorThree->setWidth(0.4);
@@ -86,30 +108,27 @@ void VRPlotLapTimeBar::setupPlot(QCustomPlot *customPlot)
     customPlot->addGraph();
     customPlot->graph(0)->setPen(QPen(QColor("#ffa500"), qreal(2.0)));
 
-    // set bg-color
-    customPlot->setBackground(QBrush(QColor("#3e4244")));
-
-    QColor lineColor("#a7def9");
     // prepare x axis:
     customPlot->xAxis->setSubTicks(false);
     customPlot->xAxis->setTickLength(0, 11);
     customPlot->xAxis->setRange(0, 11);
-    customPlot->xAxis->setBasePen(QPen(lineColor));
-    customPlot->xAxis->setTickPen(QPen(lineColor));
     customPlot->xAxis->grid()->setVisible(true);
-    customPlot->xAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
-    customPlot->xAxis->setTickLabelColor(lineColor);
-    customPlot->xAxis->setLabelColor(lineColor);
 
     // prepare y axis:
     customPlot->yAxis->setRange(0, 0);
     customPlot->yAxis->setPadding(2); // a bit more space to the left border
-    customPlot->yAxis->setLabel("Time in s");
-    customPlot->yAxis->setBasePen(QPen(lineColor));
-    customPlot->yAxis->setTickPen(QPen(lineColor));
-    customPlot->yAxis->setSubTickPen(QPen(lineColor));
-    customPlot->yAxis->setTickLabelColor(lineColor);
-    customPlot->yAxis->setLabelColor(lineColor);
-    customPlot->yAxis->grid()->setPen(QPen(lineColor, 0, Qt::DotLine));
+    customPlot->yAxis->setLabel(tr("Time in s"));
 
+    // set theme (also does a replot-call)
+    setTheme(themeData);
+}
+
+void VRPlotLapTimeBar::changeLanguage()
+{
+    sectorOne->setName(tr("Sector 1"));
+    sectorTwo->setName(tr("Sector 2"));
+    sectorThree->setName(tr("Sector 3"));
+    itsCustomPlot->yAxis->setLabel(tr("Time in s"));
+
+    update();
 }
