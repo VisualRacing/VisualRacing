@@ -153,9 +153,9 @@ Window {
         style: TabViewStyle {
             frameOverlap: 1
             tab: Rectangle {
-                color: if(styleData.title === ""){theme.appBackgroundColor}else{styleData.selected ? theme.tabBackgroundColor : theme.tabInactiveColor}         // all tabs with "" will be invisible
-                border.color: styleData.selected ? theme.tabBackgroundColor : theme.appBackgroundColor                                             // border width = 1 pixel
-                implicitWidth: if(styleData.title === ""){tabView_main.width - (79 * numberOfTabs)}else{80}         // text must be shorter than 80 pixels
+                color: if(styleData.title === ""){theme.appBackgroundColor}else{styleData.selected ? theme.tabBackgroundColor : theme.tabInactiveColor} // all tabs with "" will be invisible
+                border.color: styleData.selected ? theme.tabBackgroundColor : theme.appBackgroundColor  // border width = 1 pixel
+                implicitWidth: styleData.title === "" ? tabView_main.width - (99 * numberOfTabs) : 100
                 implicitHeight: 30
                 Text {
                     id: text_label
@@ -174,7 +174,7 @@ Window {
             }
         }
 
-        onCurrentIndexChanged: resetTab()                       // when Tab changes
+        onCurrentIndexChanged: resetTab() // when Tab changes
     }
 
     Label{
