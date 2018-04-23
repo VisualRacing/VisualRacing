@@ -25,13 +25,17 @@ if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
 		JOBS=$(grep '^processor' /proc/cpuinfo | wc -l)
 
 		echo "Adding pkg.mxe.cc apt repo"
-		echo "deb http://pkg.mxe.cc/repos/apt/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mxeapt.list > /dev/null
+		echo "deb http://pkg.mxe.cc/repos/apt/debian jessie main" | sudo tee /etc/apt/sources.list.d/mxeapt.list > /dev/null
 		sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D43A795B73B16ABE9643FE1AFD8FFF16DB45C6AB
 
 		echo "Updating apt cache"
 		sudo apt-get -qq update
 
-		sudo apt-get install -y mxe-i686-w64-mingw32.static-curl mxe-i686-w64-mingw32.static-gcc mxe-i686-w64-mingw32.static-libpng mxe-i686-w64-mingw32.static-pkgconf mxe-i686-w64-mingw32.static-qtbase mxe-i686-w64-mingw32.static-qtscript mxe-i686-w64-mingw32.static-qttools mxe-i686-w64-mingw32.static-nsis
+		sudo apt-get install -y mxe-i686-w64-mingw32.static-gcc \
+			mxe-i686-w64-mingw32.static-pkgconf \
+			mxe-i686-w64-mingw32.static-qtbase \
+			mxe-i686-w64-mingw32.static-qttools \
+			mxe-i686-w64-mingw32.static-nsis
 
 		echo "Make MXE writable"
 		sudo chmod -R a+w "${MXEDIR}"
