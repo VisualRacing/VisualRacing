@@ -827,6 +827,7 @@ Rectangle {
                         }
                     }
                     Text {
+                        id: dirtLabel4
                         text: qsTr("Dirt:")
                         color: theme.textColor
                         width: frontLeftDataBlock.width / 4

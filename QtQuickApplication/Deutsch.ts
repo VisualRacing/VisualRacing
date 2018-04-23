@@ -4,27 +4,27 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="main.cpp" line="47"/>
+        <location filename="main.cpp" line="56"/>
         <source>DataInterface connected successfully.</source>
         <translation>Daten Interface erfolgreich verbunden.</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="52"/>
+        <location filename="main.cpp" line="61"/>
         <source>Ui-Development-Mode active.</source>
         <translation>UI-Entwicklungsmodus aktiv.</translation>
     </message>
     <message>
-        <location filename="vrmainwindow.cpp" line="63"/>
+        <location filename="vrmainwindow.cpp" line="65"/>
         <source>loading...</source>
         <translation>Laden...</translation>
     </message>
     <message>
-        <location filename="vrmainwindow.cpp" line="64"/>
+        <location filename="vrmainwindow.cpp" line="66"/>
         <source>Datainterface connected successfully.</source>
         <translation>Daten Interface erfolgreich verbunden.</translation>
     </message>
     <message>
-        <location filename="vrmainwindow.cpp" line="65"/>
+        <location filename="vrmainwindow.cpp" line="67"/>
         <source>Problem with connecting datainterface!</source>
         <translation>Problem beim Verbinden mit dem Daten Interface!</translation>
     </message>
@@ -45,42 +45,42 @@
 <context>
     <name>TabGeneral</name>
     <message>
-        <location filename="TabGeneral.qml" line="120"/>
+        <location filename="TabGeneral.qml" line="132"/>
         <source>km/h</source>
         <translation>km/h</translation>
     </message>
     <message>
-        <location filename="TabGeneral.qml" line="120"/>
+        <location filename="TabGeneral.qml" line="132"/>
         <source>mph</source>
         <translation>mph</translation>
     </message>
     <message>
-        <location filename="TabGeneral.qml" line="245"/>
+        <location filename="TabGeneral.qml" line="257"/>
         <source>Pit Limiter</source>
         <translation>Pit Limiter</translation>
     </message>
     <message>
-        <location filename="TabGeneral.qml" line="266"/>
+        <location filename="TabGeneral.qml" line="278"/>
         <source>In Pitlane</source>
         <translation>In Pitlane</translation>
     </message>
     <message>
-        <location filename="TabGeneral.qml" line="342"/>
+        <location filename="TabGeneral.qml" line="369"/>
         <source>Laptimes</source>
         <translation>Rundenzeiten</translation>
     </message>
     <message>
-        <location filename="TabGeneral.qml" line="358"/>
+        <location filename="TabGeneral.qml" line="385"/>
         <source>Current:</source>
         <translation>Aktuelle:</translation>
     </message>
     <message>
-        <location filename="TabGeneral.qml" line="378"/>
+        <location filename="TabGeneral.qml" line="405"/>
         <source>Last:</source>
         <translation>Letzte:</translation>
     </message>
     <message>
-        <location filename="TabGeneral.qml" line="398"/>
+        <location filename="TabGeneral.qml" line="425"/>
         <source>Best:</source>
         <translation>Beste:</translation>
     </message>
@@ -103,32 +103,30 @@
         <translation>Angloamerikanisch</translation>
     </message>
     <message>
-        <location filename="TabSettings.qml" line="52"/>
+        <location filename="TabSettings.qml" line="58"/>
         <source>Language</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="TabSettings.qml" line="62"/>
         <source>English</source>
-        <translation>Englisch</translation>
+        <translation type="vanished">Englisch</translation>
     </message>
     <message>
-        <location filename="TabSettings.qml" line="63"/>
         <source>German</source>
-        <translation>Deutsch</translation>
+        <translation type="vanished">Deutsch</translation>
     </message>
     <message>
-        <location filename="TabSettings.qml" line="81"/>
+        <location filename="TabSettings.qml" line="84"/>
         <source>Theme</source>
         <translation>Thema</translation>
     </message>
     <message>
-        <location filename="TabSettings.qml" line="94"/>
+        <location filename="TabSettings.qml" line="97"/>
         <source>Dark</source>
         <translation>Dunkel</translation>
     </message>
     <message>
-        <location filename="TabSettings.qml" line="96"/>
+        <location filename="TabSettings.qml" line="99"/>
         <source>Light</source>
         <translation>Hell</translation>
     </message>
@@ -189,58 +187,58 @@
         <translation>Bremsvorspannung: </translation>
     </message>
     <message>
-        <location filename="TireInfoPanel.qml" line="65"/>
-        <location filename="TireInfoPanel.qml" line="303"/>
-        <location filename="TireInfoPanel.qml" line="494"/>
-        <location filename="TireInfoPanel.qml" line="731"/>
+        <location filename="TireInfoPanel.qml" line="64"/>
+        <location filename="TireInfoPanel.qml" line="302"/>
+        <location filename="TireInfoPanel.qml" line="493"/>
+        <location filename="TireInfoPanel.qml" line="730"/>
         <source>Pressure:</source>
         <translation>Druck:</translation>
     </message>
     <message>
-        <location filename="TireInfoPanel.qml" line="89"/>
-        <location filename="TireInfoPanel.qml" line="279"/>
-        <location filename="TireInfoPanel.qml" line="518"/>
-        <location filename="TireInfoPanel.qml" line="708"/>
+        <location filename="TireInfoPanel.qml" line="88"/>
+        <location filename="TireInfoPanel.qml" line="278"/>
+        <location filename="TireInfoPanel.qml" line="517"/>
+        <location filename="TireInfoPanel.qml" line="707"/>
         <source>I:</source>
         <translation>I:</translation>
     </message>
     <message>
-        <location filename="TireInfoPanel.qml" line="115"/>
-        <location filename="TireInfoPanel.qml" line="353"/>
-        <location filename="TireInfoPanel.qml" line="544"/>
-        <location filename="TireInfoPanel.qml" line="781"/>
+        <location filename="TireInfoPanel.qml" line="114"/>
+        <location filename="TireInfoPanel.qml" line="352"/>
+        <location filename="TireInfoPanel.qml" line="543"/>
+        <location filename="TireInfoPanel.qml" line="780"/>
         <source>Wear:</source>
         <translation>Abrieb:</translation>
     </message>
     <message>
-        <location filename="TireInfoPanel.qml" line="139"/>
-        <location filename="TireInfoPanel.qml" line="329"/>
-        <location filename="TireInfoPanel.qml" line="568"/>
-        <location filename="TireInfoPanel.qml" line="758"/>
+        <location filename="TireInfoPanel.qml" line="138"/>
+        <location filename="TireInfoPanel.qml" line="328"/>
+        <location filename="TireInfoPanel.qml" line="567"/>
+        <location filename="TireInfoPanel.qml" line="757"/>
         <source>C:</source>
         <translation>M:</translation>
     </message>
     <message>
-        <location filename="TireInfoPanel.qml" line="165"/>
-        <location filename="TireInfoPanel.qml" line="403"/>
-        <location filename="TireInfoPanel.qml" line="594"/>
-        <location filename="TireInfoPanel.qml" line="831"/>
+        <location filename="TireInfoPanel.qml" line="164"/>
+        <location filename="TireInfoPanel.qml" line="402"/>
+        <location filename="TireInfoPanel.qml" line="593"/>
+        <location filename="TireInfoPanel.qml" line="830"/>
         <source>Dirt:</source>
-        <translation>Schmutz:</translation>
+        <translation>Dreck:</translation>
     </message>
     <message>
-        <location filename="TireInfoPanel.qml" line="189"/>
-        <location filename="TireInfoPanel.qml" line="379"/>
-        <location filename="TireInfoPanel.qml" line="618"/>
-        <location filename="TireInfoPanel.qml" line="808"/>
+        <location filename="TireInfoPanel.qml" line="188"/>
+        <location filename="TireInfoPanel.qml" line="378"/>
+        <location filename="TireInfoPanel.qml" line="617"/>
+        <location filename="TireInfoPanel.qml" line="807"/>
         <source>O:</source>
         <translation>A:</translation>
     </message>
     <message>
-        <location filename="TireInfoPanel.qml" line="242"/>
-        <location filename="TireInfoPanel.qml" line="456"/>
-        <location filename="TireInfoPanel.qml" line="671"/>
-        <location filename="TireInfoPanel.qml" line="884"/>
+        <location filename="TireInfoPanel.qml" line="241"/>
+        <location filename="TireInfoPanel.qml" line="455"/>
+        <location filename="TireInfoPanel.qml" line="670"/>
+        <location filename="TireInfoPanel.qml" line="883"/>
         <source>Brake Temp.: </source>
         <translation>Bremstemperatur: </translation>
     </message>
@@ -253,22 +251,22 @@
         <translation>Runde </translation>
     </message>
     <message>
-        <location filename="view/vrplotlaptimebar.cpp" line="72"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="94"/>
         <source>Sector 1</source>
         <translation>Sektor 1</translation>
     </message>
     <message>
-        <location filename="view/vrplotlaptimebar.cpp" line="76"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="98"/>
         <source>Sector 2</source>
         <translation>Sektor 2</translation>
     </message>
     <message>
-        <location filename="view/vrplotlaptimebar.cpp" line="80"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="102"/>
         <source>Sector 3</source>
         <translation>Sektor 3</translation>
     </message>
     <message>
-        <location filename="view/vrplotlaptimebar.cpp" line="107"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="120"/>
         <source>Time in s</source>
         <translation>Zeit in s</translation>
     </message>
@@ -276,12 +274,12 @@
 <context>
     <name>VRPlotPedalHistory</name>
     <message>
-        <location filename="view/vrplotpedalhistory.cpp" line="32"/>
+        <location filename="view/vrplotpedalhistory.cpp" line="55"/>
         <source>Time in s</source>
         <translation>Zeit in s</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedalhistory.cpp" line="44"/>
+        <location filename="view/vrplotpedalhistory.cpp" line="61"/>
         <source>Mechanical deflection</source>
         <translation>Mechanische Auslenkung</translation>
     </message>
@@ -289,37 +287,37 @@
 <context>
     <name>VRPlotPedals</name>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="40"/>
+        <location filename="view/vrplotpedals.cpp" line="61"/>
         <source>Clutch Pedal</source>
         <translation>Kupplungspedal</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="44"/>
+        <location filename="view/vrplotpedals.cpp" line="65"/>
         <source>Brake Pedal</source>
         <translation>Bremspedal</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="48"/>
+        <location filename="view/vrplotpedals.cpp" line="69"/>
         <source>Acceleration Pedal</source>
         <translation>Gaspedal</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="56"/>
+        <location filename="view/vrplotpedals.cpp" line="77"/>
         <source>Clutch</source>
         <translation>Kupplung</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="56"/>
+        <location filename="view/vrplotpedals.cpp" line="77"/>
         <source>Brake</source>
         <translation>Bremse</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="56"/>
+        <location filename="view/vrplotpedals.cpp" line="77"/>
         <source>Throttle</source>
         <translation>Gas</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="78"/>
+        <location filename="view/vrplotpedals.cpp" line="92"/>
         <source>Mechanical deflection</source>
         <translation>Mechanische Auslenkung</translation>
     </message>
@@ -327,12 +325,15 @@
 <context>
     <name>VRPlotRPM</name>
     <message>
-        <location filename="view/vrplotrpm.cpp" line="42"/>
+        <location filename="view/vrplotrpm.cpp" line="65"/>
+        <location filename="view/vrplotrpm.cpp" line="82"/>
+        <location filename="view/vrplotrpm.cpp" line="83"/>
         <source>Time in s</source>
         <translation>Zeit in s</translation>
     </message>
     <message>
-        <location filename="view/vrplotrpm.cpp" line="43"/>
+        <location filename="view/vrplotrpm.cpp" line="66"/>
+        <location filename="view/vrplotrpm.cpp" line="84"/>
         <source>RPM / gear</source>
         <translation>RPM / Gang</translation>
     </message>
@@ -340,12 +341,12 @@
 <context>
     <name>VRPlotVelocity</name>
     <message>
-        <location filename="view/vrplotvelocity.cpp" line="25"/>
+        <location filename="view/vrplotvelocity.cpp" line="48"/>
         <source>Time in s</source>
         <translation>Zeit in s</translation>
     </message>
     <message>
-        <location filename="view/vrplotvelocity.cpp" line="26"/>
+        <location filename="view/vrplotvelocity.cpp" line="49"/>
         <source>Speed in km/h</source>
         <translation>Geschwindigkeit in km/h</translation>
     </message>
@@ -353,52 +354,52 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="main.qml" line="20"/>
+        <location filename="main.qml" line="19"/>
         <source> °C</source>
         <translation> °C</translation>
     </message>
     <message>
-        <location filename="main.qml" line="22"/>
+        <location filename="main.qml" line="21"/>
         <source> °F</source>
         <translation> °F</translation>
     </message>
     <message>
-        <location filename="main.qml" line="27"/>
+        <location filename="main.qml" line="26"/>
         <source> Bar</source>
         <translation> Bar</translation>
     </message>
     <message>
-        <location filename="main.qml" line="29"/>
+        <location filename="main.qml" line="28"/>
         <source> psi</source>
         <translation> psi</translation>
     </message>
     <message>
-        <location filename="main.qml" line="92"/>
+        <location filename="main.qml" line="91"/>
         <source>Visual Racing</source>
         <translation>Visual Racing</translation>
     </message>
     <message>
-        <location filename="main.qml" line="110"/>
+        <location filename="main.qml" line="109"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="main.qml" line="118"/>
+        <location filename="main.qml" line="117"/>
         <source>Car</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="main.qml" line="126"/>
+        <location filename="main.qml" line="125"/>
         <source>Timing</source>
         <translation>Zeitmessung</translation>
     </message>
     <message>
-        <location filename="main.qml" line="134"/>
+        <location filename="main.qml" line="133"/>
         <source>Analytics</source>
         <translation>Analysen</translation>
     </message>
     <message>
-        <location filename="main.qml" line="147"/>
+        <location filename="main.qml" line="146"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>

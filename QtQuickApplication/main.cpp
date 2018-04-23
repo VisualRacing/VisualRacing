@@ -40,6 +40,8 @@ int main(int argc, char *argv[])
 
     mainWindow.data()->setEngine(QSharedPointer<QQmlApplicationEngine>(&engine));
 
+    mainWindow.data()->switchLanguage(settings.getLang());
+
     bool uiDev = true;
     if (!uiDev) {simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
         simulationManager->start();

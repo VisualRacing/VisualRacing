@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>german.qm</file>
-        <file>german.ts</file>
+        <file>Deutsch.qm</file>
+        <file>Deutsch.ts</file>
     </qresource>
 </RCC>

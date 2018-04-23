@@ -122,3 +122,13 @@ void VRPlotLapTimeBar::setupPlot(QCustomPlot* customPlot, VRThemeData* themeData
     // set theme (also does a replot-call)
     setTheme(themeData);
 }
+
+void VRPlotLapTimeBar::changeLanguage()
+{
+    sectorOne->setName(tr("Sector 1"));
+    sectorTwo->setName(tr("Sector 2"));
+    sectorThree->setName(tr("Sector 3"));
+    itsCustomPlot->yAxis->setLabel(tr("Time in s"));
+
+    update();
+}

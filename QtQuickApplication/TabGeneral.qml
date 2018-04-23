@@ -4,6 +4,16 @@ import QtQuick.Layouts 1.3
 
 Rectangle {
 
+    Connections {
+        target: settings
+        onLangChanged: {
+            rpmPlot.changeLanguage();
+            pedalHistoryPlot.changeLanguage();
+            pedalsPlot.changeLanguage();
+            velocityPlot.changeLanguage();
+        }
+     }
+
     color: theme.tabBackgroundColor
 
     VRPlotRPM {

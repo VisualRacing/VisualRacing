@@ -6,6 +6,13 @@ import VRPlot 1.0
 Rectangle{
     color: theme.tabBackgroundColor
 
+    Connections {
+        target: settings
+        onLangChanged: {
+            lapTimeBar.changeLanguage();
+        }
+     }
+
     Rectangle {
         id: currentTile
         color: "transparent"

@@ -74,3 +74,12 @@ void VRPlotRPM::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
     // set theme (also does a replot-call)
     setTheme(themeData);
 }
+
+
+void VRPlotRPM::changeLanguage()
+{
+    itsCustomPlot->xAxis->setLabel(tr("Time in s"));
+    itsCustomPlot->yAxis->setLabel(tr("RPM / gear"));
+
+    update();
+}

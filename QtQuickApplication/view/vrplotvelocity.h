@@ -15,6 +15,9 @@ public:
     virtual void setTheme(VRThemeData *themeData);
     Q_INVOKABLE void pushData(double index, double data);
 
+public slots:
+    void changeLanguage();
+
 };
 
 #endif // VRPLOTVELOCITY_H

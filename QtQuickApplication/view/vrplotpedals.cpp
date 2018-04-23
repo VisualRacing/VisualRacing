@@ -71,8 +71,6 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
     accelPedal->setBrush(QColor(61, 173, 57));
 
     // prepare x axis with names
-    QVector<double> ticks_vect;
-    QVector<QString> labels_vect;
     ticks_vect << 1 << 2 << 3;
     labels_vect << tr("Clutch") << tr("Brake") << tr("Throttle");
 
@@ -99,5 +97,18 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
 
     // set theme (also does a replot-call)
     setTheme(themeData);
+}
+
+void VRPlotPedals::changeLanguage()
+{
+    itsCustomPlot->yAxis->setLabel(tr("Mechanical deflection"));
+
+    labels_vect.clear();
+    labels_vect << tr("Clutch") << tr("Brake") << tr("Throttle");
+    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+    textTicker->addTicks(ticks_vect, labels_vect);
+    itsCustomPlot->xAxis->setTicker(textTicker);
+
+    update();
 }
 

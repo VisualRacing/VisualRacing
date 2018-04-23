@@ -18,6 +18,9 @@ public:
 
     Q_INVOKABLE void pushData(double lap_time, double sector1, double sector2, double sector3, double best);
 
+public slots:
+    void changeLanguage();
+
 private:
     QCPBars* sectorOne;
     QCPBars* sectorTwo;

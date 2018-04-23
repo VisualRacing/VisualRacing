@@ -64,3 +64,11 @@ void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot, VRThemeData* themeDa
     // set theme (also does a replot-call)
     setTheme(themeData);
 }
+
+void VRPlotPedalHistory::changeLanguage()
+{
+    itsCustomPlot->xAxis->setLabel(tr("Time in s"));
+    itsCustomPlot->yAxis->setLabel(tr("Mechanical deflection"));
+
+    update();
+}

@@ -62,3 +62,9 @@ void VRPlotVelocity::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
     // connect( customPlot, SIGNAL( plottableClick( QCPAbstractPlottable*, int,  QMouseEvent* ) ), this, SLOT( graphClicked( QCPAbstractPlottable* ) ) );
 
 }
+
+void VRPlotVelocity::changeLanguage()
+{
+    itsCustomPlot->xAxis->setLabel(tr("Time in s"));
+    itsCustomPlot->yAxis->setLabel(tr("Speed in km/h"));
+}

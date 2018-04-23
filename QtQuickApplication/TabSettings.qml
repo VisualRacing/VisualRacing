@@ -30,16 +30,7 @@ Rectangle{
 
             ComboBox {
                 width: 200
-                textRole: "text"
-                model:
-                    ListModel
-                    {
-                        id: unitListModel
-                        ListElement { text: qsTr("Metric")
-                                      key: "metric" }
-                        ListElement { text: qsTr("Imperial")
-                                      key: "imperial" }
-                    }
+                model: ["Metric", "Imperial"]
 
                 property bool initialized: false
                 Component.onCompleted: {
@@ -63,12 +54,7 @@ Rectangle{
 
             ComboBox {
                 width: 200
-                textRole: "text"
-                model: ListModel {
-                    id: languageListModel
-                    ListElement { text: "English"; key: "english" }
-                    ListElement { text: "Deutsch"; key: "german" }
-                }
+                model: ["English", "Deutsch"]
 
                 property bool initialized: false
                 Component.onCompleted: {
@@ -78,9 +64,9 @@ Rectangle{
 
                 onCurrentTextChanged: {
                     if (!initialized) return;
-                    settings.lang = currentText;
 
-                    vrMainWindow.switchLanguage(languageListModel.get(currentIndex).key);
+                    vrMainWindow.switchLanguage(currentText);
+                    settings.lang = currentText;
                 }
             }
 
@@ -94,16 +80,7 @@ Rectangle{
 
             ComboBox {
                 width: 200
-                textRole: "text"
-                model:
-                    ListModel
-                    {
-                        id: themeListModel
-                        ListElement { text: qsTr("Dark")
-                                      key: "dark" }
-                        ListElement { text: qsTr("Light")
-                                      key: "light" }
-                    }
+                model: ["Dark", "Light"]
 
                 property bool initialized: false
                 Component.onCompleted: {
