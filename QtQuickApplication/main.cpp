@@ -33,13 +33,12 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/images/icon.ico"));
 
-    QQmlApplicationEngine engine;
+    QSharedPointer<QQmlApplicationEngine> engine(new QQmlApplicationEngine);
     QScopedPointer<VRMainWindow> mainWindow(new VRMainWindow);
     QSharedPointer<VRSimulationManager> simulationManager;
     QSharedPointer<VRData> vrData;
 
-    mainWindow.data()->setEngine(QSharedPointer<QQmlApplicationEngine>(&engine));
-
+    mainWindow.data()->setEngine(engine);
     mainWindow.data()->switchLanguage(settings.getLang());
 
     bool uiDev = true;
@@ -65,11 +64,10 @@ int main(int argc, char *argv[])
     /*
      * expose Data-Objects to qml
      */
-    engine.rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
-    engine.rootContext()->setContextProperty("vrData", vrData.data());
-    engine.rootContext()->setContextProperty("settings", &settings);
-    engine.rootContext()->setContextProperty("theme", &themeData);
-
+    engine->rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
+    engine->rootContext()->setContextProperty("vrData", vrData.data());
+    engine->rootContext()->setContextProperty("settings", &settings);
+    engine->rootContext()->setContextProperty("theme", &themeData);
     /*
      * QML-Type Registration
      */
@@ -82,9 +80,11 @@ int main(int argc, char *argv[])
     /*
      * load qml-file
      */
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (engine.rootObjects().isEmpty())
+    engine->load(QUrl(QStringLiteral("qrc:/main.qml")));
+    if (engine->rootObjects().isEmpty())
         return EXIT_FAILURE;
-    return app.exec();
+    int retVal = app.exec();
+    qDebug() << "test";
+    return retVal;
 }
 
