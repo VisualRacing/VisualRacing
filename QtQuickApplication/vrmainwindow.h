@@ -8,6 +8,7 @@
 #include <QTranslator>
 #include <QApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include "vrmessage.h"
 
 /*
@@ -46,7 +47,6 @@ public:
     Q_INVOKABLE QColor getItsCurrentMessageColor() const;
     void setItsCurrentMessage(const QSharedPointer<VRMessage> &value);
 
-
     Q_INVOKABLE int getItsCurrentTab() const;
     Q_INVOKABLE void setItsCurrentTab(int value);
 
@@ -56,8 +56,12 @@ public:
     Q_INVOKABLE void switchLanguage(QString language);
     void setEngine(QSharedPointer<QQmlApplicationEngine> engine);
 
+    Q_PROPERTY(QString emptyString READ getEmptyString NOTIFY languageChanged)
+    Q_INVOKABLE QString getEmptyString();
+
 signals:
     void itsCurrentMessageChanged();
+    void languageChanged();
 
 private:
     QSharedPointer<QVector<QSharedPointer<VRMessage>>> itsMessages = QSharedPointer<QVector<QSharedPointer<VRMessage>>>(new QVector<QSharedPointer<VRMessage>>);

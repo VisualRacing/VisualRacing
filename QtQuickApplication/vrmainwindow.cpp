@@ -77,5 +77,14 @@ void VRMainWindow::switchLanguage(QString language)
     qApp->removeTranslator(currentTranslator.data());
     currentTranslator.data()->load(QString(":/" + language));
     qApp->installTranslator(currentTranslator.data());
-    engine->retranslate();
+
+    emit languageChanged();
+
+    // instead op using an emptyString to reevaluating all qsTr, an "engine->retranslate"-call would be possible with Qt 5.10 and higher
+    // engine->retranslate();
+}
+
+QString VRMainWindow::getEmptyString()
+{
+    return "";
 }
