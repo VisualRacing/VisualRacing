@@ -50,6 +50,7 @@ This document is designed for internal use only and will outline the development
 |[Blog](https://visualracing.wordpress.com/)|10/05/2017|
 |[GitHub](https://github.com/VisualRacing/VisualRacing)|10/23/2017|
 |[Software Architecture Document](https://github.com/VisualRacing/VisualRacing/blob/master/organization/SAD/SAD.MD)|12/10/2017|
+|[Test Plan](Test%20Plan.MD)|04/24/2018|
 |[Use Case Diagram](UC/Use%20Case%20Diagram.png)|10/23/2017|
 |[UC Change Settings](UC/UC_ChangeSettings/UC_ChangeSettings.MD)|10/25/2017|
 |[UC Read Data Stream](UC/UC_ReadDataStream/UC_ReadDataStream.MD)|10/25/2017|
