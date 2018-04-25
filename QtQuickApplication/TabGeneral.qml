@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import VRPlot 1.0
 import QtQuick.Layouts 1.3
+import VRSettings 1.0
 
 Rectangle {
 
@@ -132,7 +133,7 @@ Rectangle {
 
         Text {
             id: velocityUnitDesc
-            text: settings.unit == "Metric" ? qsTr("km/h") + vrMainWindow.emptyString : qsTr("mph") + vrMainWindow.emptyString
+            text: settings.unit == VRSettings.METRIC ? qsTr("km/h") + vrMainWindow.emptyString : qsTr("mph") + vrMainWindow.emptyString
             color: theme.textColor
             
             anchors.right: gearLabel.left

@@ -3,9 +3,9 @@
 VRSettings::VRSettings()
 {
     this->path = "settings.vr";
-    this->unit = "Metric";
-    this->lang = "English";
-    this->theme = "Dark";
+    this->unit = Unit::METRIC;
+    this->lang = Language::ENGLISH;
+    this->theme = Theme::DARK;
 
     this->load();
 }
@@ -25,14 +25,20 @@ void VRSettings::load()
             QString value = line.at(1).trimmed();
 
             if (attribute == "unit") {
-                if (value == "Metric" || value == "Imperial")
-                    unit = value;
+                if (value == "metric")
+                    unit = Unit::METRIC;
+                else if(value == "imperial")
+                    unit = Unit::IMPERIAL;
             } else if (attribute == "lang") {
-                if (value == "English" || value == "Deutsch")
-                    lang = value;
+                if (value == "en")
+                    lang = Language::ENGLISH;
+                else if (value == "de")
+                    lang = Language::GERMAN;
             } else if (attribute == "theme") {
-                if (value == "Dark" || value == "Light")
-                    theme = value;
+                if (value == "dark")
+                    theme = Theme::DARK;
+                else if (value == "light")
+                    theme = Theme::LIGHT;
             }
         }
 
@@ -46,55 +52,70 @@ void VRSettings::save()
     if (settingsFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&settingsFile);
 
-        out << "unit:" << unit << endl;
-        out << "lang:" << lang << endl;
-        out << "theme:" << theme << endl;
+        out << "unit:";
+        if (unit == Unit::METRIC)
+            out << "metric" << endl;
+        else if (unit == Unit::IMPERIAL)
+            out << "imperial" << endl;
+
+        out << "lang:";
+        if (lang == Language::ENGLISH)
+            out << "en" << endl;
+        else if (lang == Language::GERMAN)
+            out << "de" << endl;
+
+        out << "theme:";
+        if (theme == Theme::DARK)
+            out << "dark" << endl;
+        else if (theme == Theme::LIGHT)
+            out << "light" << endl;
 
         settingsFile.close();
     }
 }
 
-QString VRSettings::getUnit() const
-{
-    return unit;
-}
 
-void VRSettings::setUnit(const QString &value)
-{
-    if (value == unit)
-        return;
-    unit = value;
-
-    emit unitChanged();
-    save();
-}
-
-QString VRSettings::getLang() const
-{
-    return lang;
-}
-
-void VRSettings::setLang(const QString &value)
-{
-    if (value == lang)
-        return;
-    lang = value;
-
-    emit langChanged();
-    save();
-}
-
-QString VRSettings::getTheme() const
+VRSettings::Theme VRSettings::getTheme() const
 {
     return theme;
 }
 
-void VRSettings::setTheme(const QString &value)
+void VRSettings::setTheme(const Theme &value)
 {
-    if (value == theme)
+    if (theme == value)
         return;
-    theme = value;
 
+    theme = value;
     emit themeChanged();
+    save();
+}
+
+VRSettings::Language VRSettings::getLang() const
+{
+    return lang;
+}
+
+void VRSettings::setLang(const Language &value)
+{
+    if (lang == value)
+        return;
+
+    lang = value;
+    emit langChanged();
+    save();
+}
+
+VRSettings::Unit VRSettings::getUnit() const
+{
+    return unit;
+}
+
+void VRSettings::setUnit(const Unit &value)
+{
+    if (unit == value)
+        return;
+
+    unit = value;
+    emit unitChanged();
     save();
 }

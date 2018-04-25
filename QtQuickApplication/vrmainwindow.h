@@ -10,6 +10,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "vrmessage.h"
+#include "vrsettings.h"
 
 /*
  * class VRMainWindow
@@ -53,7 +54,7 @@ public:
     Q_INVOKABLE int getItsLastTab() const;
     Q_INVOKABLE void setItsLastTab(int value);
 
-    Q_INVOKABLE void switchLanguage(QString language);
+    Q_INVOKABLE void switchLanguage(VRSettings::Language language);
     void setEngine(QSharedPointer<QQmlApplicationEngine> engine);
 
     Q_PROPERTY(QString emptyString READ getEmptyString NOTIFY languageChanged)

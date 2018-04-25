@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import VRSettings 1.0
 
 Rectangle{
     color: theme.tabBackgroundColor
@@ -34,13 +35,20 @@ Rectangle{
 
                 property bool initialized: false
                 Component.onCompleted: {
-                    currentIndex = Math.max(find(settings.unit), 0);
+                    currentIndex = 0;
+                    if (settings.unit === VRSettings.IMPERIAL)
+                        currentIndex = 1;
+
                     initialized = true;
                 }
 
-                onCurrentTextChanged: {
+                onCurrentIndexChanged: {
                     if (!initialized) return;
-                    settings.unit = currentText;
+
+                    if (currentIndex === 0)
+                        settings.unit = VRSettings.METRIC;
+                    else if (currentIndex === 1)
+                        settings.unit = VRSettings.IMPERIAL;
                 }
             }
 
@@ -58,15 +66,22 @@ Rectangle{
 
                 property bool initialized: false
                 Component.onCompleted: {
-                    currentIndex = Math.max(find(settings.lang), 0);
+                    currentIndex = 0;
+                    if (settings.lang === VRSettings.GERMAN)
+                        currentIndex = 1;
+
                     initialized = true;
                 }
 
-                onCurrentTextChanged: {
+                onCurrentIndexChanged: {
                     if (!initialized) return;
 
-                    vrMainWindow.switchLanguage(currentText);
-                    settings.lang = currentText;
+                    if (currentIndex === 0)
+                        settings.lang = VRSettings.ENGLISH;
+                    else if (currentIndex === 1)
+                        settings.lang = VRSettings.GERMAN;
+
+                    vrMainWindow.switchLanguage(settings.lang);
                 }
             }
 
@@ -87,18 +102,20 @@ Rectangle{
 
                 property bool initialized: false
                 Component.onCompleted: {
-                    currentIndex = Math.max(find(settings.theme), 0);
+                    currentIndex = 0;
+                    if (settings.theme === VRSettings.LIGHT)
+                        currentIndex = 1;
+
                     initialized = true;
                 }
 
-                onCurrentTextChanged: {
+                onCurrentIndexChanged: {
                     if (!initialized) return;
-                    settings.theme = currentText
 
-                    if (settings.theme == "Dunkel")
-                        settings.theme = "Dark";
-                    else if (settings.theme == "Hell")
-                        settings.theme = "Light";
+                    if (currentIndex === 0)
+                        settings.theme = VRSettings.DARK;
+                    else if (currentIndex === 1)
+                        settings.theme = VRSettings.LIGHT;
 
                     theme.changeTheme(settings.theme);
                 }
@@ -120,7 +137,7 @@ Rectangle{
             width: parent.width * 0.5
             height: width
             anchors.centerIn: parent
-            source: settings.theme == "Dark" ? "images/settings_gear.svg" : "images/settings_gear_light.svg"
+            source: settings.theme === VRSettings.DARK ? "images/settings_gear.svg" : "images/settings_gear_light.svg"
         }
     }
 }

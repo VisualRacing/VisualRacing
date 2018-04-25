@@ -2,27 +2,28 @@ import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
+import VRSettings 1.0
 
 Window {
 
     property int numberOfTabs: 5 // number of Tabs for Aligning the SettingsTab right and the "invisible" Tab
 
     function returnVelocity(speedInKMH) {
-        if(settings.unit == "Metric")
+        if(settings.unit == VRSettings.METRIC)
             return speedInKMH.toFixed(0);
         else
             return (speedInKMH * 0.621371).toFixed(0);
     }
 
     function returnTemperature(tempInCelsius) {
-        if(settings.unit == "Metric")
+        if(settings.unit == VRSettings.METRIC)
             return tempInCelsius.toFixed(1) + qsTr(" °C") + vrMainWindow.emptyString;
         else
             return (tempInCelsius * 1.8 + 32).toFixed(1) + qsTr(" °F") + vrMainWindow.emptyString;
     }
 
     function returnPressure(pressureInBar) {
-        if(settings.unit == "Metric")
+        if(settings.unit == VRSettings.METRIC)
             return pressureInBar.toFixed(1) + qsTr(" Bar") + vrMainWindow.emptyString;
         else
             return (pressureInBar * 14.5038).toFixed(1) + qsTr(" psi") + vrMainWindow.emptyString;
@@ -174,7 +175,7 @@ Window {
             }
         }
 
-        onCurrentIndexChanged: resetTab()                       // when Tab changes
+        onCurrentIndexChanged: resetTab() // when Tab changes
     }
 
     Label{

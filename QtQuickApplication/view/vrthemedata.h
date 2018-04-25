@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include "../vrsettings.h"
 
 class VRThemeData : public QObject
 {
@@ -15,9 +16,9 @@ class VRThemeData : public QObject
     Q_PROPERTY(QString textColor READ getTextColor WRITE setTextColor NOTIFY textColorChanged)
 
 public:
-    VRThemeData(QString name);
+    VRThemeData(VRSettings::Theme theme);
 
-    Q_INVOKABLE void changeTheme(QString name);
+    Q_INVOKABLE void changeTheme(VRSettings::Theme theme);
 
     QString getAppBackgroundColor() const;
     void setAppBackgroundColor(const QString &value);

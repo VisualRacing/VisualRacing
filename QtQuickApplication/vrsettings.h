@@ -6,27 +6,33 @@
 #include <QTextStream>
 #include <QObject>
 #include <QFile>
-#include <fstream>
 
 class VRSettings : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString unit READ getUnit WRITE setUnit NOTIFY unitChanged)
-    Q_PROPERTY(QString lang READ getLang WRITE setLang NOTIFY langChanged)
-    Q_PROPERTY(QString theme READ getTheme WRITE setTheme NOTIFY themeChanged)
+    Q_PROPERTY(Unit unit READ getUnit WRITE setUnit NOTIFY unitChanged)
+    Q_PROPERTY(Language lang READ getLang WRITE setLang NOTIFY langChanged)
+    Q_PROPERTY(Theme theme READ getTheme WRITE setTheme NOTIFY themeChanged)
 
 public:
+    enum Unit { METRIC , IMPERIAL };
+    Q_ENUM(Unit)
+    enum Language { ENGLISH, GERMAN };
+    Q_ENUM(Language)
+    enum Theme { DARK, LIGHT };
+    Q_ENUM(Theme)
+
     VRSettings();
 
-    QString getUnit() const;
-    void setUnit(const QString &value);
+    Unit getUnit() const;
+    void setUnit(const Unit &value);
 
-    QString getLang() const;
-    void setLang(const QString &value);
+    Language getLang() const;
+    void setLang(const Language &value);
 
-    QString getTheme() const;
-    void setTheme(const QString &value);
+    Theme getTheme() const;
+    void setTheme(const Theme &value);
 
 signals:
     void unitChanged();
@@ -39,9 +45,13 @@ private:
 
     QString path;
 
-    QString unit;
-    QString lang;
-    QString theme;
+    Unit unit;
+    Language lang;
+    Theme theme;
 };
+
+Q_DECLARE_METATYPE(VRSettings::Unit)
+Q_DECLARE_METATYPE(VRSettings::Language)
+Q_DECLARE_METATYPE(VRSettings::Theme)
 
 #endif // VRSETTINGS_H

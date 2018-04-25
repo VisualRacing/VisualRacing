@@ -1,7 +1,5 @@
 #include "vrmainwindow.h"
 
-
-
 VRMainWindow::VRMainWindow(QObject *parent) : QObject(parent)
 {
     initMessages();
@@ -72,10 +70,14 @@ void VRMainWindow::setEngine(QSharedPointer<QQmlApplicationEngine> engine)
     this->engine = engine;
 }
 
-void VRMainWindow::switchLanguage(QString language)
+void VRMainWindow::switchLanguage(VRSettings::Language language)
 {
+    QString langName = "English";
+    if (language == VRSettings::Language::GERMAN)
+        langName = "Deutsch";
+
     qApp->removeTranslator(currentTranslator.data());
-    currentTranslator.data()->load(QString(":/" + language));
+    currentTranslator.data()->load(QString(":/" + langName));
     qApp->installTranslator(currentTranslator.data());
 
     emit languageChanged();

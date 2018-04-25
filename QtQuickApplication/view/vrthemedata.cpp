@@ -1,18 +1,18 @@
 #include "vrthemedata.h"
 
-VRThemeData::VRThemeData(QString name)
+VRThemeData::VRThemeData(VRSettings::Theme theme)
 {
-    changeTheme(name);
+    changeTheme(theme);
 }
 
-void VRThemeData::changeTheme(QString name) {
-    if (name == "Dark") {
+void VRThemeData::changeTheme(VRSettings::Theme theme) {
+    if (theme == VRSettings::Theme::DARK) {
         setAppBackgroundColor("#313537");
         setTabBackgroundColor("#3e4244");
         setTabInactiveColor("#555555");
         setAccentColor("#a7def9");
         setTextColor("white");
-    } else if (name == "Light") {
+    } else if (theme == VRSettings::Theme::LIGHT) {
         setAppBackgroundColor("#fcfcfc");
         setTabBackgroundColor("#fff");
         setTabInactiveColor("#eee");

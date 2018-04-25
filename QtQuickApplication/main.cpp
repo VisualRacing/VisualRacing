@@ -98,6 +98,7 @@ int main(int argc, char *argv[])
     engine->rootContext()->setContextProperty("vrData", vrData.data());
     engine->rootContext()->setContextProperty("settings", &settings);
     engine->rootContext()->setContextProperty("theme", &themeData);
+
     /*
      * QML-Type Registration
      */
@@ -106,6 +107,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<VRPlotLapTimeBar>("VRPlot", 1, 0, "VRPlotLapTimeBar");
     qmlRegisterType<VRPlotRPM>("VRPlot", 1, 0, "VRPlotRPM");
     qmlRegisterType<VRPlotPedalHistory>("VRPlot", 1, 0, "VRPlotPedalHistory");
+    qmlRegisterType<VRSettings>("VRSettings", 1, 0, "VRSettings");
 
     /*
      * load qml-file
