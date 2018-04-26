@@ -61,10 +61,13 @@ This Test Plan for VisualRacing supports the following objectives:
 - Identifies the required resources and provides an estimate of the test efforts.
 
 ### 1.2 Scope
+The Visual Racing applictaion is tested using unit test for testing methods to ensure that the implementation is working correctly through the development.
 
+The qml user interface components will not be tested except of logical implementation components.
+In this document the unit test are described.
 
 ### 1.3 Intended Audience
-
+This test plan contains technically more detailed information and do not provide a describtion of the application itself. From this it follows that this document is for advanced readers with the necessary background knowledge and should be used primarily by active developers of the project.
 
 ### 1.4 Document Terminology and Acronyms
 
@@ -97,49 +100,86 @@ This Test Plan for VisualRacing supports the following objectives:
 
 ## 2. Evaluation Mission and Test Motivation
 ### 2.1 Background
-
+Test coverage for our project gives us the possibility to be sure that future changes does not lead to functional problems. With the integraten of testing into the deployment process we can ensure that just stable versions of our project which accomplish the quality requirements are getting deployed. This leads to a better controle of new implementations and the deployment process.
 ### 2.2 Evaluation Mission
-
+Test are necessary for providing stable and working versions of our project and to ensure that bugs ore other problems could be identified earlier. The functionallity of our methods and implementations can be verified automatically with the concept of continues testing. With Test Driven Development (TDD) the tests are getting written before the functionallity itself gets implemented. TDD helps a lot to prevent problems and bugs before the occur.
 ### 2.3 Test Motivators
-
+Qualty as well as stability and functional risk gives the motivation to testing the project. To fullfil the the requirements to our application it is very important to test the functionallity. Additionally it helps implementing the usecases to provide a correct working result.
 ## 3. Target Test Items
+In the following list the tested parts of our application are listed. Tests will cover the main backend functionallity as well as the logical implementations in the qml ui part.
+
+Tested parts:
+
+- C++ backend functionallity 
+- qml logical / algorithmic components
 
 ## 4. Outline of Planned Tests
 ### 4.1 Outline of Test Inclusions
+Backend functionallity will be tested through unit test.
+
+Qml functionallity will be tested through unit test.
+
+The tests itself are not going to be tested and will not be part of the calculation of code coverage.
 
 ### 4.2 Outline of Other Candidates for Potential Inclusion
-
+User interface testing would be additional options to provide a working application. Furthermore performance testing of the application might be an interesting part of quality management to ensure a stable application that accomplish the performance requirements.
 ### 4.3 Outline of Test Exclusions
-
+n/a
 
 ## 5. Test Approach
 
 ### 5.1 Testing Techniques and Types
 
 #### 5.1.1 Unit Testing
+The concept of unit testing structure the code into pices that are as small as possible. This little units are going to be tested to check functionallity on the lowest possible level. With this partitioning of the implementation bugs and problems are found an a level, that could be proved to work correct ore not much better. If a granular functionallity could be approved the units can be put together to modules wich than are going to be tested on this higher level. Unit testing could be proven as a good and working way to find bugs and problems early and reliable.
 
+For unit testing QTest and Qt Quick Test are used in this project.
 
-#### 5.1.2 User Interface Testing
+|                        | Description                         | 
+|------------------------|-------------------------------------|
+| Technique Objective    | Ensure that the implemented functions are working as expected. |
+| Technique              | Implement QTests and Qt Quick tests |
+| Oracles                | Test Logs, console printings and code coverage calculations |
+| Required Tools         | QtCreator |
+| Success Criteria       | The tests pass and the required code coverage is given |
+| Special Considerations | - |
 
-#### 5.1.3 Integration Testing
+#### 5.1.2 Performance testing
 
+Performance is not going to be tested at the moment.
 
 ## 6. Entry and Exit Criteria
 ### 6.1 Test Plan
 
 #### 6.1.1 Test Plan Entry Criteria
 
+The process of testing is going to be executed when a new version of the application will be builded
+
 #### 6.1.2 Test Plan Exit Criteria
 
+The process of testing leads to a passing of all tests without errors.
 
 ## 7. Deliverables
 
 ## 7.1 Test Evaluation Summaries
 
-## 7.2 Reporting on Test Coverage
+For testing multiple continuous integration services to build and executes the tests are used. This leads to a automatic testing on every deployment.
 
+| Continuous Integration Service      |  Badge |
+|-------------------------------------|---------------|
+|TravisCI|[![Build Status](https://travis-ci.org/VisualRacing/VisualRacing.svg?branch=master)](https://travis-ci.org/VisualRacing/VisualRacing)|
+|AppVeyor|[![Build status](https://ci.appveyor.com/api/projects/status/t4nq99t1kk1saw2s?svg=true)](https://ci.appveyor.com/project/ChristopherKlammt/visualracing)|
+
+## 7.2 Reporting on Test Coverage
+After AppVeyer has build the application successfully the code coverage though tests will be calculated out of the test results. 
 
 ## 7.3 Perceived Quality Reports
+
+For calculating quality reports Codacy is used. This tool calulates the amount of errors and many more metrics wich can be used to mesure the code quality. 
+
+The following badge shows the latest status of the reports:
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/69efb80d2d864d6ebffd7b27bae84bf5)](https://www.codacy.com/app/ChristopherKlammt/VisualRacing?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=VisualRacing/VisualRacing&amp;utm_campaign=Badge_Grade)
 
 ## 7.4 Incident Logs and Change Requests
 
@@ -147,6 +187,9 @@ This Test Plan for VisualRacing supports the following objectives:
 
 ## 8. Testing Workflow
 
+For testing parts of new code each developer can use the option of running the test from the IDE. This helps a lot to check if new could works as expected. 
+
+Additionally the test process is executed with the deployment.
 ## 9. Environmental Needs
 
 ### 9.1 Base System Hardware
