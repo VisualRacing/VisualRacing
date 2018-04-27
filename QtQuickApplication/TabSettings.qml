@@ -30,10 +30,12 @@ Rectangle{
             }
 
             ComboBox {
+                id: comboBoxUnit
                 width: 200
                 model: [qsTr("Metric") + vrMainWindow.emptyString, qsTr("Imperial") + vrMainWindow.emptyString]
 
                 property bool initialized: false
+                property int previousIndex: -1
                 Component.onCompleted: {
                     currentIndex = 0;
                     if (settings.unit === VRSettings.IMPERIAL)
@@ -44,6 +46,11 @@ Rectangle{
 
                 onCurrentIndexChanged: {
                     if (!initialized) return;
+
+                    if (previousIndex !== -1) {
+                        currentIndex = previousIndex;
+                        previousIndex = -1;
+                    }
 
                     if (currentIndex === 0)
                         settings.unit = VRSettings.METRIC;
@@ -61,6 +68,7 @@ Rectangle{
             }
 
             ComboBox {
+                id: comboBoxLang
                 width: 200
                 model: ["English", "Deutsch"]
 
@@ -75,6 +83,11 @@ Rectangle{
 
                 onCurrentIndexChanged: {
                     if (!initialized) return;
+
+                    if (comboBoxUnit.currentIndex !== 0)
+                        comboBoxUnit.previousIndex = comboBoxUnit.currentIndex;
+                    if (comboBoxTheme.currentIndex !== 0)
+                        comboBoxTheme.previousIndex = comboBoxTheme.currentIndex;
 
                     if (currentIndex === 0)
                         settings.lang = VRSettings.ENGLISH;
@@ -94,6 +107,7 @@ Rectangle{
             }
 
             ComboBox {
+                id: comboBoxTheme
                 width: 200
                 model: [
                     qsTr("Dark") + vrMainWindow.emptyString,
@@ -101,6 +115,7 @@ Rectangle{
                 ]
 
                 property bool initialized: false
+                property int previousIndex: -1
                 Component.onCompleted: {
                     currentIndex = 0;
                     if (settings.theme === VRSettings.LIGHT)
@@ -111,6 +126,11 @@ Rectangle{
 
                 onCurrentIndexChanged: {
                     if (!initialized) return;
+
+                    if (previousIndex !== -1) {
+                        currentIndex = previousIndex;
+                        previousIndex = -1;
+                    }
 
                     if (currentIndex === 0)
                         settings.theme = VRSettings.DARK;
