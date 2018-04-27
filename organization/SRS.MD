@@ -61,6 +61,7 @@ This document is designed for internal use only and will outline the development
 |[UC Analyze Laptime Improvement](UC/UC_AnalyzeLaptimeImprovement/UC_AnalyzeLaptimeImprovement.MD)|04/09/2018|
 |[UC Analyze Driving Behavior](UC/UC_AnalyzeDrivingBehavior/UC_AnalyzeDrivingBehavior.MD)|04/09/2018|
 |[UC Display Analytics](UC/UC_SeeAnalytics/UC_SeeAnalytics.MD)|04/16/2018|
+|[Test Plan](Test%20Plan/Test%20Plan.MD)|04/27/2018|
 
 ## 1.5 Overview
 The following chapters contain our vision and perspective in the Overall Description based on the use case diagram as well as more detailed software requirements.

@@ -7,8 +7,7 @@
     - [Intended Audience](#13-intended-audience)
     - [Document Terminology and Acronyms](#14-document-terminology-and-acronyms)
     - [References](#15-references)
-    - [Document Structure](#16-document-structure)
-- [Evalutaion Mission and Test Motivation](#2-evalutaion-mission-and-test-motivation)
+- [Evaluation Mission and Test Motivation](#2-evaluation-mission-and-test-motivation)
     - [Background](#21-background)
     - [Evaluation Mission](#22-evaluation-mission)
     - [Test Motivators](#23-test-motivators)
@@ -18,36 +17,25 @@
     - [Outline of Other Candidates for Potential Inclusion](#42-outline-of-other-candidates-for-potential-inclusion)
     - [Outline of Test Exclusions](#43-outline-of-test-exclusions)
 - [Test Approach](#5-test-approach)
-    - [Initial Test-Idea Catalogs and Other Reference Sources](#51-initial-test-idea-catalogs-and-other-reference-sources)
-    - [Testing Techniques and Types](#52-testing-techniques-and-types)
+    - [Testing Techniques and Types](#51-testing-techniques-and-types)
 - [Entry and Exit Criteria](#6-entry-and-exit-criteria)
     - [Test Plan](#61-test-plan)
-    - [Test Cycles](#62-test-cylces)
 - [Deliverables](#7-deliverables)
     - [Test Evaluation Summaries](#71-test-evaluation-summaries)
     - [Reporting on Test Coverage](#72-reporting-on-test-coverage)
-    - [Percieved Quality Reports](#73-percieved-quality-reports)
+    - [Perceived Quality Reports](#73-perceived-quality-reports)
     - [Incident Logs and Change Requests](#74-incident-logs-and-change-requests)
     - [Smoke Test Suite and Supporting Test Scripts](#75-smoke-test-suite-and-supporting-test-scripts)
-    - [Additional Work Products](#76-additional-work-products)
 - [Testing Workflow](#8-testing-workflow)
 - [Environmental Needs](#9-environmental-needs)
     - [Base System Hardware](#91-base-system-hardware)
     - [Base Software Elements in the Test Environment](#92-base-software-elements-in-the-test-environment)
     - [Productivity and Support Tools](#93-productivity-and-support-tools)
-    - [Test Environment Configurations](#94-test-environment-configurations)
 - [Responsibilites, Staffing and Training Needs](#10-responsibilities-staffing-and-training-needs)
     - [People and Roles](#101-people-and-roles)
     - [Staffing and Training Needs](#102-staffing-and-training-needs)
 - [Iteration Milestones](#11-iteration-milestones)
 - [Risks, Dependencies, Assumptions and Constraints](#12-risks-dependencies-assumptions-and-constraints)
-- [Management Process and Procedures](#13-management-process-and-procedures)
-    - [Measuring and Assessing the Extent of Testing](#131-measuring-and-assessing-the-extent-of-testing)
-    - [Assessing the Deliverables of this Test Plan](#132-assessing-the-deliverables-of-this-test-plan)
-    - [Problem Reporting, Escalation and Issue Resoltion](#133-problem-reporting-escalation-and-issue-resolution)
-    - [Managing Test Cycles](#134-managing-test-cycles)
-    - [Traceability Strategies](#135-traceability-strategies)
-    - [Approval and Signoff](#136-approval-and-signoff)
 
 ## 1. Introduction
 ### 1.1 Purpose
@@ -55,19 +43,19 @@ The purpose of the Iteration Test Plan is to gather all of the information neces
 It describes the approach to testing the software.
 This Test Plan for VisualRacing supports the following objectives:
 
-- Identifies the items that should be targeted by the tests.
-- Identifies the motivation for and ideas behind the test areas to be covered.
-- Outlines the testing approach that will be used.
-- Identifies the required resources and provides an estimate of the test efforts.
+- Identifying the items that should be targeted by the tests.
+- Identifying the motivation for and ideas behind the test areas to be covered.
+- Outlining the testing approach that will be used.
+- Identifying the required resources and providing an estimation for the test efforts.
 
 ### 1.2 Scope
-The Visual Racing application is tested using unit test for testing methods to ensure that the implementation is working correctly through the development.
+The Visual Racing application is tested using unit tests as a testing method to ensure that the implementation is working correctly throughout the development.
 
-The qml user interface components will not be tested except of logical implementation components.
+The QML user interface components will not be tested except the logical implementation components.
 In this document the unit tests are described.
 
 ### 1.3 Intended Audience
-This test plan contains technically more detailed information and do not provide a describtion of the application itself. From this it follows that this document is for advanced readers with the necessary background knowledge and should be used primarily by active developers of the project.
+This test plan contains more technically detailed information and does not provide a description of the application itself. Therefore this document is for advanced readers with the necessary background knowledge and should be used primarily by active developers of the project.
 
 ### 1.4 Document Terminology and Acronyms
 
@@ -80,7 +68,7 @@ This test plan contains technically more detailed information and do not provide
 | TDD  | Test Driven Development             |
 | UI   | User Interface                      |
 
-### 1.5  References
+### 1.5 References
 
 |Title|Date|
 |-|-|
@@ -100,32 +88,32 @@ This test plan contains technically more detailed information and do not provide
 
 ## 2. Evaluation Mission and Test Motivation
 ### 2.1 Background
-Test coverage for our project gives us the possibility to be sure that future changes does not lead to functional problems. With the integraten of testing into the deployment process we can ensure that just stable versions of our project which accomplish the quality requirements are getting deployed. This leads to a better control of new implementations and the deployment process.
+Test coverage for our project gives us the possibility to be sure that future changes will not lead to functional problems. With the integration of testing into the deployment process we can ensure that just stable versions of our project which meet the desired quality requirements are being deployed. This leads to a better control of new implementations and the deployment process.
 
 ### 2.2 Evaluation Mission
-Test are necessary for providing stable and working versions of our project and to ensure that bugs or other problems could be identified earlier. The functionality of our methods and implementations can be verified automatically with the concept of continuous testing. With Test Driven Development (TDD) the tests are getting written before the functionality itself gets implemented. TDD helps a lot to prevent problems and bugs before they occur.
+Test are necessary for providing stable and working versions of our project and to ensure that bugs or other problems can be identified as early as possible. The functionality of our methods and implementations can be verified automatically with the concept of continuous testing. With Test Driven Development (TDD) the tests are getting written before the functionality itself gets implemented. TDD helps a lot to prevent problems and bugs before they occur.
 
 ### 2.3 Test Motivators
-Quality as well as stability and functional risk gives the motivation to testing the project. To fullfil the requirements to our application it is very important to test the functionality. Additionally it helps implementing the usecases to provide a correct working result.
+Quality as well as stability and functional risks motivated us to use testing for this project. To ensure our application and its functions fulfill the requirements, it is very important to test these. Additionally it helps implementing the Use Cases with a correct working result.
 
 ## 3. Target Test Items
-In the following list the tested parts of our application are listed. Tests will cover the main backend functionality as well as the logical implementations in the qml ui part.
+In the following list the tested parts of our application are listed. Tests will cover the main backend functionality as well as the logical implementations in the QML UI part.
 
 Tested parts:
 
 - C++ backend functionality 
-- qml logical / algorithmic components
+- QML logical / algorithmic components
 
 ## 4. Outline of Planned Tests
 ### 4.1 Outline of Test Inclusions
-Backend functionality will be tested through unit test.
+Backend functionality will be tested with unit tests.
 
-Qml functionality will be tested through unit test.
+QML functionality will be tested with unit tests.
 
 The tests themselves are not going to be tested and will not be part of the calculation of code coverage.
 
 ### 4.2 Outline of Other Candidates for Potential Inclusion
-User interface testing would be additional options to provide a working application. Furthermore performance testing of the application might be an interesting part of quality management to ensure a stable application that accomplish the performance requirements.
+User interface testing would be an additional option to provide a working application. Furthermore performance testing of the application might be an interesting part of quality management to ensure a stable application that fulfills the performance requirements.
 
 ### 4.3 Outline of Test Exclusions
 n/a
@@ -135,7 +123,7 @@ n/a
 ### 5.1 Testing Techniques and Types
 
 #### 5.1.1 Unit Testing
-The concept of unit testing structure the code into pieces that are as small as possible. These little units are going to be tested to check functionality on the lowest possible level. With this partitioning of the implementation bugs and problems are found an a level, that could be proved to work correct or not much better. If a granular functionality could be approved the units can be put together to modules wich then are going to be tested on this higher level. Unit testing could be proven as a good and working way to find bugs and problems early and reliable.
+The concept of unit testing is to structure the code into pieces that are as small as possible. These units ar going to be tested individually to check the functionality on the lowest possible level. Due to this partitioning of the implementation, bugs and problems can be found rather easily. If the granular functionalities have been approved, the units can be put together to modules, which then will be tested on this higher level. Unit Testing has proven to be a good way to find bugs and problems in software early and reliable.
 
 For unit testing QTest and Qt Quick Test are used in this project.
 
@@ -145,17 +133,18 @@ For unit testing QTest and Qt Quick Test are used in this project.
 | Technique              | Implement QTests and Qt Quick tests |
 | Oracles                | Test Logs, console printings and code coverage calculations |
 | Required Tools         | QtCreator |
-| Success Criteria       | The tests pass and the required code coverage is given |
+| Success Criteria       | All tests pass and the required code coverage is given |
+||[TravisCI](https://travis-ci.org/VisualRacing/VisualRacing) and [Appveyor](https://ci.appveyor.com/project/ChristopherKlammt/visualracing) build pass and all tests run green|
 | Special Considerations | - |
 
 #### 5.1.2 Performance testing
-Performance is not going to be tested at the moment.
+Performance is not being tested at the moment.
 
 ## 6. Entry and Exit Criteria
 ### 6.1 Test Plan
 
 #### 6.1.1 Test Plan Entry Criteria
-The process of testing is going to be executed when a new version of the application will be builded
+The process of testing is to be executed when a new version of the application was committed to GitHub and built.
 
 #### 6.1.2 Test Plan Exit Criteria
 The process of testing leads to a passing of all tests without errors.
@@ -163,18 +152,24 @@ The process of testing leads to a passing of all tests without errors.
 ## 7. Deliverables
 
 ## 7.1 Test Evaluation Summaries
-For testing multiple continuous integration services to build and executes the tests are used. This leads to a automatic testing on every deployment.
+For testing multiple continuous integration services to build and executes the tests are used. This leads to an automatic testing on every commit.
 
 | Continuous Integration Service      |  Badge |
 |-------------------------------------|---------------|
 |TravisCI|[![Build Status](https://travis-ci.org/VisualRacing/VisualRacing.svg?branch=master)](https://travis-ci.org/VisualRacing/VisualRacing)|
 |AppVeyor|[![Build status](https://ci.appveyor.com/api/projects/status/t4nq99t1kk1saw2s?svg=true)](https://ci.appveyor.com/project/ChristopherKlammt/visualracing)|
 
+The first image shows how running the tests in the QtCreator looks like. The second and third image give an insight in how the build history of TravisCI and AppVeyor look like.
+
+![QtCreator running tests](QtCreator_RunningTests.png)
+![TravisCI Build History](TravisCI_BuildHistory.png)
+![AppVeyor Build History](AppVeyor_BuildHistory.png)
+
 ## 7.2 Reporting on Test Coverage
-After AppVeyor has built the application successfully the code coverage through tests will be calculated out of the test results. 
+After AppVeyor has built the application successfully the code coverage will be calculated based on the tests and their results. 
 
 ## 7.3 Perceived Quality Reports
-For calculating quality reports Codacy is used. This tool calulates the amount of errors and many more metrics wich can be used to measure the code quality. 
+For calculating quality reports Codacy is used. This tool calulates the amount of errors and much more metrics wich can be used to measure the code quality. 
 
 The following badge shows the latest status of the reports:
 
@@ -182,26 +177,65 @@ The following badge shows the latest status of the reports:
 
 ## 7.4 Incident Logs and Change Requests
 
+We integrated TravisCI and AppVeyor int our GitHub pull request workflow. If a build fails (or a reviewer dismisses the Pull Request), the merging of the Pull Request is blocked.
+
 ## 7.5 Smoke Test Suite and Supporting Test Scripts
+tbd
 
 ## 8. Testing Workflow
 For testing parts of new code each developer can use the option of running the test from the IDE. This helps a lot to check if new code works as expected. 
 
-Additionally the test process is executed with the deployment.
+Additionally the test process is executed with every commit.
+
 ## 9. Environmental Needs
 
 ### 9.1 Base System Hardware
 
+For testing the build status no specific hardware is required.
+For an extensive test including the connection to a Racing Sim, a computer including a Racing Sim is needed. Additionally racing gear would make the testing a lot easier.
+
 ### 9.2 Base Software Elements in the Test Environment
 
+The following base software elements are required in the test environment for this Test Plan.
+
+|Software Element Name|Type|
+|-|-|
+|QtTest|Unit Testing Library|
+|QtCreator|Local Test Runner and IDE|
+
 ### 9.3 Productivity and Support Tools
+
+The following tools will be employed to support the test process for this Test Plan.
+
+|Tool Category or Type|Tool Brand Name|
+|-|-|
+|Code Hoster|[github.com](github.com)|
+|Test Coverage Monitor|[codecov.io](codecov.io)|
+|CI Service|[travis-ci.org](travis-ci.org)|
+|CI Service|[appveyor.com](appveyor.com)|
+|Metrics Tool|[codacy.com](codacy.com)|
 
 ## 10. Responsibilities, Staffing and Training Needs
 
 ### 10.1 People and Roles
 
+This table displays the staffing assumptions for the test effort of our project.
+
+|Role|Minimum Resources Recommended|Specific Responsibilities|
+|-|:-:|-|
+|Test Manager|1|Ensures that testing is complete and conducted for the right motivators|
+|Test Analyst|1 |Selects what to test based on the motivators|
+|Test Designer|1|Decides what tests should be automated vs. manual and creates automations|
+|Tester|2|Implements and executes the tests|
+
 ### 10.2 Staffing and Training Needs
+
+n/a
 
 ## 11. Iteration Milestones
 
+tbd
+
 ## 12. Risks, Dependencies, Assumptions and Constraints
+
+tbd
