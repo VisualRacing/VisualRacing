@@ -4,7 +4,7 @@ install:
 
 build_script:
   - cd VisualRacing
-  - qmake VisualRacing.pro -spec -r win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
+  - qmake VisualRacing.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
   - mingw32-make
 
  # - cd VisualRacing\VRMain
