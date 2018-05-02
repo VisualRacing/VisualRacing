@@ -3,8 +3,8 @@ install:
   - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
  
 build_script:
-  - cd VisualRacing/VRMain 
-  - qmake VRMain.pro -r -spec win32-g++
+  - cd VisualRacing 
+  - qmake VisualRAcing.pro -r -spec win32-g++
   - mingw32-make
   - dir
 
