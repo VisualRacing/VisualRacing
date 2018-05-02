@@ -17,4 +17,4 @@ script:
 - make -j 2
 - cd VRTest/release
 - ls
-- tst_vrtest.exe
+- ./tst_vrtest
