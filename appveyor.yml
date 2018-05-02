@@ -1,6 +1,6 @@
 environment:
   matrix:
-    - QT: C:\Qt\5.7\msvc2015_64
+    - QT: C:\Qt\5.10.1\msvc2015_64
       PLATFORM: amd64
       COMPILER: msvc
       VSVER: 14
