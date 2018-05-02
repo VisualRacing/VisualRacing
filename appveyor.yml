@@ -8,7 +8,9 @@ build_script:
 test_script:
   - cd VisualRacing/VRTest
   - qmake VRTest.pro
+  - dir
+  - echo "Running Tests"
   - VRTest.exe -xunitxml > tests.xml
 
 on_finish:
-  - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
+  - ps: (New-Object System.Net.Webclient).UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
