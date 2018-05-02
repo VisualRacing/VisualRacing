@@ -16,4 +16,6 @@ script:
 - if [ $QT = qt5win ]; then PATH=$PATH:/usr/lib/mxe/usr/bin; fi
 - make -j 2
 - ls
-- ./VRTest/VRTest.exe
+- cd VRTest
+- ls
+- VRTest/VRTest.exe
