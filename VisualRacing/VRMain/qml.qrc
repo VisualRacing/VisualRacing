@@ -1,12 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>TabGeneral.qml</file>
-        <file>TabCar.qml</file>
-        <file>TabTiming.qml</file>
-        <file>TabAnalytics.qml</file>
-        <file>TabSettings.qml</file>
-        <file>TireInfoPanel.qml</file>
         <file>SubTablLiveAnalytics.qml</file>
+        <file>TabAnalytics.qml</file>
+        <file>TabCar.qml</file>
+        <file>TabGeneral.qml</file>
+        <file>TabSettings.qml</file>
+        <file>TabTiming.qml</file>
+        <file>TireInfoPanel.qml</file>
     </qresource>
 </RCC>

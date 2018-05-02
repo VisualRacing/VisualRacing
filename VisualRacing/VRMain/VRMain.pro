@@ -1,8 +1,6 @@
 QT += quick printsupport
 CONFIG += c++11
 
-# LIBS += -lglu32
-
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -14,12 +12,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += \
-    vrmessage.cpp \
-    vrmainwindow.cpp \
+SOURCES += main.cpp \
     qcustomplot.cpp \
-    vrutilities.cpp \
     vrconstants.cpp \
+    vrmainwindow.cpp \
+    vrmessage.cpp \
+    vrsettings.cpp \
+    vrutilities.cpp \
     model/vrdata.cpp \
     model/vrdatainterface.cpp \
     model/vrdatainterfaceac.cpp \
@@ -31,13 +30,10 @@ SOURCES += \
     view/vrplotpedals.cpp \
     view/vrplotrpm.cpp \
     view/vrplotvelocity.cpp \
-    main.cpp \
-    vrsettings.cpp \
     view/vrthemedata.cpp
 
-TRANSLATIONS = Deutsch.ts
-
-RESOURCES += qml.qrc resources.qrc \
+RESOURCES += qml.qrc \
+    recources.qrc \
     translations.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -52,11 +48,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    vrmessage.h \
-    vrmainwindow.h \
     qcustomplot.h \
-    vrutilities.h \
     vrconstants.h \
+    vrmainwindow.h \
+    vrmessage.h \
+    vrsettings.h \
+    vrutilities.h \
     model/ac.h \
     model/r3e.h \
     model/vrdata.h \
@@ -70,5 +67,4 @@ HEADERS += \
     view/vrplotpedals.h \
     view/vrplotrpm.h \
     view/vrplotvelocity.h \
-    vrsettings.h \
     view/vrthemedata.h

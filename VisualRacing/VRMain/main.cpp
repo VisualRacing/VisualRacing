@@ -3,11 +3,8 @@
 #include <QSharedPointer>
 #include <windows.h>
 
-#include <cstdlib>
-#include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <QIcon>
 #include <QThread>
 
 #include "vrmainwindow.h"
