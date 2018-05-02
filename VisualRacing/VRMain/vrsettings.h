@@ -34,6 +34,14 @@ public:
     Theme getTheme() const;
     void setTheme(const Theme &value);
 
+    static Unit parseUnit(const QString arg);
+    static Language parseLanguage(const QString arg);
+    static Theme parseTheme(const QString arg);
+
+    QString unitAsString();
+    QString languageAsString();
+    QString themeAsString();
+
 signals:
     void unitChanged();
     void langChanged();
