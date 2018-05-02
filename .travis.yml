@@ -18,4 +18,6 @@ script:
 - ls
 - cd VRTest
 - ls
-- VRTest/VRTest.exe
+- cd release
+- ls
+- VRTest.exe
