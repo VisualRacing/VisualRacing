@@ -3,11 +3,14 @@ install:
   - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
  
 build_script:
-   - qmake VisualRacing/VRMain/VRMain.pro
+  - cd VisualRacing/VRMain 
+  - qmake VRMain.pro
+  - mingw32-make
 
 test_script:
   - cd VisualRacing/VRTest
   - qmake VRTest.pro
+  - mingw32-make
   - dir
   - echo "Running Tests"
   - VRTest.exe -xunitxml > tests.xml
