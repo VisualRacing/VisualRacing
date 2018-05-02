@@ -15,6 +15,3 @@ before_script:
 script:
 - if [ $QT = qt5win ]; then PATH=$PATH:/usr/lib/mxe/usr/bin; fi
 - make -j 2
-- cd VRTest/release
-- ls
-- ./tst_vrtest

@@ -1,11 +1,11 @@
 install:
-  - set QTDIR=C:\Qt\5.9\mingw53_32
+  - set QTDIR=C:\Qt\5.5\mingw492_32
   - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
 
 build_script:
   - cd VisualRacing
-  - qmake -o Makefile VisualRacing.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" 
-  - mingw32-make -f Makefile 
+  - qmake VisualRacing.pro 
+  - mingw32-make
 
  # - cd VisualRacing\VRMain
  # - qmake -o Makefile VRMain.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
