@@ -1,6 +1,7 @@
 #include <QString>
 #include <QtTest>
 #include "../VRMain/vrsettings.h"
+#include "../VRMain/view/vrthemedata.h"
 
 class VRTest : public QObject
 {
@@ -10,30 +11,49 @@ public:
     VRTest();
 
 private Q_SLOTS:
-    // void initTestCase();
-    // void cleanupTestCase();
-
+    void initTestCase();
+    void cleanupTestCase();
     void init();
     void cleanup();
 
+    // Initialization tests.
     void testSettingsInitialization_Unit();
     void testSettingsInitialization_Lang();
     void testSettingsInitialization_Theme();
 
+    // Parsing tests.
     void testSettingsParsing_Unit();
     void testSettingsParsing_Lang();
     void testSettingsParsing_Theme();
 
+    // String conversion tests.
     void testSettingsStringConversion_Unit();
     void testSettingsStringConversion_Lang();
     void testSettingsStringConversion_Theme();
 
+    // ThemeData tests.
+    void testThemeDataInitialization();
+    void testThemeDataChangeTheme_Light();
+    void testThemeDataChangeTheme_Dark();
+    void testThemeDataChangeTheme_Invalid();
+
 private:
     VRSettings* settings;
+    VRThemeData* theme;
 };
 
 VRTest::VRTest()
 {
+}
+
+void VRTest::initTestCase()
+{
+    theme = new VRThemeData(VRSettings::Theme::DARK);
+}
+
+void VRTest::cleanupTestCase()
+{
+    delete theme;
 }
 
 void VRTest::init()
@@ -45,6 +65,10 @@ void VRTest::cleanup()
 {
     delete settings;
 }
+
+//
+// VRSettings
+//
 
 // Initialization tests.
 void VRTest::testSettingsInitialization_Unit()
@@ -115,7 +139,60 @@ void VRTest::testSettingsStringConversion_Theme()
     QVERIFY2(settings->themeAsString() == "theme:dark", "themeAsString for dark theme returned a wrong result.");
 }
 
+//
+// VRThemeData
+//
+
+void VRTest::testThemeDataInitialization()
+{
+    VRThemeData dark(VRSettings::Theme::DARK);
+    QVERIFY2(dark.getAppBackgroundColor() == "#313537", "Wrong app-background-color after initializing with dark theme.");
+    QVERIFY2(dark.getTabBackgroundColor() == "#3e4244", "Wrong tab-background-color after initializing with dark theme.");
+    QVERIFY2(dark.getTabInactiveColor() == "#555555", "Wrong tab-inactive-color after initializing with dark theme.");
+    QVERIFY2(dark.getAccentColor() == "#a7def9", "Wrong accent-color after initializing with dark theme.");
+    QVERIFY2(dark.getTextColor() == "#fff", "Wrong text color after initializing with dark theme.");
+
+    VRThemeData light(VRSettings::Theme::LIGHT);
+    QVERIFY2(light.getAppBackgroundColor() == "#fcfcfc", "Wrong app-background-color after initializing with light theme.");
+    QVERIFY2(light.getTabBackgroundColor() == "#fff", "Wrong tab-background-color after initializing with light theme.");
+    QVERIFY2(light.getTabInactiveColor() == "#eee", "Wrong tab-inactive-color after initializing with light theme.");
+    QVERIFY2(light.getAccentColor() == "#0047ba", "Wrong accent-color after initializing with light theme.");
+    QVERIFY2(light.getTextColor() == "#333", "Wrong text color after initializing with light theme.");
+}
+
+void VRTest::testThemeDataChangeTheme_Light()
+{
+    theme->changeTheme(VRSettings::Theme::LIGHT);
+    QVERIFY2(theme->getAppBackgroundColor() == "#fcfcfc", "Wrong app-background-color after changing theme to light theme.");
+    QVERIFY2(theme->getTabBackgroundColor() == "#fff", "Wrong tab-background-color after changing theme to light theme.");
+    QVERIFY2(theme->getTabInactiveColor() == "#eee", "Wrong tab-inactive-color after changing theme to light theme.");
+    QVERIFY2(theme->getAccentColor() == "#0047ba", "Wrong accent-color after changing theme to light theme.");
+    QVERIFY2(theme->getTextColor() == "#333", "Wrong text color after changing theme to light theme.");
+}
+
+void VRTest::testThemeDataChangeTheme_Dark()
+{
+    theme->changeTheme(VRSettings::Theme::DARK);
+    QVERIFY2(theme->getAppBackgroundColor() == "#313537", "Wrong app-background-color after changing theme to dark theme.");
+    QVERIFY2(theme->getTabBackgroundColor() == "#3e4244", "Wrong tab-background-color after changing theme to dark theme.");
+    QVERIFY2(theme->getTabInactiveColor() == "#555555", "Wrong tab-inactive-color after changing theme to dark theme.");
+    QVERIFY2(theme->getAccentColor() == "#a7def9", "Wrong accent-color after changing theme to dark theme.");
+    QVERIFY2(theme->getTextColor() == "#fff", "Wrong text color after changing theme to dark theme.");
+}
+
+void VRTest::testThemeDataChangeTheme_Invalid()
+{
+    theme->changeTheme(static_cast<VRSettings::Theme>(-100));
+    QVERIFY2(theme->getAppBackgroundColor() == "#313537", "Did not default to dark app-background-color after changing theme to invalid value.");
+    QVERIFY2(theme->getTabBackgroundColor() == "#3e4244", "Did not default to dark tab-background-color after changing theme to invalid value.");
+    QVERIFY2(theme->getTabInactiveColor() == "#555555", "Did not default to dark tab-inactive-color after changing theme to invalid value.");
+    QVERIFY2(theme->getAccentColor() == "#a7def9", "Did not default to dark accent-color after changing theme to invalid value.");
+    QVERIFY2(theme->getTextColor() == "#fff", "Did not default to dark text color after changing theme to invalid value.");
+}
+
+//
 // Execute tests.
+//
 QTEST_APPLESS_MAIN(VRTest)
 
 #include "tst_vrtest.moc"

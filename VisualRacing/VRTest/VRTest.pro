@@ -28,9 +28,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         tst_vrtest.cpp \
-    ../VRMain/vrsettings.cpp
+    ../VRMain/vrsettings.cpp \
+    ../VRMain/view/vrthemedata.cpp
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 HEADERS += \
-    ../VRMain/vrsettings.h
+    ../VRMain/vrsettings.h \
+    ../VRMain/view/vrthemedata.h
