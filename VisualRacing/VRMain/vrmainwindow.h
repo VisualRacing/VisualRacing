@@ -6,9 +6,9 @@
 #include <QVector>
 #include <QSharedPointer>
 #include <QTranslator>
-#include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QApplication>
 #include "vrmessage.h"
 #include "vrsettings.h"
 
