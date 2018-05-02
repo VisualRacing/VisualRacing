@@ -9,6 +9,9 @@ call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLA
 echo Building YourApp...
 cd VisualRacing
 qmake
-nmake
 
 echo Running tests...
+dir
+cd VRTest
+
+
