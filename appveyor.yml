@@ -4,8 +4,12 @@ install:
 
 build_script:
   - cd VisualRacing\VRMain
-  - qmake -o Makefile VRMain.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
-  - mingw32-make -f Makefile
+  - ( if not exist Makefile qmake.exe -o Makefile VRMain.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) 
+  - mingw32-make -f Makefile 
+
+ # - cd VisualRacing\VRMain
+ # - qmake -o Makefile VRMain.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
+ # - mingw32-make -f Makefile
 
 #test_script:
 #  - cd VisualRacing/VRTest
