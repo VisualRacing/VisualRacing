@@ -5,7 +5,7 @@ install:
 build_script:
   - cd VisualRacing\VRMain
   - qmake -o Makefile VRMain.pro -spec win32-g++
-  - mingw32-make -f Makefile qmake_all
+  - mingw32-make -f Makefile
 
 #test_script:
 #  - cd VisualRacing/VRTest
