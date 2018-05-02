@@ -177,7 +177,9 @@ The following badge shows the latest status of the reports:
 
 ## 7.4 Incident Logs and Change Requests
 
-We integrated TravisCI and AppVeyor int our GitHub pull request workflow. If a build fails (or a reviewer dismisses the Pull Request), the merging of the Pull Request is blocked.
+We integrated TravisCI, AppVeyor and Codacy into our GitHub pull request workflow. If a build fails (or a reviewer dismisses the Pull Request), the merging of the Pull Request is blocked.
+
+![Blocked Merge](Blocked_Merge.png)
 
 ## 7.5 Smoke Test Suite and Supporting Test Scripts
 tbd
