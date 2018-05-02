@@ -11,7 +11,7 @@ void VRThemeData::changeTheme(VRSettings::Theme theme) {
         setTabBackgroundColor("#3e4244");
         setTabInactiveColor("#555555");
         setAccentColor("#a7def9");
-        setTextColor("white");
+        setTextColor("#fff");
     } else if (theme == VRSettings::Theme::LIGHT) {
         setAppBackgroundColor("#fcfcfc");
         setTabBackgroundColor("#fff");
@@ -24,7 +24,7 @@ void VRThemeData::changeTheme(VRSettings::Theme theme) {
         setTabBackgroundColor("#3e4244");
         setTabInactiveColor("#555555");
         setAccentColor("#a7def9");
-        setTextColor("white");
+        setTextColor("#fff");
     }
 
     emit themeChanged();
