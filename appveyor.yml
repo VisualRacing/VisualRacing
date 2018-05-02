@@ -3,7 +3,8 @@ install:
   - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
 
 build_script:
-  - qmake QtTest.pro
+  - cd VisualRacing
+  - qmake VisualRacing.pro
   - mingw32-make
 
 #test_script:
