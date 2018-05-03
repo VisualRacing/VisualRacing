@@ -1,6 +1,14 @@
 install:
   - set QTDIR=C:\Qt\5.9\mingw53_32
-  - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
- 
+  - set PATH=%PATH%;%QTDIR%\bin;C:\Qt\Tools\mingw530_32\bin
+
 build_script:
-   - qmake VisualRacing/VRMain/VRMain.pro
+  - cd VisualRacing 
+  - qmake VisualRacing.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" 
+  - mingw32-make
+
+test_script:
+  - powershell -file "../appveyor/test_script.ps1"
+
+on_finish:
+  - powershell -file "../appveyor/upload_script.ps1"
