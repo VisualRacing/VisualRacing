@@ -8,7 +8,7 @@ build_script:
   - mingw32-make
 
 test_script:
-  - cd VRTest/debug
+  - pushd VRTest/debug
   - dir
   - echo "Running Tests"
   - tst_vrtest.exe
@@ -17,5 +17,5 @@ test_script:
   - type tests.xml
 
 on_finish:
-  - cd /VisualRacing
+  - popd
   - call "appveyor/upload_script.ps"
