@@ -3,15 +3,13 @@ echo on
 SET project_dir="%cd%"
 
 echo Set up environment...
-set PATH=%QT%\bin\;C:\Qt\Tools\QtCreator\bin\;%PATH%
-call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
 
 echo Building YourApp...
-cd VisualRacing
-qmake
+cd VRMain\ 
+if not exist Makefile qmake -o Makefile VRMain.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" 
+mingw32-make -f Makefile
 
 echo Running tests...
 dir
-cd VRTest
 
 

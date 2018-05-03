@@ -4,8 +4,7 @@ install:
 
 build_script:
   - cd VisualRacing
-  - qmake
-  - mingw32-make
+  - call "appveyor/build_windows.cmd"
 
  # - cd VisualRacing\VRMain
  # - qmake -o Makefile VRMain.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
