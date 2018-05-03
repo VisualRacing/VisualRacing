@@ -1,7 +1,6 @@
 echo on
 
 SET project_dir="%cd%"
-SET PATH=%QT%\bin\;%PATH%
 
 cd VisualRacing 
 
