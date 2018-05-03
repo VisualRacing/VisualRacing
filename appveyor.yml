@@ -8,6 +8,8 @@ build_script:
   - mingw32-make
 
 test_script:
+  - dir
+  - cd ../
   - call "appveyor/test_script.ps"
 
 on_finish:
