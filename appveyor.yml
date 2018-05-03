@@ -3,19 +3,15 @@ install:
   - set PATH=%PATH%;%QTDIR%\bin;C:\Qt\Tools\mingw530_32\bin
 
 build_script:
-  - call "appveyor/build_windows.cmd"
+  - cd VisualRacing 
+  - qmake VisualRacing.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" 
+  - mingw32-make
 
- # - cd VisualRacing\VRMain
- # - qmake -o Makefile VRMain.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
- # - mingw32-make -f Makefile
-
-#test_script:
-#  - cd VisualRacing/VRTest
-#  - qmake VRTest.pro
-#  - mingw32-make
-#  - dir
-#  - echo "Running Tests"
-#  - VRTest.exe -xunitxml > tests.xml
+test_script:
+  - cd VRTest
+  - dir
+  - echo "Running Tests"
+  - VRTest.exe -xunitxml > tests.xml
 
 #on_finish:
 #  - ps: (New-Object System.Net.Webclient).UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
