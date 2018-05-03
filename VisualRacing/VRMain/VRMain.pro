@@ -1,9 +1,10 @@
 QT += quick printsupport
-#CONFIG += c++11
-QMAKE_CXXFLAGS += -std=c++14 \
-    -std=gnu++14
+CONFIG = c++14
+QMAKE_CXXFLAGS += -std=c++14
+QMAKE_CXXFLAGS += -std=gnu++14
 
 QMAKE_CXXFLAGS -= -std=gnu++11
+QMAKE_CXXFLAGS -= std=gnu++11
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
