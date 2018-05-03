@@ -8,14 +8,7 @@ build_script:
   - mingw32-make
 
 test_script:
-  - pushd VRTest/debug
-  - dir
-  - echo "Running Tests"
-  - tst_vrtest.exe
-  - tst_vrtest.exe -xunitxml > tests.xml
-  - dir
-  - type tests.xml
+  - call "appveyor/test_script.ps"
 
 on_finish:
-  - popd
   - call "appveyor/upload_script.ps"
