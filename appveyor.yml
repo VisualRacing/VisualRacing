@@ -10,14 +10,14 @@ build_script:
 test_script:
   - dir
 #  - powershell -file "../appveyor/test_script.ps1"
-  - pushd VRTest/debug
+  - ps: pushd VRTest/debug
   - dir
   - echo "Running Tests"
   - tst_vrtest
   - tst_vrtest -xunitxml > tests.xml
   - dir
   - type tests.xml
-  - popd
+  - ps: popd
 
 on_finish:
   - powershell -file "../appveyor/upload_script.ps1"
