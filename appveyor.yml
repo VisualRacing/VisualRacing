@@ -11,9 +11,11 @@ test_script:
   - cd VRTest/debug
   - dir
   - echo "Running Tests"
+  - tst_vrtest.exe
   - tst_vrtest.exe -xunitxml > tests.xml
   - dir
   - type tests.xml
 
 on_finish:
-  - ps: (New-Object System.Net.Webclient).UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
+  - cd /VisualRacing
+  - call "appveyor/upload_script.ps"
