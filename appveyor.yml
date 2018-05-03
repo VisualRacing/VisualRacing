@@ -9,8 +9,9 @@ build_script:
 
 test_script:
   - dir
-  - cd ../
-  - powershell -file "appveyor/test_script.ps1"
+  - pushd VisualRacing/VRTest/debug
+  - dir
+ # - powershell -file "../appveyor/test_script.ps1"
 
-on_finish:
-  - powershell -file "appveyor/upload_script.ps1"
+#on_finish:
+ # - powershell -file "../appveyor/upload_script.ps1"
