@@ -1,4 +1,4 @@
-pushd VRTest/debug
+pushd VisualRacing/VRTest/debug
 
 # upload results to AppVeyor
 $wc = New-Object 'System.Net.WebClient'

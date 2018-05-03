@@ -1,4 +1,4 @@
-pushd VRTest/debug
+pushd VisualRacing/VRTest/debug
 dir
 echo "Running Tests"
 tst_vrtest.exe
