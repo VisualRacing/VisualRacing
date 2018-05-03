@@ -10,7 +10,7 @@ build_script:
 test_script:
   - dir
   - cd ../
-  - call "appveyor/test_script.ps"
+  - powershell -file "appveyor/test_script.ps1"
 
 on_finish:
-  - call "appveyor/upload_script.ps"
+  - powershell -file "appveyor/upload_script.ps1"
