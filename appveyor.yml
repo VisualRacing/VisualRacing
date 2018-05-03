@@ -2,10 +2,7 @@ image: Visual Studio 2015
 
 environment:
   matrix:
-  - QT: C:\Qt\5.10.1\msvc2017_64
-    PLATFORM: amd64
-    COMPILER: msvc
-    VSVER: 14
+  - QT: C:\Qt\5.10.1\mingw53_32
 
 install:
 #  - set QTDIR=C:\Qt\5.9\mingw53_32
