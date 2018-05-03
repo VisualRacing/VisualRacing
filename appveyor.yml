@@ -3,7 +3,6 @@ install:
   - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
 
 build_script:
-  - cd VisualRacing
   - call "appveyor/build_windows.cmd"
 
  # - cd VisualRacing\VRMain
