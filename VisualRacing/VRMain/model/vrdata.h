@@ -85,6 +85,14 @@ class VRData : public QObject
     Q_PROPERTY(float tBestS2 READ getTBestS2 WRITE setTBestS2 NOTIFY tBestSChanged)
     Q_PROPERTY(float tBestS3 READ getTBestS3 WRITE setTBestS3 NOTIFY tBestSChanged)
 
+    Q_PROPERTY(float tireGripFL READ getTireGripFL WRITE setTireGripFL NOTIFY tireGripFLChanged)
+    Q_PROPERTY(float tireGripFR READ getTireGripFR WRITE setTireGripFR NOTIFY tireGripFRChanged)
+    Q_PROPERTY(float tireGripRR READ getTireGripRR WRITE setTireGripRR NOTIFY tireGripRRChanged)
+    Q_PROPERTY(float tireGripRL READ getTireGripRL WRITE setTireGripRL NOTIFY tireGripRLChanged)
+
+    Q_PROPERTY(float lapDistance READ getLapDistance WRITE setLapDistance NOTIFY lapDistanceChanged)
+    Q_PROPERTY(float lapDistanceFraction READ getLapDistanceFraction WRITE setLapDistanceFraction NOTIFY lapDistanceFractionChanged)
+
 public:
     VRData();
 
@@ -258,6 +266,24 @@ public:
     float getTBestS3() const;
     void setTBestS3(float value);
 
+    float getTireGripFL() const;
+    void setTireGripFL(float value);
+
+    float getTireGripFR() const;
+    void setTireGripFR(float value);
+
+    float getTireGripRR() const;
+    void setTireGripRR(float value);
+
+    float getTireGripRL() const;
+    void setTireGripRL(float value);
+
+    float getLapDistance() const;
+    void setLapDistance(float value);
+
+    float getLapDistanceFraction() const;
+    void setLapDistanceFraction(float value);
+
 signals:
     void gearChanged();
     void velocityChanged();
@@ -331,6 +357,14 @@ signals:
     void previousS3Changed();
 
     void tBestSChanged();
+
+    void tireGripFLChanged();
+    void tireGripFRChanged();
+    void tireGripRRChanged();
+    void tireGripRLChanged();
+
+    void lapDistanceChanged();
+    void lapDistanceFractionChanged();
 
 private:
     //
@@ -464,8 +498,22 @@ private:
     //float previousLapSectorTimes[3];
     //float bestSectorTimes[3];
 
+    //
+    // Values used mainly for analytics for now.
+    //
+
+    // Tire grip values
+    float tireGripFL;
+    float tireGripFR;
+    float tireGripRR;
+    float tireGripRL;
+
+    // Lap distance information
+    float lapDistance;
+    float lapDistanceFraction;
+
     /* TODO:
-    Things that will be added later:
+    Things that might be added later:
         - Session type
         - Flag information
         - DRS and P2P information

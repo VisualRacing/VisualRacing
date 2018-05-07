@@ -78,6 +78,14 @@ VRData::VRData()
     this->tBestS1 = 0.0f;
     this->tBestS2 = 0.0f;
     this->tBestS3 = 0.0f;
+
+    this->tireGripFL = 0.0f;
+    this->tireGripFR = 0.0f;
+    this->tireGripRR = 0.0f;
+    this->tireGripRL = 0.0f;
+
+    this->lapDistance = 0.0f;
+    this->lapDistanceFraction = 0.0f;
 }
 
 double VRData::getTimeInSeconds()
@@ -868,4 +876,88 @@ void VRData::setTBestS3(float value)
 
     tBestS3 = value;
     emit tBestSChanged();
+}
+
+float VRData::getTireGripFL() const
+{
+    return tireGripFL;
+}
+
+void VRData::setTireGripFL(float value)
+{
+    if (tireGripFL == value)
+        return;
+
+    tireGripFL = value;
+    emit tireGripFLChanged();
+}
+
+float VRData::getTireGripFR() const
+{
+    return tireGripFR;
+}
+
+void VRData::setTireGripFR(float value)
+{
+    if (tireGripFR == value)
+        return;
+
+    tireGripFR = value;
+    emit tireGripFRChanged();
+}
+
+float VRData::getTireGripRR() const
+{
+    return tireGripRR;
+}
+
+void VRData::setTireGripRR(float value)
+{
+    if (tireGripRR == value)
+        return;
+
+    tireGripRR = value;
+    emit tireGripRRChanged();
+}
+
+float VRData::getTireGripRL() const
+{
+    return tireGripRL;
+}
+
+void VRData::setTireGripRL(float value)
+{
+    if (tireGripRL == value)
+        return;
+
+    tireGripRL = value;
+    emit tireGripRLChanged();
+}
+
+float VRData::getLapDistance() const
+{
+    return lapDistance;
+}
+
+void VRData::setLapDistance(float value)
+{
+    if (value == lapDistance)
+        return;
+
+    lapDistance = value;
+    emit lapDistanceChanged();
+}
+
+float VRData::getLapDistanceFraction() const
+{
+    return lapDistance;
+}
+
+void VRData::setLapDistanceFraction(float value)
+{
+    if (value == lapDistanceFraction)
+        return;
+
+    lapDistanceFraction = value;
+    emit lapDistanceFractionChanged();
 }
