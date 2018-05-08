@@ -25,7 +25,6 @@ before_script:
 script:
 - if [ $QT = qt5win ]; then PATH=$PATH:/usr/lib/mxe/usr/bin; fi
 - make -j 2
-- cd VRMain
-- ls
-- cd release
-- ls
+
+after_success:
+- sh set_tags.sh
