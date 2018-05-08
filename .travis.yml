@@ -27,4 +27,4 @@ script:
 - make -j 2
 
 after_success:
-- sh set_tags.sh
+- "${TRAVIS_BUILD_DIR}/travis-ci/set_tags.sh"
