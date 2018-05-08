@@ -6,6 +6,14 @@ matrix:
 dist: trusty
 sudo: required
 
+deploy:
+  provider: releases
+  api_key:
+    secure: ${TRAVIS_RELEASES_KEY}
+  file: "${TRAVIS_BUILD_DIR}/VisualRacing/VRMain/release/VRMain.exe"
+  on:
+    repo: VisualRacing/VisualRacing
+
 before_install:
 - "${TRAVIS_BUILD_DIR}/travis-ci/get-dependencies.sh"
 
@@ -15,7 +23,3 @@ before_script:
 script:
 - if [ $QT = qt5win ]; then PATH=$PATH:/usr/lib/mxe/usr/bin; fi
 - make -j 2
-- ls
-
-- cd "/home/travis/build/VisualRacing/VisualRacing/VisualRacing/VRTest/"
-- ls
