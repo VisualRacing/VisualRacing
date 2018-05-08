@@ -13,6 +13,7 @@ deploy:
   file: "${TRAVIS_BUILD_DIR}/VisualRacing/VRMain/release/VRMain.exe"
   on:
     repo: VisualRacing/VisualRacing
+    all_branches: true
 
 before_install:
 - "${TRAVIS_BUILD_DIR}/travis-ci/get-dependencies.sh"
