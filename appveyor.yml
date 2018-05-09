@@ -19,6 +19,6 @@ on_finish:
   - powershell -file "../appveyor/upload_script.ps1"
 
 artifacts:
-  - path: VRMain/debug/VRMain.exe
-  - path: VRMain/debug
+  - path: VisualRacing/VRMain/debug/VRMain.exe
+  - path: VisualRacing/VRMain/debug
     type: zip
