@@ -14,6 +14,7 @@ deploy:
   on:
     repo: VisualRacing/VisualRacing
     all_branches: true
+    tags: true
   skip_cleanup: true
 
 before_install:
@@ -25,6 +26,3 @@ before_script:
 script:
 - if [ $QT = qt5win ]; then PATH=$PATH:/usr/lib/mxe/usr/bin; fi
 - make -j 2
-
-after_success:
-- "${TRAVIS_BUILD_DIR}/travis-ci/set_tags.sh"
