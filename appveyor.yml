@@ -1,14 +1,26 @@
 install:
   - set QTDIR=C:\Qt\5.9\mingw53_32
-  - set PATH=%PATH%;%QTDIR%\bin;C:\Qt\Tools\mingw530_32\bin
+  - choco install -y InnoSetup
+  - set PATH=%PATH%;%QTDIR%\bin;C:\Qt\Tools\mingw530_32\bin;"C:\Program Files (x86)\Inno Setup 5"
 
 build_script:
   - cd VisualRacing 
   - qmake VisualRacing.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" 
   - mingw32-make
 
+after_build:
+  - windeployqt --qmldir VRMain VRMain/debug/VRMain.exe
+  - iscc innosetup.iss
+  - rm VRMain/debug/*.o
+  - rm VRMain/debug/*.cpp
+
 test_script:
   - powershell -file "../appveyor/test_script.ps1"
 
 on_finish:
   - powershell -file "../appveyor/upload_script.ps1"
+
+artifacts:
+  - path: VRMain/debug/VRMain.exe
+  - path: VRMain/debug
+    type: zip
