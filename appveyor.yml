@@ -10,22 +10,24 @@ build_script:
 after_build:
   - windeployqt --qmldir VRMain VRMain/debug/VRMain.exe
   - echo "Cleaning up directory"
-  - rm VRMain/debug/*.o
-  - rm VRMain/debug/*.cpp
-  - rm VRMain/debug/*.h
-  - rm VRMain/debug/D3Dcompiler_47.dll
-  - rm VRMain/debug/libEGLd.dll
-  - rm VRMain/debug/libGLESV2d.dll
-  - rm VRMain/debug/opengl32sw.dll
-  - rmdir /s /q "VRMain/debug/platforminputcontexts"
-  - rmdir /s /q "VRMain/debug/bearer"
-  - rmdir /s /q "VRMain/debug/iconengines"
-  - rmdir /s /q "VRMain/debug/printsupport"
-  - rmdir /s /q "VRMain/debug/qmltooling"
-  - rmdir /s /q "VRMain/debug/QtGraphicalEffects"
-  - rmdir /s /q "VRMain/debug/QtQml"
-  - rmdir /s /q "VRMain/debug/translations"
-  - move VRMain/debug VRMain/Release
+  - cd VRMain
+  - rm debug/*.o
+  - rm debug/*.cpp
+  - rm debug/*.h
+  - rm debug/D3Dcompiler_47.dll
+  - rm debug/libEGLd.dll
+  - rm debug/libGLESV2d.dll
+  - rm debug/opengl32sw.dll
+  - rmdir /s /q "debug/platforminputcontexts"
+  - rmdir /s /q "debug/bearer"
+  - rmdir /s /q "debug/iconengines"
+  - rmdir /s /q "debug/printsupport"
+  - rmdir /s /q "debug/qmltooling"
+  - rmdir /s /q "debug/QtGraphicalEffects"
+  - rmdir /s /q "debug/QtQml"
+  - rmdir /s /q "debug/translations"
+  - move debug Release
+  - cd ../
 
 
 test_script:
