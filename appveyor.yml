@@ -1,6 +1,6 @@
 install:
   - set QTDIR=C:\Qt\5.9\mingw53_32
-  - set PATH=%PATH%;%QTDIR%\bin;C:\Qt\Tools\mingw530_32\bin;"C:\Program Files (x86)\Inno Setup 5"
+  - set PATH=%PATH%;%QTDIR%\bin;C:\Qt\Tools\mingw530_32\bin;
 
 build_script:
   - cd VisualRacing 
@@ -9,8 +9,24 @@ build_script:
 
 after_build:
   - windeployqt --qmldir VRMain VRMain/debug/VRMain.exe
+  - echo "Cleaning up directory"
   - rm VRMain/debug/*.o
   - rm VRMain/debug/*.cpp
+  - rm VRMain/debug/*.h
+  - rm VRMain/debug/D3Dcompiler_47.dll
+  - rm VRMain/debug/libEGLd.dll
+  - rm VRMain/debug/libGLESV2d.dll
+  - rm VRMain/debug/opengl32sw.dll
+  - rmdir /s /q "VRMain/debug/platforminputcontexts"
+  - rmdir /s /q "VRMain/debug/bearer"
+  - rmdir /s /q "VRMain/debug/iconengines"
+  - rmdir /s /q "VRMain/debug/printsupport"
+  - rmdir /s /q "VRMain/debug/qmltooling"
+  - rmdir /s /q "VRMain/debug/QtGraphicalEffects"
+  - rmdir /s /q "VRMain/debug/QtQml"
+  - rmdir /s /q "VRMain/debug/translations"
+  - move VRMain/debug VRMain/Release
+
 
 test_script:
   - powershell -file "../appveyor/test_script.ps1"
@@ -19,6 +35,5 @@ on_finish:
   - powershell -file "../appveyor/upload_script.ps1"
 
 artifacts:
-  - path: VisualRacing/VRMain/debug/VRMain.exe
-  - path: VisualRacing/VRMain/debug
+  - path: VisualRacing/VRMain/Release
     type: zip
