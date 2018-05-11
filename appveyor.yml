@@ -26,7 +26,7 @@ after_build:
   - rmdir /s /q "debug/QtGraphicalEffects"
   - rmdir /s /q "debug/QtQml"
   - rmdir /s /q "debug/translations"
-  - rename debug Release
+  - rename debug "VisualRacing - Deployment"
   - cd ../
 
 
@@ -37,5 +37,5 @@ on_finish:
   - powershell -file "../appveyor/upload_script.ps1"
 
 artifacts:
-  - path: VisualRacing/VRMain/Release
+  - path: "VisualRacing/VRMain/VisualRacing - Deployment"
     type: zip
