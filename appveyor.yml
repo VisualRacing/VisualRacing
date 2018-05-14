@@ -26,7 +26,7 @@ after_build:
   - rmdir /s /q "debug/QtGraphicalEffects"
   - rmdir /s /q "debug/QtQml"
   - rmdir /s /q "debug/translations"
-  - rename debug "VisualRacing - Deployment"
+  - rename debug VisualRacing
   - cd ../
 
 
@@ -37,17 +37,15 @@ on_finish:
   - powershell -file "../appveyor/upload_script.ps1"
 
 artifacts:
-  - path: "VisualRacing/VRMain/VisualRacing - Deployment"
+  - path: "VisualRacing/VRMain/VisualRacing"
     type: zip
 
 deploy:
-  release: v$(appveyor_build_version)
-  description: 'Release of VisualRacing Application'
+  release: $(appveyor_repo_tag_name)
   provider: GitHub
   auth_token:
     secure: iFpWSofle5jrfjvrGkYVRxAW6Ykb8mzVgsbCZAIo+1PjzxoksLvDwXfFPwcqFKgM
-  artifact: "VisualRacing/VRMain/VisualRacing - Deployment.zip"
-  draft: false
+  artifact: "VisualRacing/VRMain/VisualRacing.zip"
   prerelease: true
   on:
     appveyor_repo_tag: true        # deploy on tag push only
