@@ -39,3 +39,15 @@ on_finish:
 artifacts:
   - path: "VisualRacing/VRMain/VisualRacing - Deployment"
     type: zip
+
+deploy:
+  release: v$(appveyor_build_version)
+  description: 'Release of VisualRacing Application'
+  provider: GitHub
+  auth_token:
+    secure: iFpWSofle5jrfjvrGkYVRxAW6Ykb8mzVgsbCZAIo+1PjzxoksLvDwXfFPwcqFKgM
+  artifact: "VisualRacing/VRMain/VisualRacing - Deployment.zip"
+  draft: false
+  prerelease: true
+  on:
+    appveyor_repo_tag: true        # deploy on tag push only
