@@ -11,7 +11,7 @@ class VRPlotRPM : public VRPlotItem
 public:
     VRPlotRPM();
 
-    virtual void setupPlot( QCustomPlot* customPlot, VRThemeData* themeData);
+    virtual void setupPlot(VRThemeData* themeData);
     Q_INVOKABLE void setItsMaxRpm(int maxRpm);
     Q_INVOKABLE void pushData(double index, double data, int gear);
     virtual void setTheme(VRThemeData* themeData);

@@ -38,28 +38,28 @@ void VRPlotVelocity::setTheme(VRThemeData *themeData)
     itsCustomPlot->replot();
 }
 
-void VRPlotVelocity::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
+void VRPlotVelocity::setupPlot(VRThemeData* themeData)
 {
     // add graph
-    customPlot->addGraph();
-    customPlot->graph(0)->setPen(QPen(QColor("#3aaefc"), qreal(2.0)));
+    itsCustomPlot->addGraph();
+    itsCustomPlot->graph(0)->setPen(QPen(QColor("#3aaefc"), qreal(2.0)));
 
     // set axis labels
-    customPlot->xAxis->setLabel(tr("Time in s"));
-    customPlot->yAxis->setLabel(tr("Speed in km/h"));
+    itsCustomPlot->xAxis->setLabel(tr("Time in s"));
+    itsCustomPlot->yAxis->setLabel(tr("Speed in km/h"));
 
     // configure xAxis
-    customPlot->xAxis->setRange(0, 30);
+    itsCustomPlot->xAxis->setRange(0, 30);
 
     // cofigure yAxis
-    customPlot->yAxis->setRange(0, 350);
+    itsCustomPlot->yAxis->setRange(0, 350);
 
     // set theme (also does a replot-call)
     setTheme(themeData);
 
     // connect mouse interaction
-    // customPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables );
-    // connect( customPlot, SIGNAL( plottableClick( QCPAbstractPlottable*, int,  QMouseEvent* ) ), this, SLOT( graphClicked( QCPAbstractPlottable* ) ) );
+    // itsCustomPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables );
+    // connect( itsCustomPlot, SIGNAL( plottableClick( QCPAbstractPlottable*, int,  QMouseEvent* ) ), this, SLOT( graphClicked( QCPAbstractPlottable* ) ) );
 
 }
 

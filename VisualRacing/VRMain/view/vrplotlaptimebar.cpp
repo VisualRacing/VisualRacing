@@ -79,12 +79,12 @@ void VRPlotLapTimeBar::setTheme(VRThemeData *themeData)
     itsCustomPlot->replot();
 }
 
-void VRPlotLapTimeBar::setupPlot(QCustomPlot* customPlot, VRThemeData* themeData)
+void VRPlotLapTimeBar::setupPlot(VRThemeData* themeData)
 {
     // init QCPBars
-    sectorOne = new QCPBars(customPlot->xAxis, customPlot->yAxis);
-    sectorTwo = new QCPBars(customPlot->xAxis, customPlot->yAxis);
-    sectorThree = new QCPBars(customPlot->xAxis, customPlot->yAxis);
+    sectorOne = new QCPBars(itsCustomPlot->xAxis, itsCustomPlot->yAxis);
+    sectorTwo = new QCPBars(itsCustomPlot->xAxis, itsCustomPlot->yAxis);
+    sectorThree = new QCPBars(itsCustomPlot->xAxis, itsCustomPlot->yAxis);
 
     // stack the bars
     sectorThree->moveAbove(sectorTwo);
@@ -105,19 +105,19 @@ void VRPlotLapTimeBar::setupPlot(QCustomPlot* customPlot, VRThemeData* themeData
     sectorThree->setWidth(0.4);
 
     // add graph
-    customPlot->addGraph();
-    customPlot->graph(0)->setPen(QPen(QColor("#ffa500"), qreal(2.0)));
+    itsCustomPlot->addGraph();
+    itsCustomPlot->graph(0)->setPen(QPen(QColor("#ffa500"), qreal(2.0)));
 
     // prepare x axis:
-    customPlot->xAxis->setSubTicks(false);
-    customPlot->xAxis->setTickLength(0, 11);
-    customPlot->xAxis->setRange(0, 11);
-    customPlot->xAxis->grid()->setVisible(true);
+    itsCustomPlot->xAxis->setSubTicks(false);
+    itsCustomPlot->xAxis->setTickLength(0, 11);
+    itsCustomPlot->xAxis->setRange(0, 11);
+    itsCustomPlot->xAxis->grid()->setVisible(true);
 
     // prepare y axis:
-    customPlot->yAxis->setRange(0, 0);
-    customPlot->yAxis->setPadding(2); // a bit more space to the left border
-    customPlot->yAxis->setLabel(tr("Time in s"));
+    itsCustomPlot->yAxis->setRange(0, 0);
+    itsCustomPlot->yAxis->setPadding(2); // a bit more space to the left border
+    itsCustomPlot->yAxis->setLabel(tr("Time in s"));
 
     // set theme (also does a replot-call)
     setTheme(themeData);

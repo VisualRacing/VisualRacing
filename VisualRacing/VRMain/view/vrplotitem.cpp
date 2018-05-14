@@ -24,7 +24,7 @@ void VRPlotItem::initCustomPlot(VRThemeData* themeData)
 
     updateCustomPlotSize();
 
-    setupPlot(itsCustomPlot, themeData);
+    setupPlot(themeData);
 
     connect( itsCustomPlot, &QCustomPlot::afterReplot, this, &VRPlotItem::onCustomReplot );
 

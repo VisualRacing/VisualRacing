@@ -41,25 +41,25 @@ void VRPlotPedalHistory::setTheme(VRThemeData *themeData)
     itsCustomPlot->replot();
 }
 
-void VRPlotPedalHistory::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
+void VRPlotPedalHistory::setupPlot(VRThemeData* themeData)
 {
     // add graph
-    customPlot->addGraph();
-    customPlot->graph(0)->setPen(QPen(QColor(57, 78, 173), qreal(2.0)));
-    customPlot->addGraph();
-    customPlot->graph(1)->setPen(QPen(QColor(173, 57, 84), qreal(2.0)));
-    customPlot->addGraph();
-    customPlot->graph(2)->setPen(QPen(QColor(61, 173, 57), qreal(2.0)));
+    itsCustomPlot->addGraph();
+    itsCustomPlot->graph(0)->setPen(QPen(QColor(57, 78, 173), qreal(2.0)));
+    itsCustomPlot->addGraph();
+    itsCustomPlot->graph(1)->setPen(QPen(QColor(173, 57, 84), qreal(2.0)));
+    itsCustomPlot->addGraph();
+    itsCustomPlot->graph(2)->setPen(QPen(QColor(61, 173, 57), qreal(2.0)));
 
     // configure xAxis
-    customPlot->xAxis->setLabel(tr("Time in s"));
-    customPlot->xAxis->setRange(0, 5);
+    itsCustomPlot->xAxis->setLabel(tr("Time in s"));
+    itsCustomPlot->xAxis->setRange(0, 5);
 
     // prepare y axis:
-    customPlot->yAxis->setRange(0, 1);
-    customPlot->yAxis->setPadding(5); // a bit more space to the left border
-    customPlot->yAxis->setLabel(tr("Mechanical deflection"));
-    customPlot->yAxis->grid()->setSubGridVisible(true);
+    itsCustomPlot->yAxis->setRange(0, 1);
+    itsCustomPlot->yAxis->setPadding(5); // a bit more space to the left border
+    itsCustomPlot->yAxis->setLabel(tr("Mechanical deflection"));
+    itsCustomPlot->yAxis->grid()->setSubGridVisible(true);
 
     // set theme (also does a replot-call)
     setTheme(themeData);

@@ -13,7 +13,7 @@ class VRPlotLapTimeBar : public VRPlotItem
 public:
     VRPlotLapTimeBar();
 
-    virtual void setupPlot(QCustomPlot* customPlot, VRThemeData* themeData);
+    virtual void setupPlot(VRThemeData* themeData);
     virtual void setTheme(VRThemeData* themeData);
 
     Q_INVOKABLE void pushData(double lap_time, double sector1, double sector2, double sector3, double best);

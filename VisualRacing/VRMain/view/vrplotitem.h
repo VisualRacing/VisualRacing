@@ -19,7 +19,7 @@ public:
     Q_INVOKABLE virtual void initCustomPlot(VRThemeData* themeData);
 
 protected:
-    virtual void setupPlot( QCustomPlot* customPlot, VRThemeData* themeData) = 0;
+    virtual void setupPlot(VRThemeData* themeData) = 0;
     Q_INVOKABLE virtual void setTheme(VRThemeData* themeData) = 0;
 
     void routeMouseEvents( QMouseEvent* event );

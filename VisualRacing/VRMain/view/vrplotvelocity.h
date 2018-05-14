@@ -11,7 +11,7 @@ class VRPlotVelocity : public VRPlotItem
 public:
     VRPlotVelocity();
 
-    virtual void setupPlot( QCustomPlot* customPlot, VRThemeData* themeData);
+    virtual void setupPlot(VRThemeData* themeData);
     virtual void setTheme(VRThemeData *themeData);
     Q_INVOKABLE void pushData(double index, double data);
 

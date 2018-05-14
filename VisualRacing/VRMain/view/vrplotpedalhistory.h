@@ -11,7 +11,7 @@ class VRPlotPedalHistory : public VRPlotItem
 public:
     VRPlotPedalHistory();
 
-    virtual void setupPlot(QCustomPlot* customPlot, VRThemeData* themeData);
+    virtual void setupPlot(VRThemeData* themeData);
     virtual void setTheme(VRThemeData* themeData);
 
     Q_INVOKABLE void pushData(double index, double clutch, double breaking, double throttle);

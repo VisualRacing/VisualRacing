@@ -50,12 +50,12 @@ void VRPlotPedals::setTheme(VRThemeData *themeData)
     itsCustomPlot->replot();
 }
 
-void VRPlotPedals::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
+void VRPlotPedals::setupPlot(VRThemeData* themeData)
 {
     // init QCPBars
-    clutchPedal = new QCPBars(customPlot->xAxis, customPlot->yAxis);
-    accelPedal = new QCPBars(customPlot->xAxis, customPlot->yAxis);
-    brakePedal = new QCPBars(customPlot->xAxis, customPlot->yAxis);
+    clutchPedal = new QCPBars(itsCustomPlot->xAxis, itsCustomPlot->yAxis);
+    accelPedal = new QCPBars(itsCustomPlot->xAxis, itsCustomPlot->yAxis);
+    brakePedal = new QCPBars(itsCustomPlot->xAxis, itsCustomPlot->yAxis);
 
     // set Names and Colors
     clutchPedal->setName(tr("Clutch Pedal"));
@@ -77,23 +77,23 @@ void VRPlotPedals::setupPlot(QCustomPlot *customPlot, VRThemeData* themeData)
     // prepare x axis:
     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
     textTicker->addTicks(ticks_vect, labels_vect);
-    customPlot->xAxis->setTicker(textTicker);
-    //customPlot->xAxis->setTickLabelRotation(60);
-    customPlot->xAxis->setSubTicks(false);
-    customPlot->xAxis->setTickLength(0, 4);
-    customPlot->xAxis->setRange(0, 4);
-    customPlot->xAxis->grid()->setVisible(true);
+    itsCustomPlot->xAxis->setTicker(textTicker);
+    //itsCustomPlot->xAxis->setTickLabelRotation(60);
+    itsCustomPlot->xAxis->setSubTicks(false);
+    itsCustomPlot->xAxis->setTickLength(0, 4);
+    itsCustomPlot->xAxis->setRange(0, 4);
+    itsCustomPlot->xAxis->grid()->setVisible(true);
 
     // prepare y axis:
-    customPlot->yAxis->setRange(0, 1);
-    customPlot->yAxis->setPadding(5); // a bit more space to the left border
-    customPlot->yAxis->setLabel(tr("Mechanical deflection"));
-    customPlot->yAxis->grid()->setSubGridVisible(true);
+    itsCustomPlot->yAxis->setRange(0, 1);
+    itsCustomPlot->yAxis->setPadding(5); // a bit more space to the left border
+    itsCustomPlot->yAxis->setLabel(tr("Mechanical deflection"));
+    itsCustomPlot->yAxis->grid()->setSubGridVisible(true);
 
     // connect mouse interaction
-    //customPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables );
-    customPlot ->setInteractions( QCP::iSelectPlottables );
-    connect( customPlot, SIGNAL( plottableClick( QCPAbstractPlottable*, int,  QMouseEvent* ) ), this, SLOT( graphClicked( QCPAbstractPlottable* ) ) );
+    //itsCustomPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables );
+    itsCustomPlot ->setInteractions( QCP::iSelectPlottables );
+    connect( itsCustomPlot, SIGNAL( plottableClick( QCPAbstractPlottable*, int,  QMouseEvent* ) ), this, SLOT( graphClicked( QCPAbstractPlottable* ) ) );
 
     // set theme (also does a replot-call)
     setTheme(themeData);
