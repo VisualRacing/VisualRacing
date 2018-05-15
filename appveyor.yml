@@ -5,12 +5,35 @@ install:
 
 build_script:
   - cd VisualRacing 
-  - qmake VisualRacing.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" 
+  - qmake VisualRacing.pro -spec win32-g++ "CONFIG+=release" 
   - mingw32-make
   - cd VRTest && copy *.cpp debug
   - cd ../VRMain && copy vrsettings.cpp "../VRTest/debug"
   - cd view && copy vrthemedata.cpp "../../VRTest/debug"
   - cd ../../
+
+after_build:
+  - windeployqt --qmldir VRMain VRMain/release/VRMain.exe
+  - echo "Cleaning up directory"
+  - cd VRMain
+  - rm release/*.o
+  - rm release/*.cpp
+  - rm release/*.h
+  - rm release/D3Dcompiler_47.dll
+  - rm release/opengl32sw.dll
+  - rm release/libEGL.dll
+  - rm release/libGLESV2.dll
+  - rmdir /s /q "release/platforminputcontexts"
+  - rmdir /s /q "release/bearer"
+  - rmdir /s /q "release/iconengines"
+  - rmdir /s /q "release/printsupport"
+  - rmdir /s /q "release/qmltooling"
+  - rmdir /s /q "release/QtGraphicalEffects"
+  - rmdir /s /q "release/QtQml"
+  - rmdir /s /q "release/translations"
+  - rename release VisualRacing
+  - cd ../
+
 
 test_script:
   - powershell -file "../appveyor/test_script.ps1"
@@ -18,3 +41,18 @@ test_script:
 
 on_finish:
   - powershell -file "../appveyor/upload_script.ps1"
+
+artifacts:
+  - path: "VisualRacing/VRMain/VisualRacing"
+    type: zip
+
+deploy:
+  release: $(appveyor_repo_tag_name)
+  provider: GitHub
+  auth_token:
+    secure: iFpWSofle5jrfjvrGkYVRxAW6Ykb8mzVgsbCZAIo+1PjzxoksLvDwXfFPwcqFKgM
+  artifact: "VisualRacing/VRMain/VisualRacing.zip"
+  prerelease: true
+  on:
+    branch: master
+    appveyor_repo_tag: true        # deploy on tag push only
