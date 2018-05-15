@@ -4,29 +4,27 @@ install:
 
 build_script:
   - cd VisualRacing 
-  - qmake VisualRacing.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" 
+  - qmake VisualRacing.pro -spec win32-g++ "CONFIG+=release" 
   - mingw32-make
 
 after_build:
-  - windeployqt --qmldir VRMain VRMain/debug/VRMain.exe
+  - windeployqt --qmldir VRMain VRMain/release/VRMain.exe
   - echo "Cleaning up directory"
   - cd VRMain
-  - rm debug/*.o
-  - rm debug/*.cpp
-  - rm debug/*.h
-  - rm debug/D3Dcompiler_47.dll
-  - rm debug/libEGLd.dll
-  - rm debug/libGLESV2d.dll
-  - rm debug/opengl32sw.dll
-  - rmdir /s /q "debug/platforminputcontexts"
-  - rmdir /s /q "debug/bearer"
-  - rmdir /s /q "debug/iconengines"
-  - rmdir /s /q "debug/printsupport"
-  - rmdir /s /q "debug/qmltooling"
-  - rmdir /s /q "debug/QtGraphicalEffects"
-  - rmdir /s /q "debug/QtQml"
-  - rmdir /s /q "debug/translations"
-  - rename debug VisualRacing
+  - rm release/*.o
+  - rm release/*.cpp
+  - rm release/*.h
+  - rm release/D3Dcompiler_47.dll
+  - rm release/opengl32sw.dll
+  - rmdir /s /q "release/platforminputcontexts"
+  - rmdir /s /q "release/bearer"
+  - rmdir /s /q "release/iconengines"
+  - rmdir /s /q "release/printsupport"
+  - rmdir /s /q "release/qmltooling"
+  - rmdir /s /q "release/QtGraphicalEffects"
+  - rmdir /s /q "release/QtQml"
+  - rmdir /s /q "release/translations"
+  - rename release VisualRacing
   - cd ../
 
 
