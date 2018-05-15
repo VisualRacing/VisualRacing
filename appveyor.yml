@@ -16,6 +16,8 @@ after_build:
   - rm release/*.h
   - rm release/D3Dcompiler_47.dll
   - rm release/opengl32sw.dll
+  - rm release/libEGL.dll
+  - rm release/libGLESV2.dll
   - rmdir /s /q "release/platforminputcontexts"
   - rmdir /s /q "release/bearer"
   - rmdir /s /q "release/iconengines"
