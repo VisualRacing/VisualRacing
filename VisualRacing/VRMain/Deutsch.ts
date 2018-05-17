@@ -118,7 +118,7 @@
     <message>
         <location filename="TabSettings.qml" line="84"/>
         <source>Theme</source>
-        <translation>Thema</translation>
+        <translation>Farbschema</translation>
     </message>
     <message>
         <location filename="TabSettings.qml" line="97"/>
