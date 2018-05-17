@@ -167,6 +167,8 @@ The first image shows how running the tests in the QtCreator looks like. The sec
 
 ## 7.2 Reporting on Test Coverage
 After AppVeyor has built the application successfully the code coverage will be calculated based on the tests and their results. 
+This badge shows the current test coverage:
+[![codecov](https://codecov.io/gh/VisualRacing/VisualRacing/branch/master/graph/badge.svg)](https://codecov.io/gh/VisualRacing/VisualRacing)
 
 ## 7.3 Perceived Quality Reports
 For calculating quality reports Codacy is used. This tool calulates the amount of errors and much more metrics wich can be used to measure the code quality. 
@@ -182,7 +184,8 @@ We integrated TravisCI, AppVeyor and Codacy into our GitHub pull request workflo
 ![Blocked Merge](Blocked_Merge.png)
 
 ## 7.5 Smoke Test Suite and Supporting Test Scripts
-tbd
+Each pull request triggers codecov to generate a report showing the new test coverage. The screenshot below shows how such a report looks like:
+![Codecov Report](codecovReport.png)
 
 ## 8. Testing Workflow
 For testing parts of new code each developer can use the option of running the test from the IDE. This helps a lot to check if new code works as expected. 
@@ -231,13 +234,10 @@ This table displays the staffing assumptions for the test effort of our project.
 |Tester|2|Implements and executes the tests|
 
 ### 10.2 Staffing and Training Needs
-
 n/a
 
 ## 11. Iteration Milestones
-
-tbd
+Our goal is to keep code coverage above 60% for the classes we are testing.
 
 ## 12. Risks, Dependencies, Assumptions and Constraints
-
-tbd
+Risks regarding the integration of new Unit Tests into our Test workflow will be handled by the Implementer directly.
