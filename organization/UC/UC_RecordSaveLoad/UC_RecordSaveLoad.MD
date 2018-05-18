@@ -1,7 +1,7 @@
 # Use-Case Specification: Record and Save/Load Data
 
 # Table of Contents
-- [Use-Case Name](#1-record-and-save-and-load-data)
+- [Record and Save/Load Data](#1-record-and-save-and-load-data)
     - [Brief Description](#11-brief-description)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)
