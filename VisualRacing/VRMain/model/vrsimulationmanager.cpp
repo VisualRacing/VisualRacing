@@ -1,5 +1,4 @@
 #include "vrsimulationmanager.h"
-#include <QDebug>
 
 VRSimulationManager::VRSimulationManager() {
     this->running = false;
@@ -38,11 +37,11 @@ void VRSimulationManager::waitForSim() {
 
     while(true) { // TODO: Timeout?
         if (VRUtilities::isProcessRunning(vrconstants::r3eProcessName)) { // TODO: Optimize duplicate call for different simulations?
-            this->dataInterface = QSharedPointer<VRDataInterface>(new VRDataInterfaceR3E());
+            this->dataInterface = VRDataInterfaceFactory::createInterface(VRDataInterfaceFactory::Simulation::R3E);
             std::cout << " -> R3E running." << std::endl;
             return;
         } else if (VRUtilities::isProcessRunning(vrconstants::acProcessName)) {
-            this->dataInterface = QSharedPointer<VRDataInterface>(new VRDataInterfaceAC());
+            this->dataInterface = VRDataInterfaceFactory::createInterface(VRDataInterfaceFactory::Simulation::AC);
             std::cout << " -> AC running." << std::endl;
             return;
         }
