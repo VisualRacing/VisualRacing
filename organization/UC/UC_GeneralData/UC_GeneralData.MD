@@ -1,7 +1,7 @@
 # Use-Case Specification: Display General Data
 
 # Table of Contents
-- [Use-Case Name](#1-display-car-data)
+- [Display Car Data](#1-display-car-data)
     - [Brief Description](#11-brief-description)
     - [Mockup](#12-mockup)
     - [Screenshot](#13-screenshot)

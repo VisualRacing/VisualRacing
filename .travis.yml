@@ -1,4 +1,4 @@
-language: cpp
+language: generic
 matrix:
   include:
   - env: QT=qt5win
@@ -15,7 +15,3 @@ before_script:
 script:
 - if [ $QT = qt5win ]; then PATH=$PATH:/usr/lib/mxe/usr/bin; fi
 - make -j 2
-- ls
-
-- cd "/home/travis/build/VisualRacing/VisualRacing/VisualRacing/VRTest/"
-- ls

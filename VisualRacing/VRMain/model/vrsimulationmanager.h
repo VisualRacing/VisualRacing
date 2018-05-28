@@ -7,6 +7,7 @@
 #include "vrdatainterface.h"
 #include "vrdatainterfacer3e.h"
 #include "vrdatainterfaceac.h"
+#include "vrdatainterfacefactory.h"
 
 #include "r3e.h"
 #include "ac.h"

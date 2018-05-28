@@ -1,7 +1,7 @@
 # Use-Case Specification: Analyze Laptime Improvement
 
 # Table of Contents
-- [Use-Case Name](#1-analyze-laptime-improvement)
+- [Analyze Laptime Improvement](#1-analyze-laptime-improvement)
     - [Brief Description](#11-brief-description)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)

@@ -1,7 +1,7 @@
 # Use-Case Specification: Display Timing Data
 
 # Table of Contents
-- [Use-Case Name](#1-display-timing-data)
+- [Display Timing Data](#1-display-timing-data)
     - [Brief Description](#11-brief-description)
     - [Mockup](#12-mockup)
     - [Screenshot](#13-screenshot)

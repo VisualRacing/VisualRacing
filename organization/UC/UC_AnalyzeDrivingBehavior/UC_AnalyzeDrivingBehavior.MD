@@ -1,7 +1,7 @@
 # Use-Case Specification: Analyze Driving Behavior
 
 # Table of Contents
-- [Use-Case Name](#1-analyze-driving-behavior)
+- [Analyze Driving Behavior](#1-analyze-driving-behavior)
     - [Brief Description](#11-brief-description)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)

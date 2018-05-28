@@ -1,7 +1,7 @@
 # Use-Case Specification: Change Settings
 
 # Table of Contents
-- [Use-Case Name](#1-change-settings)
+- [Change Settings](#1-change-settings)
     - [Brief Description](#11-brief-description)
     - [Mockup](#12-mockup)
     - [Screenshot](#13-screenshot)

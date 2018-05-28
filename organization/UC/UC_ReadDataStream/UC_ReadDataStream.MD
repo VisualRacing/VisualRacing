@@ -1,7 +1,7 @@
 # Use-Case Specification: Read Data Stream
 
 # Table of Contents
-- [Use-Case Name](#1-read-data-stream)
+- [Read Data Stream](#1-read-data-stream)
     - [Brief Description](#11-brief-description)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)
