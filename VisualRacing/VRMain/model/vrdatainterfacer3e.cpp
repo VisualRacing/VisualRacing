@@ -98,5 +98,12 @@ bool VRDataInterfaceR3E::update() {
     this->buffer->setPreviousS2(qMax(this->nativeBuffer->sector_time_previous_self[1], 0.0f));
     this->buffer->setPreviousS3(qMax(this->nativeBuffer->sector_time_previous_self[2], 0.0f));
 
+    this->buffer->setTireGripFL(qMax(this->nativeBuffer->tire_grip[R3E_TIRE_FRONT_LEFT], 0.0f));
+    this->buffer->setTireGripFR(qMax(this->nativeBuffer->tire_grip[R3E_TIRE_FRONT_RIGHT], 0.0f));
+    this->buffer->setTireGripRR(qMax(this->nativeBuffer->tire_grip[R3E_TIRE_REAR_RIGHT], 0.0f));
+    this->buffer->setTireGripRL(qMax(this->nativeBuffer->tire_grip[R3E_TIRE_REAR_LEFT], 0.0f));
+
+    this->buffer->setLapDistance(qMax(this->nativeBuffer->lap_distance, 0.0f));
+
     return true;
 }
