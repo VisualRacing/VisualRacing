@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QSharedPointer>
 #include <QDebug>
+#include <QQueue>
 
 #include "vrmetrics.h"
 #include "vrdata.h"
@@ -18,7 +19,11 @@ private:
 
     bool m_running;
 
+    float m_avgAccelBehav;
+    QQueue<float> m_accelBehavHistory;
+
     void updateAccelBehav();
+    void updateAvgAccelBehav(float accelBehav);
 
 public:
     VRMetricsManager(QSharedPointer<VRMetrics> metrics, QSharedPointer<VRData> data);

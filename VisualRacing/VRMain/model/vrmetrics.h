@@ -7,7 +7,7 @@ class VRMetrics : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(float accelBehav READ getAccelBehav WRITE setAccelBehav NOTIFY accelBehavChanged)
-    Q_PROPERTY(float avgAccelBehav READ avgAccelBehav WRITE setAvgAccelBehav NOTIFY avgAccelBehavChanged)
+    Q_PROPERTY(float avgAccelBehav READ getAvgAccelBehav WRITE setAvgAccelBehav NOTIFY avgAccelBehavChanged)
     Q_PROPERTY(float shiftTime READ getShiftTime WRITE setShiftTime NOTIFY shiftTimeChanged)
 
 public:
