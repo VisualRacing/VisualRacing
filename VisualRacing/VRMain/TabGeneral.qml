@@ -100,14 +100,6 @@ Rectangle {
             minimumPointSize: 2
             fontSizeMode: Text.Fit
             horizontalAlignment: Text.AlignHCenter
-
-            function gearIndexToChar(index) {
-                if (index === 0)
-                    return 'N';
-                else if (index === -1)
-                    return 'R';
-                return '' + index;
-            }
         }
 
         Text {
@@ -651,12 +643,5 @@ Rectangle {
                 color: percToColor(vrData.tireWearRR)
             }
         }
-    }
-
-    function percToColor(p) {
-        var g = parseInt((0xFF * p).toFixed(0)).toString(16);
-        var r = parseInt((0xFF * (1 - p)).toFixed(0)).toString(16);
-
-        return "#" + (r.length < 2 ? "0" + r : r) + (g.length < 2 ? "0" + g : g) + "00";
     }
 }
