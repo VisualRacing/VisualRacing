@@ -9,16 +9,20 @@
 
 #include "vrmainwindow.h"
 #include "vrmessage.h"
+#include "vrsettings.h"
+
 #include "view/vrplotvelocity.h"
 #include "view/vrplotpedals.h"
 #include "view/vrplotlaptimebar.h"
 #include "view/vrplotrpm.h"
 #include "view/vrplotpedalhistory.h"
+#include "view/vrthemedata.h"
 
 #include "model/vrdata.h"
 #include "model/vrsimulationmanager.h"
-#include "vrsettings.h"
-#include "view/vrthemedata.h"
+#include "model/vrmetrics.h"
+#include "model/vrmetricsmanager.h"
+
 
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -69,7 +73,8 @@ int main(int argc, char *argv[])
     mainWindow.data()->switchLanguage(settings.getLang());
 
     bool uiDev = false;
-    if (!uiDev) {simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
+    if (!uiDev) {
+        simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
         simulationManager->start();
 
         QSharedPointer<VRDataInterface> dataInterface;
@@ -89,12 +94,29 @@ int main(int argc, char *argv[])
     }
 
     /*
+     * start Metrics calculation
+     */
+    QSharedPointer<VRMetrics> vrMetrics;
+    QSharedPointer<VRMetricsManager> vrMetricsManger;
+
+    vrMetrics = QSharedPointer<VRMetrics>(new VRMetrics());
+    vrMetricsManger = QSharedPointer<VRMetricsManager>(
+                new VRMetricsManager(vrMetrics, vrData));
+
+    QThread* metricsManagerThread = new QThread;
+    vrMetricsManger->moveToThread(metricsManagerThread);
+    QObject::connect(metricsManagerThread, SIGNAL(started()),
+                     vrMetricsManger.data(), SLOT(start()));
+    metricsManagerThread->start();
+
+    /*
      * expose Data-Objects to qml
      */
     engine->rootContext()->setContextProperty("vrMainWindow", mainWindow.data());
     engine->rootContext()->setContextProperty("vrData", vrData.data());
     engine->rootContext()->setContextProperty("settings", &settings);
     engine->rootContext()->setContextProperty("theme", &themeData);
+    engine->rootContext()->setContextProperty("vrMetrics", vrMetrics.data());
 
     /*
      * QML-Type Registration
@@ -113,6 +135,14 @@ int main(int argc, char *argv[])
     if (engine->rootObjects().isEmpty())
         return EXIT_FAILURE;
     int retVal = app.exec();
+
+    /*
+     * tidy up the running threads
+     */
+    vrMetricsManger->abort();
+    metricsManagerThread->quit();
+    metricsManagerThread->wait();
+
     return retVal;
 }
 
