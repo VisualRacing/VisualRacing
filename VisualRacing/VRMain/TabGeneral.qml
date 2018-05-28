@@ -79,7 +79,6 @@ Rectangle {
                 anchors.top: parent.top
                 anchors.left: parent.left
 
-
                 color: (vrData.rpm / vrData.maxRpm) > 0.9 ? "red" : "lime"
             }
         }
