@@ -24,6 +24,8 @@ SOURCES += main.cpp \
     model/vrdatainterfaceac.cpp \
     model/vrdatainterfacer3e.cpp \
     model/vrsimulationmanager.cpp \
+    model/vrmetrics.cpp \
+    model/vrmetricsmanager.cpp \
     view/vrplotitem.cpp \
     view/vrplotlaptimebar.cpp \
     view/vrplotpedalhistory.cpp \
@@ -31,7 +33,9 @@ SOURCES += main.cpp \
     view/vrplotrpm.cpp \
     view/vrplotvelocity.cpp \
     view/vrthemedata.cpp \
-    model/vrdatainterfacefactory.cpp
+    model/vrdatainterfacefactory.cpp \
+    vrmetricsmanager.cpp \
+    vrmetrics.cpp
 
 RESOURCES += qml.qrc \
     recources.qrc \
@@ -58,6 +62,8 @@ HEADERS += \
     model/vrdatainterfaceac.h \
     model/vrdatainterfacer3e.h \
     model/vrsimulationmanager.h \
+    model/vrmetrics.h \
+    model/vrmetricsmanager.h \
     view/vrplotitem.h \
     view/vrplotlaptimebar.h \
     view/vrplotpedalhistory.h \
@@ -65,4 +71,6 @@ HEADERS += \
     view/vrplotrpm.h \
     view/vrplotvelocity.h \
     view/vrthemedata.h \
-    model/vrdatainterfacefactory.h
+    model/vrdatainterfacefactory.h \
+    vrmetricsmanager.h \
+    vrmetrics.h
