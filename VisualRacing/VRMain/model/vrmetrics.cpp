@@ -2,7 +2,8 @@
 
 VRMetrics::VRMetrics()
 {
-    this->upShiftBehaviour = 0;
+    this->accelBehav = 0;
+    this->avgAccelBehav = 0;
 }
 
 VRMetrics::~VRMetrics()
@@ -10,13 +11,24 @@ VRMetrics::~VRMetrics()
 
 }
 
-float VRMetrics::getTireSlip() const
+float VRMetrics::getAccelBehav() const
 {
-    return this->tireSlip;
+    return this->accelBehav;
 }
 
-void VRMetrics::setTireSlip(float value)
+void VRMetrics::setAccelBehav(float value)
 {
-    this->tireSlip = value;
-    emit tireSlipChanged();
+    this->accelBehav = value;
+    emit this->accelBehavChanged();
+}
+
+float VRMetrics::getAvgAccelBehav() const
+{
+    return this->avgAccelBehav;
+}
+
+void VRMetrics::setAvgAccelBehav(float value)
+{
+    this->avgAccelBehav = value;
+    emit this->avgAccelBehavChanged();
 }

@@ -18,7 +18,7 @@ private:
 
     bool m_running;
 
-    void updateTireSlip();
+    void updateAccelBehav();
 
 public:
     VRMetricsManager(QSharedPointer<VRMetrics> metrics, QSharedPointer<VRData> data);

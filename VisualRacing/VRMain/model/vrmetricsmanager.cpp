@@ -22,7 +22,7 @@ void VRMetricsManager::start()
     qDebug() << "Metrics Manager is started.";
     while(this->m_running){
         // update matrics
-        this->updateTireSlip();
+        this->updateAccelBehav();
         Sleep(1000);
     }
 }
@@ -32,10 +32,10 @@ void VRMetricsManager::abort()
     this->m_running = false;
 }
 
-void VRMetricsManager::updateTireSlip()
+void VRMetricsManager::updateAccelBehav()
 {
     float maxGrip = qMax(m_data->getTireGripFL(), m_data->getTireGripFR());
     maxGrip = qMax(maxGrip, m_data->getTireGripRL());
     maxGrip = qMax(maxGrip, m_data->getTireGripRR());
-    m_metrics->setTireSlip(1-maxGrip);
 }
+
