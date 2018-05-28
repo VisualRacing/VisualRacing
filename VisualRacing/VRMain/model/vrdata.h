@@ -91,7 +91,6 @@ class VRData : public QObject
     Q_PROPERTY(float tireGripRL READ getTireGripRL WRITE setTireGripRL NOTIFY tireGripRLChanged)
 
     Q_PROPERTY(float lapDistance READ getLapDistance WRITE setLapDistance NOTIFY lapDistanceChanged)
-    Q_PROPERTY(float lapDistanceFraction READ getLapDistanceFraction WRITE setLapDistanceFraction NOTIFY lapDistanceFractionChanged)
 
 public:
     VRData();
@@ -281,9 +280,6 @@ public:
     float getLapDistance() const;
     void setLapDistance(float value);
 
-    float getLapDistanceFraction() const;
-    void setLapDistanceFraction(float value);
-
 signals:
     void gearChanged();
     void velocityChanged();
@@ -364,7 +360,6 @@ signals:
     void tireGripRLChanged();
 
     void lapDistanceChanged();
-    void lapDistanceFractionChanged();
 
 private:
     //
@@ -510,7 +505,6 @@ private:
 
     // Lap distance information
     float lapDistance;
-    float lapDistanceFraction;
 
     /* TODO:
     Things that might be added later:

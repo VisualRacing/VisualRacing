@@ -85,7 +85,6 @@ VRData::VRData()
     this->tireGripRL = 0.0f;
 
     this->lapDistance = 0.0f;
-    this->lapDistanceFraction = 0.0f;
 }
 
 double VRData::getTimeInSeconds()
@@ -946,18 +945,4 @@ void VRData::setLapDistance(float value)
 
     lapDistance = value;
     emit lapDistanceChanged();
-}
-
-float VRData::getLapDistanceFraction() const
-{
-    return lapDistance;
-}
-
-void VRData::setLapDistanceFraction(float value)
-{
-    if (value == lapDistanceFraction)
-        return;
-
-    lapDistanceFraction = value;
-    emit lapDistanceFractionChanged();
 }

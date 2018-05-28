@@ -104,7 +104,6 @@ bool VRDataInterfaceR3E::update() {
     this->buffer->setTireGripRL(qMax(this->nativeBuffer->tire_grip[R3E_TIRE_REAR_LEFT], 0.0f));
 
     this->buffer->setLapDistance(qMax(this->nativeBuffer->lap_distance, 0.0f));
-    this->buffer->setLapDistanceFraction(qMax(this->nativeBuffer->lap_distance_fraction, 0.0f));
 
     return true;
 }
