@@ -6,20 +6,22 @@
 class VRMetrics : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(float upShiftBehaviour READ getUpShiftBehaviour WRITE setUpShiftBehaviour NOTIFY upShiftBehaviourChanged)
+    Q_PROPERTY(float tireSlip READ getTireSlip WRITE setTireSlip NOTIFY tireSlipChanged)
 
 public:
     VRMetrics();
     ~VRMetrics();
 
-    float getUpShiftBehaviour() const;
-    void setUpShiftBehaviour(float upShiftBehaviour);
+    float getTireSlip() const;
+    void setTireSlip(float value);
 
 signals:
-    void upShiftBehaviourChanged();
+    void tireSlipChanged();
 
 private:
     float upShiftBehaviour;
+
+    float tireSlip;
 
 };
 

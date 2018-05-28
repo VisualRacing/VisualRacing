@@ -10,13 +10,13 @@ VRMetrics::~VRMetrics()
 
 }
 
-float VRMetrics::getUpShiftBehaviour() const
+float VRMetrics::getTireSlip() const
 {
-    return this->upShiftBehaviour;
+    return this->tireSlip;
 }
 
-void VRMetrics::setUpShiftBehaviour(float upShiftBehaviour)
+void VRMetrics::setTireSlip(float value)
 {
-    this->upShiftBehaviour = upShiftBehaviour;
-    emit upShiftBehaviourChanged();
+    this->tireSlip = value;
+    emit tireSlipChanged();
 }

@@ -5,7 +5,7 @@ Rectangle{
 
     Text {
         id: upShiftBehav
-        text: vrMetrics.upShiftBehaviour
+        text: vrMetrics.tireSlip
         anchors.fill: parent
         color: "#FFFFFF"
     }
