@@ -4,7 +4,6 @@ VRMetrics::VRMetrics()
 {
     this->accelBehav = 0;
     this->avgAccelBehav = 0;
-    this->shiftTime = 0;
 }
 
 VRMetrics::~VRMetrics()
@@ -34,13 +33,46 @@ void VRMetrics::setAvgAccelBehav(float value)
     emit this->avgAccelBehavChanged();
 }
 
-float VRMetrics::getShiftTime() const
+long VRMetrics::getClutchDisengagedTime() const
 {
-    return this->shiftTime;
+    return clutchDisengagedTime;
 }
 
-void VRMetrics::setShiftTime(float value)
+void VRMetrics::setClutchDisengagedTime(long value)
 {
-    this->shiftTime = value;
-    emit this->shiftTimeChanged();
+    clutchDisengagedTime = value;
+    emit clutchDisengagedTimeChanged();
+}
+
+long VRMetrics::getGearChangeTime() const
+{
+    return gearChangeTime;
+}
+
+void VRMetrics::setGearChangeTime(long value)
+{
+    gearChangeTime = value;
+    emit gearChangeTimeChanged();
+}
+
+long VRMetrics::getAvgClutchDisTime() const
+{
+    return avgClutchDisTime;
+}
+
+void VRMetrics::setAvgClutchDisTime(long value)
+{
+    avgClutchDisTime = value;
+    emit avgClutchDisTimeChanged();
+}
+
+long VRMetrics::getAvgGearChangTime() const
+{
+    return avgGearChangTime;
+}
+
+void VRMetrics::setAvgGearChangTime(long value)
+{
+    avgGearChangTime = value;
+    emit avgGearChangTimeChanged();
 }

@@ -8,7 +8,6 @@ class VRMetrics : public QObject
     Q_OBJECT
     Q_PROPERTY(float accelBehav READ getAccelBehav WRITE setAccelBehav NOTIFY accelBehavChanged)
     Q_PROPERTY(float avgAccelBehav READ getAvgAccelBehav WRITE setAvgAccelBehav NOTIFY avgAccelBehavChanged)
-    Q_PROPERTY(float shiftTime READ getShiftTime WRITE setShiftTime NOTIFY shiftTimeChanged)
 
 public:
     VRMetrics();
@@ -20,19 +19,34 @@ public:
     float getAvgAccelBehav() const;
     void setAvgAccelBehav(float value);
 
-    float getShiftTime() const;
-    void setShiftTime(float value);
+    long getClutchDisengagedTime() const;
+    void setClutchDisengagedTime(long value);
+
+    long getGearChangeTime() const;
+    void setGearChangeTime(long value);
+
+    long getAvgClutchDisTime() const;
+    void setAvgClutchDisTime(long value);
+
+    long getAvgGearChangTime() const;
+    void setAvgGearChangTime(long value);
 
 signals:
     void accelBehavChanged();
     void avgAccelBehavChanged();
-    void shiftTimeChanged();
+    void clutchDisengagedTimeChanged();
+    void gearChangeTimeChanged();
+    void avgClutchDisTimeChanged();
+    void avgGearChangTimeChanged();
 
 private:
 
     float accelBehav;
     float avgAccelBehav;
-    float shiftTime;
+    long clutchDisengagedTime;
+    long gearChangeTime;
+    long avgClutchDisTime;
+    long avgGearChangTime;
 };
 
 #endif // VRMETRICS_H
