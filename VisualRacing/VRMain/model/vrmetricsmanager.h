@@ -25,6 +25,12 @@ private:
     void updateAccelBehav();
     void updateAvgAccelBehav(float accelBehav);
 
+    void updateClutchDisTime();
+    void updateAvgClutchDisTime(long clutchDisTime);
+
+    void updateGearChangTime();
+    void updateAvgGearChangTime(long gearChangTime);
+
 public:
     VRMetricsManager(QSharedPointer<VRMetrics> metrics, QSharedPointer<VRData> data);
     ~VRMetricsManager();

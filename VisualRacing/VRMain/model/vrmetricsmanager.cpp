@@ -23,6 +23,8 @@ void VRMetricsManager::start()
     while(this->m_running){
         // update matrics
         this->updateAccelBehav();
+        this->updateClutchDisTime();
+        this->updateGearChangTime();
         Sleep(1000);
     }
 }
@@ -76,5 +78,31 @@ void VRMetricsManager::updateAvgAccelBehav(float accelBehav)
     m_avgAccelBehav = tmp_avgAccelBehav / len;				// calc new average
 
     m_metrics->setAvgAccelBehav(m_avgAccelBehav);
+}
+
+void VRMetricsManager::updateClutchDisTime()
+{
+    long tmp_clutchDisTime = m_data->getClutchDisengagedTime();
+    m_metrics->setClutchDisengagedTime(tmp_clutchDisTime);
+
+    updateAvgClutchDisTime(tmp_clutchDisTime);
+}
+
+void VRMetricsManager::updateAvgClutchDisTime(long clutchDisTime)
+{
+
+}
+
+void VRMetricsManager::updateGearChangTime()
+{
+    long tmp_gearChangTime = m_data->getGearChangeTime();
+    m_metrics->setGearChangeTime(tmp_gearChangTime);
+
+    updateAvgGearChangTime(tmp_gearChangTime);
+}
+
+void VRMetricsManager::updateAvgGearChangTime(long gearChangTime)
+{
+
 }
 
