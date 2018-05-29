@@ -2,8 +2,13 @@
 
 VRMetrics::VRMetrics()
 {
-    this->accelBehav = 0;
-    this->avgAccelBehav = 0;
+    this->accelBehav = 0.0f;
+    this->avgAccelBehav = 0.0f;
+
+    this->clutchDisengagedTime = 0l;
+    this->avgClutchDisTime = 0l;
+    this->gearChangeTime = 0l;
+    this->avgGearChangTime = 0l;
 }
 
 VRMetrics::~VRMetrics()

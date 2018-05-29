@@ -97,16 +97,16 @@ int main(int argc, char *argv[])
      * start Metrics calculation
      */
     QSharedPointer<VRMetrics> vrMetrics;
-    QSharedPointer<VRMetricsManager> vrMetricsManger;
+    QSharedPointer<VRMetricsManager> vrMetricsManager;
 
     vrMetrics = QSharedPointer<VRMetrics>(new VRMetrics());
-    vrMetricsManger = QSharedPointer<VRMetricsManager>(
+    vrMetricsManager = QSharedPointer<VRMetricsManager>(
                 new VRMetricsManager(vrMetrics, vrData));
 
     QThread* metricsManagerThread = new QThread;
-    vrMetricsManger->moveToThread(metricsManagerThread);
+    vrMetricsManager->moveToThread(metricsManagerThread);
     QObject::connect(metricsManagerThread, SIGNAL(started()),
-                     vrMetricsManger.data(), SLOT(start()));
+                     vrMetricsManager.data(), SLOT(start()));
     metricsManagerThread->start();
 
     /*
@@ -139,7 +139,7 @@ int main(int argc, char *argv[])
     /*
      * tidy up the running threads
      */
-    vrMetricsManger->abort();
+    vrMetricsManager->abort();
     metricsManagerThread->quit();
     metricsManagerThread->wait();
 

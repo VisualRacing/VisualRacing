@@ -28,7 +28,7 @@ bool VRMetricsManager::isRunning()
 
 void VRMetricsManager::start()
 {
-    this->m_running = true;
+    this->m_running = false;
 
     qDebug() << "Metrics Manager is started.";
     while(this->m_running){
