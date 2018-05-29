@@ -12,6 +12,7 @@ VRSettings::VRSettings()
 
 VRSettings::Unit VRSettings::parseUnit(const QString arg)
 {
+    // Convert string from settings file to corresponding Unit enum value.
     if (arg == "metric")
         return Unit::METRIC;
     else if(arg == "imperial")
@@ -22,6 +23,7 @@ VRSettings::Unit VRSettings::parseUnit(const QString arg)
 
 VRSettings::Language VRSettings::parseLanguage(const QString arg)
 {
+    // Convert string from settings file to corresponding Language enum value.
     if (arg == "en")
         return Language::ENGLISH;
     else if(arg == "de")
@@ -32,6 +34,7 @@ VRSettings::Language VRSettings::parseLanguage(const QString arg)
 
 VRSettings::Theme VRSettings::parseTheme(const QString arg)
 {
+    // Convert string from settings file to corresponding Theme enum value.
     if (arg == "dark")
         return Theme::DARK;
     else if (arg == "light")
@@ -46,6 +49,7 @@ void VRSettings::load()
     if (settingsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&settingsFile);
         while(!in.atEnd()) {
+            // Split line in attribute name and value.
             QStringList line = in.readLine().split(":");
 
             if (line.count() != 2)
@@ -54,6 +58,7 @@ void VRSettings::load()
             QString attribute = line.at(0).trimmed().toLower();
             QString value = line.at(1).trimmed().toLower();
 
+            // Parse attribute value based on attribute name.
             if (attribute == "unit") {
                 unit = parseUnit(value);
             } else if (attribute == "lang") {
@@ -69,6 +74,7 @@ void VRSettings::load()
 
 QString VRSettings::unitAsString()
 {
+    // Convert Unit enum value to string for settings file.
     QString s = "unit:";
     if (this->unit == Unit::METRIC)
         s += "metric";
@@ -79,6 +85,7 @@ QString VRSettings::unitAsString()
 
 QString VRSettings::languageAsString()
 {
+    // Convert Language enum value to string for settings file.
     QString s = "lang:";
     if (this->lang == Language::ENGLISH)
         s += "en";
@@ -89,6 +96,7 @@ QString VRSettings::languageAsString()
 
 QString VRSettings::themeAsString()
 {
+    // Convert Theme enum value to string for settings file.
     QString s = "theme:";
     if (this->theme == Theme::DARK)
         s += "dark";
