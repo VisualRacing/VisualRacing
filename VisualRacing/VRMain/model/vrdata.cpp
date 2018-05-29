@@ -114,9 +114,6 @@ float VRData::getVelocity() const
 
 void VRData::setVelocity(float value)
 {
-    if (velocity == value)
-        return;
-
     velocity = value;
     emit velocityChanged();
 }
@@ -156,9 +153,6 @@ float VRData::getThrottle() const
 
 void VRData::setThrottle(float value)
 {
-    if (throttle == value)
-        return;
-
     throttle = value;
     emit throttleChanged();
 }
@@ -170,9 +164,6 @@ float VRData::getBrake() const
 
 void VRData::setBrake(float value)
 {
-    if (brake == value)
-        return;
-
     brake = value;
     emit brakeChanged();
 }
@@ -184,9 +175,6 @@ float VRData::getClutch() const
 
 void VRData::setClutch(float value)
 {
-    if (clutch == value)
-        return;
-
     clutch = value;
     emit clutchChanged();
 }
@@ -212,9 +200,6 @@ float VRData::getFuel() const
 
 void VRData::setFuel(float value)
 {
-    if (fuel == value)
-        return;
-
     fuel = value;
     emit fuelChanged();
 }
@@ -324,9 +309,6 @@ float VRData::getTireWearFL() const
 
 void VRData::setTireWearFL(float value)
 {
-    if (tireWearFL == value)
-        return;
-
     tireWearFL = value;
     emit tireWearFLChanged();
 }
@@ -338,9 +320,6 @@ float VRData::getTireWearFR() const
 
 void VRData::setTireWearFR(float value)
 {
-    if (tireWearFR == value)
-        return;
-
     tireWearFR = value;
     emit tireWearFRChanged();
 }
@@ -352,9 +331,6 @@ float VRData::getTireWearRR() const
 
 void VRData::setTireWearRR(float value)
 {
-    if(tireWearRR == value)
-        return;
-
     tireWearRR = value;
     emit tireWearRRChanged();
 }
@@ -366,9 +342,6 @@ float VRData::getTireWearRL() const
 
 void VRData::setTireWearRL(float value)
 {
-    if (tireWearRL == value)
-        return;
-
     tireWearRL = value;
     emit tireWearRLChanged();
 }
@@ -380,9 +353,6 @@ float VRData::getTireTemperatureFLI() const
 
 void VRData::setTireTemperatureFLI(float value)
 {
-    if (value == tireTemperatureFLI)
-        return;
-
     tireTemperatureFLI = value;
     emit tireTemperatureFLIChanged();
 }
@@ -394,9 +364,6 @@ float VRData::getTireTemperatureFLC() const
 
 void VRData::setTireTemperatureFLC(float value)
 {
-    if (value == tireTemperatureFLC)
-        return;
-
     tireTemperatureFLC = value;
     emit tireTemperatureFLCChanged();
 }
@@ -408,9 +375,6 @@ float VRData::getTireTemperatureFLO() const
 
 void VRData::setTireTemperatureFLO(float value)
 {
-    if (value == tireTemperatureFLO)
-        return;
-
     tireTemperatureFLO = value;
     emit tireTemperatureFLOChanged();
 }
@@ -422,9 +386,6 @@ float VRData::getTireTemperatureFRI() const
 
 void VRData::setTireTemperatureFRI(float value)
 {
-    if (value == tireTemperatureFRI)
-        return;
-
     tireTemperatureFRI = value;
     emit tireTemperatureFRIChanged();
 }
@@ -436,9 +397,6 @@ float VRData::getTireTemperatureFRC() const
 
 void VRData::setTireTemperatureFRC(float value)
 {
-    if (value == tireTemperatureFRC)
-        return;
-
     tireTemperatureFRC = value;
     emit tireTemperatureFRCChanged();
 }
@@ -450,9 +408,6 @@ float VRData::getTireTemperatureFRO() const
 
 void VRData::setTireTemperatureFRO(float value)
 {
-    if (value == tireTemperatureFRO)
-        return;
-
     tireTemperatureFRO = value;
     emit tireTemperatureFROChanged();
 }
@@ -464,9 +419,6 @@ float VRData::getTireTemperatureRRI() const
 
 void VRData::setTireTemperatureRRI(float value)
 {
-    if (value == tireTemperatureRRI)
-        return;
-
     tireTemperatureRRI = value;
     emit tireTemperatureRRIChanged();
 }
@@ -478,9 +430,6 @@ float VRData::getTireTemperatureRRC() const
 
 void VRData::setTireTemperatureRRC(float value)
 {
-    if (value == tireTemperatureRRC)
-        return;
-
     tireTemperatureRRC = value;
     emit tireTemperatureRRCChanged();
 }
@@ -492,9 +441,6 @@ float VRData::getTireTemperatureRRO() const
 
 void VRData::setTireTemperatureRRO(float value)
 {
-    if (value == tireTemperatureRRO)
-        return;
-
     tireTemperatureRRO = value;
     emit tireTemperatureRROChanged();
 }
@@ -506,9 +452,6 @@ float VRData::getTireTemperatureRLI() const
 
 void VRData::setTireTemperatureRLI(float value)
 {
-    if (value == tireTemperatureRLI)
-        return;
-
     tireTemperatureRLI = value;
     emit tireTemperatureRLIChanged();
 }
@@ -520,9 +463,6 @@ float VRData::getTireTemperatureRLC() const
 
 void VRData::setTireTemperatureRLC(float value)
 {
-    if (value == tireTemperatureRLC)
-        return;
-
     tireTemperatureRLC = value;
     emit tireTemperatureRLCChanged();
 }
@@ -534,9 +474,6 @@ float VRData::getTireTemperatureRLO() const
 
 void VRData::setTireTemperatureRLO(float value)
 {
-    if (value == tireTemperatureRLO)
-        return;
-
     tireTemperatureRLO = value;
     emit tireTemperatureRLOChanged();
 }
@@ -548,9 +485,6 @@ float VRData::getBrakeTemperatureFL() const
 
 void VRData::setBrakeTemperatureFL(float value)
 {
-    if (brakeTemperatureFL == value)
-        return;
-
     brakeTemperatureFL = value;
     emit brakeTemperatureFLChanged();
 }
@@ -562,9 +496,6 @@ float VRData::getBrakeTemperatureFR() const
 
 void VRData::setBrakeTemperatureFR(float value)
 {
-    if (brakeTemperatureFR == value)
-        return;
-
     brakeTemperatureFR = value;
     emit brakeTemperatureFRChanged();
 }
@@ -576,9 +507,6 @@ float VRData::getBrakeTemperatureRR() const
 
 void VRData::setBrakeTemperatureRR(float value)
 {
-    if (brakeTemperatureRR == value)
-        return;
-
     brakeTemperatureRR = value;
     emit brakeTemperatureRRChanged();
 }
@@ -590,9 +518,6 @@ float VRData::getBrakeTemperatureRL() const
 
 void VRData::setBrakeTemperatureRL(float value)
 {
-    if (brakeTemperatureRL == value)
-        return;
-
     brakeTemperatureRL = value;
     emit brakeTemperatureRLChanged();
 }
@@ -604,9 +529,6 @@ float VRData::getTirePressureFL() const
 
 void VRData::setTirePressureFL(float value)
 {
-    if (tirePressureFL == value)
-        return;
-
     tirePressureFL = value;
     emit tirePressureFLChanged();
 }
@@ -618,9 +540,6 @@ float VRData::getTirePressureFR() const
 
 void VRData::setTirePressureFR(float value)
 {
-    if (tirePressureFR == value)
-        return;
-
     tirePressureFR = value;
     emit tirePressureFRChanged();
 }
@@ -632,9 +551,6 @@ float VRData::getTirePressureRR() const
 
 void VRData::setTirePressureRR(float value)
 {
-    if (tirePressureRR == value)
-        return;
-
     tirePressureRR = value;
     emit tirePressureRRChanged();
 }
@@ -646,9 +562,6 @@ float VRData::getTirePressureRL() const
 
 void VRData::setTirePressureRL(float value)
 {
-    if (tirePressureRL == value)
-        return;
-
     tirePressureRL = value;
     emit tirePressureRLChanged();
 }
@@ -660,9 +573,6 @@ float VRData::getTireDirtFL() const
 
 void VRData::setTireDirtFL(float value)
 {
-    if (tireDirtFL == value)
-        return;
-
     tireDirtFL = value;
     emit tireDirtFLChanged();
 }
@@ -674,9 +584,6 @@ float VRData::getTireDirtFR() const
 
 void VRData::setTireDirtFR(float value)
 {
-    if (tireDirtFR == value)
-        return;
-
     tireDirtFR = value;
     emit tireDirtFRChanged();
 }
@@ -688,9 +595,6 @@ float VRData::getTireDirtRR() const
 
 void VRData::setTireDirtRR(float value)
 {
-    if (tireDirtRR == value)
-        return;
-
     tireDirtRR = value;
     emit tireDirtRRChanged();
 }
@@ -702,9 +606,6 @@ float VRData::getTireDirtRL() const
 
 void VRData::setTireDirtRL(float value)
 {
-    if (tireDirtRL == value)
-        return;
-
     tireDirtRL = value;
     emit tireDirtRLChanged();
 }
@@ -884,9 +785,6 @@ float VRData::getTireGripFL() const
 
 void VRData::setTireGripFL(float value)
 {
-    if (tireGripFL == value)
-        return;
-
     tireGripFL = value;
     emit tireGripFLChanged();
 }
@@ -898,9 +796,6 @@ float VRData::getTireGripFR() const
 
 void VRData::setTireGripFR(float value)
 {
-    if (tireGripFR == value)
-        return;
-
     tireGripFR = value;
     emit tireGripFRChanged();
 }
@@ -912,9 +807,6 @@ float VRData::getTireGripRR() const
 
 void VRData::setTireGripRR(float value)
 {
-    if (tireGripRR == value)
-        return;
-
     tireGripRR = value;
     emit tireGripRRChanged();
 }
@@ -926,9 +818,6 @@ float VRData::getTireGripRL() const
 
 void VRData::setTireGripRL(float value)
 {
-    if (tireGripRL == value)
-        return;
-
     tireGripRL = value;
     emit tireGripRLChanged();
 }
@@ -940,9 +829,6 @@ float VRData::getLapDistance() const
 
 void VRData::setLapDistance(float value)
 {
-    if (value == lapDistance)
-        return;
-
     lapDistance = value;
     emit lapDistanceChanged();
 }
