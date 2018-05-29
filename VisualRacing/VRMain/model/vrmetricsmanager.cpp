@@ -2,9 +2,15 @@
 
 VRMetricsManager::VRMetricsManager(QSharedPointer<VRMetrics> metrics, QSharedPointer<VRData> data)
 {
+    this->m_running = true;
+
     this->m_metrics = metrics;
     this->m_data = data;
-    this->m_running = true;
+
+    QObject::connect(m_data.data(), SIGNAL(clutchDisengagedTimeChanged()),
+                     this, SLOT(updateClutchDisTime()));
+    QObject::connect(m_data.data(), SIGNAL(gearChangeTimeChanged()),
+                     this, SLOT(updateGearChangTime()));
 }
 
 VRMetricsManager::~VRMetricsManager()
@@ -23,8 +29,6 @@ void VRMetricsManager::start()
     while(this->m_running){
         // update matrics
         this->updateAccelBehav();
-        this->updateClutchDisTime();
-        this->updateGearChangTime();
         Sleep(1000);
     }
 }

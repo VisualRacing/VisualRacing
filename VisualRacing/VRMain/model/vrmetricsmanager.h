@@ -25,10 +25,7 @@ private:
     void updateAccelBehav();
     void updateAvgAccelBehav(float accelBehav);
 
-    void updateClutchDisTime();
     void updateAvgClutchDisTime(long clutchDisTime);
-
-    void updateGearChangTime();
     void updateAvgGearChangTime(long gearChangTime);
 
 public:
@@ -40,9 +37,11 @@ public:
 signals:
 
 public slots:
-   void start();
-   void abort();
+    void start();
+    void abort();
 
+    void updateClutchDisTime();
+    void updateGearChangTime();
 };
 
 #endif // VRMETRICSMANAGER_H
