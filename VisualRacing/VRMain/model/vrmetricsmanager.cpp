@@ -2,10 +2,13 @@
 
 VRMetricsManager::VRMetricsManager(QSharedPointer<VRMetrics> metrics, QSharedPointer<VRData> data)
 {
-    this->m_running = true;
-
     this->m_metrics = metrics;
     this->m_data = data;
+    this->m_running = false;
+
+    this->m_avgAccelBehav = 0;
+    this->m_avgClutchDisTime = 0;
+    this->m_avgGearChangTime = 0;
 
     QObject::connect(m_data.data(), SIGNAL(clutchDisengagedTimeChanged()),
                      this, SLOT(updateClutchDisTime()));
@@ -25,6 +28,8 @@ bool VRMetricsManager::isRunning()
 
 void VRMetricsManager::start()
 {
+    this->m_running = true;
+
     qDebug() << "Metrics Manager is started.";
     while(this->m_running){
         // update matrics
@@ -67,19 +72,20 @@ void VRMetricsManager::updateAccelBehav()
 
 void VRMetricsManager::updateAvgAccelBehav(float accelBehav)
 {
+    // Attention take a look on rounding Error with this Algorithm
     int len = m_accelBehavHistory.length();
-    float tmp_avgAccelBehav = m_avgAccelBehav * len; 		// calc the old sum
+    float tmp_avgAccelBehav = m_avgAccelBehav * len; 		// calc the old sum by mult with number of elements
     float oldestAccelBehav = 0;
 
-    m_accelBehavHistory.enqueue(accelBehav);
+    m_accelBehavHistory.enqueue(accelBehav);				// add new value to history
     if (len > 1000) {
-        oldestAccelBehav = m_accelBehavHistory.dequeue();
+        oldestAccelBehav = m_accelBehavHistory.dequeue();	// remove the oldest value if queue to long
     } else {
-        len += 1;
+        len += 1;											// if not to long increment tmp length
     }
 
-    tmp_avgAccelBehav += (accelBehav - oldestAccelBehav);	// calc new sum
-    m_avgAccelBehav = tmp_avgAccelBehav / len;				// calc new average
+    tmp_avgAccelBehav += (accelBehav - oldestAccelBehav);	// calc new sum by adding the diff between new and oldest value
+    m_avgAccelBehav = tmp_avgAccelBehav / len;				// calc new average by deviding through new length (amount of values)
 
     m_metrics->setAvgAccelBehav(m_avgAccelBehav);
 }
@@ -94,7 +100,22 @@ void VRMetricsManager::updateClutchDisTime()
 
 void VRMetricsManager::updateAvgClutchDisTime(long clutchDisTime)
 {
+    // Attention take a look on rounding Error with this Algorithm
+    int len = m_clutchDisTimeHistory.length();
+    long tmp_avgClutchDisTime = m_avgClutchDisTime * len;
+    long oldestClutchDisTime = 0;
 
+    m_clutchDisTimeHistory.enqueue(clutchDisTime);
+    if (len > 1000) {
+        oldestClutchDisTime = m_clutchDisTimeHistory.dequeue();
+    } else {
+        len += 1;
+    }
+
+    tmp_avgClutchDisTime += (clutchDisTime -  oldestClutchDisTime);
+    m_avgClutchDisTime = tmp_avgClutchDisTime / len;
+
+    m_metrics->setAvgClutchDisTime(m_avgClutchDisTime);
 }
 
 void VRMetricsManager::updateGearChangTime()
@@ -107,6 +128,21 @@ void VRMetricsManager::updateGearChangTime()
 
 void VRMetricsManager::updateAvgGearChangTime(long gearChangTime)
 {
+    // Attention take a look on rounding Error with this Algorithm
+    int len = m_gearChangTimeHistory.length();
+    long tmp_avgGearChangTime = m_avgGearChangTime * len;
+    long oldestGearChangTime = 0;
 
+    m_gearChangTimeHistory.enqueue(gearChangTime);
+    if (len > 1000) {
+        oldestGearChangTime = m_gearChangTimeHistory.dequeue();
+    } else {
+        len += 1;
+    }
+
+    tmp_avgGearChangTime += (gearChangTime - oldestGearChangTime);
+    m_avgGearChangTime = tmp_avgGearChangTime / len;
+
+    m_metrics->setAvgGearChangTime(m_avgGearChangTime);
 }
 

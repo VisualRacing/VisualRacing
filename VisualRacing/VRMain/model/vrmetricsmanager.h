@@ -22,6 +22,12 @@ private:
     float m_avgAccelBehav;
     QQueue<float> m_accelBehavHistory;
 
+    long m_avgClutchDisTime;
+    QQueue<long> m_clutchDisTimeHistory;
+
+    long m_avgGearChangTime;
+    QQueue<long> m_gearChangTimeHistory;
+
     void updateAccelBehav();
     void updateAvgAccelBehav(float accelBehav);
 
