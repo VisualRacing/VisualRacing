@@ -244,6 +244,5 @@ Rectangle{
         width: parent.width * .35
 
         color: theme.appBackgroundColor
->>>>>>> db987b272cabf7df9cf37cd714bef5bab4fd84aa
     }
 }
