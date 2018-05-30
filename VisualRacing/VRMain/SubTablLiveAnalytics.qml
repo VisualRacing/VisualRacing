@@ -31,29 +31,108 @@ Rectangle{
             fontSizeMode: Text.Fit
         }
 
-        Text {
-            id: tmp1
-            color: theme.textColor
-            text: "Cur: " + vrMetrics.accelBehav
+        Rectangle {
+            id: curAccel
+            width: parent.width
+            height: parent.height * 0.33
+            anchors.left: parent.left
+            anchors.top: parent.top
+
+            color: "transparent"
+
+            Text {
+                color: theme.textColor
+                text: qsTr("Current value") + vrMainWindow.emptyString
+
+                height: parent.height * 0.2
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.margins: 5
+
+                font {
+                    pointSize: 50
+                    bold: true
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Text {
+                color: percToColor(vrMetrics.accelBehav) // theme.textColor
+                text: vrMetrics.accelBehav.toFixed(3)
+
+                height: parent.height * 0.8
+                width: parent.width
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+
+                font {
+                    pointSize: 70
+                    bold: true
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
         }
 
-        Text {
-            id: tmp2
-            anchors.top: tmp1.bottom
-            color: theme.textColor
-            text: "Avg: " + vrMetrics.avgAccelBehav
+        Rectangle {
+            id: avgAccel
+            width: parent.width
+            height: parent.height * 0.33
+            anchors.left: parent.left
+            anchors.top: curAccel.bottom
+
+            color: "transparent"
+
+            Text {
+                color: theme.textColor
+                text: qsTr("Average") + vrMainWindow.emptyString
+
+                height: parent.height * 0.2
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.margins: 5
+
+                font {
+                    pointSize: 50
+                    bold: true
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Text {
+                color: theme.textColor
+                text: vrMetrics.avgAccelBehav.toFixed(3)
+
+                height: parent.height * 0.8
+                width: parent.width
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+
+                font {
+                    pointSize: 70
+                    bold: true
+                }
+                minimumPointSize: 2
+                fontSizeMode: Text.Fit
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
         }
 
         Rectangle {
             id: gripContainer
             anchors.left: parent.left
+            anchors.top: avgAccel.bottom
             anchors.bottom: accelBehavTitle.top
-            width: parent.width * 0.35
-            height: parent.height * 0.3
-            anchors.margins: 15
+            width: parent.width
 
             color: theme.appBackgroundColor
-            border.color: theme.accentColor
 
             Rectangle {
                 id: frontLeft
@@ -64,14 +143,14 @@ Rectangle{
                 anchors.leftMargin: parent.width * 0.1
                 anchors.topMargin: parent.height * 0.1
 
-                color: theme.appBackgroundColor
+                color: theme.tabBackgroundColor
                 border.color: percToColor(vrData.tireGripFL)
 
                 Rectangle {
-                    width: parent.width
-                    height: parent.height * (1 - vrData.tireGripFL)
+                    width: parent.width * (1 - vrData.tireGripFL)
+                    height: parent.height
                     anchors.bottom: parent.bottom
-                    anchors.left: parent.left
+                    anchors.right: parent.right
                     color: percToColor(vrData.tireGripFL)
                 }
             }
@@ -85,12 +164,12 @@ Rectangle{
                 anchors.rightMargin: parent.width * 0.1
                 anchors.topMargin: parent.height * 0.1
 
-                color: theme.appBackgroundColor
+                color: theme.tabBackgroundColor
                 border.color: percToColor(vrData.tireGripFR)
 
                 Rectangle {
-                    width: parent.width
-                    height: parent.height * (1 - vrData.tireGripFR)
+                    width: parent.width * (1 - vrData.tireGripFR)
+                    height: parent.height
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     color: percToColor(vrData.tireGripFR)
@@ -106,14 +185,14 @@ Rectangle{
                 anchors.leftMargin: parent.width * 0.1
                 anchors.bottomMargin: parent.height * 0.1
 
-                color: theme.appBackgroundColor
+                color: theme.tabBackgroundColor
                 border.color: percToColor(vrData.tireGripRL)
 
                 Rectangle {
-                    width: parent.width
-                    height: parent.height * (1 - vrData.tireGripRL)
+                    width: parent.width * (1 - vrData.tireGripRL)
+                    height: parent.height
                     anchors.bottom: parent.bottom
-                    anchors.left: parent.left
+                    anchors.right: parent.right
                     color: percToColor(vrData.tireGripRL)
                 }
             }
@@ -127,12 +206,12 @@ Rectangle{
                 anchors.rightMargin: parent.width * 0.1
                 anchors.bottomMargin: parent.height * 0.1
 
-                color: theme.appBackgroundColor
+                color: theme.tabBackgroundColor
                 border.color: percToColor(vrData.tireGripRR)
 
                 Rectangle {
-                    width: parent.width
-                    height: parent.height * (1 - vrData.tireGripRR)
+                    width: parent.width * (1 - vrData.tireGripRR)
+                    height: parent.height
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     color: percToColor(vrData.tireGripRR)
@@ -416,7 +495,7 @@ Rectangle{
                 width: parent.width * 0.75
                 height: parent.height * 0.8
                 anchors.centerIn: parent
-                radius: 20
+                radius: 12
 
                 color: "transparent"
 
