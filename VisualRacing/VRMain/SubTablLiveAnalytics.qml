@@ -12,6 +12,25 @@ Rectangle{
 
         color: theme.appBackgroundColor
 
+        Text {
+            id: accelBehavTitle
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            anchors.leftMargin: 15
+            anchors.rightMargin: 15
+            width: parent.width - 30
+
+            color: theme.tabBackgroundColor
+            text: qsTr("Acceleration")
+
+            font {
+                pointSize: 50
+                bold: true
+            }
+            minimumPointSize: 2
+            fontSizeMode: Text.Fit
+        }
+
         Rectangle {
             id: gripContainer
             anchors.left: parent.left
@@ -244,5 +263,25 @@ Rectangle{
         width: parent.width * .35
 
         color: theme.appBackgroundColor
+
+        Text {
+            id: upShiftTitle
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.leftMargin: 15
+            anchors.rightMargin: 15
+            width: parent.width - 30
+            horizontalAlignment: Text.AlignRight
+
+            color: theme.tabBackgroundColor
+            text: qsTr("Upshift")
+
+            font {
+                pointSize: 50
+                bold: true
+            }
+            minimumPointSize: 2
+            fontSizeMode: Text.Fit
+        }
     }
 }
