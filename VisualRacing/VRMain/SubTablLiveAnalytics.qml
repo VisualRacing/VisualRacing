@@ -403,13 +403,58 @@ Rectangle{
         }
 
         Rectangle {
-            id: iconContainer
+            id: diffContainer
             width: parent.width
             anchors.left: parent.left
             anchors.top: lastUpShiftContainer.bottom
             anchors.bottom: avgUpShiftContainer.top
 
             color: "transparent"
+
+            Rectangle {
+                id: colorIndicator
+                width: parent.width * 0.75
+                height: parent.height * 0.8
+                anchors.centerIn: parent
+                radius: 20
+
+                color: "transparent"
+
+                Text {
+                    text: vrMetrics.diffToAvgShiftTime >= 0 ? "+" + vrMetrics.diffToAvgShiftTime: "" + vrMetrics.diffToAvgShiftTime
+                    color: theme.textColor
+
+                    anchors.fill: parent
+
+                    font {
+                        pointSize: 70
+                        bold: true
+                    }
+                    minimumPointSize: 2
+                    fontSizeMode: Text.Fit
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+            }
+
+            Connections {
+                target: vrMetrics
+                onDiffToAvgShiftTimeChanged: diffContainer.updateColor()
+                onMinClutchDisTimeChanged: diffContainer.setColorToBest()
+            }
+
+            function setColorToBest() {
+                colorIndicator.color = "mediumorchid";
+            }
+
+            function updateColor() {
+                if (vrMetrics.diffToAvgShiftTime === 0)
+                    colorIndicator.color = "gold";
+                else if (vrMetrics.diffToAvgShiftTime > 0)
+                    colorIndicator.color = "red";
+                else
+                    colorIndicator.color = "lime";
+            }
         }
 
         Rectangle {

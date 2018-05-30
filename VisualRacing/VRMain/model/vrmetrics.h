@@ -12,6 +12,8 @@ class VRMetrics : public QObject
     Q_PROPERTY(long gearChangeTime READ getGearChangeTime WRITE setGearChangeTime NOTIFY gearChangeTimeChanged)
     Q_PROPERTY(long avgClutchDisTime READ getAvgClutchDisTime WRITE setAvgClutchDisTime NOTIFY avgClutchDisTimeChanged)
     Q_PROPERTY(long avgGearChangTime READ getAvgGearChangTime WRITE setAvgGearChangTime NOTIFY avgGearChangTimeChanged)
+    Q_PROPERTY(long diffToAvgShiftTime READ getDiffToAvgShiftTime WRITE setDiffToAvgShiftTime NOTIFY diffToAvgShiftTimeChanged)
+    Q_PROPERTY(long minClutchDisTime READ getMinClutchDisTime WRITE setMinClutchDisTime NOTIFY minClutchDisTimeChanged)
 
 public:
     VRMetrics();
@@ -35,6 +37,12 @@ public:
     long getAvgGearChangTime() const;
     void setAvgGearChangTime(long value);
 
+    long getDiffToAvgShiftTime() const;
+    void setDiffToAvgShiftTime(long value);
+
+    long getMinClutchDisTime() const;
+    void setMinClutchDisTime(long value);
+
 signals:
     void accelBehavChanged();
     void avgAccelBehavChanged();
@@ -42,6 +50,8 @@ signals:
     void gearChangeTimeChanged();
     void avgClutchDisTimeChanged();
     void avgGearChangTimeChanged();
+    void diffToAvgShiftTimeChanged();
+    void minClutchDisTimeChanged();
 
 private:
 
@@ -51,6 +61,8 @@ private:
     long gearChangeTime;
     long avgClutchDisTime;
     long avgGearChangTime;
+    long diffToAvgShiftTime;
+    long minClutchDisTime;
 };
 
 #endif // VRMETRICS_H

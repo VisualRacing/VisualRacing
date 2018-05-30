@@ -5,9 +5,9 @@ VRMetricsManager::VRMetricsManager(QSharedPointer<VRMetrics> metrics, QSharedPoi
     this->m_metrics = metrics;
     this->m_data = data;
 
-    this->m_avgAccelBehav = 0;
-    this->m_avgClutchDisTime = 0;
-    this->m_avgGearChangTime = 0;
+    this->m_avgAccelBehav = 0.0f;
+    this->m_avgClutchDisTime = 0l;
+    this->m_avgGearChangTime = 0l;
 
     QObject::connect(m_data.data(), SIGNAL(clutchDisengagedTimeChanged()),
                      this, SLOT(updateClutchDisTime()));
@@ -79,6 +79,13 @@ void VRMetricsManager::updateClutchDisTime()
 
 void VRMetricsManager::updateAvgClutchDisTime(long clutchDisTime)
 {
+    // Get difference between new value and old average
+    m_metrics->setDiffToAvgShiftTime(clutchDisTime - m_metrics->getAvgClutchDisTime());
+    // Store min clutch dis time (has to happen after diff changes!)
+    if (m_metrics->getMinClutchDisTime() == -1l || clutchDisTime < m_metrics->getMinClutchDisTime())
+        m_metrics->setMinClutchDisTime(clutchDisTime);
+
+
     // Attention take a look on rounding Error with this Algorithm
     int len = m_clutchDisTimeHistory.length();
     long tmp_avgClutchDisTime = m_avgClutchDisTime * len;

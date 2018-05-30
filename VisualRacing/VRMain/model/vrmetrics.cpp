@@ -9,6 +9,8 @@ VRMetrics::VRMetrics()
     this->avgClutchDisTime = 0l;
     this->gearChangeTime = 0l;
     this->avgGearChangTime = 0l;
+    this->diffToAvgShiftTime = 0l;
+    this->minClutchDisTime = -1l;
 }
 
 VRMetrics::~VRMetrics()
@@ -80,4 +82,26 @@ void VRMetrics::setAvgGearChangTime(long value)
 {
     avgGearChangTime = value;
     emit avgGearChangTimeChanged();
+}
+
+long VRMetrics::getDiffToAvgShiftTime() const
+{
+    return diffToAvgShiftTime;
+}
+
+void VRMetrics::setDiffToAvgShiftTime(long value)
+{
+    diffToAvgShiftTime = value;
+    emit diffToAvgShiftTimeChanged();
+}
+
+long VRMetrics::getMinClutchDisTime() const
+{
+    return minClutchDisTime;
+}
+
+void VRMetrics::setMinClutchDisTime(long value)
+{
+    minClutchDisTime = value;
+    emit minClutchDisTimeChanged();
 }
