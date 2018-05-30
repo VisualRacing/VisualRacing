@@ -172,7 +172,7 @@ Window {
             tab: Rectangle {
                 color: if(styleData.title === ""){theme.appBackgroundColor}else{styleData.selected ? theme.tabBackgroundColor : theme.tabInactiveColor}         // all tabs with "" will be invisible
                 border.color: styleData.selected ? theme.tabBackgroundColor : theme.appBackgroundColor                                             // border width = 1 pixel
-                implicitWidth: if(styleData.title === ""){tabView_main.width - (79 * numberOfTabs)}else{80}         // text must be shorter than 80 pixels
+                implicitWidth: if(styleData.title === ""){tabView_main.width - (99 * numberOfTabs)}else{100}         // text must be shorter than 80 pixels
                 implicitHeight: 30
                 Text {
                     id: text_label

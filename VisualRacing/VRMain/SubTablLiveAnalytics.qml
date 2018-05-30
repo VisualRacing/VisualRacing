@@ -21,7 +21,7 @@ Rectangle{
             width: parent.width - 30
 
             color: theme.tabBackgroundColor
-            text: qsTr("Acceleration")
+            text: qsTr("Acceleration") + vrMainWindow.emptyString
 
             font {
                 pointSize: 50
@@ -274,7 +274,7 @@ Rectangle{
             horizontalAlignment: Text.AlignRight
 
             color: theme.tabBackgroundColor
-            text: qsTr("Upshift")
+            text: qsTr("Upshift") + vrMainWindow.emptyString
 
             font {
                 pointSize: 50
