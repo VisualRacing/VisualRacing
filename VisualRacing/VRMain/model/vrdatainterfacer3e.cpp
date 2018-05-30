@@ -148,5 +148,8 @@ bool VRDataInterfaceR3E::update() {
         }
     }
 
+    // all components of accel Behave calculation are updated
+    emit this->buffer->accelBehavChanged();
+
     return true;
 }

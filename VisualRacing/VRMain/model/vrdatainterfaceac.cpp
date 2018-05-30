@@ -121,5 +121,8 @@ bool VRDataInterfaceAC::update() {
 
     // TODO TIMING DATA
 
+    // all components of accel Behave calculation are updated
+    emit this->buffer->accelBehavChanged();
+
     return true;
 }

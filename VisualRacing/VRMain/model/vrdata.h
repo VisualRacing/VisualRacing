@@ -373,6 +373,8 @@ signals:
     void clutchDisengagedTimeChanged();
     void gearChangeTimeChanged();
 
+    void accelBehavChanged();
+
 private:
     //
     // Application information

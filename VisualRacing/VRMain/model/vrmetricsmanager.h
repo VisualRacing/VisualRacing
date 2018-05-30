@@ -17,8 +17,6 @@ private:
     QSharedPointer<VRMetrics> m_metrics;
     QSharedPointer<VRData> m_data;
 
-    bool m_running;
-
     float m_avgAccelBehav;
     QQueue<float> m_accelBehavHistory;
 
@@ -28,7 +26,6 @@ private:
     long m_avgGearChangTime;
     QQueue<long> m_gearChangTimeHistory;
 
-    void updateAccelBehav();
     void updateAvgAccelBehav(float accelBehav);
 
     void updateAvgClutchDisTime(long clutchDisTime);
@@ -38,14 +35,10 @@ public:
     VRMetricsManager(QSharedPointer<VRMetrics> metrics, QSharedPointer<VRData> data);
     ~VRMetricsManager();
 
-    bool isRunning();
-
 signals:
 
 public slots:
-    void start();
-    void abort();
-
+    void updateAccelBehav();
     void updateClutchDisTime();
     void updateGearChangTime();
 };

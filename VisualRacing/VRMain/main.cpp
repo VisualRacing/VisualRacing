@@ -105,8 +105,6 @@ int main(int argc, char *argv[])
 
     QThread* metricsManagerThread = new QThread;
     vrMetricsManager->moveToThread(metricsManagerThread);
-    QObject::connect(metricsManagerThread, SIGNAL(started()),
-                     vrMetricsManager.data(), SLOT(start()));
     metricsManagerThread->start();
 
     /*
@@ -135,13 +133,6 @@ int main(int argc, char *argv[])
     if (engine->rootObjects().isEmpty())
         return EXIT_FAILURE;
     int retVal = app.exec();
-
-    /*
-     * tidy up the running threads
-     */
-    vrMetricsManager->abort();
-    metricsManagerThread->quit();
-    metricsManagerThread->wait();
 
     return retVal;
 }
