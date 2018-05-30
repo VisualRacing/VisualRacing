@@ -80,7 +80,8 @@ void VRMetricsManager::updateClutchDisTime()
 void VRMetricsManager::updateAvgClutchDisTime(long clutchDisTime)
 {
     // Get difference between new value and old average
-    m_metrics->setDiffToAvgShiftTime(clutchDisTime - m_metrics->getAvgClutchDisTime());
+    if (m_metrics->getMinClutchDisTime() != -1)
+        m_metrics->setDiffToAvgShiftTime(clutchDisTime - m_metrics->getAvgClutchDisTime());
     // Store min clutch dis time (has to happen after diff changes!)
     if (m_metrics->getMinClutchDisTime() == -1l || clutchDisTime < m_metrics->getMinClutchDisTime())
         m_metrics->setMinClutchDisTime(clutchDisTime);
