@@ -17,16 +17,11 @@ private:
     QSharedPointer<VRMetrics> m_metrics;
     QSharedPointer<VRData> m_data;
 
-    float m_avgAccelBehav;
-    QQueue<float> m_accelBehavHistory;
-
     long m_avgClutchDisTime;
     QQueue<long> m_clutchDisTimeHistory;
 
     long m_avgGearChangTime;
     QQueue<long> m_gearChangTimeHistory;
-
-    void updateAvgAccelBehav(float accelBehav);
 
     void updateAvgClutchDisTime(long clutchDisTime);
     void updateAvgGearChangTime(long gearChangTime);

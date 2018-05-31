@@ -32,9 +32,9 @@ Rectangle{
         }
 
         Rectangle {
-            id: curAccel
+            id: accelAdvice
             width: parent.width
-            height: parent.height * 0.33
+            height: parent.height * 0.35
             anchors.left: parent.left
             anchors.top: parent.top
 
@@ -42,33 +42,12 @@ Rectangle{
 
             Text {
                 color: theme.textColor
-                text: qsTr("Current value") + vrMainWindow.emptyString
+                text: qsTr("More throttle") + vrMainWindow.emptyString
 
-                height: parent.height * 0.2
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.margins: 5
+                anchors.fill: parent
 
                 font {
-                    pointSize: 50
-                    bold: true
-                }
-                minimumPointSize: 2
-                fontSizeMode: Text.Fit
-                verticalAlignment: Text.AlignVCenter
-            }
-
-            Text {
-                color: percToColor(vrMetrics.accelBehav) // theme.textColor
-                text: vrMetrics.accelBehav.toFixed(3)
-
-                height: parent.height * 0.8
-                width: parent.width
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-
-                font {
-                    pointSize: 70
+                    pointSize: 40
                     bold: true
                 }
                 minimumPointSize: 2
@@ -79,17 +58,18 @@ Rectangle{
         }
 
         Rectangle {
-            id: avgAccel
+            id: classificationContainer
             width: parent.width
-            height: parent.height * 0.33
+            height: parent.height * 0.25
             anchors.left: parent.left
-            anchors.top: curAccel.bottom
+            anchors.top: accelAdvice.bottom
 
             color: "transparent"
 
             Text {
+                id: classificationHeader
                 color: theme.textColor
-                text: qsTr("Average") + vrMainWindow.emptyString
+                text: qsTr("Current classification") + vrMainWindow.emptyString
 
                 height: parent.height * 0.2
                 anchors.top: parent.top
@@ -106,29 +86,55 @@ Rectangle{
             }
 
             Text {
+                id: throttleClassification
                 color: theme.textColor
-                text: vrMetrics.avgAccelBehav.toFixed(3)
+                text: qsTr("Throttle@max") + vrMainWindow.emptyString
 
-                height: parent.height * 0.8
-                width: parent.width
-                anchors.bottom: parent.bottom
                 anchors.left: parent.left
+                anchors.top: classificationHeader.bottom
+                anchors.margins: 10
 
                 font {
-                    pointSize: 70
-                    bold: true
+                    pointSize: 14
                 }
-                minimumPointSize: 2
-                fontSizeMode: Text.Fit
                 verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                id: rpmClassification
+                color: theme.textColor
+                text: qsTr("low-med RPM") + vrMainWindow.emptyString
+
+                anchors.left: parent.left
+                anchors.top: throttleClassification.bottom
+                anchors.margins: 10
+
+                font {
+                    pointSize: 14
+                }
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Text {
+                id: gripClassification
+                color: theme.textColor
+                text: qsTr("Loosing grip") + vrMainWindow.emptyString
+
+                anchors.left: parent.left
+                anchors.top: rpmClassification.bottom
+                anchors.margins: 10
+
+                font {
+                    pointSize: 14
+                }
+                verticalAlignment: Text.AlignVCenter
             }
         }
 
         Rectangle {
             id: gripContainer
             anchors.left: parent.left
-            anchors.top: avgAccel.bottom
+            anchors.top: classificationContainer.bottom
             anchors.bottom: accelBehavTitle.top
             width: parent.width
 

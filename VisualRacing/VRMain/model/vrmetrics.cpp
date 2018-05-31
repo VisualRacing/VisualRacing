@@ -2,9 +2,6 @@
 
 VRMetrics::VRMetrics()
 {
-    this->accelBehav = 0.0f;
-    this->avgAccelBehav = 0.0f;
-
     this->clutchDisengagedTime = 0l;
     this->avgClutchDisTime = 0l;
     this->gearChangeTime = 0l;
@@ -16,28 +13,6 @@ VRMetrics::VRMetrics()
 VRMetrics::~VRMetrics()
 {
 
-}
-
-float VRMetrics::getAccelBehav() const
-{
-    return this->accelBehav;
-}
-
-void VRMetrics::setAccelBehav(float value)
-{
-    this->accelBehav = value;
-    emit this->accelBehavChanged();
-}
-
-float VRMetrics::getAvgAccelBehav() const
-{
-    return this->avgAccelBehav;
-}
-
-void VRMetrics::setAvgAccelBehav(float value)
-{
-    this->avgAccelBehav = value;
-    emit this->avgAccelBehavChanged();
 }
 
 long VRMetrics::getClutchDisengagedTime() const
