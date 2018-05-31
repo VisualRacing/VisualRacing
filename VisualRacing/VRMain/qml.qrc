@@ -8,5 +8,7 @@
         <file>TabSettings.qml</file>
         <file>TabTiming.qml</file>
         <file>TireInfoPanel.qml</file>
+        <file>UpshiftAnalytics.qml</file>
+        <file>CarInfoForAnalytics.qml</file>
     </qresource>
 </RCC>
