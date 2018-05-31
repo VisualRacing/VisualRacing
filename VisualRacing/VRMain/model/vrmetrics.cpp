@@ -11,9 +11,10 @@ VRMetrics::VRMetrics()
     this->minClutchDisTime = -1l;
 
     // Acceleration
-    this->throttleClassification = ThrottleClassification::LOW2MED;
-    this->rpmClassification = RpmClassification::LOW_MED;
-    this->gripClassification = GripClassification::FULL;
+    this->throttleClassification = Throttle::LOW2MED;
+    this->rpmClassification = Rpm::LOW_MED;
+    this->gripClassification = Grip::FULL;
+    this->accelBehav = AccelerationBehavior::GOOD;
 }
 
 VRMetrics::~VRMetrics()
@@ -87,12 +88,12 @@ void VRMetrics::setMinClutchDisTime(long value)
     emit minClutchDisTimeChanged();
 }
 
-VRMetrics::ThrottleClassification VRMetrics::getThrottleClassification() const
+VRMetrics::Throttle VRMetrics::getThrottleClassification() const
 {
     return throttleClassification;
 }
 
-void VRMetrics::setThrottleClassification(const ThrottleClassification &value)
+void VRMetrics::setThrottleClassification(const Throttle &value)
 {
     //if (value == throttleClassification)
     //    return;
@@ -101,12 +102,12 @@ void VRMetrics::setThrottleClassification(const ThrottleClassification &value)
     emit throttleClassificationChanged();
 }
 
-VRMetrics::RpmClassification VRMetrics::getRpmClassification() const
+VRMetrics::Rpm VRMetrics::getRpmClassification() const
 {
     return rpmClassification;
 }
 
-void VRMetrics::setRpmClassification(const RpmClassification &value)
+void VRMetrics::setRpmClassification(const Rpm &value)
 {
     //if (value == rpmClassification)
     //    return;
@@ -115,16 +116,30 @@ void VRMetrics::setRpmClassification(const RpmClassification &value)
     emit rpmClassificationChanged();
 }
 
-VRMetrics::GripClassification VRMetrics::getGripClassification() const
+VRMetrics::Grip VRMetrics::getGripClassification() const
 {
     return gripClassification;
 }
 
-void VRMetrics::setGripClassification(const GripClassification &value)
+void VRMetrics::setGripClassification(const Grip &value)
 {
     //if (value == gripClassification)
     //    return;
 
     gripClassification = value;
     emit gripClassificationChanged();
+}
+
+VRMetrics::AccelerationBehavior VRMetrics::getAccelBehav() const
+{
+    return accelBehav;
+}
+
+void VRMetrics::setAccelBehav(const AccelerationBehavior &value)
+{
+    //if (value == accelBehav)
+    //    return;
+
+    accelBehav = value;
+    emit accelBehavChanged();
 }

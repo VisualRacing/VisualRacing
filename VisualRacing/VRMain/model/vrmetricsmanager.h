@@ -17,6 +17,8 @@ private:
     QSharedPointer<VRMetrics> m_metrics;
     QSharedPointer<VRData> m_data;
 
+    VRMetrics::AccelerationBehavior infoMatrix[VRMetrics::Throttle::_T_COUNT][VRMetrics::Rpm::_R_COUNT][VRMetrics::Grip::_G_COUNT];
+
     long m_avgClutchDisTime;
     QQueue<long> m_clutchDisTimeHistory;
 

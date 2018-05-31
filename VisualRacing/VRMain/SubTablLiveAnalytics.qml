@@ -42,6 +42,7 @@ Rectangle{
             color: "transparent"
 
             Text {
+                id: accelAdviceText
                 color: theme.textColor
                 text: "-"
 
@@ -55,6 +56,27 @@ Rectangle{
                 fontSizeMode: Text.Fit
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
+            }
+
+            Connections {
+                target: vrMetrics
+                onAccelBehavChanged: accelAdvice.updateText()
+            }
+
+            function updateText() {
+                if (vrMetrics.accelBehav === VRMetrics.GOOD)
+                    accelAdviceText.text = "Good";
+                else if (vrMetrics.accelBehav === VRMetrics.MORE_THROTTLE)
+                    accelAdviceText.text = "More throttle";
+                else if (vrMetrics.accelBehav === VRMetrics.LESS_THROTTLE)
+                    accelAdviceText.text = "Less throttle";
+                else if (vrMetrics.accelBehav === VRMetrics.UPSHIFT)
+                        accelAdviceText.text = "Upshift";
+                else if (vrMetrics.accelBehav === VRMetrics.DOWNSHIFT)
+                    accelAdviceText.text = "Downshift";
+                else
+                    accelAdviceText.text = "-"
+
             }
         }
 

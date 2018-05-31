@@ -16,18 +16,24 @@ class VRMetrics : public QObject
     Q_PROPERTY(long minClutchDisTime READ getMinClutchDisTime WRITE setMinClutchDisTime NOTIFY minClutchDisTimeChanged)
 
     // Acceleration
-    Q_PROPERTY(ThrottleClassification throttleClassification READ getThrottleClassification WRITE setThrottleClassification NOTIFY throttleClassificationChanged)
-    Q_PROPERTY(RpmClassification rpmClassification READ getRpmClassification WRITE setRpmClassification NOTIFY rpmClassificationChanged)
-    Q_PROPERTY(GripClassification gripClassification READ getGripClassification WRITE setGripClassification NOTIFY gripClassificationChanged)
+    Q_PROPERTY(Throttle throttleClassification READ getThrottleClassification WRITE setThrottleClassification NOTIFY throttleClassificationChanged)
+    Q_PROPERTY(Rpm rpmClassification READ getRpmClassification WRITE setRpmClassification NOTIFY rpmClassificationChanged)
+    Q_PROPERTY(Grip gripClassification READ getGripClassification WRITE setGripClassification NOTIFY gripClassificationChanged)
+    Q_PROPERTY(AccelerationBehavior accelBehav READ getAccelBehav WRITE setAccelBehav NOTIFY accelBehavChanged)
 
 public:
     // Acceleration
-    enum ThrottleClassification { MAX, MED2HIGH, LOW2MED };
-    Q_ENUM(ThrottleClassification)
-    enum RpmClassification { HIGH, LOW_MED };
-    Q_ENUM(RpmClassification)
-    enum GripClassification { FULL, LOOSING };
-    Q_ENUM(GripClassification)
+
+    // ATTENTION: Those are also used to index arrays !!!
+    enum Throttle { MAX, MED2HIGH, LOW2MED, _T_COUNT };
+    Q_ENUM(Throttle)
+    enum Rpm { HIGH, LOW_MED, _R_COUNT };
+    Q_ENUM(Rpm)
+    enum Grip { FULL, LOOSING, _G_COUNT };
+    Q_ENUM(Grip)
+
+    enum AccelerationBehavior { GOOD, MORE_THROTTLE, LESS_THROTTLE, UPSHIFT, DOWNSHIFT };
+    Q_ENUM(AccelerationBehavior)
 
     VRMetrics();
     ~VRMetrics();
@@ -52,14 +58,17 @@ public:
     void setMinClutchDisTime(long value);
 
     // Acceleration
-    ThrottleClassification getThrottleClassification() const;
-    void setThrottleClassification(const ThrottleClassification &value);
+    Throttle getThrottleClassification() const;
+    void setThrottleClassification(const Throttle &value);
 
-    RpmClassification getRpmClassification() const;
-    void setRpmClassification(const RpmClassification &value);
+    Rpm getRpmClassification() const;
+    void setRpmClassification(const Rpm &value);
 
-    GripClassification getGripClassification() const;
-    void setGripClassification(const GripClassification &value);
+    Grip getGripClassification() const;
+    void setGripClassification(const Grip &value);
+
+    AccelerationBehavior getAccelBehav() const;
+    void setAccelBehav(const AccelerationBehavior &value);
 
 signals:
     // Upshift
@@ -74,6 +83,7 @@ signals:
     void throttleClassificationChanged();
     void rpmClassificationChanged();
     void gripClassificationChanged();
+    void accelBehavChanged();
 
 private:
     // Upshift
@@ -85,14 +95,15 @@ private:
     long minClutchDisTime;
 
     // Acceleration
-    ThrottleClassification throttleClassification;
-    RpmClassification rpmClassification;
-    GripClassification gripClassification;
-
+    Throttle throttleClassification;
+    Rpm rpmClassification;
+    Grip gripClassification;
+    AccelerationBehavior accelBehav;
 };
 
-Q_DECLARE_METATYPE(VRMetrics::ThrottleClassification)
-Q_DECLARE_METATYPE(VRMetrics::RpmClassification)
-Q_DECLARE_METATYPE(VRMetrics::GripClassification)
+Q_DECLARE_METATYPE(VRMetrics::Throttle)
+Q_DECLARE_METATYPE(VRMetrics::Rpm)
+Q_DECLARE_METATYPE(VRMetrics::Grip)
+Q_DECLARE_METATYPE(VRMetrics::AccelerationBehavior)
 
 #endif // VRMETRICS_H

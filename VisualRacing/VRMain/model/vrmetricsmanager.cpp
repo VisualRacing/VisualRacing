@@ -14,6 +14,22 @@ VRMetricsManager::VRMetricsManager(QSharedPointer<VRMetrics> metrics, QSharedPoi
                      this, SLOT(updateGearChangTime()));
     QObject::connect(m_data.data(), SIGNAL(accelBehavChanged()),
                      this, SLOT(updateAccelBehav()));
+
+    // Initialize acceleration behavior info matrix.
+    infoMatrix[VRMetrics::Throttle::MAX][VRMetrics::Rpm::HIGH][VRMetrics::Grip::FULL] = VRMetrics::AccelerationBehavior::GOOD;
+    infoMatrix[VRMetrics::Throttle::MAX][VRMetrics::Rpm::HIGH][VRMetrics::Grip::LOOSING] = VRMetrics::AccelerationBehavior::LESS_THROTTLE; // ? UPSHIFT
+    infoMatrix[VRMetrics::Throttle::MAX][VRMetrics::Rpm::LOW_MED][VRMetrics::Grip::FULL] = VRMetrics::AccelerationBehavior::DOWNSHIFT; // IF IN 1ST -> GOOD
+    infoMatrix[VRMetrics::Throttle::MAX][VRMetrics::Rpm::LOW_MED][VRMetrics::Grip::LOOSING] = VRMetrics::AccelerationBehavior::LESS_THROTTLE;
+
+    infoMatrix[VRMetrics::Throttle::MED2HIGH][VRMetrics::Rpm::HIGH][VRMetrics::Grip::FULL] = VRMetrics::AccelerationBehavior::MORE_THROTTLE;
+    infoMatrix[VRMetrics::Throttle::MED2HIGH][VRMetrics::Rpm::HIGH][VRMetrics::Grip::LOOSING] = VRMetrics::AccelerationBehavior::LESS_THROTTLE; // ? UPSHIFT
+    infoMatrix[VRMetrics::Throttle::MED2HIGH][VRMetrics::Rpm::LOW_MED][VRMetrics::Grip::FULL] = VRMetrics::AccelerationBehavior::MORE_THROTTLE;
+    infoMatrix[VRMetrics::Throttle::MED2HIGH][VRMetrics::Rpm::LOW_MED][VRMetrics::Grip::LOOSING] = VRMetrics::AccelerationBehavior::LESS_THROTTLE;
+
+    infoMatrix[VRMetrics::Throttle::LOW2MED][VRMetrics::Rpm::HIGH][VRMetrics::Grip::FULL] = VRMetrics::AccelerationBehavior::MORE_THROTTLE;
+    infoMatrix[VRMetrics::Throttle::LOW2MED][VRMetrics::Rpm::HIGH][VRMetrics::Grip::LOOSING] = VRMetrics::AccelerationBehavior::LESS_THROTTLE; // ? UPSHIFT
+    infoMatrix[VRMetrics::Throttle::LOW2MED][VRMetrics::Rpm::LOW_MED][VRMetrics::Grip::FULL] = VRMetrics::AccelerationBehavior::MORE_THROTTLE;
+    infoMatrix[VRMetrics::Throttle::LOW2MED][VRMetrics::Rpm::LOW_MED][VRMetrics::Grip::LOOSING] = VRMetrics::AccelerationBehavior::LESS_THROTTLE;
 }
 
 VRMetricsManager::~VRMetricsManager()
@@ -34,21 +50,34 @@ void VRMetricsManager::updateAccelBehav()
 
     // Classify throttle, rpm and grip.
     if (m_data->getThrottle() > 0.95f)
-        m_metrics->setThrottleClassification(VRMetrics::ThrottleClassification::MAX);
+        m_metrics->setThrottleClassification(VRMetrics::Throttle::MAX);
     else if (m_data->getThrottle() > 0.5f)
-        m_metrics->setThrottleClassification(VRMetrics::ThrottleClassification::MED2HIGH);
+        m_metrics->setThrottleClassification(VRMetrics::Throttle::MED2HIGH);
     else
-        m_metrics->setThrottleClassification(VRMetrics::ThrottleClassification::LOW2MED);
+        m_metrics->setThrottleClassification(VRMetrics::Throttle::LOW2MED);
 
     if (relRpm > 0.75f)
-        m_metrics->setRpmClassification(VRMetrics::RpmClassification::HIGH);
+        m_metrics->setRpmClassification(VRMetrics::Rpm::HIGH);
     else
-        m_metrics->setRpmClassification(VRMetrics::RpmClassification::LOW_MED);
+        m_metrics->setRpmClassification(VRMetrics::Rpm::LOW_MED);
 
     if (minGrip > 0.8f)
-        m_metrics->setGripClassification(VRMetrics::GripClassification::FULL);
+        m_metrics->setGripClassification(VRMetrics::Grip::FULL);
     else
-        m_metrics->setGripClassification(VRMetrics::GripClassification::LOOSING);
+        m_metrics->setGripClassification(VRMetrics::Grip::LOOSING);
+
+    // Update acceleration behavior by table lookup.
+    VRMetrics::AccelerationBehavior tmp = infoMatrix[m_metrics->getThrottleClassification()][m_metrics->getRpmClassification()][m_metrics->getGripClassification()];
+
+    if (m_metrics->getThrottleClassification() == VRMetrics::Throttle::MAX
+            && m_metrics->getRpmClassification() == VRMetrics::Rpm::LOW_MED
+            && m_metrics->getGripClassification() == VRMetrics::Grip::FULL) {
+        // If in first gear, don't recommend to downshift, we are good in this case.
+        if (m_data->getGear() == 1)
+            tmp = VRMetrics::AccelerationBehavior::GOOD;
+    }
+
+    m_metrics->setAccelBehav(tmp);
 }
 
 void VRMetricsManager::updateClutchDisTime()
