@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     mainWindow.data()->setEngine(engine);
     mainWindow.data()->switchLanguage(settings.getLang());
 
-    bool uiDev = true;
+    bool uiDev = false;
     if (!uiDev) {
         simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
         simulationManager->start();
@@ -125,6 +125,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<VRPlotRPM>("VRPlot", 1, 0, "VRPlotRPM");
     qmlRegisterType<VRPlotPedalHistory>("VRPlot", 1, 0, "VRPlotPedalHistory");
     qmlRegisterType<VRSettings>("VRSettings", 1, 0, "VRSettings");
+    qmlRegisterType<VRMetrics>("VRMetrics", 1, 0, "VRMetrics");
 
     /*
      * load qml-file

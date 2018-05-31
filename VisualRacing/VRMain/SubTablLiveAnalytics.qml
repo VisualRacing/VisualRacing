@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import VRMetrics 1.0
 
 Rectangle{
     color: theme.appBackgroundColor
@@ -42,7 +43,7 @@ Rectangle{
 
             Text {
                 color: theme.textColor
-                text: qsTr("More throttle") + vrMainWindow.emptyString
+                text: "-"
 
                 anchors.fill: parent
 
@@ -88,7 +89,7 @@ Rectangle{
             Text {
                 id: throttleClassification
                 color: theme.textColor
-                text: qsTr("Throttle@max") + vrMainWindow.emptyString
+                text: "-"
 
                 anchors.left: parent.left
                 anchors.top: classificationHeader.bottom
@@ -103,7 +104,7 @@ Rectangle{
             Text {
                 id: rpmClassification
                 color: theme.textColor
-                text: qsTr("low-med RPM") + vrMainWindow.emptyString
+                text: "-"
 
                 anchors.left: parent.left
                 anchors.top: throttleClassification.bottom
@@ -118,7 +119,7 @@ Rectangle{
             Text {
                 id: gripClassification
                 color: theme.textColor
-                text: qsTr("Loosing grip") + vrMainWindow.emptyString
+                text: "-"
 
                 anchors.left: parent.left
                 anchors.top: rpmClassification.bottom
@@ -128,6 +129,42 @@ Rectangle{
                     pointSize: 14
                 }
                 verticalAlignment: Text.AlignVCenter
+            }
+
+            Connections {
+                target: vrMetrics
+                onThrottleClassificationChanged: classificationContainer.updateThrottleClassificationText()
+                onRpmClassificationChanged: classificationContainer.updateRpmClassificationText()
+                onGripClassificationChanged: classificationContainer.updateGripClassificationText()
+            }
+
+            function updateThrottleClassificationText() {
+                if (vrMetrics.throttleClassification === VRMetrics.MAX)
+                    throttleClassification.text = "Max throttle";
+                else if (vrMetrics.throttleClassification === VRMetrics.MED2HIGH)
+                    throttleClassification.text = "Med-High throttle";
+                else if (vrMetrics.throttleClassification === VRMetrics.LOW2MED)
+                    throttleClassification.text = "Low-Med throttle";
+                else
+                    throttleClassification.text = "-";
+            }
+
+            function updateRpmClassificationText() {
+                if (vrMetrics.rpmClassification === VRMetrics.HIGH)
+                    rpmClassification.text = "High RPM";
+                else if (vrMetrics.rpmClassification === VRMetrics.LOW_MED)
+                    rpmClassification.text = "Low-Med RPM";
+                else
+                    rpmClassification.text = "-";
+            }
+
+            function updateGripClassificationText() {
+                if (vrMetrics.gripClassification === VRMetrics.FULL)
+                    gripClassification.text = "Full grip";
+                else if (vrMetrics.gripClassification === VRMetrics.LOOSING)
+                    gripClassification.text = "Loosing grip";
+                else
+                    gripClassification.text = "-";
             }
         }
 

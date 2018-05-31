@@ -2,12 +2,18 @@
 
 VRMetrics::VRMetrics()
 {
+    // Upshift
     this->clutchDisengagedTime = 0l;
     this->avgClutchDisTime = 0l;
     this->gearChangeTime = 0l;
     this->avgGearChangTime = 0l;
     this->diffToAvgShiftTime = 0l;
     this->minClutchDisTime = -1l;
+
+    // Acceleration
+    this->throttleClassification = ThrottleClassification::LOW2MED;
+    this->rpmClassification = RpmClassification::LOW_MED;
+    this->gripClassification = GripClassification::FULL;
 }
 
 VRMetrics::~VRMetrics()
@@ -79,4 +85,46 @@ void VRMetrics::setMinClutchDisTime(long value)
 {
     minClutchDisTime = value;
     emit minClutchDisTimeChanged();
+}
+
+VRMetrics::ThrottleClassification VRMetrics::getThrottleClassification() const
+{
+    return throttleClassification;
+}
+
+void VRMetrics::setThrottleClassification(const ThrottleClassification &value)
+{
+    //if (value == throttleClassification)
+    //    return;
+
+    throttleClassification = value;
+    emit throttleClassificationChanged();
+}
+
+VRMetrics::RpmClassification VRMetrics::getRpmClassification() const
+{
+    return rpmClassification;
+}
+
+void VRMetrics::setRpmClassification(const RpmClassification &value)
+{
+    //if (value == rpmClassification)
+    //    return;
+
+    rpmClassification = value;
+    emit rpmClassificationChanged();
+}
+
+VRMetrics::GripClassification VRMetrics::getGripClassification() const
+{
+    return gripClassification;
+}
+
+void VRMetrics::setGripClassification(const GripClassification &value)
+{
+    //if (value == gripClassification)
+    //    return;
+
+    gripClassification = value;
+    emit gripClassificationChanged();
 }

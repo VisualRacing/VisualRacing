@@ -23,11 +23,32 @@ VRMetricsManager::~VRMetricsManager()
 
 void VRMetricsManager::updateAccelBehav()
 {
-    // TODO: Is this really what we want? What about corners? Should we limit it to the rear?
-    float maxGrip = qMax(m_data->getTireGripFL(), m_data->getTireGripFR());
-    maxGrip = qMax(maxGrip, m_data->getTireGripRL());
-    maxGrip = qMax(maxGrip, m_data->getTireGripRR());
+    float minGrip = qMin(m_data->getTireGripRL(), m_data->getTireGripRR());
+    // TODO: Own makes sense for rear wheel drive cars at the moment.
+    //minGrip = qMin(minGrip, m_data->getTireGripFL());
+    //minGrip = qMin(minGrip, m_data->getTireGripFR());
 
+    float relRpm = 0.0f;
+    if (m_data->getMaxRpm() > 0)
+        relRpm = static_cast<float>(m_data->getRpm()) / static_cast<float>(m_data->getMaxRpm());
+
+    // Classify throttle, rpm and grip.
+    if (m_data->getThrottle() > 0.95f)
+        m_metrics->setThrottleClassification(VRMetrics::ThrottleClassification::MAX);
+    else if (m_data->getThrottle() > 0.5f)
+        m_metrics->setThrottleClassification(VRMetrics::ThrottleClassification::MED2HIGH);
+    else
+        m_metrics->setThrottleClassification(VRMetrics::ThrottleClassification::LOW2MED);
+
+    if (relRpm > 0.75f)
+        m_metrics->setRpmClassification(VRMetrics::RpmClassification::HIGH);
+    else
+        m_metrics->setRpmClassification(VRMetrics::RpmClassification::LOW_MED);
+
+    if (minGrip > 0.8f)
+        m_metrics->setGripClassification(VRMetrics::GripClassification::FULL);
+    else
+        m_metrics->setGripClassification(VRMetrics::GripClassification::LOOSING);
 }
 
 void VRMetricsManager::updateClutchDisTime()
