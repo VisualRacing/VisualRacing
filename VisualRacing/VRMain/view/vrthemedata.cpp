@@ -2,17 +2,20 @@
 
 VRThemeData::VRThemeData(VRSettings::Theme theme)
 {
+    // Call changeTheme to initialize theme.
     changeTheme(theme);
 }
 
 void VRThemeData::changeTheme(VRSettings::Theme theme) {
     if (theme == VRSettings::Theme::DARK) {
+        // Set colors for dark theme.
         setAppBackgroundColor("#313537");
         setTabBackgroundColor("#3e4244");
         setTabInactiveColor("#555555");
         setAccentColor("#a7def9");
         setTextColor("#fff");
     } else if (theme == VRSettings::Theme::LIGHT) {
+        // Set colors for light theme.
         setAppBackgroundColor("#fcfcfc");
         setTabBackgroundColor("#fff");
         setTabInactiveColor("#eee");
