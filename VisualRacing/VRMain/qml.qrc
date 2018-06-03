@@ -10,5 +10,6 @@
         <file>TireInfoPanel.qml</file>
         <file>UpshiftAnalytics.qml</file>
         <file>CarInfoForAnalytics.qml</file>
+        <file>AccelerationAnalytics.qml</file>
     </qresource>
 </RCC>
