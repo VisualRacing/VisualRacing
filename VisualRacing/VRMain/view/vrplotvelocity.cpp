@@ -67,4 +67,6 @@ void VRPlotVelocity::changeLanguage()
 {
     itsCustomPlot->xAxis->setLabel(tr("Time in s"));
     itsCustomPlot->yAxis->setLabel(tr("Speed in km/h"));
+
+    update();
 }
