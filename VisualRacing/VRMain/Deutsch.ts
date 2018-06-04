@@ -2,6 +2,19 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="de_DE" sourcelanguage="en_US">
 <context>
+    <name>AccelerationAnalytics</name>
+    <message>
+        <location filename="AccelerationAnalytics.qml" line="15"/>
+        <source>Acceleration</source>
+        <translation>Beschleunigung</translation>
+    </message>
+    <message>
+        <location filename="AccelerationAnalytics.qml" line="85"/>
+        <source>Current classification</source>
+        <translation>Aktuelle Klassifizierung</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="main.cpp" line="87"/>
@@ -30,28 +43,11 @@
     </message>
 </context>
 <context>
-    <name>SubTablLiveAnalytics</name>
-    <message>
-        <location filename="SubTablLiveAnalytics.qml" line="24"/>
-        <source>Acceleration</source>
-        <translation>Beschleunigung</translation>
-    </message>
-    <message>
-        <location filename="SubTablLiveAnalytics.qml" line="277"/>
-        <source>Upshift</source>
-        <translation>Schaltvorgang</translation>
-    </message>
-</context>
-<context>
     <name>TabAnalytics</name>
     <message>
         <location filename="TabAnalytics.qml" line="20"/>
         <source>Live</source>
         <translation>Live</translation>
-    </message>
-    <message>
-        <source>+</source>
-        <translation type="vanished">+</translation>
     </message>
 </context>
 <context>
@@ -120,14 +116,6 @@
         <translation>Sprache</translation>
     </message>
     <message>
-        <source>English</source>
-        <translation type="vanished">Englisch</translation>
-    </message>
-    <message>
-        <source>German</source>
-        <translation type="vanished">Deutsch</translation>
-    </message>
-    <message>
         <location filename="TabSettings.qml" line="103"/>
         <source>Theme</source>
         <translation>Farbschema</translation>
@@ -148,7 +136,7 @@
     <message>
         <location filename="TabTiming.qml" line="60"/>
         <source>Current Laptime</source>
-        <translation>Aktelle Rundenzeit</translation>
+        <translation>Aktuelle Rundenzeit</translation>
     </message>
     <message>
         <location filename="TabTiming.qml" line="216"/>
@@ -256,33 +244,63 @@
     </message>
 </context>
 <context>
+    <name>UpshiftAnalytics</name>
+    <message>
+        <location filename="UpshiftAnalytics.qml" line="16"/>
+        <source>Upshift</source>
+        <translation>Schaltvorgang</translation>
+    </message>
+    <message>
+        <location filename="UpshiftAnalytics.qml" line="37"/>
+        <source>Last Upshift</source>
+        <translation>Letzter Schaltvorgang</translation>
+    </message>
+    <message>
+        <location filename="UpshiftAnalytics.qml" line="75"/>
+        <location filename="UpshiftAnalytics.qml" line="235"/>
+        <source>Clutch disengaged (in ms)</source>
+        <translation>Ausgekuppelt (in ms)</translation>
+    </message>
+    <message>
+        <location filename="UpshiftAnalytics.qml" line="113"/>
+        <location filename="UpshiftAnalytics.qml" line="273"/>
+        <source>Gear change (in ms)</source>
+        <translation>Gangwechsel (in ms)</translation>
+    </message>
+    <message>
+        <location filename="UpshiftAnalytics.qml" line="197"/>
+        <source>Average</source>
+        <translation>Durchschnitt</translation>
+    </message>
+</context>
+<context>
     <name>VRPlotLapTimeBar</name>
     <message>
-        <location filename="view/vrplotlaptimebar.cpp" line="19"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="22"/>
         <source>lap </source>
         <translation>Runde </translation>
     </message>
     <message>
-        <location filename="view/vrplotlaptimebar.cpp" line="94"/>
-        <location filename="view/vrplotlaptimebar.cpp" line="128"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="97"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="131"/>
         <source>Sector 1</source>
         <translation>Sektor 1</translation>
     </message>
     <message>
-        <location filename="view/vrplotlaptimebar.cpp" line="98"/>
-        <location filename="view/vrplotlaptimebar.cpp" line="129"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="101"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="132"/>
         <source>Sector 2</source>
         <translation>Sektor 2</translation>
     </message>
     <message>
-        <location filename="view/vrplotlaptimebar.cpp" line="102"/>
-        <location filename="view/vrplotlaptimebar.cpp" line="130"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="105"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="133"/>
         <source>Sector 3</source>
         <translation>Sektor 3</translation>
     </message>
     <message>
-        <location filename="view/vrplotlaptimebar.cpp" line="120"/>
-        <location filename="view/vrplotlaptimebar.cpp" line="131"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="123"/>
+        <location filename="view/vrplotlaptimebar.cpp" line="134"/>
         <source>Time in s</source>
         <translation>Zeit in s</translation>
     </message>
@@ -305,41 +323,41 @@
 <context>
     <name>VRPlotPedals</name>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="61"/>
+        <location filename="view/vrplotpedals.cpp" line="63"/>
         <source>Clutch Pedal</source>
         <translation>Kupplungspedal</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="65"/>
+        <location filename="view/vrplotpedals.cpp" line="67"/>
         <source>Brake Pedal</source>
         <translation>Bremspedal</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="69"/>
+        <location filename="view/vrplotpedals.cpp" line="71"/>
         <source>Acceleration Pedal</source>
         <translation>Gaspedal</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="75"/>
-        <location filename="view/vrplotpedals.cpp" line="107"/>
+        <location filename="view/vrplotpedals.cpp" line="77"/>
+        <location filename="view/vrplotpedals.cpp" line="109"/>
         <source>Clutch</source>
         <translation>Kupplung</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="75"/>
-        <location filename="view/vrplotpedals.cpp" line="107"/>
+        <location filename="view/vrplotpedals.cpp" line="77"/>
+        <location filename="view/vrplotpedals.cpp" line="109"/>
         <source>Brake</source>
         <translation>Bremse</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="75"/>
-        <location filename="view/vrplotpedals.cpp" line="107"/>
+        <location filename="view/vrplotpedals.cpp" line="77"/>
+        <location filename="view/vrplotpedals.cpp" line="109"/>
         <source>Throttle</source>
         <translation>Gas</translation>
     </message>
     <message>
-        <location filename="view/vrplotpedals.cpp" line="90"/>
-        <location filename="view/vrplotpedals.cpp" line="104"/>
+        <location filename="view/vrplotpedals.cpp" line="92"/>
+        <location filename="view/vrplotpedals.cpp" line="106"/>
         <source>Mechanical deflection</source>
         <translation>Mechanische Auslenkung</translation>
     </message>
@@ -347,14 +365,14 @@
 <context>
     <name>VRPlotRPM</name>
     <message>
-        <location filename="view/vrplotrpm.cpp" line="65"/>
-        <location filename="view/vrplotrpm.cpp" line="81"/>
+        <location filename="view/vrplotrpm.cpp" line="68"/>
+        <location filename="view/vrplotrpm.cpp" line="84"/>
         <source>Time in s</source>
         <translation>Zeit in s</translation>
     </message>
     <message>
-        <location filename="view/vrplotrpm.cpp" line="66"/>
-        <location filename="view/vrplotrpm.cpp" line="82"/>
+        <location filename="view/vrplotrpm.cpp" line="69"/>
+        <location filename="view/vrplotrpm.cpp" line="85"/>
         <source>RPM / gear</source>
         <translation>RPM / Gang</translation>
     </message>
