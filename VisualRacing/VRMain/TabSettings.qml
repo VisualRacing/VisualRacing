@@ -89,12 +89,15 @@ Rectangle{
                     if (comboBoxTheme.currentIndex !== 0)
                         comboBoxTheme.previousIndex = comboBoxTheme.currentIndex;
 
-                    if (currentIndex === 0)
-                        settings.lang = VRSettings.ENGLISH;
-                    else if (currentIndex === 1)
-                        settings.lang = VRSettings.GERMAN;
+                    var tmpLang = VRSettings.ENGLISH;
+                    if (currentIndex === 1)
+                        tmpLang = VRSettings.GERMAN;
 
-                    vrMainWindow.switchLanguage(settings.lang);
+                    // We have to do this in this order to make sure
+                    // that the translator has been loaded when we call
+                    // changeLanguage on our plots.
+                    vrMainWindow.switchLanguage(tmpLang);
+                    settings.lang = tmpLang;
                 }
             }
 
