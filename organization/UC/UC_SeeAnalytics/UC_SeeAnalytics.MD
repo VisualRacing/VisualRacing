@@ -4,7 +4,7 @@
 - [Display Analytics](#1-display-analytics)
     - [Brief Description](#11-brief-description)
     - [Mockup](#12-mockup)
-    - [Screenshot](#13-screenshot)
+    - [Screenshot](#13-screenshots)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)
     - [Alternative Flows](#22-alternative-flows)
@@ -21,9 +21,14 @@ The application is divided into a few tabs and the purpose of this use case is f
 ## 1.2 Mockup
 n/a
 
-## 1.3 Screenshot
-Organization of the Analyticstab:
+## 1.3 Screenshots
+Organization of the Analytics Tab:
 ![Analytics Tab Screenshot](analyticsTab.jpg "Analytics tab organization")
+
+Screenshots of the finished Analytics Tab:
+![Analytics Screenshot 1](analytics1.jpg "Analytics Screenshot1")
+
+![Analytics Screenshot 2](analytics2.jpg "Analytics Screenshot2")
 
 # 2. Flow of Events
 ## 2.1 Basic Flow

@@ -3,6 +3,7 @@
 # Table of Contents
 - [Analyze Acceleration Behavior](#1-analyze-acceleration-behavior)
     - [Brief Description](#11-brief-description)
+    - [Screenshots](#12-screenshots)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)
     - [Alternative Flows](#22-alternative-flows)
@@ -14,6 +15,9 @@
 ## 1.1 Brief Description
 The use case 'Analyze Acceleration Behavior' analyzes whether the driver accelerates the car at it's full potential and gives hints on how to improve it (e.g. Less Throttle, More Throttle, Downshift, ...).
 Those calculations are based on the throttle pedal position, RPM and wheel slip.
+
+## 1.2 Screenshots
+For Screenshots look at the [UC See Analytics](../UC_SeeAnalytics/UC_SeeAnalytics.MD).
 
 # 2. Flow of Events
 ## 2.1 Basic Flow

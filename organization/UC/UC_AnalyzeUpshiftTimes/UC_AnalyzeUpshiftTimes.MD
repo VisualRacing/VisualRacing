@@ -2,6 +2,7 @@
 # Table of Contents
 - [Analyze Upshift Times](#1-analyze-upshift-times)
     - [Brief Description](#11-brief-description)
+    - [Screenshots](#12-screenshots)
 - [Flow of Events](#2-flow-of-events)
     - [Basic Flow](#21-basic-flow)
     - [Alternative Flows](#22-alternative-flows)
@@ -12,6 +13,9 @@
 # 1. Analyze Upshift Times
 ## 1.1 Brief Description
 The use case 'Analyze Upshift Times' determines the time it takes the driver to change to a higher gear. This obviously makes more sense in car with a manual transmission. Two different times will be calculated. The first on is the time the clutch was disengaged, which is the total time needed for the gear shift, as this is the time the car is not putting any power to the wheels. The other time just indicates how long the driver needed to get the transmission out of gear and back into the new gear.
+
+## 1.2 Screenshots
+For Screenshots look at the [UC See Analytics](../UC_SeeAnalytics/UC_SeeAnalytics.MD).
 
 # 2. Flow of Events
 ## 2.1 Basic Flow
