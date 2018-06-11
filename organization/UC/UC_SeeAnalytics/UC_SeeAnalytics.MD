@@ -43,12 +43,3 @@ For the application to be displayed using the correct settings, the settings fil
 
 # 5. Postconditions
 As a result of this use case the user can see the Analytics tab and all of the graphs, visualizations and tables are rendered correctly.
-
-# 6. Function Points
-For calculating the Function Points we used the tool on [this](http://groups.umd.umich.edu/cis/course.des/cis375/projects/fp99/main.html) website.
-
-For the following Input we got a score of: **82.2 Function Points**.
-This results in an estimation of *13:13h* for this Use Case.
-
-![See Analytics Input](seeAnalyticsInput.jpg "Function Point Calculation Input")
-![See Analytics Questions](seeAnalyticsQuestions.jpg "Function Point Calculation Questions")

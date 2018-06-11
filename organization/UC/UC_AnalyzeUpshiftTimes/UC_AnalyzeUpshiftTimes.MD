@@ -28,3 +28,12 @@ To calculate the upshift times an input data stream is necessary.
 
 # 5. Postconditions
 n/a
+
+# 6. Function Points
+For calculating the Function Points we used the tool on [this](http://groups.umd.umich.edu/cis/course.des/cis375/projects/fp99/main.html) website.
+
+For the following Input we got a score of: **62.4 Function Points**.
+This results in an estimation of *9:43h* for this Use Case.
+
+![Analyze Upshift Times Input](AnalyzeUpshiftTimesInput.png "Function Point Calculation Input")
+![Analyze Upshift Times Questions](AnalyzeUpshiftTimesQuestions.jpg "Function Point Calculation Questions")
