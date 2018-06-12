@@ -71,8 +71,6 @@ As our application is based on data which is provided by an external racing simu
 
 ![UML Class Diagram Data Interface](VisualRacing_DataInterface.svg "UML Class Diagram Data Interface")
 
-As we are currently working on the data mapping, there will be some further changes to the class VRData. We will update the diagram accordingly.
-
 ![QML View Files](QML_View_Files.png "QML View Files")
 
 These are our QML Files which represent the different views.
@@ -85,6 +83,9 @@ n/a
 ![Deployment View](deployment.png "Deployment View")
 
 ## 8. Implementation View
-n/a
+
+### 8.1 Factory Pattern
+We implemented the Factory Pattern for our data interface classes. This means, extracting the instantiation of our different types of data interfaces for the different racing simulations from our SimulationManager-class to a factory class. We have decided to implement this pattern, as it simplifies data interface instantiation for the developers. They don’t have to think about how the specific name of a data interface class every time we want to create one. Instead, they just have to pass an enum value representing the corresponding racing simulation.
+
 ## 9. Data View
 n/a
