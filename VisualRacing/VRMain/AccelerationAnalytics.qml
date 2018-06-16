@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import VRMetrics 1.0
 
 Rectangle {
     color: theme.appBackgroundColor
