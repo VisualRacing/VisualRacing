@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     mainWindow.data()->setEngine(engine);
     mainWindow.data()->switchLanguage(settings.getLang());
 
-    bool uiDev = true;
+    bool uiDev = false;
     if (!uiDev) {
         simulationManager = QSharedPointer<VRSimulationManager>(new VRSimulationManager());
         simulationManager->start();
